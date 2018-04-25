@@ -42,8 +42,6 @@ GameObject:
   - component: {fileID: 136956036959789416}
   - component: {fileID: 65774625981434844}
   - component: {fileID: 54358038957197504}
-  - component: {fileID: 114231407386429556}
-  - component: {fileID: 114215460648498304}
   - component: {fileID: 114926812619652060}
   - component: {fileID: 114846935437101804}
   - component: {fileID: 114498107680293070}
@@ -870,59 +868,6 @@ MonoBehaviour:
   WeaponName: 
   owner: {fileID: 0}
   sprite: {fileID: 0}
---- !u!114 &114215460648498304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1224691076897724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 3
-  m_SendInterval: 0.0625
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 10
-  m_InterpolateMovement: 0.5
---- !u!114 &114231407386429556
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1224691076897724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 220
-    i1: 191
-    i2: 205
-    i3: 233
-    i4: 100
-    i5: 173
-    i6: 61
-    i7: 228
-    i8: 233
-    i9: 209
-    i10: 179
-    i11: 38
-    i12: 24
-    i13: 29
-    i14: 207
-    i15: 81
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!114 &114314765372379780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1003,6 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f265b8e6f7adb64aa2235c304554b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   ActiveWeapon: 1
   WeaponsInventory: []
   FistsObject: {fileID: 0}
