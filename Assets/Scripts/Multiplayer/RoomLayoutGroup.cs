@@ -72,7 +72,7 @@ public class RoomLayoutGroup : MonoBehaviour {
 
         for(int i = 0; i < length; i++)
         {
-            RoomListing roomListing = removeRooms[i];
+            RoomListing roomListing = removeRooms[i];                                                                                                                                                                                                        
             GameObject roomListingObj = roomListing.gameObject;
             RoomListingButtons.Remove(roomListing);
             Destroy(roomListingObj);
