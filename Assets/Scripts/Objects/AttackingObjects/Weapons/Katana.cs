@@ -13,5 +13,6 @@ public class Katana : _Weapons
 		RangeOfAttk = 1; //to adapt
 		Object = MyPlayer.KatanaObject;
 		ObjectName = "Katana";
+		description = "Katana";
 	}
 }

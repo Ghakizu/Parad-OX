@@ -13,5 +13,6 @@ public class Fists : _Weapons
 		RangeOfAttk = 1; //to adapt
 		Object = MyPlayer.FistsObject;
 		ObjectName = "Fists";
+		description = "Fists";
 	}
 }

@@ -30,6 +30,7 @@ public class MainCharacter : _Character
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 		Inventory = GetComponent<PlayerInventory> (); //maybe useless
+		Debug.Log(Inventory.isActiveAndEnabled);
 		speed = WalkSpeed;
 		SpawnPoint = transform.position;
 	}
