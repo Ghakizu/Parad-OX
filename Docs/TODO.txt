@@ -1,6 +1,6 @@
 ALREADY DESIGNED AND TEXTURED
 Arbres
-Habitations "basiquess" (entre une et deux sortes)
+Habitations "basiques" (entre une et deux sortes)
 Restaurant
 Bar (deux diférents)
 
@@ -20,7 +20,7 @@ Fontaine (avec centaurus le moche)
 Stands de marché (viande, fruits, fromages, il faut changer un peu pour éviter d'être trop redondant)
 Supermarché
 Mairie
-Night club
+Night club0.148104
 Kiosque à journaux
 Tables rondes
 Tabourets ronds

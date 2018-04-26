@@ -11,7 +11,7 @@ public class Katana : _Weapons
 		MyPlayer = GetComponent<PlayerInventory> ();
 		damages = 10;  //to adapt
 		RangeOfAttk = 1; //to adapt
-		WeaponObject = MyPlayer.KatanaObject;
-		WeaponName = "Katana";
+		Object = MyPlayer.KatanaObject;
+		ObjectName = "Katana";
 	}
 }

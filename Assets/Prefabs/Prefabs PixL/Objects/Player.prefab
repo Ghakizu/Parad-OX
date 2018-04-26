@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 136956036959789416}
   - component: {fileID: 65774625981434844}
   - component: {fileID: 54358038957197504}
-  - component: {fileID: 114926812619652060}
   - component: {fileID: 114846935437101804}
   - component: {fileID: 114498107680293070}
   - component: {fileID: 114596402403393518}
@@ -365,8 +364,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224691076897724}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 346.3003, y: 724.14484, z: -2117.5654}
+  m_LocalRotation: {x: -0, y: 0.18768981, z: -0, w: 0.9822284}
+  m_LocalPosition: {x: 36, y: 16.6, z: -2952}
   m_LocalScale: {x: 7, y: 14, z: 7}
   m_Children:
   - {fileID: 224271635626493740}
@@ -374,7 +373,7 @@ Transform:
   - {fileID: 4288592944809634}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 21.636002, z: 0}
 --- !u!4 &4288592944809634
 Transform:
   m_ObjectHideFlags: 1
@@ -969,22 +968,6 @@ MonoBehaviour:
   CluesInventoryLvl1: []
   CluesInventoryLvl2: []
   CluesInventoryLvl3: []
-  Inventory: {fileID: 0}
-  Object1: {fileID: 0}
-  Object2: {fileID: 0}
-  Object3: {fileID: 0}
-  Object4: {fileID: 0}
-  Object5: {fileID: 0}
-  Object6: {fileID: 0}
-  Object7: {fileID: 0}
-  Object8: {fileID: 0}
-  Object9: {fileID: 0}
-  ActiveWeapon1: {fileID: 0}
-  ActiveWeapon2: {fileID: 0}
-  Weapons: {fileID: 0}
-  Spells: {fileID: 0}
-  Consumables: {fileID: 0}
-  clues: {fileID: 0}
 --- !u!114 &114542174854770706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1106,37 +1089,6 @@ MonoBehaviour:
   Stamina: 100
   cam: {fileID: 1319852768489502}
   IsGamePaused: 0
---- !u!114 &114926812619652060
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1224691076897724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77e266cb4e05f746ba48cabe22a4c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ComponentToDisable:
-  - {fileID: 114846935437101804}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 114498107680293070}
-  - {fileID: 20500468961620050}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 81709964669205214}
-  - {fileID: 20600976308030148}
-  ComponentToReset:
-  - {fileID: 1549595675717108}
-  - {fileID: 1728440579669734}
-  - {fileID: 1591523004336482}
-  - {fileID: 1208249980154300}
-  - {fileID: 1650550127241366}
-  - {fileID: 1930603836118584}
 --- !u!114 &114966401375345698
 MonoBehaviour:
   m_ObjectHideFlags: 1

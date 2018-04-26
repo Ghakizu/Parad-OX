@@ -11,7 +11,7 @@ public class Fists : _Weapons
 		MyPlayer = GetComponent<PlayerInventory> ();
 		damages = 10;  //to adapt
 		RangeOfAttk = 1; //to adapt
-		WeaponObject = MyPlayer.FistsObject;
-		WeaponName = "Fists";
+		Object = MyPlayer.FistsObject;
+		ObjectName = "Fists";
 	}
 }

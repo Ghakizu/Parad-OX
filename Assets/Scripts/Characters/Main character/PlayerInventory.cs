@@ -61,7 +61,7 @@ public class PlayerInventory : MonoBehaviour
 		Weapon1 = WeaponsInventory[0];
 		Weapon2 = WeaponsInventory[1];
 		Player = GetComponent<MainCharacter> ();
-		Player.WeaponObject = Weapon1.WeaponObject;
+		Player.WeaponObject = Weapon1.Object;
 
 		//We must change the spell's name by their real name, once we chosed them. WARNING!
 		/*Spell1Object = GameObject.Find ("Spell1");
@@ -107,7 +107,7 @@ public class PlayerInventory : MonoBehaviour
 			{
 				DisplaySpells ();
 			}*/
-			Inventory.gameObject.SetActive (true);
+			//Inventory.gameObject.SetActive (true);
 		}
 		else if (Input.GetButtonUp("Wheel"))
 		{
@@ -121,65 +121,6 @@ public class PlayerInventory : MonoBehaviour
 	}
 
 
-	public Canvas Inventory;
-	public Button Object1;
-	public Button Object2;
-	public Button Object3;
-	public Button Object4;
-	public Button Object5;
-	public Button Object6;
-	public Button Object7;
-	public Button Object8;
-	public Button Object9;
-	public Button ActiveWeapon1;
-	public Button ActiveWeapon2;
-	public Button Weapons;
-	public Button Spells;
-	public Button Consumables;
-	public Button clues;
-
-/*	public void DisplayInventory()
-	{
-		Inventory.gameObject.SetActive (true);
-		if (Spells)
-		{
-			
-		}
-		if (Weapons)
-		{
-			
-		}
-	}*/
-
-	public void DisplayMyWeapons()
-	{
-		Debug.Log ("weapons");
-		int capacity = WeaponsInventory.Count;
-		Object1.GetComponent<Image>().overrideSprite = capacity > 0 ? WeaponsInventory [0].sprite : null;
-		Object2.GetComponent<Image>().overrideSprite = capacity > 1 ? WeaponsInventory [1].sprite : null;
-		Object3.GetComponent<Image>().overrideSprite = capacity > 2 ? WeaponsInventory [2].sprite : null;
-		Object4.GetComponent<Image>().overrideSprite = capacity > 3 ? WeaponsInventory [3].sprite : null;
-		Object5.GetComponent<Image>().overrideSprite = capacity > 4 ? WeaponsInventory [4].sprite : null;
-		Object6.GetComponent<Image>().overrideSprite = capacity > 5 ? WeaponsInventory [5].sprite : null;
-		/*Object7.GetComponent<Image>().overrideSprite = capacity > 6 ? WeaponsInventory [6].sprite : null;
-		Object8.GetComponent<Image>().overrideSprite = capacity > 7 ? WeaponsInventory [7].sprite : null;
-		Object9.GetComponent<Image>().overrideSprite= capacity > 8 ? WeaponsInventory [8].sprite : null;*/
-	}
-
-	public void DisplayMySpells()
-	{
-		Debug.Log ("spells");
-		int capacity = SpellsInventory.Count;
-		Object1.GetComponent<Image>().overrideSprite = capacity > 0 ? SpellsInventory [0].sprite : null;
-		Object2.GetComponent<Image>().overrideSprite = capacity > 1 ? SpellsInventory [1].sprite : null;
-		Object3.GetComponent<Image>().overrideSprite = capacity > 2 ? SpellsInventory [2].sprite : null;
-		Object4.GetComponent<Image>().overrideSprite = capacity > 3 ? SpellsInventory [3].sprite : null;
-		Object5.GetComponent<Image>().overrideSprite = capacity > 4 ? SpellsInventory [4].sprite : null;
-		Object6.GetComponent<Image>().overrideSprite = capacity > 5 ? SpellsInventory [5].sprite : null;
-		/*Object7.GetComponent<Image>().overrideSprite = capacity > 6 ? SpellsInventory [6].sprite : null;
-		Object8.GetComponent<Image>().overrideSprite = capacity > 7 ? SpellsInventory [7].sprite : null;
-		Object9.GetComponent<Image>().overrideSprite = capacity > 8 ? SpellsInventory [8].sprite : null;*/
-	}
 
 
 	//WEAPONS
@@ -187,18 +128,18 @@ public class PlayerInventory : MonoBehaviour
 	{
 		if(Input.GetButtonDown("Fire1"))
 		{
-			Weapon2.WeaponObject.SetActive (false);
-			Weapon1.WeaponObject.SetActive (true);
+			Weapon2.Object.SetActive (false);
+			Weapon1.Object.SetActive (true);
 			ActiveWeapon = 1;
-			Player.WeaponObject = Weapon1.WeaponObject;
+			Player.WeaponObject = Weapon1.Object;
 		}
 			
 		if(Input.GetButtonDown("Fire2"))
 		{
-			Weapon1.WeaponObject.SetActive (false);
-			Weapon2.WeaponObject.SetActive (true);
+			Weapon1.Object.SetActive (false);
+			Weapon2.Object.SetActive (true);
 			ActiveWeapon = 2;
-			Player.WeaponObject = Weapon2.WeaponObject;
+			Player.WeaponObject = Weapon2.Object;
 		}
 	}
 
@@ -212,19 +153,19 @@ public class PlayerInventory : MonoBehaviour
 			{
 				if (Weapon1.isActiveAndEnabled) 
 				{
-					Weapon1.WeaponObject.SetActive (false);
-					Weapon2.WeaponObject.SetActive (false);
+					Weapon1.Object.SetActive (false);
+					Weapon2.Object.SetActive (false);
 					Weapon1 = weapon;
-					Weapon1.WeaponObject = weapon.WeaponObject;
-					Weapon1.WeaponObject.SetActive (true);
+					Weapon1.Object = weapon.Object;
+					Weapon1.Object.SetActive (true);
 				} 
 				else if (Weapon2.isActiveAndEnabled) 
 				{
-					Weapon1.WeaponObject.SetActive (false);
-					Weapon2.WeaponObject.SetActive (false);
+					Weapon1.Object.SetActive (false);
+					Weapon2.Object.SetActive (false);
 					Weapon2 = weapon;
-					Weapon2.WeaponObject = weapon.WeaponObject;
-					Weapon2.WeaponObject.SetActive (true);
+					Weapon2.Object = weapon.Object;
+					Weapon2.Object.SetActive (true);
 				}
 			}
 			width += 120;
@@ -237,15 +178,15 @@ public class PlayerInventory : MonoBehaviour
 	{
 		if(Input.GetButtonDown("Fire3") && Spell1 != null)
 		{
-			Spell2.WeaponObject.SetActive (false);
-			Spell1.WeaponObject.SetActive (true);
+			Spell2.Object.SetActive (false);
+			Spell1.Object.SetActive (true);
 			ActiveSpell = 3;
 		}
 
 		if(Input.GetButtonDown("Fire4") && Spell1 != null)
 		{
-			Spell1.WeaponObject.SetActive (false);
-			Spell2.WeaponObject.SetActive (true);
+			Spell1.Object.SetActive (false);
+			Spell2.Object.SetActive (true);
 			ActiveSpell = 4;
 		}
 	}
@@ -261,19 +202,19 @@ public class PlayerInventory : MonoBehaviour
 			{
 				if (Spell1.isActiveAndEnabled) 
 				{
-					Spell1.WeaponObject.SetActive (false);
-					Spell2.WeaponObject.SetActive (false);
+					Spell1.Object.SetActive (false);
+					Spell2.Object.SetActive (false);
 					Spell1 = spell;
-					Spell1.WeaponObject = spell.WeaponObject;
-					Spell1.WeaponObject.SetActive (true);
+					Spell1.Object = spell.Object;
+					Spell1.Object.SetActive (true);
 				} 
 				else if (Spell2.isActiveAndEnabled) 
 				{
-					Spell1.WeaponObject.SetActive (false);
-					Spell2.WeaponObject.SetActive (false);
+					Spell1.Object.SetActive (false);
+					Spell2.Object.SetActive (false);
 					Spell2 = spell;
-					Spell2.WeaponObject = spell.WeaponObject;
-					Spell2.WeaponObject.SetActive (true);
+					Spell2.Object = spell.Object;
+					Spell2.Object.SetActive (true);
 				}
 			}
 			width += 120;
