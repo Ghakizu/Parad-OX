@@ -8,6 +8,7 @@ using UnityEngine;
 public abstract class _Enemies : _Character 
 {
 	//All the ennemies, they are able to Attack, to defend, to die ....
+	public bool Is_Freezed;
 
 
 	public GameObject target;
@@ -21,6 +22,7 @@ public abstract class _Enemies : _Character
 		DetectionCollider.isTrigger = true;
 		DetectionCollider.radius = RangeOfDetection;
 		base.Awake ();
+		Is_Freezed = false;
 		target = null;
 	}
 

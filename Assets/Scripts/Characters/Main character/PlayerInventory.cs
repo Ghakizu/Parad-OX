@@ -66,6 +66,7 @@ public class PlayerInventory : MonoBehaviour
 		Player = GetComponent<MainCharacter> ();
 		Player.WeaponObject = Weapon1.Object;
 
+		//We must change the spell's name by their real name, once we choose them. WARNING!
 		//SPELLS
 		/*Spell1Object = GameObject.Find ("Spell1");
 		Spell1Object.SetActive (false);
