@@ -23,6 +23,7 @@ public class ObjectsButton : MonoBehaviour
 		red.normalColor = new Color32 (255, 146, 146, 200);
 		grey = GetComponent<Button> ().colors;
 		grey.normalColor = new Color32 (245, 245, 245, 100);
+		player = Inventory.GetComponent<DisplayInventory> ().player;
 	}
 
 	public void Update()
@@ -60,7 +61,6 @@ public class ObjectsButton : MonoBehaviour
 
 	public void SelectWeaponToAssign(int SelectedObject)
 	{
-		Debug.Log ("kek");
 		GetComponent<Button> ().colors = red;
 		player.SelectedObject = SelectedObject;
 		OtherWeapon.GetComponent<Button> ().colors = grey;

@@ -12,7 +12,7 @@ public class MainCharacter : _Character
 	private bool IsAbleToRun = true;  //if you're tired youn can't run anymore
 	private bool crouch = false;  //is the player crouched ?
 	private float speed;  //actual speed of the player
-	private PlayerInventory Inventory;  //the inventory of our player. Maybe it's useless
+	//private PlayerInventory Inventory;  //the inventory of our player. Maybe it's useless
 	public Slider StaminaButton;  //for the moment it's just the diplay of our stamina status
 	public static float CheatSpeed = 500;  //the speed when we're cheating
 	public static float CrouchSpeed = 50; //speed when crouching
@@ -29,8 +29,7 @@ public class MainCharacter : _Character
 		base.Awake ();
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		Inventory = GetComponent<PlayerInventory> (); //maybe useless
-		Debug.Log(Inventory.isActiveAndEnabled);
+		//Inventory = GetComponent<PlayerInventory> (); //maybe useless
 		speed = WalkSpeed;
 		SpawnPoint = transform.position;
 	}
@@ -198,6 +197,7 @@ public class MainCharacter : _Character
 
 	private void CameraRotations()
 	{
+
 		//Rotate the camera up and down
 		float Y = -Input.GetAxis ("Mouse Y");
 		float ActualRotation = cam.transform.localRotation.x;

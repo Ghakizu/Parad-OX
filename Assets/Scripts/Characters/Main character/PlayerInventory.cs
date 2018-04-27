@@ -52,20 +52,8 @@ public class PlayerInventory : MonoBehaviour
 
 
 
-
-
-
-
-	private Vector3 velocity = Vector3.zero;  //to stock the velocity of the player when he pauses the game. 
-	//When replaying, he will go back exactly in the same state that he was previously.
-	private bool frame = true;  //the frame is here because the OnGui function is called 4 times in a frame. 
-	//We just want the velocity of the first frame, the others being null.
-
-
-
 	void Awake()
 	{
-		Debug.Log (" I tried");
 		//WEAPONS
 		FistsObject = GameObject.Find ("Fists");
 		KatanaObject = GameObject.Find ("Katana");
@@ -82,7 +70,7 @@ public class PlayerInventory : MonoBehaviour
 		Player.WeaponObject = Weapon1.Object;
 
 		//SPELLS
-		Spell1Object = GameObject.Find ("Spell1");
+		/*Spell1Object = GameObject.Find ("Spell1");
 		Spell1Object.SetActive (false);
 		Spell2Object = GameObject.Find ("Spell2");
 		Spell2Object.SetActive (false);
@@ -91,7 +79,7 @@ public class PlayerInventory : MonoBehaviour
 		Spell4Object = GameObject.Find ("Spell4");
 		Spell4Object.SetActive (false);
 		Spell1 = null;
-		Spell2 = null;
+		Spell2 = null;*/
 	}
 		
 
@@ -100,22 +88,22 @@ public class PlayerInventory : MonoBehaviour
 	{
 		ChangeWeapon ();
 		ChangeSpell ();
-		if (Input.GetButtonDown ("Wheel") && frame)
+		if (Input.GetButtonDown ("Wheel"))
 		{
 			Inventory.gameObject.SetActive (true);
 			Inventory.GetComponent<DisplayInventory>().DisplayWeapons();
-			frame = false;  //we don't want to go back again in this part of the function
 			Cursor.lockState = CursorLockMode.None;  //unlock the mouse
 			Cursor.visible = true;
+			Player.IsGamePaused = true;
 		}
 		else if (Input.GetButtonUp ("Wheel"))
 		{
 			Inventory.gameObject.SetActive (false);
 			Cursor.lockState = CursorLockMode.Locked;  //lock the mouse again
 			Cursor.visible = false;
-			frame = true;
 			SelectedObject = 1;
 			TypeOfObjects = 1;
+			Player.IsGamePaused = false;
 		}
 	}
 
