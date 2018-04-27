@@ -5,5 +5,8 @@ using UnityEngine.UI;
 
 public abstract class _Spells : _AttackingObjects 
 {
-
+	public void SpellAttack()
+	{
+		
+	}
 }

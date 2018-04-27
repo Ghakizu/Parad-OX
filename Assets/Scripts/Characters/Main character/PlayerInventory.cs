@@ -14,7 +14,7 @@ public class PlayerInventory : MonoBehaviour
 
 	//Weapons Inventory
 	public int ActiveWeapon = 1; //The actual weapon. Can just be 1 or 2 (the shortcuts)
-	public List<_Weapons> WeaponsInventory;  //The inventory of the weapons of the player
+	public List<_Weapons> WeaponsInventory = new List<_Weapons>();  //The inventory of the weapons of the player
 	public GameObject FistsObject;  //the gameObject of the Fists
 	public GameObject KatanaObject;  //the gameObject of the Katana
 	public GameObject KnifeObject;  //the gameObject of the Knife
@@ -63,7 +63,7 @@ public class PlayerInventory : MonoBehaviour
 		Player = GetComponent<MainCharacter> ();
 		Player.WeaponObject = Weapon1.WeaponObject;
 
-		//We must change the spell's name by their real name, once we chosed them. WARNING!
+		//We must change the spell's name by their real name, once we choose them. WARNING!
 		/*Spell1Object = GameObject.Find ("Spell1");
 		Spell1Object.SetActive (false);
 		Spell2Object = GameObject.Find ("Spell2");

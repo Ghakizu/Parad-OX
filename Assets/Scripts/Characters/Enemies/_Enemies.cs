@@ -4,10 +4,12 @@ using UnityEngine;
 public abstract class _Enemies : _Character 
 {
 	//All the ennemies, they are able to Attack, to defend, to die ....
+	public bool Is_Freezed;
 
 	new void Awake () 
 	{
 		base.Awake ();
+		Is_Freezed = false;
 	}
 
 
