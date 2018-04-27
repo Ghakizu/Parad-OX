@@ -74,7 +74,7 @@ public abstract class _Character : MonoBehaviour
 
 
 	//Allows a character to move along the x and z axes
-	protected void move (float x, float y, float z, float speed)
+	protected void Move (float x, float y, float z, float speed)
 	{	
 		transform.Translate (Vector3.forward * z * speed * Time.deltaTime);
 		transform.Translate (new Vector3 (1, 0, 0) * x * speed * Time.deltaTime);
@@ -94,25 +94,13 @@ public abstract class _Character : MonoBehaviour
 
 	public void Attack(_Character other)
 	{
-		if((CharacterRigidbody.transform.position - other.CharacterRigidbody.transform.position).magnitude <= weapon.RangeOfAttk)
-		{	
-			other.Health -= weapon.damages;
-			if (other.Health <= 0)
-			{
-				other.Die ();
-			}
-		}
+		weapon.Attack (other);
 	}
 
 	public void Die()
 	{
-		CharacterObject.SetActive (false);
+		Destroy(CharacterObject);
 	}
 }
 
-
-//1 WARNING
-//We must take into account the rotation of the player when respawning
-//layout of triggers' object to set to another layer
-//change the Layer of the jumps
-//velocity to 0 when teleporting
+//1WARNING

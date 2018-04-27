@@ -12,8 +12,8 @@ public class MainCharacter : _Character
 	private bool IsAbleToRun = true;  //if you're tired youn can't run anymore
 	private bool crouch = false;  //is the player crouched ?
 	private float speed;  //actual speed of the player
-	private PlayerInventory Inventory;  //the inventory of our player. Maybe it's useless
-	public Slider StaminaButton;  //for the moment it's just the diplay of our stamina status
+	//private PlayerInventory Inventory;  //the inventory of our player. Maybe it's useless
+
 	public static float CheatSpeed = 500;  //the speed when we're cheating
 	public static float CrouchSpeed = 50; //speed when crouching
 	public float OutOfStaminaSpeed = 50;  //speed when stamina is 0
@@ -22,6 +22,9 @@ public class MainCharacter : _Character
 	public GameObject cam;  //the main camera of the player
 	public bool IsGamePaused = false;  //Is the game running or are we in a menu ?
 
+	public Slider StaminaButton;  //for the moment it's just the diplay of our stamina status
+	public GameObject NormalDisplays;
+
 
 
 	new public void Awake () 
@@ -29,7 +32,7 @@ public class MainCharacter : _Character
 		base.Awake ();
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		Inventory = GetComponent<PlayerInventory> (); //maybe useless
+		//Inventory = GetComponent<PlayerInventory> (); //maybe useless
 		speed = WalkSpeed;
 		SpawnPoint = transform.position;
 	}
@@ -37,6 +40,8 @@ public class MainCharacter : _Character
 
 	new public void Update () 
 	{
+		Attack ();
+		Debug.DrawRay (transform.position, transform.TransformDirection (Vector3.forward), Color.red);
 		base.Update ();
 		if (!IsGamePaused)
 		{
@@ -46,37 +51,24 @@ public class MainCharacter : _Character
 			move ();
 		}
 		else
-		//I don't know if we should keep it : when the game is paused (when we change our weapons for exemple) it allows us to recover our stamina. WARNING
 		{
 			Stamina += 10 * Time.deltaTime;
 			Stamina = Mathf.Min (Stamina, MaxStamina);
 		}
+		StaminaButton.value = Stamina / MaxStamina;
 			
 	}
 		
 
 	new public void FixedUpdate ()
 	{
+		base.FixedUpdate(); 
 		if (!IsGamePaused && !cheatCode)  //we only want to move up and down if our character is not cheating
 		{
 			Jump ();
-			base.FixedUpdate(); 
 		}
 	}
 
-
-	void OnGUI()
-	{
-		if (!IsGamePaused)
-		{
-			StaminaButton.gameObject.SetActive (true);
-			StaminaButton.value = Stamina / MaxStamina;
-		}
-		else
-		{
-			StaminaButton.gameObject.SetActive(false);
-		}
-	}
 
 	new public void OnTriggerEnter(Collider other)
 	{
@@ -98,12 +90,24 @@ public class MainCharacter : _Character
 
 
 
-	new public void Attack(_Character other)
+
+
+
+	 public void Attack()
 	{
-		if(Input.GetButtonDown ("Fire1"))
+		RaycastHit hit;
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		Debug.DrawRay (transform.position, transform.TransformDirection (Vector3.forward));
+		if (Physics.Raycast(ray, out hit, 80000))
 		{
-			base.Attack (other);
+			Debug.Log ("coucou");
+			/*if (hit.collider.gameObject.tag == "Enemy")
+			{
+				base.Attack (hit.collider.gameObject.GetComponent<_Enemies>());
+			}*/
+				
 		}
+
 	}
 
 	private void cheatcodes ()
@@ -160,7 +164,7 @@ public class MainCharacter : _Character
 		if (Input.GetButton ("Dash") && Stamina > 0 && IsAbleToRun && !cheatCode && !crouch //We can't dash if we're cheating
 			&& (Input.GetButton("Horizontal") || Input.GetButton ("Vertical"))) 
 		{
-			base.move (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), RunSpeed); 
+			base.Move (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), RunSpeed); 
 			Stamina -= 10 * Time.deltaTime;
 			if (Stamina < 0)
 			{
@@ -170,7 +174,7 @@ public class MainCharacter : _Character
 		}
 		else
 		{
-			base.move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed); 
+			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed); 
 			Stamina += 10 * Time.deltaTime;
 			Stamina = Mathf.Min (Stamina, MaxStamina);
 			if (!IsAbleToRun && Stamina > 40)
@@ -197,6 +201,7 @@ public class MainCharacter : _Character
 
 	private void CameraRotations()
 	{
+
 		//Rotate the camera up and down
 		float Y = -Input.GetAxis ("Mouse Y");
 		float ActualRotation = cam.transform.localRotation.x;
@@ -204,6 +209,12 @@ public class MainCharacter : _Character
 		{
 			cam.transform.Rotate (new Vector3 (Y, 0, 0) * RotateSpeed * Time.deltaTime);
 		}
+	}
+
+
+	new public void Die()
+	{
+		//TODO : display a GameOver screen
 	}
 }
 
