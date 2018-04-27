@@ -7531,7 +7531,7 @@ Transform:
   - {fileID: 1361323666}
   - {fileID: 79431219}
   - {fileID: 1841337390}
-  - {fileID: 2089113813}
+  - {fileID: 1798966741}
   - {fileID: 38271023}
   - {fileID: 1863226723}
   - {fileID: 877585712}
@@ -7686,6 +7686,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25204972387c5ef41acf40f4746f1551, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &1798966741 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224167912747495702, guid: 28e89eda380769c46a03ab8378e512cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1951797289}
 --- !u!4 &1800899388
 Transform:
   m_ObjectHideFlags: 0
@@ -8481,6 +8486,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224901686549868810, guid: 28e89eda380769c46a03ab8378e512cd,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224901686549868810, guid: 28e89eda380769c46a03ab8378e512cd,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28e89eda380769c46a03ab8378e512cd, type: 2}
   m_IsPrefabParent: 0
@@ -9161,11 +9176,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087903248}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!224 &2089113813 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224851455841022462, guid: 28e89eda380769c46a03ab8378e512cd,
-    type: 2}
-  m_PrefabInternal: {fileID: 1951797289}
 --- !u!1001 &2095150568
 Prefab:
   m_ObjectHideFlags: 0

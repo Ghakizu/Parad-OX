@@ -13,15 +13,5 @@ public abstract class _AttackingObjects : _Objects
 
 
 
-	public static void Attack(_Character attacker, _Character defender)
-	{
-		
-	}
-
-
-	public static void SpecialAttack(_Character attacker, _Character defender)
-	{
-		
-	}
 
 }

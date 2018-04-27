@@ -14,7 +14,7 @@ public class PlayerInventory : MonoBehaviour
 
 	//Weapons Inventory
 	public int ActiveWeapon = 1; //The actual weapon. Can just be 1 or 2 (the shortcuts)
-	public List<_Weapons> WeaponsInventory;  //The inventory of the weapons of the player
+	public List<_Weapons> WeaponsInventory = new List<_Weapons>();  //The inventory of the weapons of the player
 	public GameObject FistsObject;  //the gameObject of the Fists
 	public GameObject KatanaObject;  //the gameObject of the Katana
 	public GameObject KnifeObject;  //the gameObject of the Knife
@@ -45,9 +45,6 @@ public class PlayerInventory : MonoBehaviour
 
 	public int SelectedObject = 1;
 	public int TypeOfObjects = 1; //1 = weapons, 2 = spells, 3 = potions
-
-	public _Objects ActiveObject1;
-	public _Objects ActiveObject2;
 
 
 
@@ -95,6 +92,7 @@ public class PlayerInventory : MonoBehaviour
 			Cursor.lockState = CursorLockMode.None;  //unlock the mouse
 			Cursor.visible = true;
 			Player.IsGamePaused = true;
+			Player.NormalDisplays.SetActive (false);
 		}
 		else if (Input.GetButtonUp ("Wheel"))
 		{
@@ -104,6 +102,7 @@ public class PlayerInventory : MonoBehaviour
 			SelectedObject = 1;
 			TypeOfObjects = 1;
 			Player.IsGamePaused = false;
+			Player.NormalDisplays.SetActive (true);
 		}
 	}
 
@@ -114,7 +113,7 @@ public class PlayerInventory : MonoBehaviour
 	//WEAPONS
 	private void ChangeWeapon()  //change weapons using shortcuts
 	{
-		if(Input.GetButtonDown("Fire1"))
+		if(Input.GetButtonDown("Weapon1"))
 		{
 			Weapon2.Object.SetActive (false);
 			Weapon1.Object.SetActive (true);
@@ -122,7 +121,7 @@ public class PlayerInventory : MonoBehaviour
 			Player.WeaponObject = Weapon1.Object;
 		}
 			
-		if(Input.GetButtonDown("Fire2"))
+		if(Input.GetButtonDown("Weapon2"))
 		{
 			Weapon1.Object.SetActive (false);
 			Weapon2.Object.SetActive (true);
@@ -136,14 +135,14 @@ public class PlayerInventory : MonoBehaviour
 	//SPELLS
 	private void ChangeSpell()  //change spells using shortcuts
 	{
-		if(Input.GetButtonDown("Fire3") && Spell1 != null)
+		if(Input.GetButtonDown("Spell1") && Spell1 != null)
 		{
 			Spell2.Object.SetActive (false);
 			Spell1.Object.SetActive (true);
 			ActiveSpell = 3;
 		}
 
-		if(Input.GetButtonDown("Fire4") && Spell1 != null)
+		if(Input.GetButtonDown("Spell2") && Spell1 != null)
 		{
 			Spell1.Object.SetActive (false);
 			Spell2.Object.SetActive (true);
