@@ -1827,21 +1827,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 29
       objectReference: {fileID: 0}
-    - target: {fileID: 4700968113668370, guid: 20e127989db1d204e98bab3ff48a598e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 1613218768188054, guid: 20e127989db1d204e98bab3ff48a598e, type: 2}
       propertyPath: m_Name
       value: EastRoad1 (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4700968113668370, guid: 20e127989db1d204e98bab3ff48a598e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1000.0005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4700968113668370, guid: 20e127989db1d204e98bab3ff48a598e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 300.00012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20e127989db1d204e98bab3ff48a598e, type: 2}
