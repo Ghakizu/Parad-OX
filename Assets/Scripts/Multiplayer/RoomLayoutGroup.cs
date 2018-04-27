@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomLayoutGroup : MonoBehaviour {
+public class RoomLayoutGroup : MonoBehaviour
+{
 
     [SerializeField]
     private GameObject _roomListingPrefab;
@@ -16,14 +17,18 @@ public class RoomLayoutGroup : MonoBehaviour {
         get { return _roomListingButtons; }
     }
 
+    private void Update()
+    {
+        Debug.LogError(PhotonNetwork.insideLobby);
+    }
+
     private void OnReceivedRoomListUpdate()
     {
         RoomInfo[] rooms = PhotonNetwork.GetRoomList();
-        int length = rooms.Length;
 
-        for(int i = 0; i < length; i++)
+        foreach (RoomInfo room in rooms)
         {
-            RoomReceived(rooms[i]);
+            RoomReceived(room);
         }
 
         RemoveOldRooms();
@@ -31,11 +36,11 @@ public class RoomLayoutGroup : MonoBehaviour {
 
     private void RoomReceived(RoomInfo room)
     {
-        int i = RoomListingButtons.FindIndex(x => x.RoomName == room.Name);
+        int index = RoomListingButtons.FindIndex(x => x.RoomName == room.Name);
 
-        if (i == -1)
+        if (index == -1)
         {
-            if(room.IsVisible && room.PlayerCount < room.MaxPlayers)
+            if (room.IsVisible && room.PlayerCount < room.MaxPlayers)
             {
                 GameObject roomListingObj = Instantiate(RoomListingPrefab);
                 roomListingObj.transform.SetParent(transform, false);
@@ -43,12 +48,13 @@ public class RoomLayoutGroup : MonoBehaviour {
                 RoomListing roomListing = roomListingObj.GetComponent<RoomListing>();
                 RoomListingButtons.Add(roomListing);
 
-                i = RoomListingButtons.Count - 1;
+                index = (RoomListingButtons.Count - 1);
             }
         }
-        else
+
+        if (index != -1)
         {
-            RoomListing roomListing = RoomListingButtons[i];
+            RoomListing roomListing = RoomListingButtons[index];
             roomListing.SetRoomNameText(room.Name);
             roomListing.Updated = true;
         }
@@ -57,25 +63,21 @@ public class RoomLayoutGroup : MonoBehaviour {
     private void RemoveOldRooms()
     {
         List<RoomListing> removeRooms = new List<RoomListing>();
-        int length = RoomListingButtons.Count;
 
-        for(int i = 0; i < length; i++)
+        foreach (RoomListing roomListing in RoomListingButtons)
         {
-            RoomListing roomListing = RoomListingButtons[i];
             if (!roomListing.Updated)
                 removeRooms.Add(roomListing);
             else
                 roomListing.Updated = false;
         }
 
-        length = removeRooms.Count;
-
-        for(int i = 0; i < length; i++)
+        foreach (RoomListing roomListing in removeRooms)
         {
-            RoomListing roomListing = removeRooms[i];                                                                                                                                                                                                        
             GameObject roomListingObj = roomListing.gameObject;
             RoomListingButtons.Remove(roomListing);
             Destroy(roomListingObj);
         }
     }
+
 }

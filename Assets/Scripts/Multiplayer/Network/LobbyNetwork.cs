@@ -5,20 +5,23 @@ using UnityEngine;
 public class LobbyNetwork : MonoBehaviour
 {
     private string Version = "Alpha v0.0.1";
-    public void OnClick_LobbyNetwork()
-    {
-        Debug.LogError("Connecting to server...");
-        PhotonNetwork.ConnectUsingSettings(Version);
-    }
 
-    private void Update()
+    // Use this for initialization
+  /*  private void Start()
     {
-        Debug.LogError(PhotonNetwork.connectionState);
+        print("Connecting to server..");
+        PhotonNetwork.ConnectUsingSettings(Version);
+    } */
+
+    public void OnClickMultiplayerButton()
+    {
+        print("Connecting to server..");
+        PhotonNetwork.ConnectUsingSettings(Version);
     }
 
     private void OnConnectedToMaster()
     {
-        Debug.LogError("Connected to master.");
+        print("Connected to master.");
         PhotonNetwork.playerName = PlayerNetwork.Instance.PlayerName;
 
         PhotonNetwork.JoinLobby(TypedLobby.Default);
@@ -26,7 +29,6 @@ public class LobbyNetwork : MonoBehaviour
 
     private void OnJoinedLobby()
     {
-        Debug.LogError("Joined lobby");
-
+        print("Joined lobby.");
     }
 }

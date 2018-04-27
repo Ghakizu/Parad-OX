@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LobbyCanvas : MonoBehaviour {
+public class LobbyCanvas : MonoBehaviour
+{
 
     [SerializeField]
     private RoomLayoutGroup _roomLayoutGroup;
@@ -15,4 +16,5 @@ public class LobbyCanvas : MonoBehaviour {
     {
 
     }
+
 }

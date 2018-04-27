@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainCanvasManager : MonoBehaviour {
+public class MainCanvasManager : MonoBehaviour
+{
 
     public static MainCanvasManager Instance;
 
@@ -17,4 +18,5 @@ public class MainCanvasManager : MonoBehaviour {
     {
         Instance = this;
     }
+
 }
