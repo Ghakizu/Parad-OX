@@ -12,6 +12,20 @@ public class CreateRoom : MonoBehaviour {
         get { return _roomName; }
     }
 
+    [SerializeField]
+    private GameObject _currentRoom;
+    private GameObject CurrentRoom
+    {
+        get { return _currentRoom; }
+    }
+
+    [SerializeField]
+    private GameObject _lobby;
+    private GameObject Lobby
+    {
+        get { return _lobby; }
+    }
+
     public void OnClick_CreateRoom()
     {
         RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
@@ -33,6 +47,8 @@ public class CreateRoom : MonoBehaviour {
 
     private void OnCreatedRoom()
     {
+        Lobby.SetActive(false);
+        CurrentRoom.SetActive(true);
         print("Room created succesfully.");
     }
 }
