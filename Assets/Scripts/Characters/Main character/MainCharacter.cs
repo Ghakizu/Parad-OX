@@ -24,6 +24,9 @@ public class MainCharacter : _Character
 
 	public Slider StaminaButton;  //for the moment it's just the diplay of our stamina status
 	public GameObject NormalDisplays;
+	public GameObject Target = null;
+
+	public List<_Enemies> EnemiesList = new List<_Enemies>();
 
 
 
@@ -40,8 +43,6 @@ public class MainCharacter : _Character
 
 	new public void Update () 
 	{
-		Attack ();
-		Debug.DrawRay (transform.position, transform.TransformDirection (Vector3.forward), Color.red);
 		base.Update ();
 		if (!IsGamePaused)
 		{
@@ -49,6 +50,10 @@ public class MainCharacter : _Character
 			Crouch ();
 			CameraRotations ();
 			move ();
+			if (Input.GetButtonDown ("Shoot")) 
+			{
+				Attack ();
+			}
 		}
 		else
 		{
@@ -96,19 +101,21 @@ public class MainCharacter : _Character
 	 public void Attack()
 	{
 		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		Debug.DrawRay (transform.position, transform.TransformDirection (Vector3.forward));
-		if (Physics.Raycast(ray, out hit, 80000))
+		if (Physics.Raycast(transform.position, transform.forward, out hit))
 		{
-			Debug.Log ("coucou");
-			/*if (hit.collider.gameObject.tag == "Enemy")
+			Debug.Log ((hit.transform.position - this.transform.position).magnitude);
+			if (hit.rigidbody.gameObject.tag == "Enemy" && (hit.transform.position - this.transform.position).magnitude < weapon.RangeOfAttk)
 			{
-				base.Attack (hit.collider.gameObject.GetComponent<_Enemies>());
-			}*/
-				
+				Debug.Log ("I passed here");
+				_Enemies enemy = hit.collider.gameObject.GetComponent<_Enemies> ();
+				Debug.Log (enemy.Health);
+				weapon.Attack (enemy);
+			}
 		}
 
 	}
+
+
 
 	private void cheatcodes ()
 	{

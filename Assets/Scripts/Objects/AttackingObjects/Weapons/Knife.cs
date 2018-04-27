@@ -10,7 +10,7 @@ public class Knife : _Weapons
 	{
 		MyPlayer = GetComponent<PlayerInventory> ();
 		damages = 10;  //to adapt
-		RangeOfAttk = 1; //to adapt
+		RangeOfAttk =  500; //to adapt
 		Object = MyPlayer.KnifeObject;
 		ObjectName = "Knife";
 	}

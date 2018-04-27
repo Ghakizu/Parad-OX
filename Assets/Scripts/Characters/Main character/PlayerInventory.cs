@@ -63,6 +63,8 @@ public class PlayerInventory : MonoBehaviour
 		WeaponsInventory.Add(GetComponent<Katana>());
 		Weapon1 = WeaponsInventory[0];
 		Weapon2 = WeaponsInventory[1];
+		Player.weapon = Weapon1;
+		Player.WeaponObject = Weapon1.gameObject;
 		Player = GetComponent<MainCharacter> ();
 		Player.WeaponObject = Weapon1.Object;
 

@@ -33,6 +33,7 @@ public abstract class _Enemies : _Character
 		if (other.tag == "Player" && !PlayersDetected.Contains(other.gameObject))
 		{
 			PlayersDetected.Add (other.gameObject);
+			other.GetComponent<MainCharacter> ();
 		}
 	}
 
@@ -51,7 +52,6 @@ public abstract class _Enemies : _Character
 			else
 			{
 				Attack ((_Character)target.GetComponent<MainCharacter> ());
-				Debug.Log ("attack");
 			}
 		}
 	}

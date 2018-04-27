@@ -4,8 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
 public class _Weapons : _AttackingObjects 
 {
+
+	void Awake()
+	{
+		owner = this.GetComponent<_Character> ();
+		if (owner == null)
+			owner = this.GetComponentInParent<_Character> ();
+	}
 
 	public void Attack(_Character other)
 	{
