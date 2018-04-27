@@ -11,7 +11,7 @@ public class Taser : _Weapons
 		MyPlayer = GetComponent<PlayerInventory> ();
 		damages = 10;  //to adapt
 		RangeOfAttk = 1; //to adapt
-		WeaponObject = MyPlayer.TaserObject;
-		WeaponName = "taser";
+		Object = MyPlayer.TaserObject;
+		ObjectName = "taser";
 	}
 }

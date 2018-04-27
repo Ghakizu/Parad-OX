@@ -1,6 +1,6 @@
 ALREADY DESIGNED AND TEXTURED
 Arbres
-Habitations "basiquess" (entre une et deux sortes)
+Habitations "basiques" (entre une et deux sortes)
 Restaurant
 Bar (deux diférents)
 
@@ -20,7 +20,7 @@ Fontaine (avec centaurus le moche)
 Stands de marché (viande, fruits, fromages, il faut changer un peu pour éviter d'être trop redondant)
 Supermarché
 Mairie
-Night club
+Night club0.148104
 Kiosque à journaux
 Tables rondes
 Tabourets ronds
@@ -48,8 +48,8 @@ Lit
 GAMEPLAY
 mouvements (ok)
 Caméra (ok)
-Changement d'armes
-Changements de sorts
+Changement d'armes (ok)
+Changements de sorts (ok)
 Attaques (armes et sorts)
 Changer tous les layers (créer un layer jump)
 Une fonction qui permet de display tous les indices que l'on possède
@@ -62,7 +62,7 @@ Ennemis à gérer
 
 Level du labyrinthe
 Leviers
-ortes
+portes
 
 
 
