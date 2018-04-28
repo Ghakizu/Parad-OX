@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Katana : _Weapons 
 {
+	//A katana, that cut many things
+
 	private PlayerInventory MyPlayer;
 
-	void Start()
+	new public void Awake()
 	{
 		MyPlayer = GetComponent<PlayerInventory> ();
-		damages = 10;  //to adapt
-		RangeOfAttk = 50; //to adapt
-		Object = MyPlayer.KatanaObject;
 		ObjectName = "Katana";
-		description = "Katana";
+		sprite = MaterialsAssignations.KatanaSprite;
+		damages = 40; 
+		RangeOfAttk = 80;
+		TimeBetweenAttacks = 1.5f;
+		SubDescription = "A wonderful katana for the ninjas";
+		base.Awake ();
 	}
 }

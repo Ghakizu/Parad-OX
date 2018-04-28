@@ -18,7 +18,6 @@ public class PlayerInventory : MonoBehaviour
 	public GameObject FistsObject;  //the gameObject of the Fists
 	public GameObject KatanaObject;  //the gameObject of the Katana
 	public GameObject KnifeObject;  //the gameObject of the Knife
-	public GameObject TaserObject;  //the gameObject of the Taser
 	public _Weapons Weapon1; //weapon of the first shortcut
 	public _Weapons Weapon2; //weapon of the second shortcut
 
@@ -26,10 +25,11 @@ public class PlayerInventory : MonoBehaviour
 	//Spells Inventory
 	public int ActiveSpell = 3;  //The actual spell. Can just be 3 or 4 (the shortcuts)
 	public List<_Spells> SpellsInventory = new List<_Spells>();  //The inventory of the spells of the player
-	public GameObject Spell1Object;  //the gameObject of the Spell1
-	public GameObject Spell2Object;  //the gameObject of the Spell2
-	public GameObject Spell3Object;  //the gameObject of the Spell3
-	public GameObject Spell4Object;  //the gameObject of the Spell4
+	public GameObject FreezeObject;  //the gameObject of the freeze spell
+	public GameObject AirWallObject;  //the gameObject of the airwall spell
+	public GameObject EarthSpikeObject;  //the gameObject of the earth spike spell
+	public GameObject FireBallObject;  //the gameObject of the fire ball spell
+	public GameObject FlashObject;  //the gameObject of the Flash spell
 	public _Spells Spell1; //Spell of the first shortcut
 	public _Spells Spell2; //Spell of the second shortcut
 
@@ -51,35 +51,34 @@ public class PlayerInventory : MonoBehaviour
 
 	void Awake()
 	{
+		Player = GetComponent<MainCharacter> ();
 		//WEAPONS
 		FistsObject = GameObject.Find ("Fists");
 		KatanaObject = GameObject.Find ("Katana");
 		KatanaObject.SetActive (false);
 		KnifeObject = GameObject.Find ("Knife");
 		KnifeObject.SetActive (false);
-		TaserObject = GameObject.Find ("Taser");
-		TaserObject.SetActive (false);
 		WeaponsInventory.Add(GetComponent<Fists>());
 		WeaponsInventory.Add(GetComponent<Katana>());
+		WeaponsInventory.Add(GetComponent<Knife>());
 		Weapon1 = WeaponsInventory[0];
 		Weapon2 = WeaponsInventory[1];
-		Player.weapon = Weapon1;
-		Player.WeaponObject = Weapon1.gameObject;
-		Player = GetComponent<MainCharacter> ();
-		Player.WeaponObject = Weapon1.Object;
+		Player.ActualWeapon = Weapon1;
 
-		//We must change the spell's name by their real name, once we choose them. WARNING!
 		//SPELLS
-		/*Spell1Object = GameObject.Find ("Spell1");
-		Spell1Object.SetActive (false);
-		Spell2Object = GameObject.Find ("Spell2");
-		Spell2Object.SetActive (false);
-		Spell3Object = GameObject.Find ("Spell3");
-		Spell3Object.SetActive (false);
-		Spell4Object = GameObject.Find ("Spell4");
-		Spell4Object.SetActive (false);
-		Spell1 = null;
-		Spell2 = null;*/
+		FreezeObject = GameObject.Find ("Freeze");
+		AirWallObject = GameObject.Find ("AirWall");
+		//AirWallObject.SetActive (false);
+		EarthSpikeObject = GameObject.Find ("EarthSpike");
+		//EarthSpikeObject.SetActive (false);
+		FireBallObject = GameObject.Find ("FireBall");
+		//FireBallObject.SetActive (false);
+		FlashObject = GameObject.Find ("Flash");
+		//FlashObject.SetActive (false);
+		SpellsInventory.Add (GetComponent<Freeze> ());
+		Spell1 = SpellsInventory[0];
+		Spell2 = null;
+		Player.ActualSpell = Spell1;
 	}
 		
 
@@ -121,7 +120,6 @@ public class PlayerInventory : MonoBehaviour
 			Weapon2.Object.SetActive (false);
 			Weapon1.Object.SetActive (true);
 			ActiveWeapon = 1;
-			Player.WeaponObject = Weapon1.Object;
 		}
 			
 		if(Input.GetButtonDown("Weapon2"))
@@ -129,7 +127,6 @@ public class PlayerInventory : MonoBehaviour
 			Weapon1.Object.SetActive (false);
 			Weapon2.Object.SetActive (true);
 			ActiveWeapon = 2;
-			Player.WeaponObject = Weapon2.Object;
 		}
 	}
 		

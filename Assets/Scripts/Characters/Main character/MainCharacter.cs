@@ -35,7 +35,6 @@ public class MainCharacter : _Character
 		base.Awake ();
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		//Inventory = GetComponent<PlayerInventory> (); //maybe useless
 		speed = WalkSpeed;
 		SpawnPoint = transform.position;
 	}
@@ -44,16 +43,14 @@ public class MainCharacter : _Character
 	new public void Update () 
 	{
 		base.Update ();
-		if (!IsGamePaused)
+		if (!IsGamePaused && IsFreezed <= 0)
 		{
 			cheatcodes ();
 			Crouch ();
 			CameraRotations ();
 			move ();
-			if (Input.GetButtonDown ("Shoot")) 
-			{
-				Attack ();
-			}
+			Attack ();
+			LaunchSpell ();
 		}
 		else
 		{
@@ -66,11 +63,14 @@ public class MainCharacter : _Character
 		
 
 	new public void FixedUpdate ()
-	{
-		base.FixedUpdate(); 
-		if (!IsGamePaused && !cheatCode)  //we only want to move up and down if our character is not cheating
+	{ 
+		if (!IsGamePaused && !cheatCode && IsFreezed <=0)  //we only want to move up and down if our character is not cheating
 		{
 			Jump ();
+		}
+		if (!cheatCode && IsFreezed <= 0)
+		{
+			base.FixedUpdate();
 		}
 	}
 
@@ -100,21 +100,47 @@ public class MainCharacter : _Character
 
 	 public void Attack()
 	{
-		RaycastHit hit;
-		if (Physics.Raycast(transform.position, transform.forward, out hit))
+		if (Input.GetButtonDown("Shoot"))
 		{
-			Debug.Log ((hit.transform.position - this.transform.position).magnitude);
-			if (hit.rigidbody.gameObject.tag == "Enemy" && (hit.transform.position - this.transform.position).magnitude < weapon.RangeOfAttk)
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, transform.forward, out hit))
 			{
-				Debug.Log ("I passed here");
-				_Enemies enemy = hit.collider.gameObject.GetComponent<_Enemies> ();
-				Debug.Log (enemy.Health);
-				weapon.Attack (enemy);
+				if (hit.rigidbody.gameObject.tag == "Enemy" 
+					&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
+					&& IsAbleToAttack < 0)
+				{
+					_Enemies enemy = hit.collider.gameObject.GetComponent<_Enemies> ();
+					ActualWeapon.Attack (enemy);
+				}
 			}
 		}
-
 	}
 
+
+	public void LaunchSpell()
+	{
+		if (Input.GetButtonDown("Spell"))
+		{
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, transform.forward, out hit))
+			{
+				if (hit.rigidbody.gameObject.tag == "Enemy" 
+					&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
+					&& IsAbleToAttack < 0)
+				{
+					Debug.Log ("spell");
+					_Enemies enemy = hit.collider.gameObject.GetComponent<_Enemies> ();
+					Debug.Log (enemy.IsFreezed);
+					switch (ActualSpell.ObjectName)
+					{
+					case "Freeze":
+						((Freeze)ActualSpell).LaunchSpell (enemy);
+						break;
+					}
+				}
+			}
+		}
+	}
 
 
 	private void cheatcodes ()

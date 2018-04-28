@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Fists : _Weapons 
 {
+	//The basic weapons of your player : your fists
+
 	private PlayerInventory MyPlayer;
 
-	void Start()
+	new public void Awake()
 	{
 		MyPlayer = GetComponent<PlayerInventory> ();
-		damages = 10;  //to adapt
-		RangeOfAttk = 200; //to adapt
-		Object = MyPlayer.FistsObject;
 		ObjectName = "Fists";
-		description = "Fists";
+		sprite = MaterialsAssignations.FistsSprite;
+		damages = 10; 
+		RangeOfAttk = 30;
+		TimeBetweenAttacks = 0.5f;
+		SubDescription = "The basic weapon : your fists.";
+		base.Awake ();
 	}
 }
