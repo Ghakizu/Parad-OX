@@ -26,8 +26,15 @@ public class PlayerLayoutGroup : MonoBehaviour {
     // Called by photon when you join a room.
     private void OnJoinedRoom()
     {
+
+        int length = transform.childCount;
+        for(int i = 0; i < length; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+
         PhotonPlayer[] photonPlayers = PhotonNetwork.playerList;
-        int length = photonPlayers.Length;
+        length = photonPlayers.Length;
         for(int i = 0; i < length; i++)
         {
             PlayerJoinedRoom(photonPlayers[i]);
