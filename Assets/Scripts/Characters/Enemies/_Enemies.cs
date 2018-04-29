@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 
 
@@ -29,7 +30,9 @@ public abstract class _Enemies : _Character
 	public float TotalTimeToWait = 0;  //How much time does the character have to finish his loop
 	public bool left = false;  //are we turning to the left
 	public bool right = false;  //are we turning to the right
-	public bool IsWaiting = true;
+	public bool IsWaiting = true;  //are we waiting
+	public Vector3 PatrolLocation = Vector3.zero;  //the next location where the character must move
+	public float DistanceAroundSpawnPoint = 200;
 
 
 
@@ -50,6 +53,7 @@ public abstract class _Enemies : _Character
 		agent.stoppingDistance = ActualWeapon.RangeOfAttk - 10;
 		CharacterObject.tag = "Enemy";
 		MaxTotalTimeToWait = 4 * MaxTimeTurning + 4 * MaxWaitTime;
+		agent.updateRotation = true;
 	}
 
 
@@ -72,7 +76,7 @@ public abstract class _Enemies : _Character
 		UpdateTimes ();
 		FindTarget ();
 		Attack ();
-		Wait ();
+		LookFor ();
 	}
 
 
@@ -87,6 +91,10 @@ public abstract class _Enemies : _Character
 		if (TimeToTarget >= 0)
 		{
 			TimeToTarget -= Time.deltaTime;
+			if(TimeToTarget <= 0)
+			{
+				TotalTimeToWait = MaxTotalTimeToWait;
+			}
 		}
 		if (target == null && IsWaiting && IsFreezed <= 0)
 		{
@@ -118,6 +126,11 @@ public abstract class _Enemies : _Character
 		if (TotalTimeToWait >= 0)
 		{
 			TotalTimeToWait -= Time.deltaTime;
+
+			if(TotalTimeToWait <= 0)
+			{
+				IsWaiting = false;
+			}
 		}
 	}
 
@@ -131,7 +144,7 @@ public abstract class _Enemies : _Character
 			(target.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk + 10
 			&& Physics.Linecast (transform.position, target.transform.position, out hit)
 			&& hit.collider.gameObject.tag == "Player")
-		{ 
+		{
 			base.Attack ((_Character)target.GetComponent<MainCharacter> ());
 		}
 	}
@@ -143,10 +156,12 @@ public abstract class _Enemies : _Character
 	{
 		if (IsFreezed >= 0)
 		{
+			//if the character is freezed, we don't want him to move
 			agent.SetDestination (this.transform.position);
 		}
 		else
 		{
+			//else we find his new target
 			GameObject NewTarget = null;
 			float MaxDistance = RangeOfDetection + 50;
 			for (int i = 0; i < PlayersDetected.Count; ++i) 
@@ -166,33 +181,31 @@ public abstract class _Enemies : _Character
 					}
 				}
 			}
-			if (NewTarget != null) 
+
+			if (NewTarget != null)
+			//if there is a target, we reset the target and make the character move to it
 			{
+				PatrolLocation = Vector3.zero;
 				TimeToTarget = MaxTimeToTarget;
 				target = NewTarget;
-				agent.SetDestination (target.transform.position);
-				agent.speed = RunSpeed;
-				ResetWaitStatus ();
-				IsWaiting = false;
+				Move (target.transform.position, RunSpeed);
 			}
+
 			else if(TimeToTarget > 0)
+			//if the character is continuing to follow us, we just reset his destination
 			{
 				agent.SetDestination (target.transform.position);
-				TotalTimeToWait = MaxTotalTimeToWait;
 			}
+
 			else if (TotalTimeToWait > 0)
+			//if we're hidden from the character, we want him to set his target to null and to Look for us
 			{
 				target = null;
-				IsWaiting = true;
-			}
-			else if ((this.transform.position - SpawnPoint).magnitude > 50)
-			{
-				IsWaiting = false;
-				agent.SetDestination (SpawnPoint);
-				agent.speed = WalkSpeed;
 				ResetWaitStatus ();
 			}
+
 			else
+			//else, we want him to patrol
 			{
 				Patrol ();
 			}
@@ -201,9 +214,41 @@ public abstract class _Enemies : _Character
 
 
 
-	public void Wait()
+	public void Patrol ()
+	//Move to a random position around the position of the spawnpoint, and then look for us
 	{
-		//Wait and watch to the right and to the left
+		if ((this.transform.position - PatrolLocation).magnitude < agent.stoppingDistance + 5)
+		{
+			ResetWaitStatus ();
+			TotalTimeToWait = MaxTotalTimeToWait;
+			PatrolLocation = Vector3.zero;
+		}
+		else if (PatrolLocation == Vector3.zero && TotalTimeToWait <= 0)
+		{
+			System.Random rnd = new System.Random ();
+			do 
+			{
+				PatrolLocation = new Vector3 (rnd.Next ((int)(SpawnPoint.x - DistanceAroundSpawnPoint), (int)(SpawnPoint.x + DistanceAroundSpawnPoint)), 
+					SpawnPoint.y, rnd.Next ((int)(SpawnPoint.z - DistanceAroundSpawnPoint), (int)(SpawnPoint.z + DistanceAroundSpawnPoint)));
+			} while ((this.transform.position - PatrolLocation).magnitude < agent.stoppingDistance + 30);
+			Move (PatrolLocation, WalkSpeed);
+		}
+	}
+
+
+
+	public void Move(Vector3 location, float speed)
+	//Move to another location
+	{
+		IsWaiting = false;
+		agent.SetDestination (location);
+		agent.speed = speed;
+	}
+
+
+	public void LookFor()
+	//Wait and watch to the right and to the left
+	{
 		if(IsWaiting)
 		{
 			agent.SetDestination (this.transform.position);
@@ -221,23 +266,16 @@ public abstract class _Enemies : _Character
 
 
 	public void ResetWaitStatus()
+	//After calling this function, the Player will look for us
 	{
 		if(!IsWaiting)
 		{
+			IsWaiting = true;
 			left = false;
 			right = true;
 			TimeTurning = 0;
 			WaitTime = 0;
-			TotalTimeToWait = 0;
-		}
-	}
-
-	public void Patrol()
-	{
-		Wait ();
-		if(TotalTimeToWait <= 0)
-		{
-			
 		}
 	}
 }
+//WARNING! When we go behind him, the character is not looking at us anymore

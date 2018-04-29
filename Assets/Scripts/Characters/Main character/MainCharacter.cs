@@ -275,7 +275,7 @@ public class MainCharacter : _Character
 			RaycastHit hit;
 			if (Physics.Raycast(transform.position, transform.forward, out hit))
 			{
-				if (hit.rigidbody.gameObject.tag == "Enemy" 
+				if (hit.collider.gameObject.tag == "Enemy" 
 					&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
 					&& Mana - ActualSpell.ManaConsumed > 0)
 				{

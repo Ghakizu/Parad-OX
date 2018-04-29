@@ -5,17 +5,22 @@ using UnityEngine.UI;
 
 public class ObjectsButton : MonoBehaviour 
 {
-	public _Objects Object;
-	public Text ObjectName;
-	public GameObject ChangeInventory;
-	public GameObject WeaponsStats;
-	public PlayerInventory player;
-	public Button OtherWeapon;
-	private ColorBlock red;
-	private ColorBlock grey;
-	public Canvas Inventory;
+	//All the buttons usefull to display the inventory
+
+
+	public _Objects Object;  //The object that is assigned to the button
+	public Text ObjectName;  //The Name of the Object
+	public GameObject ChangeInventory;  //The gameobject that displays the buttons to change inventory
+	public GameObject WeaponsStats;  //The Gameobject that displays the stats of the weapon
+	public PlayerInventory player;  //The player that has the inventory that we want to display
+	public Button OtherWeapon;  //for the two ActiveWeapon buttons : the other activeWeapon button
+	private ColorBlock red;  //Color red (if the button is highlighted)
+	private ColorBlock grey;  //color grey (if the button isn't highlighted)
+	public Canvas Inventory;  //The canvas of the inventory
+
 
 	public void Awake()
+	//Set all the stats of the button
 	{
 		Object = null;
 		ObjectName = GetComponentInChildren<Text> ();
@@ -26,7 +31,9 @@ public class ObjectsButton : MonoBehaviour
 		player = Inventory.GetComponent<DisplayInventory> ().player;
 	}
 
+
 	public void Update()
+	//Update the sprite and the text of the object
 	{
 		if (Object != null) 
 		{
@@ -40,7 +47,9 @@ public class ObjectsButton : MonoBehaviour
 		}
 	}
 
+
 	public void OnMouseEnter()
+	//Display the weaponsStats if There is an object
 	{
 		if (Object != null) 
 		{
@@ -53,6 +62,7 @@ public class ObjectsButton : MonoBehaviour
 
 
 	public void OnMouseExit()
+	//Stop to display the weaponsStats and reshow the menu to change inventory
 	{
 		WeaponsStats.SetActive (false);
 		ChangeInventory.SetActive (true);
@@ -60,13 +70,16 @@ public class ObjectsButton : MonoBehaviour
 
 
 	public void SelectWeaponToAssign(int SelectedObject)
+	//Change the active weapon
 	{
 		GetComponent<Button> ().colors = red;
 		player.SelectedObject = SelectedObject;
 		OtherWeapon.GetComponent<Button> ().colors = grey;
 	}
 
+
 	public void AssignWeapon()
+	//Assign the weapon
 	{
 		if (player.TypeOfObjects == 1 && Object != null)
 		{
