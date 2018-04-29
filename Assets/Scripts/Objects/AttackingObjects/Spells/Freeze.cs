@@ -10,9 +10,6 @@ public class Freeze : _Spells
 		{
 			other.CharacterRigidbody.velocity = Vector3.zero;
 			other.Is_Freezed = true;
-			int elapsed = 0;
-			while (elapsed < 2)
-				elapsed += Time.deltaTime;
 			other.Is_Freezed = false;
 		}
 	}
