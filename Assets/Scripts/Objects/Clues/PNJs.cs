@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class PNJs : _Character 
 {
-	//All the NPCs og the game
+	//All the NPCs of the game
 
 
 	public string[] dialogues; //all the sentences the NPCs can say.

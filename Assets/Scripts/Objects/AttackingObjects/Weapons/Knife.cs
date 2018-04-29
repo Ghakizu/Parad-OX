@@ -6,11 +6,9 @@ public class Knife : _Weapons
 {
 	//A knife, that only cut tomatoes
 
-	private PlayerInventory MyPlayer;
-
 	new public void Awake()
+	//Set all the stats of the weapon
 	{
-		MyPlayer = GetComponent<PlayerInventory> ();
 		ObjectName = "Knife";
 		sprite = MaterialsAssignations.KnifeSprite;
 		damages = 30; 

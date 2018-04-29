@@ -6,11 +6,9 @@ public class Katana : _Weapons
 {
 	//A katana, that cut many things
 
-	private PlayerInventory MyPlayer;
-
 	new public void Awake()
+	//Set all the stats of the weapon
 	{
-		MyPlayer = GetComponent<PlayerInventory> ();
 		ObjectName = "Katana";
 		sprite = MaterialsAssignations.KatanaSprite;
 		damages = 40; 

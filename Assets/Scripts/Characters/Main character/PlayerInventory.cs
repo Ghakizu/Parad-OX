@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//[RequireComponent(typeof(MainCharacter))]
 
 public class PlayerInventory : MonoBehaviour 
 {
@@ -34,24 +33,30 @@ public class PlayerInventory : MonoBehaviour
 	public _Spells Spell2; //Spell of the second shortcut
 
 
-	//CluesInventory
+	//Consumables inventory
+	public int ActiveConsumable = 5; //The actual consumable. Can be just 5 or 6 (the shortcuts)
 	public List<GameObject> ConsumablesInventory; //Pickables that affect Player stats. Not instanciated ! WARNING!
+
+
+	//CluesInventory
 	public List<_Clues> CluesInventoryLvl1 = new List<_Clues>(); //Clues to launch level 1
 	public List<_Clues> CluesInventoryLvl2 = new List<_Clues>(); //Clues to launch level 2
 	public List<_Clues> CluesInventoryLvl3 = new List<_Clues>(); //Clues to launch level 3
 
 
+	//To affect the objects
 	public Canvas Inventory;
-
-	public int SelectedObject = 1;
-	public int TypeOfObjects = 1; //1 = weapons, 2 = spells, 3 = potions
+	public int SelectedObject = 1;  //1 = actualweapon1, 2 = actualweapon2
+	public int TypeOfObjects = 1; //1 = weapons, 2 = spells, 3 = potions, 4 = clues
 
 
 
 
 	void Awake()
+	//Set all the variables
 	{
 		Player = GetComponent<MainCharacter> ();
+
 		//WEAPONS
 		FistsObject = GameObject.Find ("Fists");
 		KatanaObject = GameObject.Find ("Katana");
@@ -76,8 +81,12 @@ public class PlayerInventory : MonoBehaviour
 		FlashObject = GameObject.Find ("Flash");
 		//FlashObject.SetActive (false);
 		SpellsInventory.Add (GetComponent<Freeze> ());
+		SpellsInventory.Add (GetComponent<AirWall> ());
+		SpellsInventory.Add (GetComponent<EarthSpike> ());
+		SpellsInventory.Add (GetComponent<FireBall> ());
+		SpellsInventory.Add (GetComponent<Flash> ());
 		Spell1 = SpellsInventory[0];
-		Spell2 = null;
+		Spell2 = SpellsInventory[1];
 		Player.ActualSpell = Spell1;
 	}
 		
@@ -87,6 +96,17 @@ public class PlayerInventory : MonoBehaviour
 	{
 		ChangeWeapon ();
 		ChangeSpell ();
+		ShowInventory ();
+	}
+
+
+
+
+
+
+	public void ShowInventory()
+	// show the inventory and hide the interface, or the contrary, depending on the button wheel
+	{
 		if (Input.GetButtonDown ("Wheel"))
 		{
 			Inventory.gameObject.SetActive (true);
@@ -94,7 +114,7 @@ public class PlayerInventory : MonoBehaviour
 			Cursor.lockState = CursorLockMode.None;  //unlock the mouse
 			Cursor.visible = true;
 			Player.IsGamePaused = true;
-			Player.NormalDisplays.SetActive (false);
+			Player.Interface.SetActive (false);
 		}
 		else if (Input.GetButtonUp ("Wheel"))
 		{
@@ -104,16 +124,14 @@ public class PlayerInventory : MonoBehaviour
 			SelectedObject = 1;
 			TypeOfObjects = 1;
 			Player.IsGamePaused = false;
-			Player.NormalDisplays.SetActive (true);
+			Player.Interface.SetActive (true);
 		}
 	}
 
 
-
-
-
 	//WEAPONS
-	private void ChangeWeapon()  //change weapons using shortcuts
+	private void ChangeWeapon()  
+	//change weapons using shortcuts
 	{
 		if(Input.GetButtonDown("Weapon1"))
 		{
@@ -133,7 +151,8 @@ public class PlayerInventory : MonoBehaviour
 
 
 	//SPELLS
-	private void ChangeSpell()  //change spells using shortcuts
+	private void ChangeSpell()  
+	//change spells using shortcuts
 	{
 		if(Input.GetButtonDown("Spell1") && Spell1 != null)
 		{
@@ -150,8 +169,5 @@ public class PlayerInventory : MonoBehaviour
 		}
 	}
 }
-
 //1 WARNING
-//The spells are empty game objects with particules attached to the left hand of our player. 
-//At the beginning of the game, we have no spells.
-//So by default, our spell1 and spell2 is equal to null.
+//we must do the consumables

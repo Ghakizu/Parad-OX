@@ -6,11 +6,9 @@ public class Fists : _Weapons
 {
 	//The basic weapons of your player : your fists
 
-	private PlayerInventory MyPlayer;
-
 	new public void Awake()
+	//Set all the stats of the weapon
 	{
-		MyPlayer = GetComponent<PlayerInventory> ();
 		ObjectName = "Fists";
 		sprite = MaterialsAssignations.FistsSprite;
 		damages = 10; 

@@ -13,7 +13,9 @@ public class _Objects : MonoBehaviour
 	public Sprite sprite;  //the sprite of the object (for the inventory
 	public string description;  //the description of the Object (also for the inventory)
 
+
 	public void Awake()
+	//Set the owner of the Object : it must be a character
 	{
 		owner = this.GetComponent<_Character> ();
 		if (owner == null) 
