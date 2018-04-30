@@ -29,6 +29,10 @@ public class MainCharacter : _Character
 	public GameObject Interface;  //
 
 
+    //Network
+    PhotonView PhotonView;
+    private Vector3 TargetPosition;
+    private Quaternion TargetRotation;
 
 
 	new public void Awake ()
@@ -46,14 +50,20 @@ public class MainCharacter : _Character
 		cam = GameObject.Find ("MainCam");
 		speed = WalkSpeed;
 		CharacterObject.tag = "Player";
+        PhotonView = GetComponent<PhotonView>();
 	}
 
+    private void SmoothMove()
+    {
+        transform.position = Vector3.Lerp(transform.position, TargetPosition, 0.25f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, TargetRotation, RotateSpeed * Time.deltaTime);
+    }
 
 	new public void Update () 
 	//Update all the stats of our player
 	{
 		base.Update ();
-		if (!IsGamePaused && IsFreezed <= 0)
+		if (!IsGamePaused && IsFreezed <= 0 && PhotonView.isMine)
 		{
 			cheatcodes ();
 			Crouch ();
@@ -70,11 +80,11 @@ public class MainCharacter : _Character
 	new public void FixedUpdate ()
 	//Apply forces if we're not in pause
 	{ 
-		if (!IsGamePaused && !cheatCode && IsFreezed <=0) 
+		if (!IsGamePaused && !cheatCode && IsFreezed <=0 && PhotonView.isMine) 
 		{
 			Jump ();
 		}
-		if (!cheatCode && IsFreezed <= 0)
+		if (!cheatCode && IsFreezed <= 0 && PhotonView.isMine)
 		{
 			base.FixedUpdate();
 		}
