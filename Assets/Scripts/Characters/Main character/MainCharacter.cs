@@ -29,6 +29,27 @@ public class MainCharacter : _Character
 	public GameObject Interface;  //
 
 
+    //Network
+    private PhotonView PhotonView;
+    public PhotonView View
+    {
+        get { return PhotonView; }
+    }
+
+    //Serialized Fiels
+    [SerializeField]
+    private GameObject _display;
+    private GameObject DisplayObj
+    {
+        get { return _display; }
+    }
+
+    [SerializeField]
+    private GameObject _weapons;
+    private GameObject Weapons
+    {
+        get { return _weapons; }
+    }
 
 
 	new public void Awake ()
@@ -43,38 +64,54 @@ public class MainCharacter : _Character
 		base.Awake ();
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		cam = GameObject.Find ("MainCam");
+        cam = GetComponentInChildren<Camera>().gameObject;
+		//cam = GameObject.Find ("MainCam");
 		speed = WalkSpeed;
 		CharacterObject.tag = "Player";
-	}
+        PhotonView = GetComponent<PhotonView>();
+    }
 
+    private void Start()
+    {
+        if (!photonView.isMine)
+        {
+            cam.SetActive(false);
+            DisplayObj.SetActive(false);
+            Weapons.layer = 0;
+            Camera WeaponsCam = Weapons.GetComponentInChildren<Camera>();
+            WeaponsCam.enabled = false;
+        }
+    }
 
 	new public void Update () 
 	//Update all the stats of our player
 	{
 		base.Update ();
-		if (!IsGamePaused && IsFreezed <= 0)
-		{
-			cheatcodes ();
-			Crouch ();
-			CameraRotations ();
-			Move ();
-			Attack ();
-			LaunchSpell ();
-		}
-		SetMainStats ();
-		SetButtonsValue ();
+        if(PhotonView.isMine)
+        {
+            if (!IsGamePaused && IsFreezed <= 0)
+            {
+                cheatcodes();
+                Crouch();
+                CameraRotations();
+                Move();
+                Attack();
+                LaunchSpell();
+            }
+            SetMainStats();
+            SetButtonsValue();
+        }
 	}
 
 
 	new public void FixedUpdate ()
 	//Apply forces if we're not in pause
 	{ 
-		if (!IsGamePaused && !cheatCode && IsFreezed <=0) 
+		if (!IsGamePaused && !cheatCode && IsFreezed <=0 && PhotonView.isMine) 
 		{
 			Jump ();
 		}
-		if (!cheatCode && IsFreezed <= 0)
+		if (!cheatCode && IsFreezed <= 0 && PhotonView.isMine)
 		{
 			base.FixedUpdate();
 		}
