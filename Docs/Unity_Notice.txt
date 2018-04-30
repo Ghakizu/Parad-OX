@@ -1,0 +1,157 @@
+Unity Basics
+
+Bases :
+Awake() -> is called when the player launch the game
+Start() -> is called when the game object is enabled for the first time
+FixedUpdate() -> is applied every deltaTime.Time (unchanged) : must be called whenever you use physics attributes
+moves (otherwise, because the frames are note constant, there will be lags)
+void OnMouseDown() -> Is called when you click on an object. The object has to have the script containing this method, a rigidbody, and a box collider.
+vector3.magnitude() -> Calcul the Norm of a vector3 (if you want to calculate distances)
+Vector3.Dot (Vecteur A, Vecteur B) -> return (A.X * B.X) + (A.Y * B.Y) + (A.Z * B.Z) -> if = 0 : the vectors are perpendicular
+Time.DeltaTime = time between each update / fixedupdate -> multiply the translate / Rotate by deltaTime to get more smooths 
+
+
+Get acces to the components of the objects :
+MyComponent = getComponent<object> -> return the component of the object
+otherGameObject.GetComponent<script>() -> allows access to all public variables and methods of the script. You can also have access to other components. WARNING -> this methods is very expensive, so you must avoid using them, especially in functions that are called every time (Update...)
+
+
+Activate / Desactivate component or objects :
+MyComponent.Enabled = 'bool' -> activate / desactivate the component of an object. Tip : if we want to change his state every time (when puching a button for example) MyObject.Enabled = !MyObject.Enabled
+GameObject.SetActive('bool') -> activate / desactivate an object. Warning : desactivate a parent = desactivate all his children
+GameObject.activeSelf -> return object == active (just the object)
+GameObject.activeInHierarchy -> return object == active (the object, or his fathers)
+Destroy(GameObject, (optional) deltaTime) -> destroy the object, or a component if it's a component that is given in parameters (with getComponent), within deltaTime (immediately if delta is not given)
+
+
+Move your Object :
+transform.translate(Vector3) -> move the object following a Vector3
+vector3.forward <=> vector3(0, 0, 1)
+Vector3.up <=> vector3(0, 1, 0)
+transform.Rotate(Vector3) -> Rotate the object following a vector3
+
+
+Inputs :
+Input.getKey / GetButton -> key uses key codes (KeyCode.'....' (space for example)), button uses the names that you reference with a string in "edit -> project settings -> input" (It's better to use getButton). Return a boolean
+Input.GetButtonDown = return true only the frame when we push the button
+Input.GetButton = return true from the moment we push the button to the moment we release it
+Input.GetButtonUp = return true only the frame when we release the button
+INput.GetAxis = You can set it at the same place you set GetButton -> return a float between -1 and 1 instead of a bool. 
+Gravity = the time your force take to lower to 0.
+Sensitivity = the time your force take to go to 1 / -1 when you push the buttons.
+Input.GetAxis("horizontal" / "Vertical") : x and z axes
+Input.GetAxisRaw -> Don't swing between -1 and 1, but return only -1, 0 or 1.
+
+
+Create Objects :
+MyObject = Instantiate(gameObject, (optional position and rotation)) as rigidbody -> clone a game Object (then apply your functions to MyObject). WARNING: You must think to delete them after instantiated them, otherwise they will be in your map forever. (example : Destroy(MyObject, 1.5 (secondes))
+Invoke("Method", time) -> apply the method after time seconds.
+InvokeRepeating("method", time, delay) -> apply the method after time seconds, and then apply it every delay seconds (without end)
+CancelInvoke((optional) method) -> stop all the invokes methods if no parameters are given. Otherwise, it just stops the method given
+
+
+
+
+LookAt(gameObject) -> the object will rotate depending on the movements of the gameObject (always looking it -> useful for cameras)
+Mathf.Lerp(start, end, interpolation) -> linear interpolation (didn't understand when it's useful but maybe it's useful)
+GameObject.FindGameObjectsWithTag("string") -> return a table with all the objects tagged with "string"
+
+
+
+
+I / Unity tutorial basics : Create a survival game
+RayCast : askip c'est important
+RaycastHit : important aussi (cf vidéo 31)
+on triggerExit -> is applied when you exit a collider -> the opposit of OnTriggerEnter
+
+ANIMATIONS
+animation.play("animation") -> play the animation
+MyObject.animation.isPlaying == bool -> is the animation playing ?
+MyObject.animation.Crossfade("animation") -> play an animation in continue, and stop if another animation is played, but the mouvement is not broken
+Add events in the animations -> useful for killing enemies when the weapon touch him and not when the attack is done for example
+use "flat" to smooth the animations
+
+UNITY ITSELF
+edit -> projects settings -> quality -> let us change a lot of parameters
+You can change the parameters depending of the quality chosen when launchhing the game
+In fact, all the parameters that are located in edit -> project settings must be set for a good game
+
+PARTICLES
+Prewarm -> the particles already exists when we lunch the game
+everything is logical in the inspector
+Color / size over life time -> to use the gradient editor, choose the color of the beginning and the color of the end of the life of the partcles, by clicking on the small squares behind the timeline.
+
+
+TERRAIN
+create -> 3D object -> Terrain
+You can sculpt, or paint it
+By default, his position depends of one if his corner
+trees -> there is an auto renderer for the trees, if needed
+
+LIGHTS
+directional lights don't matter where it's placed into the scene
+
+SCRIPTING
+vector3.distance(vectorA, vectorB) is the same that (vectorA - vectorB).magnitude -> returns the distance
+Quaternion.LookRotation(vector3) -> creates a rotation with the specified forward directions
+transform.rotation = quaternion.Slerp(base rotation, rotation that we want, time.deltatime time) -> rotates something from his base rotation to the rotation that we want in the time indicated
+
+AUDIO
+before importing files to unity, compress them.
+audio.play() -> play the song "audio"
+audio.stop() -> srop playing the song "audio"
+audio.loop = bool; -> loop a song
+3D sound -> act like if the song was in the scene : echo, etc
+put in an empty child
+if it's a D sound, the sound will decrease between the minimum distance and the maximum distance
+problem with the 3D sound -> the sound will change when you turn -> avoid to use it when you want to use a song, or decrease the Doppler effect to 0, and use the curve to control the Pan Level, puting th epan to 0 under the minimum distance
+
+IA
+Instead of a rigidbody, use a character controller
+CharacterController controller
+Vector3 MoveDirection -> initialisé à 0
+because your not using a rb but a charcater controller, you must apply the gravity by yourself (moveDirection.Y -= gravity * time.DeltaTime)
+don't let the ennemy move into you if he is able to attack
+to know if the enemy can attack : two variables -> the repeatTime and the AttackTime. EveryFrame, you increase the attackTime by time.deltatime and when it's greater than the repeatTime, you set it to 0 and attack
+
+DOORS
+creates a collider, and apply a function when OnTriggerEnter
+
+GUI
+function "onGUI" -> display everytime what is in the function -> use if statements
+GUI.Box (new Rect (xlocation, ylocation, xsize, ysize), "string to display")
+The Rect fonctiun allows you te create some rectangles
+screen.width = how long is the screen
+screen.height = how high is the screen -> don't forget to minus the half of you're size if you want your box to be well placed
+Gui.button -> create a button
+if (Gui.button) -> check if the button is clicked
+
+waitForSeconds(t) -> suspends the execution for the amount of time t (if you want to close a door after opening it, you don't want it to happen ust after you open it, so you put this function
+
+GameObject.sendMessage("Method", parameter for the method) -> apply the method, using another script -> askip c'est important aussi
+
+RESPAWN
+if you're dead, disabled all the scripts, so you can't move anymore
+
+
+PLAYER
+maxhealth instead of health -> useful for the upkeep of the game
+
+CAMERAS
+create two cameras, one which represents all that have to be on the screen everytime (like your arms, your weapon for example. You don't want them to clip with walls)
+the minimum view must be adjusted (around 003) to avoid cliping
+
+ANIMATIONS CONTROLLER
+any state -> allows you to do the animation even thow you're running, jumping, swimming, etc
+to do a transition -> right click and make transition
+into the window -> add parameter -> then you can add conditions for the animation
+
+TIPs : in order to get all your weapons in the same place, and with the same rotation, don't just put them in children of the others object but create an empty object which will be the central point of your weapons
+
+script.SetBool("variable", value) -> set the bool variable to the value value
+
+for the colliders -> below the colliders, there is a material that can be add -> if it's ice for example, it will be slippery. To create new materials, go into create -> new PhysicsMaterial
+Mesh colliders are really taxing for your computer
+
+To test if the charcacter is on the floor -> charactercontroller.IsGrounded()
+Mathf.Lerf(departfloat, fnialfloat, time) -> Allows really smooths movements

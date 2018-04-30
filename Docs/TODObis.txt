@@ -1,0 +1,70 @@
+Labyrinthe multi :
+-	Chaque changement de grande partie interverti les deux joueurs, celui qui surveille et a accès aux boutons et celui qui se déplace dans le labyrinthe.
+-	Le joueur qui ne se déplace pas dans le labyrinthe a accès à des boutons désactivant les pièges, ouvrant des portes voire ouvrant les salles au trésor. Certains boutons permettent de donner des buffs au joueur dans le labyrinthe, mais ces boutons sont accessibles uniquement après des petites phases de plateforme/énigme.
+-	Si jamais le joueur qui ne participe pas au labyrinthe échoue sa phase de plateforme, il est bloqué à son point de respawn pendant 15s.
+Boss :
+-	Plateforme : Centaurus (mêlée)
+	HP : 700% MC (vie)
+	Attaque : 60% MC (vie)
+	Vitesse d'ataque : 1 attaque/2 secondes
+	Défense : 30% MC (vie)
+	Vitesse : 150% MC (vitesse)
+	Spécial : Faible face aux sorts électriques, a peur du vide (panique si un des pattes est au-dessus du « vide »), faible aux attaques venues du dessus, immunisé aux attaques non-magiques à distance.
+	Labyrinthe : Hippogriffe(mêlée)
+	HP : 600% MC (vie)
+	Attaque : 60% MC (vie)
+	Vitesse d'attaque : 1 attaque/1,5 secondes
+	Défense : 50% des dégâts subis
+	Vitesse : 200% MC (vitesse)
+	Spécial : Sensible aux sorts limitants ses mouvements (effet x2), devient enragé s'il ne trouve plus le joueur, s'il est enfermé il se laisse frapper.
+
+
+
+
+
+
+
+
+
+
+
+
+	Enigmes : Joel Courtois (mêlée/distance)
+	HP : 400% MC (vie)
+	Attaque : 30% MC (vie)
+	Vitesse d'attaque : 1 attaque/1 secondes
+	Défense : 25% des dégâts subis
+	Vitesse : 125% MC (vitesse)
+	Spécial : Il peut lancer des yachts et de l'argent pour attaquer à distance. De plus, le joueur doit répondre à trois questions avant de commencer le combat, chaque mauvaise réponse double les stats de Joel Courtois :
+	A quoi sert l'augmentation du prix d'EPITA ? 
+	1 : Acheter un Yacht pour Joel Courtois.
+	2 : Améliorer les infrastructures de l'école et le matériel.
+	3 : Financer les majeures.
+	4 : Juste faire chier.
+	Quel est la raison de Joel Courtois pour développer l'EPITA ?
+	1 : Avoir plus d'argent.
+	2 : Investir pour le futur de l'humanité.
+	3 : Créer une société secrète.
+	4 : Parce que.
+	Quel est la seule organisation digne d'être élue au BDE ?
+	Test.
+	Test
+	Test
+	Test
+ 
+Indices à placer :
+-	Journal évoquant un vieil homme ayant très peur du vide et un vertige assez violent depuis quelques mois et qui, à force d'être insupportable, a forcé ses voisins à déménager afin de pouvoir habiter au RDC. (Plateforme)
+-	Journal évoquant un jeune étant de venu agoraphobe et claustrophobe. (Labyrinthe)
+-	Journal évoquant un Riche entrepreneur ambitieux diplômé de l'EPITA ayant commencé à agir étrangement. (Enigmes)
+-	1 NPC barista qui évoque le vieil homme et sa paranoïa. (Plateforme)
+-	1 NPC vieux évoquant le vieil homme et son astraphobie (peur d'être frappée par la foudre dans un orage). (Plateforme)
+-	1 danseur au nightclub qui évoque le jeune et son absence de capacité intellectuelle. (Labyrinthe)
+-	Le jeune en question qui se balade durant le jour et si on lui parle, il s'énerve. (Labyrinthe)
+-	Une pub pour l'EPITA qui montre Joel Courtois devant un Yacht. (Enigmes)
+-	Une autre pub qui montre l'EPITA dirigée par la société secrète TEST.
+Pour le HUB : 
+-	3 vendeurs : 
+o	1 consommable
+o	1 sorts
+o	1 armes
+-	Trouver 2 des trois indices permet l'ouverture des niveaux devant les immeubles dans lesquels habitent les personnages.
