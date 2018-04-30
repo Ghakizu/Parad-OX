@@ -31,8 +31,10 @@ public class MainCharacter : _Character
 
     //Network
     private PhotonView PhotonView;
-    private Vector3 TargetPosition;
-    private Quaternion TargetRotation;
+    public PhotonView View
+    {
+        get { return PhotonView; }
+    }
 
     //Serialized Fiels
     [SerializeField]
@@ -66,11 +68,11 @@ public class MainCharacter : _Character
 		//cam = GameObject.Find ("MainCam");
 		speed = WalkSpeed;
 		CharacterObject.tag = "Player";
-	}
+        PhotonView = GetComponent<PhotonView>();
+    }
 
     private void Start()
     {
-        PhotonView = GetComponent<PhotonView>();
         if (!photonView.isMine)
         {
             cam.SetActive(false);
@@ -80,26 +82,6 @@ public class MainCharacter : _Character
             WeaponsCam.enabled = false;
         }
     }
-
-    private void SmoothMove()
-    {
-        transform.position = Vector3.Lerp(transform.position, TargetPosition, 0.25f);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, TargetRotation, RotateSpeed * Time.deltaTime);
-    }
-
-   /* private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if(stream.isWriting)
-        {
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
-        }
-        else
-        {
-            TargetPosition = (Vector3)stream.ReceiveNext();
-            TargetRotation = (Quaternion)stream.ReceiveNext();
-        }
-    } */
 
 	new public void Update () 
 	//Update all the stats of our player
@@ -119,8 +101,6 @@ public class MainCharacter : _Character
             SetMainStats();
             SetButtonsValue();
         }
-       // else
-        //    SmoothMove();
 	}
 
 

@@ -88,6 +88,14 @@ public class PlayerInventory : MonoBehaviour
 		Spell1 = SpellsInventory[0];
 		Spell2 = SpellsInventory[1];
 		Player.ActualSpell = Spell1;
+        if(!Player.View.isMine)
+        {
+            KatanaObject.layer = 0;
+            KnifeObject.layer = 0;
+            FistsObject.layer = 0;
+            Weapon1.gameObject.layer = 0;
+            Weapon2.gameObject.layer = 0;
+        }
 	}
 		
 
