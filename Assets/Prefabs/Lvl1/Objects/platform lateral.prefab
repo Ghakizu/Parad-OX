@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33794643833162986}
   - component: {fileID: 65083237479448636}
   - component: {fileID: 23677708661596916}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: platform lateral
   m_TagString: Untagged
   m_Icon: {fileID: 0}

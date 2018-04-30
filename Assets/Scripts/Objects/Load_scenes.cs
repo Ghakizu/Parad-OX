@@ -26,6 +26,7 @@ public class Load_scenes : MonoBehaviour
 		{
 			yield return null;
 		} 
+		Debug.Log ("coucou");
 		SceneManager.MoveGameObjectToScene(Player, SceneManager.GetSceneByName(SceneToLoad));
 		Player.transform.position = Spawnpoint;
 		Player.transform.Rotate (Rotation);

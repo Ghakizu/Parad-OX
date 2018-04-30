@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]  //All characters must have a Rigidbody
 
-public abstract class _Character : MonoBehaviour 
+public abstract class _Character : Photon.MonoBehaviour 
 {
 	// All living characters, they're able to move, jump....
 
@@ -47,7 +47,7 @@ public abstract class _Character : MonoBehaviour
 		Mana = MaxMana;
 		Health = MaxHealth;
 		SpawnPoint = transform.position;  //A default value. We must update it when we change the scene
-		JumpLayer = 0;  //The default value. Must be changed to another layer only used for the jumps. WARNING!
+		JumpLayer = 10;  //The default value. Must be changed to another layer only used for the jumps. WARNING!
 		CharacterRigidbody = GetComponent<Rigidbody> ();
 		CharacterObject = this.gameObject;
 	}

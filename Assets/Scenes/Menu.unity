@@ -1036,7 +1036,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 467137592}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1748402537}
+        m_MethodName: OnClickStartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &467137592
@@ -2961,7 +2972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000009212102, y: 0.000010197375}
+  m_AnchoredPosition: {x: -0.000009212102, y: -0.0000244701}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1027496341
@@ -3223,8 +3234,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: StartupHost
+      - m_Target: {fileID: 2058837751}
+        m_MethodName: OnCLickSoloButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3318,6 +3329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _roomLayoutGroup: {fileID: 1425888798}
+  _currentRoom: {fileID: 1748402535}
+  _lobby: {fileID: 1197622642}
 --- !u!1 &1216524638
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,7 +3425,7 @@ GameObject:
   - component: {fileID: 1290052245}
   - component: {fileID: 1290052244}
   m_Layer: 5
-  m_Name: RoomList
+  m_Name: PlayerList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3940,7 +3953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000009212102, y: -0.000040747887}
+  m_AnchoredPosition: {x: -0.000009212102, y: 0.000020287265}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1425888796
@@ -4138,7 +4151,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1522626414}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1027496343}
+        m_MethodName: OnClickRoomState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1522626414
@@ -4374,17 +4398,6 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1197622642}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 594102115}
-        m_MethodName: setCanvasEnabled
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2058837749}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5141,7 +5154,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1796407777}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1027496343}
+        m_MethodName: OnClickLeaveRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1796407777
@@ -5886,6 +5910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1991935547}
   - component: {fileID: 1991935548}
+  - component: {fileID: 1991935549}
   m_Layer: 0
   m_Name: PlayerNetwork
   m_TagString: Untagged
@@ -5917,6 +5942,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4af1d4388272ff4e82cf9959b71c3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn1: {fileID: 1542823020163992, guid: d6df3075fa3a4774485192286234f3fa, type: 2}
+  spawn2: {fileID: 1492820969585828, guid: 11cc0b3afdf536e48b8d76f8a9d6958b, type: 2}
+--- !u!114 &1991935549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991935546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 999
+  instantiationId: 999
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &2021223618
 GameObject:
   m_ObjectHideFlags: 0
@@ -5995,6 +6048,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fbefdca2c6be840ac57b7adc9aea76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentRoom: {fileID: 1748402535}
+  _lobby: {fileID: 1197622642}
 --- !u!1 &2068955081
 GameObject:
   m_ObjectHideFlags: 0

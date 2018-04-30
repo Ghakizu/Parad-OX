@@ -49,6 +49,19 @@ public class PlayerInventory : MonoBehaviour
 	public int SelectedObject = 1;  //1 = actualweapon1, 2 = actualweapon2
 	public int TypeOfObjects = 1; //1 = weapons, 2 = spells, 3 = potions, 4 = clues
 
+    [SerializeField]
+    private GameObject _weaponsCam;
+    private GameObject WeaponsCam
+    {
+        get { return _weaponsCam; }
+    }
+
+    [SerializeField]
+    private GameObject _weapon;
+    private GameObject Weapon
+    {
+        get { return _weapon; }
+    }
 
 
 
@@ -88,11 +101,27 @@ public class PlayerInventory : MonoBehaviour
 		Spell1 = SpellsInventory[0];
 		Spell2 = SpellsInventory[1];
 		Player.ActualSpell = Spell1;
+        // Desactivate the weapons camera and set the weapon layer to default if it's not the local player
+        if(!Player.View.isMine)
+        {
+            WeaponsCam.SetActive(false);
+            SetLayerRecursively(Weapon, 0);
+        }
 	}
-		
+
+    private static void SetLayerRecursively(GameObject go, int layerNumber)
+    {
+        Transform[] trans = go.GetComponentsInChildren<Transform>(true);
+        int length = trans.Length;
+        for(int i = 0; i < length; i++)
+        {
+            trans[i].gameObject.layer = layerNumber;
+        }
+    }
 
 
-	public void Update()
+
+    public void Update()
 	{
 		ChangeWeapon ();
 		ChangeSpell ();
