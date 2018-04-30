@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movingplatform : MonoBehaviour {
+public class Movingplatform : MonoBehaviour 
+{
+	//Moving platforms for the Level1
+
+
 	public float movementamplitude = 140;
 	private Vector3 origin;
 	public bool up;

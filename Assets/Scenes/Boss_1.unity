@@ -431,7 +431,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4198964906631438, guid: dcbfcde964ad3de4e9d1b326181dcf51, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -18.338749
+      value: 74.2
       objectReference: {fileID: 0}
     - target: {fileID: 4198964906631438, guid: dcbfcde964ad3de4e9d1b326181dcf51, type: 2}
       propertyPath: m_LocalPosition.z
@@ -575,20 +575,34 @@ MonoBehaviour:
   RunSpeed: 300
   Heightjump: 300
   Gravity: 250
+  SpawnPoint: {x: 0, y: 0, z: 0}
   MaxMana: 100
   Mana: 100
   MaxHealth: 150
   Health: 150
-  Defense: 20
+  IsAbleToAttack: 0
+  IsAbleToLaunchSpell: 0
+  ActualWeapon: {fileID: 0}
+  ActualSpell: {fileID: 0}
   CharacterObject: {fileID: 0}
   CharacterRigidbody: {fileID: 0}
-  Collider: {fileID: 0}
-  IsAbleToAttack: 0
-  weapon: {fileID: 0}
-  WeaponObject: {fileID: 0}
+  IsFreezed: 0
+  IsAirWallEnabled: 0
   target: {fileID: 0}
   RangeOfDetection: 0
   PlayersDetected: []
+  agent: {fileID: 2116487112}
+  MaxTimeToTarget: 3
+  TimeToTarget: 0
+  MaxWaitTime: 0.5
+  WaitTime: 0
+  MaxTimeTurning: 1
+  TimeTurning: 0
+  MaxTotalTimeToWait: 0
+  TotalTimeToWait: 0
+  left: 0
+  right: 0
+  IsWaiting: 1
   agent: {fileID: 2116487112}
 --- !u!195 &2116487112
 NavMeshAgent:

@@ -8,69 +8,81 @@ public class MainCharacter : _Character
 {
 	//The character that the player is using;
 
-	private bool cheatCode = false;  //cheatcode
-	private bool IsAbleToRun = true;  //if you're tired youn can't run anymore
-	private bool crouch = false;  //is the player crouched ?
-	private float speed;  //actual speed of the player
-	//private PlayerInventory Inventory;  //the inventory of our player. Maybe it's useless
-
-	public static float CheatSpeed = 500;  //the speed when we're cheating
-	public static float CrouchSpeed = 50; //speed when crouching
+	//STATS
+	//Moving the character
+	private bool cheatCode = false;  //Are we cheating
+	private bool IsAbleToRun = true;  //if you're out of stamina you can't run anymore
+	private bool crouch = false;  //is the player crouched
+	public float CheatSpeed = 500;  //the speed when we're cheating
+	public float CrouchSpeed = 50; //speed when crouching
 	public float OutOfStaminaSpeed = 50;  //speed when stamina is 0
 	public float MaxStamina = 50;  //How long can you dash
 	public float Stamina = 100;  //Actual stamina
+	public float speed;  //actual speed of the player
+
+	//Playing
 	public GameObject cam;  //the main camera of the player
 	public bool IsGamePaused = false;  //Is the game running or are we in a menu ?
 
+	//Displaying
 	public Slider StaminaButton;  //for the moment it's just the diplay of our stamina status
-	public GameObject NormalDisplays;
+	public GameObject Interface;  //
 
 
 
-	new public void Awake () 
+
+	new public void Awake ()
+	//SEt all the stats of the mainCharacter
 	{
+		MaxHealth = 150;
+		MaxMana = 200;
+		RotateSpeed = 200;
+		WalkSpeed = 100;
+		RunSpeed = 250;
+		Heightjump = 300;
 		base.Awake ();
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		//Inventory = GetComponent<PlayerInventory> (); //maybe useless
+		cam = GameObject.Find ("MainCam");
 		speed = WalkSpeed;
-		SpawnPoint = transform.position;
+		CharacterObject.tag = "Player";
 	}
 
 
 	new public void Update () 
+	//Update all the stats of our player
 	{
-		Attack ();
-		Debug.DrawRay (transform.position, transform.TransformDirection (Vector3.forward), Color.red);
 		base.Update ();
-		if (!IsGamePaused)
+		if (!IsGamePaused && IsFreezed <= 0)
 		{
 			cheatcodes ();
 			Crouch ();
 			CameraRotations ();
-			move ();
+			Move ();
+			Attack ();
+			LaunchSpell ();
 		}
-		else
-		{
-			Stamina += 10 * Time.deltaTime;
-			Stamina = Mathf.Min (Stamina, MaxStamina);
-		}
-		StaminaButton.value = Stamina / MaxStamina;
-			
+		SetMainStats ();
+		SetButtonsValue ();
 	}
-		
+
 
 	new public void FixedUpdate ()
-	{
-		base.FixedUpdate(); 
-		if (!IsGamePaused && !cheatCode)  //we only want to move up and down if our character is not cheating
+	//Apply forces if we're not in pause
+	{ 
+		if (!IsGamePaused && !cheatCode && IsFreezed <=0) 
 		{
 			Jump ();
+		}
+		if (!cheatCode && IsFreezed <= 0)
+		{
+			base.FixedUpdate();
 		}
 	}
 
 
 	new public void OnTriggerEnter(Collider other)
+	//Set the respawns, and all the trigger events
 	{
 		base.OnTriggerEnter (other);
 		switch (other.gameObject.tag) 
@@ -93,27 +105,53 @@ public class MainCharacter : _Character
 
 
 
-	 public void Attack()
+
+	//MOVING THE CHARACTER
+
+	private void Move()
+	//Move our player
 	{
-		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		Debug.DrawRay (transform.position, transform.TransformDirection (Vector3.forward));
-		if (Physics.Raycast(ray, out hit, 80000))
+		//movements along the Y axe if cheating
+		if (cheatCode)
 		{
-			Debug.Log ("coucou");
-			/*if (hit.collider.gameObject.tag == "Enemy")
+			if (Input.GetKey (KeyCode.H))
 			{
-				base.Attack (hit.collider.gameObject.GetComponent<_Enemies>());
-			}*/
-				
+				transform.Translate (new Vector3 (0, 1, 0) * speed * Time.deltaTime);
+			}
+			if (Input.GetKey (KeyCode.B))
+			{
+				transform.Translate (new Vector3 (0, -1, 0) * speed * Time.deltaTime);
+			}
 		}
 
+		//Movements along X and Z axes
+		if (Input.GetButton ("Dash") && Stamina > 0 && IsAbleToRun && !cheatCode && !crouch
+			&& (Input.GetButton("Horizontal") || Input.GetButton ("Vertical"))) 
+		{
+			base.Move (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), RunSpeed); 
+			Stamina -= 20 * Time.deltaTime;
+			if (Stamina < 0)
+			{
+				IsAbleToRun = false;
+				speed = OutOfStaminaSpeed;
+			}
+		}
+		else
+		{
+			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed); 
+		}
+
+		//Rotation of the character
+		transform.Rotate (Vector3.up * Input.GetAxis ("Mouse X") * RotateSpeed * Time.deltaTime); 
 	}
 
+
+
 	private void cheatcodes ()
+	//enables or disables the cheatcodes
 	{
-		//enables or disables the cheatcodes
-		if (Input.GetKeyDown (KeyCode.F))  //allows or not your player to fly
+		//allows or not your player to fly
+		if (Input.GetKeyDown (KeyCode.F))  
 		{
 			CharacterRigidbody.velocity = Vector3.zero;
 			cheatCode = !cheatCode;
@@ -121,7 +159,8 @@ public class MainCharacter : _Character
 			CharacterRigidbody.useGravity = !cheatCode;
 		}
 
-		if (Input.GetKeyDown (KeyCode.R))  //Respawn to the last checkpoint automatically
+		//Respawn to the last checkpoint automatically
+		if (Input.GetKeyDown (KeyCode.R))  
 		{
 			CharacterRigidbody.velocity = Vector3.zero;
 			transform.position = SpawnPoint + new Vector3(0, 2, 0);
@@ -131,6 +170,7 @@ public class MainCharacter : _Character
 
 
 	public void Crouch()
+	//Allows our player to crouch : must be changed, we don't want the camera just to go down. WARNING!
 	{
 		if(Input.GetButtonDown ("Crouch") && !cheatCode)
 		{
@@ -150,59 +190,20 @@ public class MainCharacter : _Character
 
 
 
-	private void move()
-	{
-		//movements along the Y axe if cheating
-		if (cheatCode)
-		{
-			if (Input.GetKey (KeyCode.H))
-				transform.Translate (new Vector3 (0, 1, 0) * speed * Time.deltaTime);
-			if (Input.GetKey (KeyCode.B))
-				transform.Translate (new Vector3 (0, -1, 0) * speed * Time.deltaTime);
-		}
-		//Movements along X and Z axes
-		if (Input.GetButton ("Dash") && Stamina > 0 && IsAbleToRun && !cheatCode && !crouch //We can't dash if we're cheating
-			&& (Input.GetButton("Horizontal") || Input.GetButton ("Vertical"))) 
-		{
-			base.Move (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), RunSpeed); 
-			Stamina -= 10 * Time.deltaTime;
-			if (Stamina < 0)
-			{
-				IsAbleToRun = false;
-				speed = OutOfStaminaSpeed;
-			}
-		}
-		else
-		{
-			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed); 
-			Stamina += 10 * Time.deltaTime;
-			Stamina = Mathf.Min (Stamina, MaxStamina);
-			if (!IsAbleToRun && Stamina > 40)
-			{
-				IsAbleToRun = true;
-				speed = WalkSpeed;
-			}
-		}
-		//Rotation of the character
-		transform.Rotate (Vector3.up * Input.GetAxis ("Mouse X") * RotateSpeed * Time.deltaTime); 
-	}
-
-
 	new private void Jump()  
+	//Jump if the player is on the ground and if the button "Jump" is pressed
 	{
-		//Jump if the player is on the ground and if the button "Jump" is pressed
 		if (Input.GetButton ("Jump") && !cheatCode && IsAbleToJump)
 		{
 			base.Jump ();
-			IsAbleToJump = false;
 		}
 	}
 
 
-	private void CameraRotations()
-	{
 
-		//Rotate the camera up and down
+	private void CameraRotations()
+	//Rotate the camera up and down
+	{
 		float Y = -Input.GetAxis ("Mouse Y");
 		float ActualRotation = cam.transform.localRotation.x;
 		if ((ActualRotation <= 0.6 && Y > 0) || (ActualRotation >= -0.6 && Y < 0)) 
@@ -212,7 +213,82 @@ public class MainCharacter : _Character
 	}
 
 
+
+
+
+
+
+	//UPDATE THE STATS OF OUR PLAYER
+
+	public void SetButtonsValue()
+	//Set the values of the slider
+	{
+		StaminaButton.value = Stamina / MaxStamina;
+	}
+
+
+	public void SetMainStats()
+	//Reset the values of our player
+	{
+		Stamina += 5 * Time.deltaTime;
+		Stamina = Mathf.Min (Stamina, MaxStamina);
+		if (!IsAbleToRun && Stamina > 40)
+		{
+			IsAbleToRun = true;
+			speed = WalkSpeed;
+		}
+	}
+
+
+
+
+
+
+
+	//FIGHTING
+
+	public void Attack()
+	//Attack with our weapon
+	{
+		if (Input.GetButtonDown("Attack"))
+		{
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, transform.forward, out hit))
+			{
+				if (hit.collider.gameObject.tag == "Enemy" 
+					&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
+					&& IsAbleToAttack < 0)
+				{
+					_Enemies enemy = hit.collider.gameObject.GetComponent<_Enemies> ();
+					base.Attack (enemy);
+				}
+			}
+		}
+	}
+
+
+	public void LaunchSpell()
+	//Launch the spell with our actual spell
+	{
+		if (Input.GetButtonDown("LaunchSpell"))
+		{
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, transform.forward, out hit))
+			{
+				if (hit.collider.gameObject.tag == "Enemy" 
+					&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
+					&& Mana - ActualSpell.ManaConsumed > 0)
+				{
+					_Enemies enemy = hit.collider.gameObject.GetComponent<_Enemies> ();
+					base.LaunchSpell (enemy);
+				}
+			}
+		}
+	}
+		
+
 	new public void Die()
+	//Die and display the GameOver menu
 	{
 		//TODO : display a GameOver screen
 	}
@@ -220,4 +296,4 @@ public class MainCharacter : _Character
 
 
 //1 WARNING
-//crouching reduce the area of detecting
+//crouching reduce the area of detecting + we don't want to just put the camera down

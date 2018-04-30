@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Knife : _Weapons
 {
-	private PlayerInventory MyPlayer;
+	//A knife, that only cut tomatoes
 
-	void Start()
+	new public void Awake()
+	//Set all the stats of the weapon
 	{
-		MyPlayer = GetComponent<PlayerInventory> ();
-		damages = 10;  //to adapt
-		RangeOfAttk = 1; //to adapt
-		Object = MyPlayer.KnifeObject;
 		ObjectName = "Knife";
+		sprite = MaterialsAssignations.KnifeSprite;
+		damages = 30; 
+		RangeOfAttk = 40;
+		TimeBetweenAttacks = 0.5f;
+		SubDescription = "A small knife usefull to cut tomatoes.";
+		base.Awake ();
 	}
 }

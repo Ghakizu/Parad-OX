@@ -8,6 +8,7 @@ TagManager:
   - respawn
   - partend
   - Scene
+  - Enemy
   layers:
   - Default
   - TransparentFX
