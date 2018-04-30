@@ -37,8 +37,8 @@ public class MainCharacter : _Character
 		MaxHealth = 150;
 		MaxMana = 200;
 		RotateSpeed = 200;
-		WalkSpeed = 100;
-		RunSpeed = 250;
+		WalkSpeed = 150;
+		RunSpeed = 300;
 		Heightjump = 300;
 		base.Awake ();
 		Cursor.lockState = CursorLockMode.Locked;

@@ -47,7 +47,7 @@ public abstract class _Character : MonoBehaviour
 		Mana = MaxMana;
 		Health = MaxHealth;
 		SpawnPoint = transform.position;  //A default value. We must update it when we change the scene
-		JumpLayer = 0;  //The default value. Must be changed to another layer only used for the jumps. WARNING!
+		JumpLayer = 10;  //The default value. Must be changed to another layer only used for the jumps. WARNING!
 		CharacterRigidbody = GetComponent<Rigidbody> ();
 		CharacterObject = this.gameObject;
 	}
