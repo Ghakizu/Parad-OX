@@ -27,8 +27,15 @@ public class LobbyNetwork : MonoBehaviour
         get { return _lobby; }
     }
 
+
+    public void OnCLickSoloButton()
+    {
+        PhotonNetwork.offlineMode = true;
+    }
+
     public void OnClickMultiplayerButton()
     {
+        PhotonNetwork.offlineMode = false;
         print("Connecting to server..");
         PhotonNetwork.ConnectUsingSettings(Version);
     }
@@ -39,7 +46,13 @@ public class LobbyNetwork : MonoBehaviour
         PhotonNetwork.automaticallySyncScene = true;
         PhotonNetwork.playerName = PlayerNetwork.Instance.PlayerName;
 
-        PhotonNetwork.JoinLobby(TypedLobby.Default);
+        if(PhotonNetwork.offlineMode)
+        {
+            PhotonNetwork.CreateRoom("Solo");
+            PhotonNetwork.LoadLevel(1);
+        }
+        else
+            PhotonNetwork.JoinLobby(TypedLobby.Default);
     }
 
     private void OnJoinedLobby()
@@ -50,6 +63,6 @@ public class LobbyNetwork : MonoBehaviour
             CurrentRoom.SetActive(false);
             Lobby.SetActive(true);
         }
-
+        
     }
 }
