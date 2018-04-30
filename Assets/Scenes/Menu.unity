@@ -5942,6 +5942,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4af1d4388272ff4e82cf9959b71c3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn1: {fileID: 1542823020163992, guid: d6df3075fa3a4774485192286234f3fa, type: 2}
+  spawn2: {fileID: 1492820969585828, guid: 11cc0b3afdf536e48b8d76f8a9d6958b, type: 2}
 --- !u!114 &1991935549
 MonoBehaviour:
   m_ObjectHideFlags: 0

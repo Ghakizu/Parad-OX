@@ -30,9 +30,24 @@ public class MainCharacter : _Character
 
 
     //Network
-    PhotonView PhotonView;
+    private PhotonView PhotonView;
     private Vector3 TargetPosition;
     private Quaternion TargetRotation;
+
+    //Serialized Fiels
+    [SerializeField]
+    private GameObject _display;
+    private GameObject DisplayObj
+    {
+        get { return _display; }
+    }
+
+    [SerializeField]
+    private GameObject _weapons;
+    private GameObject Weapons
+    {
+        get { return _weapons; }
+    }
 
 
 	new public void Awake ()
@@ -47,11 +62,24 @@ public class MainCharacter : _Character
 		base.Awake ();
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		cam = GameObject.Find ("MainCam");
+        cam = GetComponentInChildren<Camera>().gameObject;
+		//cam = GameObject.Find ("MainCam");
 		speed = WalkSpeed;
 		CharacterObject.tag = "Player";
-        PhotonView = GetComponent<PhotonView>();
 	}
+
+    private void Start()
+    {
+        PhotonView = GetComponent<PhotonView>();
+        if (!photonView.isMine)
+        {
+            cam.SetActive(false);
+            DisplayObj.SetActive(false);
+            Weapons.layer = 0;
+            Camera WeaponsCam = Weapons.GetComponentInChildren<Camera>();
+            WeaponsCam.enabled = false;
+        }
+    }
 
     private void SmoothMove()
     {
@@ -59,21 +87,40 @@ public class MainCharacter : _Character
         transform.rotation = Quaternion.RotateTowards(transform.rotation, TargetRotation, RotateSpeed * Time.deltaTime);
     }
 
+   /* private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.isWriting)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+        }
+        else
+        {
+            TargetPosition = (Vector3)stream.ReceiveNext();
+            TargetRotation = (Quaternion)stream.ReceiveNext();
+        }
+    } */
+
 	new public void Update () 
 	//Update all the stats of our player
 	{
 		base.Update ();
-		if (!IsGamePaused && IsFreezed <= 0 && PhotonView.isMine)
-		{
-			cheatcodes ();
-			Crouch ();
-			CameraRotations ();
-			Move ();
-			Attack ();
-			LaunchSpell ();
-		}
-		SetMainStats ();
-		SetButtonsValue ();
+        if(PhotonView.isMine)
+        {
+            if (!IsGamePaused && IsFreezed <= 0)
+            {
+                cheatcodes();
+                Crouch();
+                CameraRotations();
+                Move();
+                Attack();
+                LaunchSpell();
+            }
+            SetMainStats();
+            SetButtonsValue();
+        }
+       // else
+        //    SmoothMove();
 	}
 
 

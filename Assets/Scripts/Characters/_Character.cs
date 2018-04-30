@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]  //All characters must have a Rigidbody
 
-public abstract class _Character : MonoBehaviour 
+public abstract class _Character : Photon.MonoBehaviour 
 {
 	// All living characters, they're able to move, jump....
 

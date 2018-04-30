@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class PlayerNetwork : MonoBehaviour
 {
 
     public static PlayerNetwork Instance;
     public string PlayerName { get; private set; }
+    public GameObject spawn1;
+    public GameObject spawn2;
 
     private PhotonView PhotonView;
     private string Name = "Hub_Scene";
     private int PlayerInGame = 0;
+    private Queue<GameObject> spawn;
 
     // Use this for initialization
     private void Awake()
@@ -19,6 +23,9 @@ public class PlayerNetwork : MonoBehaviour
         PhotonView = GetComponent<PhotonView>();
 
         PlayerName = "Player#" + Random.Range(1000, 9999);
+
+        PhotonNetwork.sendRate = 60;
+        PhotonNetwork.sendRateOnSerialize = 30;
 
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
     }
@@ -65,8 +72,7 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_CreatePlayer()
     {
-        float randomvalue = Random.Range(-42f, 0f);
-        Vector3 position = new Vector3(randomvalue, -18, 38);
+        Vector3 position = new Vector3(Random.Range(0f, 200f), Random.Range(20f, 50f));
         PhotonNetwork.Instantiate("_Player", position, Quaternion.identity, 0);
     }
 }
