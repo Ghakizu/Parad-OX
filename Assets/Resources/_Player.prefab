@@ -3430,6 +3430,8 @@ MonoBehaviour:
   Inventory: {fileID: 223417725112149272}
   SelectedObject: 1
   TypeOfObjects: 1
+  _weaponsCam: {fileID: 1576729601448154}
+  _weapon: {fileID: 1642952042795692}
 --- !u!114 &114546438326859256
 MonoBehaviour:
   m_ObjectHideFlags: 1

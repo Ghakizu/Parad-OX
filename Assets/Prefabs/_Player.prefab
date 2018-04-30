@@ -2136,6 +2136,7 @@ MonoBehaviour:
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
+  SubDescription: 
 --- !u!114 &114061743649011042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3276,17 +3277,18 @@ MonoBehaviour:
   FistsObject: {fileID: 0}
   KatanaObject: {fileID: 0}
   KnifeObject: {fileID: 0}
-  TaserObject: {fileID: 0}
   Weapon1: {fileID: 0}
   Weapon2: {fileID: 0}
   ActiveSpell: 3
   SpellsInventory: []
-  Spell1Object: {fileID: 0}
-  Spell2Object: {fileID: 0}
-  Spell3Object: {fileID: 0}
-  Spell4Object: {fileID: 0}
+  FreezeObject: {fileID: 0}
+  AirWallObject: {fileID: 0}
+  EarthSpikeObject: {fileID: 0}
+  FireBallObject: {fileID: 0}
+  FlashObject: {fileID: 0}
   Spell1: {fileID: 0}
   Spell2: {fileID: 0}
+  ActiveConsumable: 5
   ConsumablesInventory: []
   CluesInventoryLvl1: []
   CluesInventoryLvl2: []
@@ -3294,6 +3296,7 @@ MonoBehaviour:
   Inventory: {fileID: 223402885851716740}
   SelectedObject: 1
   TypeOfObjects: 1
+  _weaponsCam: {fileID: 1410881917702538}
 --- !u!114 &114498145030936474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3602,6 +3605,7 @@ MonoBehaviour:
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
+  SubDescription: 
 --- !u!114 &114597992175817940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4234,24 +4238,31 @@ MonoBehaviour:
   RunSpeed: 250
   Heightjump: 300
   Gravity: 250
+  SpawnPoint: {x: 0, y: 0, z: 0}
   MaxMana: 100
   Mana: 100
   MaxHealth: 150
   Health: 150
-  Defense: 20
+  IsAbleToAttack: 0
+  IsAbleToLaunchSpell: 0
+  ActualWeapon: {fileID: 0}
+  ActualSpell: {fileID: 0}
   CharacterObject: {fileID: 0}
   CharacterRigidbody: {fileID: 0}
-  Collider: {fileID: 0}
-  IsAbleToAttack: 0
-  weapon: {fileID: 0}
-  WeaponObject: {fileID: 0}
+  IsFreezed: 0
+  IsAirWallEnabled: 0
+  CheatSpeed: 500
+  CrouchSpeed: 50
   OutOfStaminaSpeed: 50
   MaxStamina: 50
   Stamina: 100
+  speed: 0
   cam: {fileID: 1319852768489502}
   IsGamePaused: 0
   StaminaButton: {fileID: 114314765372379780}
-  NormalDisplays: {fileID: 1286729672494370}
+  Interface: {fileID: 0}
+  _display: {fileID: 0}
+  _weapons: {fileID: 0}
 --- !u!114 &114847284037660038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4589,6 +4600,7 @@ MonoBehaviour:
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
+  SubDescription: 
 --- !u!114 &114983367898226638
 MonoBehaviour:
   m_ObjectHideFlags: 1
