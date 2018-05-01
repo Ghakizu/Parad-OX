@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LobbyNetwork : MonoBehaviour
 {
-    private string Version = "Alpha v0.0.1";
+    private string Version = "Alpha v0.0.2";
 
     // Use this for initialization
     /*  private void Start()
@@ -25,6 +25,12 @@ public class LobbyNetwork : MonoBehaviour
     private GameObject Lobby
     {
         get { return _lobby; }
+    }
+
+
+    public void OnClickDisconnect()
+    {
+        PhotonNetwork.Disconnect();
     }
 
 
@@ -49,7 +55,7 @@ public class LobbyNetwork : MonoBehaviour
         if(PhotonNetwork.offlineMode)
         {
             PhotonNetwork.CreateRoom("Solo");
-            PhotonNetwork.LoadLevel(1);
+            PhotonNetwork.LoadLevel("RealWorld");
         }
         else
             PhotonNetwork.JoinLobby(TypedLobby.Default);
@@ -63,6 +69,10 @@ public class LobbyNetwork : MonoBehaviour
             CurrentRoom.SetActive(false);
             Lobby.SetActive(true);
         }
-        
+    }
+
+    private void OnDisconnectedFromPhoton()
+    {
+        print("Disconnected from master");
     }
 }

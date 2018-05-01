@@ -54,6 +54,6 @@ public class Infini : MonoBehaviour
 
     void isActive(string sceneToLoad, GameObject player)
     {
-		StartCoroutine(Load_scenes.LoadScenes(sceneToLoad, player, new Vector3(-1626, -2366, -4027), new Vector3(0, 0, 0)));
+		// StartCoroutine(Load_scenes.LoadScenes(sceneToLoad, player, new Vector3(-1626, -2366, -4027), new Vector3(0, 0, 0)));
     }
 }
