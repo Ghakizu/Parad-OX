@@ -12,9 +12,15 @@ public class PlayerNetwork : MonoBehaviour
     public GameObject spawn2;
 
     private PhotonView PhotonView;
-    private string Name = "Labyrinthe bis";
+    private string _name = "Labyrinthe bis";
+    public string Name
+    {
+        get { return _name; }
+        set { _name = value; }
+    }
     private int PlayerInGame = 0;
     private Queue<GameObject> spawn;
+    private bool isLoaded = false;
 
     // Use this for initialization
     private void Awake()
@@ -39,6 +45,12 @@ public class PlayerNetwork : MonoBehaviour
             else
                 NonMasterLoadedGame();
         }
+        else if (scene.name == "RealWorld" && !isLoaded)
+        {
+            GameObject Player =PhotonNetwork.Instantiate("_Player", new Vector3(187, 20, 111), Quaternion.identity, 0);
+            Player.transform.SetParent(transform.parent, false);
+            isLoaded = true;
+        }
     }
 
     private void MasterLoadedGame()
@@ -55,7 +67,7 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_LoadGameOthers()
     {
-        PhotonNetwork.LoadLevel(1);
+        PhotonNetwork.LoadLevel(_name);
     }
 
     [PunRPC]
@@ -73,6 +85,7 @@ public class PlayerNetwork : MonoBehaviour
     private void RPC_CreatePlayer()
     {
 		Vector3 position = new Vector3(Random.Range(1500f, 1600f), Random.Range(10f, 50f), Random.Range(8900f, 9100f));
-        PhotonNetwork.Instantiate("_Player", position, Quaternion.identity, 0);
+       GameObject Player = PhotonNetwork.Instantiate("_Player", position, Quaternion.identity, 0);
+        Player.transform.SetParent(transform.parent, false);
     }
 }

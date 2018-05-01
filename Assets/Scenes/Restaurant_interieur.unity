@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1264,6 +1264,21 @@ Prefab:
         type: 2}
       propertyPath: Scene
       value: Hub_Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 135842860712948482, guid: 777f4449840ba1c40ad9c8aab5d0d1d1,
+        type: 2}
+      propertyPath: m_Radius
+      value: 6.4964056
+      objectReference: {fileID: 0}
+    - target: {fileID: 135842860712948482, guid: 777f4449840ba1c40ad9c8aab5d0d1d1,
+        type: 2}
+      propertyPath: m_Center.z
+      value: -0.872474
+      objectReference: {fileID: 0}
+    - target: {fileID: 135842860712948482, guid: 777f4449840ba1c40ad9c8aab5d0d1d1,
+        type: 2}
+      propertyPath: m_Center.x
+      value: -15.869942
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 777f4449840ba1c40ad9c8aab5d0d1d1, type: 2}
@@ -3312,6 +3327,16 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224901686549868810, guid: 28e89eda380769c46a03ab8378e512cd,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224901686549868810, guid: 28e89eda380769c46a03ab8378e512cd,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28e89eda380769c46a03ab8378e512cd, type: 2}
