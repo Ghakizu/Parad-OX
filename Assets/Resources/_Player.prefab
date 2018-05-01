@@ -2890,6 +2890,7 @@ MonoBehaviour:
   IsGamePaused: 0
   StaminaButton: {fileID: 114219562119328146}
   Interface: {fileID: 0}
+  anim: {fileID: 95380746061602158}
   _display: {fileID: 1278121783763160}
   _weapons: {fileID: 1642952042795692}
 --- !u!114 &114422602100250456

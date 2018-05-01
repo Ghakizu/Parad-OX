@@ -28,6 +28,8 @@ public class MainCharacter : _Character
 	public Slider StaminaButton;  //for the moment it's just the diplay of our stamina status
 	public GameObject Interface;  //
 
+	//Animator
+	public Animator anim;
 
     //Network
     private PhotonView PhotonView;
@@ -100,6 +102,9 @@ public class MainCharacter : _Character
             }
             SetMainStats();
             SetButtonsValue();
+
+			if (IsAbleToAttack <= 0)
+				anim.SetBool ("Attacking", false);
         }
 	}
 
@@ -168,6 +173,8 @@ public class MainCharacter : _Character
 		if (Input.GetButton ("Dash") && Stamina > 0 && IsAbleToRun && !cheatCode && !crouch
 			&& (Input.GetButton("Horizontal") || Input.GetButton ("Vertical"))) 
 		{
+			anim.SetBool ("Walk", false);
+			anim.SetBool ("Run",true);
 			base.Move (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), RunSpeed); 
 			Stamina -= 20 * Time.deltaTime;
 			if (Stamina < 0)
@@ -178,6 +185,16 @@ public class MainCharacter : _Character
 		}
 		else
 		{
+			if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0) 
+			{
+				anim.SetBool ("Walk", true);
+				anim.SetBool ("Run", false);
+			} 
+			else 
+			{
+				anim.SetBool ("Walk", false);
+				anim.SetBool ("Run", false);
+			}
 			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed); 
 		}
 
@@ -290,15 +307,13 @@ public class MainCharacter : _Character
 	public void Attack()
 	//Attack with our weapon
 	{
-		if (Input.GetButtonDown("Attack"))
-		{
+		if (Input.GetButtonDown ("Attack")) {
+			anim.SetBool ("Attacking", true);
 			RaycastHit hit;
-			if (Physics.Raycast(transform.position, transform.forward, out hit))
-			{
-				if (hit.collider.gameObject.tag == "Enemy" 
-					&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
-					&& IsAbleToAttack < 0)
-				{
+			if (Physics.Raycast (transform.position, transform.forward, out hit)) {
+				if (hit.collider.gameObject.tag == "Enemy"
+				    && (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk
+				    && IsAbleToAttack < 0) {
 					_Enemies enemy = hit.collider.gameObject.GetComponent<_Enemies> ();
 					base.Attack (enemy);
 				}
