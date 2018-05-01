@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LobbyNetwork : MonoBehaviour
 {
-    private string Version = "Alpha v0.0.1";
+    private string Version = "Alpha v0.0.2";
 
     // Use this for initialization
     /*  private void Start()
@@ -49,7 +49,7 @@ public class LobbyNetwork : MonoBehaviour
         if(PhotonNetwork.offlineMode)
         {
             PhotonNetwork.CreateRoom("Solo");
-            PhotonNetwork.LoadLevel(1);
+            PhotonNetwork.LoadLevel("RealWorld");
         }
         else
             PhotonNetwork.JoinLobby(TypedLobby.Default);
