@@ -1328,6 +1328,8 @@ GameObject:
   - component: {fileID: 114773866333715374}
   - component: {fileID: 114443515119397594}
   - component: {fileID: 114155641777961980}
+  - component: {fileID: 114640143020528612}
+  - component: {fileID: 114392710239193570}
   m_Layer: 8
   m_Name: _Player
   m_TagString: Player
@@ -3713,6 +3715,26 @@ MonoBehaviour:
   player: {fileID: 114534531970385438}
   OtherWeapon: {fileID: 0}
   Inventory: {fileID: 223417725112149272}
+--- !u!114 &114392710239193570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1810529741753342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3fe277117a18bc43b8de101f106d807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
 --- !u!114 &114401592656290812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3804,14 +3826,13 @@ MonoBehaviour:
   speed: 0
   cam: {fileID: 1031231489512048}
   IsGamePaused: 0
-  Interface: {fileID: 0}
-  anim: {fileID: 95380746061602158}
   StaminaButton: {fileID: 114658893661531824}
   HealthButton: {fileID: 114590791208622288}
   ManaButton: {fileID: 114693921966779202}
-  Interface: {fileID: 1209367084563620}
+  Interface: {fileID: 0}
   PauseMenu: {fileID: 1431131596552868}
   GameOver: {fileID: 1700402432177594}
+  anim: {fileID: 95380746061602158}
   _display: {fileID: 1278121783763160}
   _weapons: {fileID: 1642952042795692}
 --- !u!114 &114422602100250456
@@ -4272,6 +4293,8 @@ MonoBehaviour:
   FlashObject: {fileID: 0}
   Spell1: {fileID: 0}
   Spell2: {fileID: 0}
+  cons1: {fileID: 0}
+  cons2: {fileID: 0}
   ActiveConsumable: 5
   ConsumablesInventory: []
   CluesInventoryLvl1: []
@@ -4621,6 +4644,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114640143020528612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1810529741753342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2482ba7a6f2c83408a60f4670df7fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
 --- !u!114 &114642748996236768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5938,7 +5981,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114259803129874942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114164067489394210}
+        m_MethodName: DisplayConsumables
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114982922983583604
