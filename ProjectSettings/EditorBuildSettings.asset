@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 881d87b62a8bcde49a45a7302b316979
+  - enabled: 1
+    path: Assets/Scenes/Labyrinthe bis.unity
+    guid: b1a8674db25af9c42815031e18be6be1
   - enabled: 0
     path: "Assets/Scenes/Bar_Int\xE9rieur.unity"
     guid: c7c6be3e643f5b04e9cc912da2b7bf46
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Hub_Scene.unity
     guid: ee77fd76edfe4ea4daff3011e0e16216
   - enabled: 0

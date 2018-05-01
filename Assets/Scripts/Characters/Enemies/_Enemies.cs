@@ -33,6 +33,7 @@ public abstract class _Enemies : _Character
 	public bool IsWaiting = true;  //are we waiting
 	public Vector3 PatrolLocation = Vector3.zero;  //the next location where the character must move
 	public float DistanceAroundSpawnPoint = 200;
+	public float timerToReset = 5;
 
 
 
@@ -209,6 +210,10 @@ public abstract class _Enemies : _Character
 			{
 				Patrol ();
 			}
+			if(timerToReset >= 0)
+			{
+				timerToReset -= Time.deltaTime;
+			}
 		}
 	}
 
@@ -217,7 +222,8 @@ public abstract class _Enemies : _Character
 	public void Patrol ()
 	//Move to a random position around the position of the spawnpoint, and then look for us
 	{
-		if ((this.transform.position - PatrolLocation).magnitude < agent.stoppingDistance + 5)
+		if ((this.transform.position - PatrolLocation).magnitude < agent.stoppingDistance + 5 || 
+			(this.GetComponent<Rigidbody>().velocity == Vector3.zero && timerToReset <=0))
 		{
 			ResetWaitStatus ();
 			TotalTimeToWait = MaxTotalTimeToWait;
@@ -270,6 +276,7 @@ public abstract class _Enemies : _Character
 	{
 		if(!IsWaiting)
 		{
+			timerToReset = 10;
 			IsWaiting = true;
 			left = false;
 			right = true;

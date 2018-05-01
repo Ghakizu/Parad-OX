@@ -31,4 +31,22 @@ public class MenuBehaviour : MonoBehaviour
 	{
 		Application.Quit ();
 	}
+
+	public void LockMouse()
+	{
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+	}
+
+
+	public void Restart(MainCharacter player)
+	{
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+		player.transform.position = player.GetComponent<MainCharacter> ().SpawnPoint;
+		player.Health = player.MaxHealth;
+		player.Stamina = player.MaxStamina;
+		player.Mana = player.MaxMana;
+
+	}
 }
