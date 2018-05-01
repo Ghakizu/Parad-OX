@@ -73,7 +73,7 @@ public class MainCharacter : _Character
 
     private void Start()
     {
-        if (!photonView.isMine)
+        if (!PhotonView.isMine)
         {
             cam.SetActive(false);
             DisplayObj.SetActive(false);
