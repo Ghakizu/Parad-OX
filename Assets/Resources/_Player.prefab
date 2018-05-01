@@ -2880,7 +2880,7 @@ MonoBehaviour:
   CharacterRigidbody: {fileID: 0}
   IsFreezed: 0
   IsAirWallEnabled: 0
-  CheatSpeed: 500
+  CheatSpeed: 1000
   CrouchSpeed: 50
   OutOfStaminaSpeed: 50
   MaxStamina: 50
