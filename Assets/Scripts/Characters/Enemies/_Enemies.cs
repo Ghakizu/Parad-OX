@@ -133,6 +133,10 @@ public abstract class _Enemies : _Character
 				IsWaiting = false;
 			}
 		}
+		if (timerToReset >= 0)
+		{
+			timerToReset -= Time.deltaTime;
+		}
 	}
 
 
@@ -190,12 +194,14 @@ public abstract class _Enemies : _Character
 				TimeToTarget = MaxTimeToTarget;
 				target = NewTarget;
 				Move (target.transform.position, RunSpeed);
+				Debug.Log ("1");
 			}
 
 			else if(TimeToTarget > 0)
 			//if the character is continuing to follow us, we just reset his destination
 			{
 				agent.SetDestination (target.transform.position);
+				Debug.Log ("2");
 			}
 
 			else if (TotalTimeToWait > 0)
@@ -203,16 +209,14 @@ public abstract class _Enemies : _Character
 			{
 				target = null;
 				ResetWaitStatus ();
+				Debug.Log ("3");
 			}
 
 			else
 			//else, we want him to patrol
 			{
 				Patrol ();
-			}
-			if(timerToReset >= 0)
-			{
-				timerToReset -= Time.deltaTime;
+				Debug.Log ("4");
 			}
 		}
 	}
@@ -225,12 +229,14 @@ public abstract class _Enemies : _Character
 		if ((this.transform.position - PatrolLocation).magnitude < agent.stoppingDistance + 5 || 
 			(this.GetComponent<Rigidbody>().velocity == Vector3.zero && timerToReset <=0))
 		{
+			Debug.Log ("reset");
 			ResetWaitStatus ();
 			TotalTimeToWait = MaxTotalTimeToWait;
 			PatrolLocation = Vector3.zero;
 		}
 		else if (PatrolLocation == Vector3.zero && TotalTimeToWait <= 0)
 		{
+			Debug.Log ("new location");
 			System.Random rnd = new System.Random ();
 			do 
 			{

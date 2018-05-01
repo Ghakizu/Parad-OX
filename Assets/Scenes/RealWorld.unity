@@ -11024,7 +11024,7 @@ MonoBehaviour:
   IsFreezed: 0
   IsAirWallEnabled: 0
   target: {fileID: 0}
-  RangeOfDetection: 0
+  RangeOfDetection: 300
   PlayersDetected: []
   agent: {fileID: 0}
   MaxTimeToTarget: 3
@@ -11039,7 +11039,8 @@ MonoBehaviour:
   right: 0
   IsWaiting: 1
   PatrolLocation: {x: 0, y: 0, z: 0}
-  DistanceAroundSpawnPoint: 200
+  DistanceAroundSpawnPoint: 2000
+  timerToReset: 5
 --- !u!195 &1343451067
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -11053,7 +11054,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 190
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
