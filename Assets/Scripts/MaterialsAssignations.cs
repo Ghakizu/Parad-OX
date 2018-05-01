@@ -17,4 +17,6 @@ public class MaterialsAssignations : MonoBehaviour
 	public static Sprite FireBallSprite;
 	public static Sprite FlashSprite;
 	public static Sprite HealSprite;
+	public static Sprite HealthPotionSprite;
+	public static Sprite SpeedPotionSprite;
 }

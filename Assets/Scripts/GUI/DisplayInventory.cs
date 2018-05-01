@@ -52,7 +52,6 @@ public class DisplayInventory : MonoBehaviour
 		Object3.Object = capacity > 2 ? player.SpellsInventory [2] : null;
 		Object4.Object = capacity > 3 ? player.SpellsInventory [3] : null;
 		Object5.Object = capacity > 4 ? player.SpellsInventory [4] : null;
-		Debug.Log (player.SpellsInventory[5]);
 		Object6.Object = capacity > 5 ? player.SpellsInventory [5] : null;
 		Object7.Object = capacity > 6 ? player.SpellsInventory [6] : null;
 		Object8.Object = capacity > 7 ? player.SpellsInventory [7] : null;
@@ -60,5 +59,24 @@ public class DisplayInventory : MonoBehaviour
 		ActiveWeapon1.Object = player.Spell1;
 		ActiveWeapon2.Object = player.Spell2;
 		player.TypeOfObjects = 2;
+	}
+
+
+	public void DisplayConsumables()
+	//Display the spells
+	{
+		int capacity = player.ConsumablesInventory.Count;
+		Object1.Object = capacity > 0 ? player.ConsumablesInventory [0] : null;
+		Object2.Object = capacity > 1 ? player.ConsumablesInventory [1] : null;
+		Object3.Object = capacity > 2 ? player.ConsumablesInventory [2] : null;
+		Object4.Object = capacity > 3 ? player.ConsumablesInventory [3] : null;
+		Object5.Object = capacity > 4 ? player.ConsumablesInventory [4] : null;
+		Object6.Object = capacity > 5 ? player.ConsumablesInventory [5] : null;
+		Object7.Object = capacity > 6 ? player.ConsumablesInventory [6] : null;
+		Object8.Object = capacity > 7 ? player.ConsumablesInventory [7] : null;
+		Object9.Object = capacity > 8 ? player.ConsumablesInventory [8] : null;
+		ActiveWeapon1.Object = player.cons1;
+		ActiveWeapon2.Object = player.cons2;
+		player.TypeOfObjects = 3;
 	}
 }

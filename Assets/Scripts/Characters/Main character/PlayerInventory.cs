@@ -32,10 +32,13 @@ public class PlayerInventory : MonoBehaviour
 	public _Spells Spell1; //Spell of the first shortcut
 	public _Spells Spell2; //Spell of the second shortcut
 
+	public _Consumables cons1;
+	public _Consumables cons2;
+
 
 	//Consumables inventory
 	public int ActiveConsumable = 5; //The actual consumable. Can be just 5 or 6 (the shortcuts)
-	public List<GameObject> ConsumablesInventory; //Pickables that affect Player stats. Not instanciated ! WARNING!
+	public List<_Consumables> ConsumablesInventory; //Pickables that affect Player stats. Not instanciated ! WARNING!
 
 
 	//CluesInventory
@@ -102,6 +105,12 @@ public class PlayerInventory : MonoBehaviour
 		Spell1 = SpellsInventory[0];
 		Spell2 = SpellsInventory[1];
 		Player.ActualSpell = Spell1;
+
+
+		ConsumablesInventory.Add (GetComponent<HealthPotion> ());
+		ConsumablesInventory.Add (GetComponent<SpeedPotion> ());
+		cons1 = ConsumablesInventory [0];
+		cons2 = ConsumablesInventory[1];
 	}
 
 	public void Start()
