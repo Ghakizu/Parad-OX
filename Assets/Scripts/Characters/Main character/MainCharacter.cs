@@ -133,6 +133,9 @@ public class MainCharacter : _Character
 		case "partend": //end of the first part of the first level
 			transform.position = new Vector3 (-1624, 4620, -3920);
 			break;
+		case "SecondRoomLabyrinth":
+			transform.position = new Vector3 (-6500, 5064, 8500);
+			break;
 		}
 	}
 

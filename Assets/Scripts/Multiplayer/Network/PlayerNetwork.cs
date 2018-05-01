@@ -72,7 +72,7 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_CreatePlayer()
     {
-        Vector3 position = new Vector3(Random.Range(0f, 200f), Random.Range(20f, 50f));
+		Vector3 position = new Vector3(Random.Range(1500f, 1600f), Random.Range(10f, 50f), Random.Range(8900f, 9100f));
         PhotonNetwork.Instantiate("_Player", position, Quaternion.identity, 0);
     }
 }
