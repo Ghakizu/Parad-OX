@@ -28,6 +28,12 @@ public class LobbyNetwork : MonoBehaviour
     }
 
 
+    public void OnClickDisconnect()
+    {
+        PhotonNetwork.Disconnect();
+    }
+
+
     public void OnCLickSoloButton()
     {
         PhotonNetwork.offlineMode = true;
@@ -63,6 +69,10 @@ public class LobbyNetwork : MonoBehaviour
             CurrentRoom.SetActive(false);
             Lobby.SetActive(true);
         }
-        
+    }
+
+    private void OnDisconnectedFromPhoton()
+    {
+        print("Disconnected from master");
     }
 }

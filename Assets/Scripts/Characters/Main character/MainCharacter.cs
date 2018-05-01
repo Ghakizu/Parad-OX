@@ -57,6 +57,9 @@ public class MainCharacter : _Character
         get { return _weapons; }
     }
 
+    [SerializeField]
+    private AudioClip sound;
+
 
 	new public void Awake ()
 	//SEt all the stats of the mainCharacter
@@ -192,13 +195,15 @@ public class MainCharacter : _Character
 				IsAbleToRun = false;
 				speed = OutOfStaminaSpeed;
 			}
-		}
+            SoundController.PlaySound(sound);
+        }
 		else
 		{
 			if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0) 
 			{
 				anim.SetBool ("Walk", true);
 				anim.SetBool ("Run", false);
+                SoundController.PlaySound(sound);
 			} 
 			else 
 			{
