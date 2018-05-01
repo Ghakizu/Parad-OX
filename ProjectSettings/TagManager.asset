@@ -9,6 +9,7 @@ TagManager:
   - partend
   - Scene
   - Enemy
+  - SecondRoomLabyrinth
   layers:
   - Default
   - TransparentFX

@@ -3796,7 +3796,7 @@ MonoBehaviour:
   CharacterRigidbody: {fileID: 0}
   IsFreezed: 0
   IsAirWallEnabled: 0
-  CheatSpeed: 500
+  CheatSpeed: 1000
   CrouchSpeed: 50
   OutOfStaminaSpeed: 50
   MaxStamina: 150
@@ -3804,6 +3804,8 @@ MonoBehaviour:
   speed: 0
   cam: {fileID: 1031231489512048}
   IsGamePaused: 0
+  Interface: {fileID: 0}
+  anim: {fileID: 95380746061602158}
   StaminaButton: {fileID: 114658893661531824}
   HealthButton: {fileID: 114590791208622288}
   ManaButton: {fileID: 114693921966779202}

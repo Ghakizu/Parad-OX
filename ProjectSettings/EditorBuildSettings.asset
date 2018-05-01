@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Hub_Scene.unity
     guid: ee77fd76edfe4ea4daff3011e0e16216
   - enabled: 0
+    path: "Assets/Scenes/Bar_Int\xE9rieur.unity"
+    guid: c7c6be3e643f5b04e9cc912da2b7bf46
+  - enabled: 0
     path: Assets/Scenes/Lvl1.unity
     guid: 0ed3c00a46b2f5345bf5aaefbef75bb7
   - enabled: 0
