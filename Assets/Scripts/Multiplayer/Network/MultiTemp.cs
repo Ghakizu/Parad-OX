@@ -15,5 +15,5 @@ public class MultiTemp : MonoBehaviour
         PhotonNetwork.CreateRoom("Solo");
 		Vector3 position = new Vector3 (x, y, z);
 		PhotonNetwork.Instantiate ("_Player", position, Quaternion.identity, 0);
-     }
+	}
 }

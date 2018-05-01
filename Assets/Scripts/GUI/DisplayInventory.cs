@@ -52,6 +52,7 @@ public class DisplayInventory : MonoBehaviour
 		Object3.Object = capacity > 2 ? player.SpellsInventory [2] : null;
 		Object4.Object = capacity > 3 ? player.SpellsInventory [3] : null;
 		Object5.Object = capacity > 4 ? player.SpellsInventory [4] : null;
+		Debug.Log (player.SpellsInventory[5]);
 		Object6.Object = capacity > 5 ? player.SpellsInventory [5] : null;
 		Object7.Object = capacity > 6 ? player.SpellsInventory [6] : null;
 		Object8.Object = capacity > 7 ? player.SpellsInventory [7] : null;
