@@ -93,6 +93,7 @@ public class PlayerInventory : MonoBehaviour
 		//FireBallObject.SetActive (false);
 		FlashObject = GameObject.Find ("Flash");
 		//FlashObject.SetActive (false);
+		SpellsInventory.Add (GetComponent<Heal> ());
 		SpellsInventory.Add (GetComponent<Freeze> ());
 		SpellsInventory.Add (GetComponent<AirWall> ());
 		SpellsInventory.Add (GetComponent<EarthSpike> ());
@@ -101,12 +102,16 @@ public class PlayerInventory : MonoBehaviour
 		Spell1 = SpellsInventory[0];
 		Spell2 = SpellsInventory[1];
 		Player.ActualSpell = Spell1;
-        // Desactivate the weapons camera and set the weapon layer to default if it's not the local player
-        if(!Player.View.isMine)
-        {
-            WeaponsCam.SetActive(false);
-            SetLayerRecursively(Weapon, 0);
-        }
+	}
+
+	public void Start()
+	{
+		// Desactivate the weapons camera and set the weapon layer to default if it's not the local player
+		if(!Player.View.isMine)
+		{
+			WeaponsCam.SetActive(false);
+			SetLayerRecursively(Weapon, 0);
+		}
 	}
 
     private static void SetLayerRecursively(GameObject go, int layerNumber)
@@ -185,16 +190,15 @@ public class PlayerInventory : MonoBehaviour
 	{
 		if(Input.GetButtonDown("Spell1") && Spell1 != null)
 		{
-			Spell2.Object.SetActive (false);
-			Spell1.Object.SetActive (true);
 			ActiveSpell = 3;
+			Player.ActualSpell = Spell2;
+			Debug.Log ("coucou");
 		}
 
 		if(Input.GetButtonDown("Spell2") && Spell1 != null)
 		{
-			Spell1.Object.SetActive (false);
-			Spell2.Object.SetActive (true);
 			ActiveSpell = 4;
+			Player.ActualSpell = Spell1;
 		}
 	}
 }

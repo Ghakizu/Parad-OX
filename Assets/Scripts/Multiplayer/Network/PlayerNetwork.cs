@@ -12,7 +12,7 @@ public class PlayerNetwork : MonoBehaviour
     public GameObject spawn2;
 
     private PhotonView PhotonView;
-    private string Name = "Hub_Scene";
+	private string Name = "Labyrinthe bis";
     private int PlayerInGame = 0;
     private Queue<GameObject> spawn;
 

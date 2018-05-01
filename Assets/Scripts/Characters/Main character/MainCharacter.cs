@@ -16,8 +16,8 @@ public class MainCharacter : _Character
 	public float CheatSpeed = 500;  //the speed when we're cheating
 	public float CrouchSpeed = 50; //speed when crouching
 	public float OutOfStaminaSpeed = 50;  //speed when stamina is 0
-	public float MaxStamina = 50;  //How long can you dash
-	public float Stamina = 100;  //Actual stamina
+	public float MaxStamina = 150;  //How long can you dash
+	public float Stamina = 150;  //Actual stamina
 	public float speed;  //actual speed of the player
 
 	//Playing
@@ -25,8 +25,12 @@ public class MainCharacter : _Character
 	public bool IsGamePaused = false;  //Is the game running or are we in a menu ?
 
 	//Displaying
-	public Slider StaminaButton;  //for the moment it's just the diplay of our stamina status
-	public GameObject Interface;  //
+	public Image StaminaButton;  //for the moment it's just the diplay of our stamina status
+	public Image HealthButton;
+	public Image ManaButton;
+	public GameObject Interface; 
+	public GameObject PauseMenu;
+	public GameObject GameOver;
 
 
     //Network
@@ -89,6 +93,12 @@ public class MainCharacter : _Character
 		base.Update ();
         if(PhotonView.isMine)
         {
+			if(!GameOver.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+			{
+				PauseMenu.SetActive (true);
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
+			}
             if (!IsGamePaused && IsFreezed <= 0)
             {
                 cheatcodes();
@@ -260,14 +270,16 @@ public class MainCharacter : _Character
 	public void SetButtonsValue()
 	//Set the values of the slider
 	{
-		StaminaButton.value = Stamina / MaxStamina;
+		StaminaButton.transform.localScale = new Vector3(Stamina / MaxStamina, 1, 1);
+		HealthButton.transform.localScale = new Vector3(Health / MaxHealth, 1, 1);
+		ManaButton.transform.localScale = new Vector3(Mana / MaxMana, 1, 1);
 	}
 
 
 	public void SetMainStats()
 	//Reset the values of our player
 	{
-		Stamina += 5 * Time.deltaTime;
+		Stamina += 10 * Time.deltaTime;
 		Stamina = Mathf.Min (Stamina, MaxStamina);
 		if (!IsAbleToRun && Stamina > 40)
 		{
@@ -296,7 +308,7 @@ public class MainCharacter : _Character
 					&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
 					&& IsAbleToAttack < 0)
 				{
-					_Enemies enemy = hit.collider.gameObject.GetComponent<_Enemies> ();
+					_Character enemy = hit.collider.gameObject.GetComponent<_Character> ();
 					base.Attack (enemy);
 				}
 			}
@@ -309,15 +321,23 @@ public class MainCharacter : _Character
 	{
 		if (Input.GetButtonDown("LaunchSpell"))
 		{
-			RaycastHit hit;
-			if (Physics.Raycast(transform.position, transform.forward, out hit))
+			if (ActualSpell.ObjectName == "Heal" || ActualSpell.ObjectName == "AirWall")
 			{
-				if (hit.collider.gameObject.tag == "Enemy" 
-					&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
-					&& Mana - ActualSpell.ManaConsumed > 0)
+				Debug.Log ("coucou");
+				base.LaunchSpell (null);
+			}
+			else
+			{
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, transform.forward, out hit))
 				{
-					_Enemies enemy = hit.collider.gameObject.GetComponent<_Enemies> ();
-					base.LaunchSpell (enemy);
+					if (hit.collider.gameObject.tag == "Enemy" 
+						&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
+						&& Mana - ActualSpell.ManaConsumed > 0)
+					{
+						_Character enemy = hit.collider.gameObject.GetComponent<_Character> ();
+						base.LaunchSpell (enemy);
+					}
 				}
 			}
 		}
@@ -327,7 +347,10 @@ public class MainCharacter : _Character
 	new public void Die()
 	//Die and display the GameOver menu
 	{
-		//TODO : display a GameOver screen
+		Interface.SetActive (false);
+		GameOver.SetActive (true);
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 	}
 }
 

@@ -98,7 +98,6 @@ public abstract class _Character : Photon.MonoBehaviour
 			IsFreezed -= Time.deltaTime;
 			if (IsFreezed < 0)
 			{
-				this.GetComponent<Renderer> ().material = MaterialsAssignations.NormalMaterial;
 				Freeze.UnfreezeAll (this);
 			}
 		}
@@ -171,6 +170,9 @@ public abstract class _Character : Photon.MonoBehaviour
 				break;
 			case "AirWall":
 				((AirWall)ActualSpell).LaunchSpell ();
+				break;
+			case "Heal":
+				((Heal)ActualSpell).LaunchSpell ();
 				break;
 			default:
 				return;

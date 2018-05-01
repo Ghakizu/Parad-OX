@@ -33,6 +33,7 @@ public abstract class _Enemies : _Character
 	public bool IsWaiting = true;  //are we waiting
 	public Vector3 PatrolLocation = Vector3.zero;  //the next location where the character must move
 	public float DistanceAroundSpawnPoint = 200;
+	public float timerToReset = 5;
 
 
 
@@ -132,6 +133,10 @@ public abstract class _Enemies : _Character
 				IsWaiting = false;
 			}
 		}
+		if (timerToReset >= 0)
+		{
+			timerToReset -= Time.deltaTime;
+		}
 	}
 
 
@@ -189,12 +194,14 @@ public abstract class _Enemies : _Character
 				TimeToTarget = MaxTimeToTarget;
 				target = NewTarget;
 				Move (target.transform.position, RunSpeed);
+				Debug.Log ("1");
 			}
 
 			else if(TimeToTarget > 0)
 			//if the character is continuing to follow us, we just reset his destination
 			{
 				agent.SetDestination (target.transform.position);
+				Debug.Log ("2");
 			}
 
 			else if (TotalTimeToWait > 0)
@@ -202,12 +209,14 @@ public abstract class _Enemies : _Character
 			{
 				target = null;
 				ResetWaitStatus ();
+				Debug.Log ("3");
 			}
 
 			else
 			//else, we want him to patrol
 			{
 				Patrol ();
+				Debug.Log ("4");
 			}
 		}
 	}
@@ -217,14 +226,17 @@ public abstract class _Enemies : _Character
 	public void Patrol ()
 	//Move to a random position around the position of the spawnpoint, and then look for us
 	{
-		if ((this.transform.position - PatrolLocation).magnitude < agent.stoppingDistance + 5)
+		if ((this.transform.position - PatrolLocation).magnitude < agent.stoppingDistance + 5 || 
+			(this.GetComponent<Rigidbody>().velocity == Vector3.zero && timerToReset <=0))
 		{
+			Debug.Log ("reset");
 			ResetWaitStatus ();
 			TotalTimeToWait = MaxTotalTimeToWait;
 			PatrolLocation = Vector3.zero;
 		}
 		else if (PatrolLocation == Vector3.zero && TotalTimeToWait <= 0)
 		{
+			Debug.Log ("new location");
 			System.Random rnd = new System.Random ();
 			do 
 			{
@@ -270,6 +282,7 @@ public abstract class _Enemies : _Character
 	{
 		if(!IsWaiting)
 		{
+			timerToReset = 10;
 			IsWaiting = true;
 			left = false;
 			right = true;

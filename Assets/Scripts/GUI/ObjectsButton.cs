@@ -93,7 +93,7 @@ public class ObjectsButton : MonoBehaviour
 			}
 			Inventory.GetComponent<DisplayInventory>().DisplayWeapons();
 		}
-		else if(player.TypeOfObjects == 1 && Object != null)
+		else if(player.TypeOfObjects == 2 && Object != null)
 		{
 			if (player.SelectedObject == 1)
 			{
