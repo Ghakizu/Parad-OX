@@ -10,6 +10,7 @@ public class DestroyObjects : MonoBehaviour {
 	private float timer;
 	private bool timerstarted = false;
 	public bool destroy;
+	public PhotonView destination;
 
 	void Awake()
 	{
@@ -24,7 +25,7 @@ public class DestroyObjects : MonoBehaviour {
 				timer -= Time.deltaTime;
 			else 
 			{
-				photonView.RPC ("Activate_Wall", PhotonTargets.All, Restriction);
+				photonView.RPC ("Activate_Wall", PhotonTargets.All);
 				timerstarted = false;
 			}
 		}
@@ -34,31 +35,34 @@ public class DestroyObjects : MonoBehaviour {
 	{
 		if (destroy) 
 		{
-			photonView.RPC ("Destroy_Wall", PhotonTargets.All, Restriction);
+			photonView.RPC ("Destroy_Wall", PhotonTargets.All);
 		} 
 		else 
 		{
-			photonView.RPC ("Deactivate_Wall", PhotonTargets.All, Restriction);
+			photonView.RPC ("Deactivate_Wall", PhotonTargets.All);
 			timer = 5;
 			timerstarted = true;
 		}
 	}
 
 	[PunRPC]
-	void Deactivate_Wall(GameObject Restriction)
+	void Deactivate_Wall()
 	{
+		GameObject Restriction = (PhotonView.Find (destination.viewID)).transform.gameObject;
 		Restriction.SetActive (false);
 	}
 
 	[PunRPC]
-	void Activate_Wall(GameObject Restriction)
+	void Activate_Wall()
 	{
+		GameObject Restriction = (PhotonView.Find (destination.viewID)).transform.gameObject;
 		Restriction.SetActive (true);
 	}
 
 	[PunRPC]
-	void Destroy_Wall(GameObject Restriction)
+	void Destroy_Wall()
 	{
+		GameObject Restriction = (PhotonView.Find (destination.viewID)).transform.gameObject;
 		GameObject.Destroy (Restriction);
 	}
 }
