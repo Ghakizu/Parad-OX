@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 17419881}
   - component: {fileID: 17419880}
   - component: {fileID: 17419879}
+  - component: {fileID: 17419883}
   m_Layer: 0
   m_Name: ButtonEssential02
   m_TagString: Untagged
@@ -379,6 +380,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 17419877}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &17419883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17419877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 17419878}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 817
+  instantiationId: 817
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &21764511
 GameObject:
   m_ObjectHideFlags: 0
@@ -12752,6 +12779,7 @@ GameObject:
   - component: {fileID: 1584222800}
   - component: {fileID: 1584222799}
   - component: {fileID: 1584222798}
+  - component: {fileID: 1584222802}
   m_Layer: 0
   m_Name: ButtonEssential01
   m_TagString: Untagged
@@ -12838,6 +12866,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1584222796}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1584222802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1584222796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1584222797}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 816
+  instantiationId: 816
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &1590435407
 GameObject:
   m_ObjectHideFlags: 0
