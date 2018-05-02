@@ -7054,7 +7054,7 @@ GameObject:
   - component: {fileID: 938036286}
   - component: {fileID: 938036285}
   - component: {fileID: 938036284}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CheckPoint
   m_TagString: respawn
   m_Icon: {fileID: 0}
@@ -9285,7 +9285,7 @@ GameObject:
   - component: {fileID: 1200120084}
   - component: {fileID: 1200120083}
   - component: {fileID: 1200120082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DeathPlane
   m_TagString: deathplane
   m_Icon: {fileID: 0}

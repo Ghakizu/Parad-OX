@@ -3699,7 +3699,7 @@ MonoBehaviour:
   StaminaButton: {fileID: 114658893661531824}
   HealthButton: {fileID: 114590791208622288}
   ManaButton: {fileID: 114693921966779202}
-  Interface: {fileID: 0}
+  Interface: {fileID: 1209367084563620}
   PauseMenu: {fileID: 1431131596552868}
   GameOver: {fileID: 1700402432177594}
   anim: {fileID: 95380746061602158}
