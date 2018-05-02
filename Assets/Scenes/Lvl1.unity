@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -695,9 +695,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3dd5bed14fa1243b85a3b1e5a546f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scene: Boss_1
-  Spawnpoint: {x: 89, y: 21, z: 356}
+  Scene: AITest
+  Spawnpoint: {x: 0, y: 31, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &391568789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 391568787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 523
+  instantiationId: 523
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &603436522
 GameObject:
   m_ObjectHideFlags: 0

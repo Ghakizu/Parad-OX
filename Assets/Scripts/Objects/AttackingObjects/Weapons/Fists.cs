@@ -12,7 +12,7 @@ public class Fists : _Weapons
 		ObjectName = "Fists";
 		sprite = MaterialsAssignations.FistsSprite;
 		damages = 10; 
-		RangeOfAttk = 200;
+		RangeOfAttk = 30;
 		TimeBetweenAttacks = 0.5f;
 		SubDescription = "The basic weapon : your fists.";
 		base.Awake ();

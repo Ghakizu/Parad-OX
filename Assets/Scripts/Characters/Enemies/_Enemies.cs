@@ -53,7 +53,7 @@ public abstract class _Enemies : _Character
 		agent.angularSpeed = RotateSpeed;
 		agent.stoppingDistance = ActualWeapon.RangeOfAttk - 10;
 		CharacterObject.tag = "Enemy";
-		MaxTotalTimeToWait = 4 * MaxTimeTurning + 4 * MaxWaitTime;
+        MaxTotalTimeToWait = 4 * MaxTimeTurning + 4 * MaxWaitTime;
 		agent.updateRotation = true;
 	}
 
@@ -226,6 +226,8 @@ public abstract class _Enemies : _Character
 	public void Patrol ()
 	//Move to a random position around the position of the spawnpoint, and then look for us
 	{
+        Debug.Log("patrol"); 
+        Debug.Log((this.transform.position - PatrolLocation).magnitude);
 		if ((this.transform.position - PatrolLocation).magnitude < agent.stoppingDistance + 5 || 
 			(this.GetComponent<Rigidbody>().velocity == Vector3.zero && timerToReset <=0))
 		{
