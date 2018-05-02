@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+[RequireComponent(typeof(PhotonView))]
 public class Load_scenes : MonoBehaviour 
 {
 	//Objects that load another scene
@@ -45,6 +47,14 @@ public class Load_scenes : MonoBehaviour
             Player.transform.position = Spawnpoint;
             Player.transform.rotation = rotation;
             IsTrigger = false;
+			if (Scene == "Lvl1" ||Scene == "Boss_Centaurus")
+			{
+				Player.GetComponent<MainCharacter> ().Gravity = 250;
+			}
+			else
+			{
+				Player.GetComponent<MainCharacter> ().Gravity = 500;
+			}
         }
     }
 

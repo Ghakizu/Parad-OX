@@ -34,7 +34,6 @@ public class TeleportPlayer : MonoBehaviour {
         if(other.tag == "Player")
         {
             isTrigger = false;
-            Player = null;
         }
     }
 
