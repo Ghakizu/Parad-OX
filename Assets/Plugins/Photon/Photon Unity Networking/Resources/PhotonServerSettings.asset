@@ -42,4 +42,6 @@ MonoBehaviour:
   - RPC_LoadGameOthers
   - Destroy_Wall
   - OnPlayerLoadedScene
+  - Activate_Wall
+  - Deactivate_Wall
   DisableAutoOpenWizard: 1
