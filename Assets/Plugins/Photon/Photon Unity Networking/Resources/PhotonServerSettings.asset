@@ -44,4 +44,5 @@ MonoBehaviour:
   - OnPlayerLoadedScene
   - Activate_Wall
   - Deactivate_Wall
+  - Switch_Player
   DisableAutoOpenWizard: 1

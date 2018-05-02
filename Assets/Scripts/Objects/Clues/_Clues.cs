@@ -17,6 +17,7 @@ public class _Clues : _Objects
 	new public void Awake()
 	//just set the Object value : we don't want to set the owner because at the beginning there is no owner
 	{
+		level = 1;
 		Object = this.gameObject;
 	}
 
@@ -27,43 +28,33 @@ public class _Clues : _Objects
 		{
 			Player = other.gameObject;
 			MyPlayer = Player.GetComponent<PlayerInventory> ();
-			IsCollectible = true;
-		}
-	}
-
-
-	public void OnTriggerExit()
-	{
-		IsCollectible = false;
-	}
-
-
-	public void OnGUI()
-	{
-		if (IsCollectible)
-		{
-			GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 20, 200, 40), "Press E to collect");
-			if (Input.GetKeyDown(KeyCode.E))
-			{
-				AddIntoInventory ();
-			}
 		}
 	}
 
 
 	public void OnMouseDown()
 	{
+
 		Vector3 offset = Player.transform.position - this.transform.position; //Le décalage entre l'objet et notre perso
-		if (offset.magnitude < 100f) //On check si on est assez prêts de l'objet pour interagir avec lui
+		if (offset.magnitude < 20000) //On check si on est assez prêts de l'objet pour interagir avec lui
 		{
+			Debug.Log ("added");
 			AddIntoInventory ();
-			this.transform.Translate (0, 7, 0);
+			GameObject.Destroy (this.gameObject);
 		}
 	}
 
 
 
+	public void Update()
+	{
+		if (MyPlayer != null && MyPlayer.CluesInventoryLvl1.Contains (this))
+		{
+			GameObject.Destroy (this.gameObject);
 
+		}
+
+	}
 
     public void AddIntoInventory ()
 	{
