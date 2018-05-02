@@ -9,6 +9,7 @@ public class Load_scenes : MonoBehaviour
 
 	public string Scene; //the name of the scene to load
 	public Vector3 Spawnpoint; //the place where we want our player to spawn in the nest scene. By default, it's (0, 0, 0).
+    public Quaternion rotation;
 	private bool IsTrigger = false; //Are we able to teleport ?
     private PhotonView PhotonView;
     private GameObject Player;
@@ -38,18 +39,18 @@ public class Load_scenes : MonoBehaviour
 
     private void Update()
     {
-        if(IsTrigger && Input.GetKeyDown(KeyCode.E))
+        if(IsTrigger && Input.GetKeyDown(KeyCode.E) && PhotonView.isMine)
         {
             PhotonNetwork.LoadLevel(Scene);
             Player.transform.position = Spawnpoint;
-            Player.transform.rotation = Quaternion.identity;
+            Player.transform.rotation = rotation;
             IsTrigger = false;
         }
     }
 
     private void OnGUI()
     {
-        if(IsTrigger)
+        if(IsTrigger && PhotonView.isMine)
         {
             GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 20, 200, 40), "Press E to interact");
         }
