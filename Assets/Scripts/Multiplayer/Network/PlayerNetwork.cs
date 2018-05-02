@@ -64,6 +64,11 @@ public class PlayerNetwork : MonoBehaviour
         PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient);
     }
 
+    private void OnDisconnectedFromPhoton()
+    {
+        print("Disconnected from master");
+    }
+
     [PunRPC]
     private void RPC_LoadGameOthers()
     {

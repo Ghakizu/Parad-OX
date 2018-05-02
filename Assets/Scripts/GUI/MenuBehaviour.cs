@@ -47,6 +47,13 @@ public class MenuBehaviour : MonoBehaviour
 		player.Health = player.MaxHealth;
 		player.Stamina = player.MaxStamina;
 		player.Mana = player.MaxMana;
-
 	}
+
+    public void ReturnToTitle(GameObject player)
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
+        GameObject.Destroy(player);
+        SceneManager.LoadScene("Menu");
+    }
 }

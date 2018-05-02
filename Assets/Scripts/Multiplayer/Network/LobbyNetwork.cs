@@ -70,9 +70,4 @@ public class LobbyNetwork : MonoBehaviour
             Lobby.SetActive(true);
         }
     }
-
-    private void OnDisconnectedFromPhoton()
-    {
-        print("Disconnected from master");
-    }
 }

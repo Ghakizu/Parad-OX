@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Restaurant_interieur.unity
     guid: c25856fb375b2b143beff6475aff41f2
   - enabled: 1
