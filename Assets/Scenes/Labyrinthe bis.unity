@@ -327,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 1266870176}
   destroy: 1
+  destination: {fileID: 1266870181}
 --- !u!23 &17419880
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -539,6 +540,7 @@ GameObject:
   - component: {fileID: 32896985}
   - component: {fileID: 32896984}
   - component: {fileID: 32896983}
+  - component: {fileID: 32896986}
   m_Layer: 0
   m_Name: RestrictionWall03
   m_TagString: Untagged
@@ -612,6 +614,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 32896981}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &32896986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 32896981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 208
+  instantiationId: 208
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &38777563
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +824,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 88768484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5000001, y: 0, z: 0.25}
+  m_LocalPosition: {x: 1.5000001, y: 0, z: -0.25}
   m_LocalScale: {x: 0.1, y: 10, z: 0.5}
   m_Children: []
   m_Father: {fileID: 367208217}
@@ -841,6 +869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 1497782349}
   destroy: 1
+  destination: {fileID: 1497782354}
 --- !u!23 &88768488
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1403,6 +1432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 488267321}
   destroy: 1
+  destination: {fileID: 488267326}
 --- !u!23 &156410791
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1635,6 +1665,7 @@ GameObject:
   - component: {fileID: 199831717}
   - component: {fileID: 199831716}
   - component: {fileID: 199831715}
+  - component: {fileID: 199831718}
   m_Layer: 0
   m_Name: RestrictionEssential01
   m_TagString: Untagged
@@ -1708,6 +1739,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199831713}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &199831718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 199831713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 200
+  instantiationId: 200
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &206068953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,6 +2435,7 @@ GameObject:
   - component: {fileID: 288265426}
   - component: {fileID: 288265425}
   - component: {fileID: 288265424}
+  - component: {fileID: 288265427}
   m_Layer: 0
   m_Name: RestrictionWall05
   m_TagString: Untagged
@@ -2451,6 +2509,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 288265422}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &288265427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288265422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 210
+  instantiationId: 210
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &295514555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,6 +2577,7 @@ GameObject:
   - component: {fileID: 298672387}
   - component: {fileID: 298672386}
   - component: {fileID: 298672385}
+  - component: {fileID: 298672388}
   m_Layer: 0
   m_Name: FourthSupButtonPlatform
   m_TagString: Untagged
@@ -2566,6 +2651,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 298672383}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &298672388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298672383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 214
+  instantiationId: 214
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &316129506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,7 +3048,6 @@ Transform:
   - {fileID: 1385784166}
   - {fileID: 1205070515}
   - {fileID: 88768485}
-  - {fileID: 1684978898}
   - {fileID: 2003588708}
   - {fileID: 812537506}
   m_Father: {fileID: 615198025}
@@ -3122,6 +3232,7 @@ GameObject:
   - component: {fileID: 390814994}
   - component: {fileID: 390814993}
   - component: {fileID: 390814992}
+  - component: {fileID: 390814995}
   m_Layer: 0
   m_Name: RestrictionWall04
   m_TagString: Untagged
@@ -3195,6 +3306,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 390814990}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &390814995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 390814990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 209
+  instantiationId: 209
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &400095616
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,6 +3543,7 @@ GameObject:
   - component: {fileID: 424145591}
   - component: {fileID: 424145590}
   - component: {fileID: 424145589}
+  - component: {fileID: 424145592}
   m_Layer: 0
   m_Name: Part1
   m_TagString: Untagged
@@ -3479,6 +3617,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 424145587}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &424145592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 424145587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 204
+  instantiationId: 204
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &425145596
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,6 +4074,7 @@ GameObject:
   - component: {fileID: 488267325}
   - component: {fileID: 488267324}
   - component: {fileID: 488267323}
+  - component: {fileID: 488267326}
   m_Layer: 0
   m_Name: ThirdSupButtonPlatform
   m_TagString: Untagged
@@ -3983,6 +4148,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 488267321}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &488267326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 488267321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 213
+  instantiationId: 213
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &497655722
 GameObject:
   m_ObjectHideFlags: 0
@@ -4261,6 +4452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 1055011304}
   destroy: 0
+  destination: {fileID: 1055011306}
 --- !u!23 &525030620
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5891,7 +6083,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 10, z: 0.5}
   m_Children: []
   m_Father: {fileID: 367208217}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &812537507
 MonoBehaviour:
@@ -5932,6 +6124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 288265422}
   destroy: 1
+  destination: {fileID: 288265427}
 --- !u!23 &812537509
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6323,6 +6516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 298672383}
   destroy: 1
+  destination: {fileID: 298672388}
 --- !u!23 &849483838
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6665,6 +6859,7 @@ GameObject:
   - component: {fileID: 926589156}
   - component: {fileID: 926589155}
   - component: {fileID: 926589154}
+  - component: {fileID: 926589157}
   m_Layer: 0
   m_Name: RestrictionEssential02
   m_TagString: Untagged
@@ -6738,6 +6933,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 926589152}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &926589157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 926589152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 201
+  instantiationId: 201
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &935811674
 GameObject:
   m_ObjectHideFlags: 0
@@ -7098,6 +7319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 1411783141}
   destroy: 1
+  destination: {fileID: 1411783146}
 --- !u!23 &984664119
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7609,6 +7831,7 @@ GameObject:
   - component: {fileID: 1045369427}
   - component: {fileID: 1045369426}
   - component: {fileID: 1045369425}
+  - component: {fileID: 1045369428}
   m_Layer: 0
   m_Name: SecondSupButtonPlatform
   m_TagString: Untagged
@@ -7682,6 +7905,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1045369423}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1045369428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1045369423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 212
+  instantiationId: 212
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &1047219669
 GameObject:
   m_ObjectHideFlags: 0
@@ -7774,6 +8023,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1055011305}
+  - component: {fileID: 1055011306}
   m_Layer: 0
   m_Name: Restriction04
   m_TagString: Untagged
@@ -7787,8 +8037,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1055011304}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00012207031, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 283480400}
@@ -7796,6 +8046,32 @@ Transform:
   m_Father: {fileID: 1782790022}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055011306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1055011304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 203
+  instantiationId: 203
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &1060802890
 GameObject:
   m_ObjectHideFlags: 0
@@ -7868,6 +8144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 926589152}
   destroy: 0
+  destination: {fileID: 926589157}
 --- !u!23 &1060802894
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8532,6 +8809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 199831713}
   destroy: 0
+  destination: {fileID: 199831718}
 --- !u!23 &1116099313
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8741,6 +9019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 0}
   destroy: 1
+  destination: {fileID: 0}
 --- !u!23 &1132516823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9151,6 +9430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 32896981}
   destroy: 1
+  destination: {fileID: 32896986}
 --- !u!23 &1205070518
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9803,6 +10083,7 @@ GameObject:
   - component: {fileID: 1266870180}
   - component: {fileID: 1266870179}
   - component: {fileID: 1266870178}
+  - component: {fileID: 1266870181}
   m_Layer: 0
   m_Name: Part2
   m_TagString: Untagged
@@ -9876,6 +10157,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1266870176}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1266870181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266870176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 205
+  instantiationId: 205
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &1267297760
 GameObject:
   m_ObjectHideFlags: 0
@@ -10338,6 +10645,7 @@ GameObject:
   - component: {fileID: 1295898992}
   - component: {fileID: 1295898991}
   - component: {fileID: 1295898990}
+  - component: {fileID: 1295898993}
   m_Layer: 0
   m_Name: SixthSupButtonPlatform
   m_TagString: Untagged
@@ -10411,6 +10719,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1295898988}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1295898993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1295898988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 216
+  instantiationId: 216
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &1299109550
 GameObject:
   m_ObjectHideFlags: 0
@@ -10422,6 +10756,7 @@ GameObject:
   - component: {fileID: 1299109554}
   - component: {fileID: 1299109553}
   - component: {fileID: 1299109552}
+  - component: {fileID: 1299109555}
   m_Layer: 0
   m_Name: RestrictionEssential03
   m_TagString: Untagged
@@ -10495,6 +10830,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1299109550}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1299109555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1299109550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 202
+  instantiationId: 202
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &1339416251
 GameObject:
   m_ObjectHideFlags: 0
@@ -10579,58 +10940,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1339416251}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1358189338
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4365843656481460, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -934.57416
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365843656481460, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 735.9116
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365843656481460, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 542.4968
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365843656481460, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365843656481460, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365843656481460, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365843656481460, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365843656481460, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114792376006032632, guid: 0933cf2f22df53c4f8b49111e62747e5,
-        type: 2}
-      propertyPath: x
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114792376006032632, guid: 0933cf2f22df53c4f8b49111e62747e5,
-        type: 2}
-      propertyPath: z
-      value: 9000
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1363936897
 GameObject:
   m_ObjectHideFlags: 0
@@ -10871,6 +11180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 390814990}
   destroy: 1
+  destination: {fileID: 390814995}
 --- !u!23 &1385784169
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11054,6 +11364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 1045369423}
   destroy: 1
+  destination: {fileID: 1045369428}
 --- !u!23 &1398462035
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11396,6 +11707,7 @@ GameObject:
   - component: {fileID: 1411783145}
   - component: {fileID: 1411783144}
   - component: {fileID: 1411783143}
+  - component: {fileID: 1411783146}
   m_Layer: 0
   m_Name: FifthSupButtonPlatform
   m_TagString: Untagged
@@ -11469,6 +11781,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1411783141}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1411783146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411783141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 215
+  instantiationId: 215
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &1419954790
 GameObject:
   m_ObjectHideFlags: 0
@@ -12190,6 +12528,7 @@ GameObject:
   - component: {fileID: 1497782353}
   - component: {fileID: 1497782352}
   - component: {fileID: 1497782351}
+  - component: {fileID: 1497782354}
   m_Layer: 0
   m_Name: RestrictionWall02
   m_TagString: Untagged
@@ -12263,6 +12602,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1497782349}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1497782354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1497782349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 207
+  instantiationId: 207
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &1510071405
 GameObject:
   m_ObjectHideFlags: 0
@@ -12358,6 +12723,7 @@ GameObject:
   - component: {fileID: 1514331478}
   - component: {fileID: 1514331477}
   - component: {fileID: 1514331476}
+  - component: {fileID: 1514331479}
   m_Layer: 0
   m_Name: FirstSupButtonPlatform
   m_TagString: Untagged
@@ -12431,6 +12797,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514331474}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1514331479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1514331474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 211
+  instantiationId: 211
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &1518575454
 GameObject:
   m_ObjectHideFlags: 0
@@ -12813,6 +13205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 424145587}
   destroy: 1
+  destination: {fileID: 424145592}
 --- !u!23 &1584222799
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13479,131 +13872,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1676414182}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1684978897
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1684978898}
-  - component: {fileID: 1684978903}
-  - component: {fileID: 1684978902}
-  - component: {fileID: 1684978901}
-  - component: {fileID: 1684978900}
-  - component: {fileID: 1684978899}
-  m_Layer: 0
-  m_Name: FifthButtonWall
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1684978898
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1684978897}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5000001, y: 0, z: -0.25}
-  m_LocalScale: {x: 0.1, y: 10, z: 0.5}
-  m_Children: []
-  m_Father: {fileID: 367208217}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1684978899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1684978897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownerId: 0
-  group: 0
-  OwnerShipWasTransfered: 0
-  prefixBackup: -1
-  synchronization: 3
-  onSerializeTransformOption: 3
-  onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 1684978898}
-  ObservedComponentsFoldoutOpen: 1
-  viewIdField: 813
-  instantiationId: 813
-  currentMasterID: -1
-  isRuntimeInstantiated: 0
---- !u!114 &1684978900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1684978897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1034ef905347b824ab14216cb3a74126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Restriction: {fileID: 32896981}
-  destroy: 1
---- !u!23 &1684978901
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1684978897}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: b6146ab4ec4d6b04eb6ad5130d4375c6, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!65 &1684978902
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1684978897}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1684978903
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1684978897}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1697232693
 GameObject:
@@ -15369,6 +15637,7 @@ GameObject:
   - component: {fileID: 1989341509}
   - component: {fileID: 1989341508}
   - component: {fileID: 1989341507}
+  - component: {fileID: 1989341510}
   m_Layer: 0
   m_Name: RestrictionWall01
   m_TagString: Untagged
@@ -15442,6 +15711,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1989341505}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1989341510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989341505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 206
+  instantiationId: 206
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!1 &2003588707
 GameObject:
   m_ObjectHideFlags: 0
@@ -15473,7 +15768,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 10, z: 0.5}
   m_Children: []
   m_Father: {fileID: 367208217}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2003588709
 MonoBehaviour:
@@ -15514,6 +15809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 1989341505}
   destroy: 1
+  destination: {fileID: 1989341510}
 --- !u!23 &2003588711
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15891,6 +16187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 1514331474}
   destroy: 1
+  destination: {fileID: 1514331479}
 --- !u!23 &2081596734
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16016,6 +16313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Restriction: {fileID: 1299109550}
   destroy: 0
+  destination: {fileID: 1299109555}
 --- !u!23 &2098514549
 MeshRenderer:
   m_ObjectHideFlags: 0

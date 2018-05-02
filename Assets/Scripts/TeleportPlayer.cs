@@ -48,7 +48,6 @@ public class TeleportPlayer : MonoBehaviour {
 
     private void Update()
     {
-        print(Input.GetKeyDown(KeyCode.E));
         if (Input.GetKey(KeyCode.E) && isTrigger)
         {
             Debug.Log("fjklsdel;jkfds");
