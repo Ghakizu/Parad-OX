@@ -55,6 +55,7 @@ public abstract class _Enemies : _Character
 		CharacterObject.tag = "Enemy";
         MaxTotalTimeToWait = 4 * MaxTimeTurning + 4 * MaxWaitTime;
 		agent.updateRotation = true;
+        Health = 40;
 	}
 
 

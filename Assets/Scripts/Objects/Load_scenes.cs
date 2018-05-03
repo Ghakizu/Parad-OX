@@ -46,6 +46,7 @@ public class Load_scenes : MonoBehaviour
             PhotonNetwork.LoadLevel(Scene);
             Player.transform.position = Spawnpoint;
             Player.transform.rotation = rotation;
+            Player.GetComponent<MainCharacter>().SpawnPoint = Spawnpoint;
             IsTrigger = false;
 			if (Scene == "Lvl1" ||Scene == "Boss_Centaurus")
 			{
