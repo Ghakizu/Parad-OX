@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DestroyObjects : MonoBehaviour {
 
-	public GameObject Restriction;
+	public GameObject Wall;
 	private PhotonView photonView;
 	private float timer;
 	private bool timerstarted = false;
@@ -48,21 +48,21 @@ public class DestroyObjects : MonoBehaviour {
 	[PunRPC]
 	void Deactivate_Wall()
 	{
-		GameObject Restriction = (PhotonView.Find (destination.viewID)).transform.gameObject;
-		Restriction.SetActive (false);
+		Wall = (PhotonView.Find (destination.viewID)).transform.gameObject;
+		Wall.SetActive (false);
 	}
 
 	[PunRPC]
 	void Activate_Wall()
 	{
-		GameObject Restriction = (PhotonView.Find (destination.viewID)).transform.gameObject;
-		Restriction.SetActive (true);
+		Wall = (PhotonView.Find (destination.viewID)).transform.gameObject;
+		Wall.SetActive (true);
 	}
 
 	[PunRPC]
 	void Destroy_Wall()
 	{
-		GameObject Restriction = (PhotonView.Find (destination.viewID)).transform.gameObject;
-		GameObject.Destroy (Restriction);
+		Wall = (PhotonView.Find (destination.viewID)).transform.gameObject;
+		GameObject.Destroy (Wall);
 	}
 }

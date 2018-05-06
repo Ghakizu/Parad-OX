@@ -32,7 +32,7 @@ public abstract class _Enemies : _Character
 	public bool right = false;  //are we turning to the right
 	public bool IsWaiting = true;  //are we waiting
 	public Vector3 PatrolLocation = Vector3.zero;  //the next location where the character must move
-	public float DistanceAroundSpawnPoint = 200;
+	public float DistanceAroundSpawnPoint = 200;  //How far can the enemy move around his SpawnPoint ?
 	public float timerToReset = 5;
 
 

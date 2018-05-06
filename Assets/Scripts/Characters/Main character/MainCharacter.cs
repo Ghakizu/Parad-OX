@@ -22,33 +22,23 @@ public class MainCharacter : _Character
 
 	//Playing
 	public GameObject cam;  //the main camera of the player
-	public bool IsGamePaused = false;  //Is the game running or are we in a menu ?
+	public bool IsDisplaying = false;
 
 	//Displaying
-	public Image StaminaButton;  //for the moment it's just the diplay of our stamina status
-	public Image HealthButton;
-	public Image ManaButton;
-	public GameObject Interface; 
-	public GameObject PauseMenu;
-	public GameObject GameOver;
+	public Image StaminaButton;  //Display our stamina status
+	public Image HealthButton;  //Display our health statis
+	public Image ManaButton;  //Display our Mana status
+	public GameObject Interface;  //the interface that is running when playing
+	public GameObject PauseMenu;  //the interface of the pause menu
+	public GameObject GameOver;  //the interface of the game over : Do a new scenne ? WARNING!
+	public GameObject PlayerDisplays;  //All the displays of the player
 
 	//Animator
-	public Animator anim;
+	public Animator anim;  //The animator of our player
 
     //Network
-    private PhotonView PhotonView;
-    public PhotonView View
-    {
-        get { return PhotonView; }
-    }
+    public PhotonView View;
 
-    //Serialized Fiels
-    [SerializeField]
-    private GameObject _display;
-    private GameObject DisplayObj
-    {
-        get { return _display; }
-    }
 
     [SerializeField]
     private GameObject _weapons;
@@ -56,9 +46,8 @@ public class MainCharacter : _Character
     {
         get { return _weapons; }
     }
-
-    [SerializeField]
-    private AudioClip sound;
+		
+    public AudioClip sound;
 
 
 	new public void Awake ()
@@ -74,18 +63,17 @@ public class MainCharacter : _Character
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
         cam = GetComponentInChildren<Camera>().gameObject;
-		//cam = GameObject.Find ("MainCam");
 		speed = WalkSpeed;
 		CharacterObject.tag = "Player";
-        PhotonView = GetComponent<PhotonView>();
+		View = GetComponent<PhotonView>();
     }
 
     private void Start()
     {
-        if (!PhotonView.isMine)
+        if (!View.isMine)
         {
             cam.SetActive(false);
-            DisplayObj.SetActive(false);
+			PlayerDisplays.SetActive(false);
             Weapons.layer = 0;
             Camera WeaponsCam = Weapons.GetComponentInChildren<Camera>();
             WeaponsCam.enabled = false;
@@ -96,7 +84,7 @@ public class MainCharacter : _Character
 	//Update all the stats of our player
 	{
 		base.Update ();
-        if(PhotonView.isMine)
+        if(View.isMine)
         {
 			if(!GameOver.activeSelf && Input.GetKeyDown(KeyCode.Escape))
 			{
@@ -104,7 +92,7 @@ public class MainCharacter : _Character
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
 			}
-            if (!IsGamePaused && IsFreezed <= 0)
+			if (!IsDisplaying && IsFreezed <= 0)
             {
                 cheatcodes();
                 Crouch();
@@ -125,11 +113,11 @@ public class MainCharacter : _Character
 	new public void FixedUpdate ()
 	//Apply forces if we're not in pause
 	{ 
-		if (!IsGamePaused && !cheatCode && IsFreezed <=0 && PhotonView.isMine) 
+		if (!IsDisplaying && !cheatCode && IsFreezed <=0 && View.isMine) 
 		{
 			Jump ();
 		}
-		if (!cheatCode && IsFreezed <= 0 && PhotonView.isMine)
+		if (!cheatCode && IsFreezed <= 0 && View.isMine)
 		{
 			base.FixedUpdate();
 		}

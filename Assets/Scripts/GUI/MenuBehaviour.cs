@@ -33,6 +33,7 @@ public class MenuBehaviour : MonoBehaviour
 	}
 
 	public void LockMouse()
+	//Relock the mouse
 	{
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;

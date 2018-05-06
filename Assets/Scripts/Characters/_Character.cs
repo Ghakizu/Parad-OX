@@ -33,6 +33,7 @@ public abstract class _Character : Photon.MonoBehaviour
 	//playing
 	public GameObject CharacterObject;  //the gameObject of the character
 	public Rigidbody CharacterRigidbody;  //the rigidbody of the character
+	public bool IsGamePaused = false;  //is the game running or are we in a menu ?
 
 	//Changements of status, due to spells
 	public float IsFreezed = 0;  //we're freezed if the spell "freeze" has been launched
@@ -76,6 +77,15 @@ public abstract class _Character : Photon.MonoBehaviour
 		if (other.gameObject.layer == JumpLayer)
 		{
 			IsAbleToJump = true;
+		}
+	}
+
+
+	public void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.layer == JumpLayer)
+		{
+			IsAbleToJump = false;
 		}
 	}
 		

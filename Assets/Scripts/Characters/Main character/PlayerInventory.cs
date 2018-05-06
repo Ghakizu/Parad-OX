@@ -156,7 +156,7 @@ public class PlayerInventory : MonoBehaviour
 			Inventory.GetComponent<DisplayInventory>().DisplayWeapons();
 			Cursor.lockState = CursorLockMode.None;  //unlock the mouse
 			Cursor.visible = true;
-			Player.IsGamePaused = true;
+			Player.IsDisplaying = true;
 			Player.Interface.SetActive (false);
 		}
 		else if (Input.GetButtonUp ("Wheel"))
@@ -166,7 +166,7 @@ public class PlayerInventory : MonoBehaviour
 			Cursor.visible = false;
 			SelectedObject = 1;
 			TypeOfObjects = 1;
-			Player.IsGamePaused = false;
+			Player.IsDisplaying = false;
 			Player.Interface.SetActive (true);
 		}
 	}

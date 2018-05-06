@@ -45,6 +45,7 @@ public class Freeze : _Spells
 		character.CharacterRigidbody.isKinematic = true;
 	}
 
+
 	public static void UnfreezeAll(_Character character)
 	//A static function that unfreeze a character : he becomes able to move again
 	{

@@ -49,7 +49,6 @@ public class TeleportPlayer : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.E) && isTrigger)
         {
-            Debug.Log("fjklsdel;jkfds");
             Player.transform.SetPositionAndRotation(Spawn.transform.position, Spawn.transform.rotation);
         }
     }
