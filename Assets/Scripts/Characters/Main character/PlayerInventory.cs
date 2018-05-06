@@ -29,6 +29,7 @@ public class PlayerInventory : MonoBehaviour
 	public GameObject EarthSpikeObject;  //the gameObject of the earth spike spell
 	public GameObject FireBallObject;  //the gameObject of the fire ball spell
 	public GameObject FlashObject;  //the gameObject of the Flash spell
+	public GameObject HealObject; //The gameObject of the HealObject
 	public _Spells Spell1; //Spell of the first shortcut
 	public _Spells Spell2; //Spell of the second shortcut
 
@@ -68,42 +69,52 @@ public class PlayerInventory : MonoBehaviour
 
 
 
-	void Awake()
+	void Start()
 	//Set all the variables
 	{
 		Player = GetComponent<MainCharacter> ();
 
+		// Desactivate the weapons camera and set the weapon layer to default if it's not the local player
+		if(!Player.View.isMine)
+		{
+			WeaponsCam.SetActive(false);
+			SetLayerRecursively(Weapon, 0);
+		}
+
+
 		//WEAPONS
-		FistsObject = GameObject.Find ("Fists");
-		KatanaObject = GameObject.Find ("Katana");
+		FistsObject = GetComponentInChildren<Fists>().gameObject;
+		KatanaObject = GetComponentInChildren<Katana>().gameObject;
 		KatanaObject.SetActive (false);
-		KnifeObject = GameObject.Find ("Knife");
+		KnifeObject = GetComponentInChildren<Knife>().gameObject;
 		KnifeObject.SetActive (false);
-		WeaponsInventory.Add(GetComponent<Fists>());
-		WeaponsInventory.Add(GetComponent<Katana>());
-		WeaponsInventory.Add(GetComponent<Knife>());
+		WeaponsInventory.Add(FistsObject.GetComponent<Fists>());
+		WeaponsInventory.Add(KatanaObject.GetComponent<Katana>());
+		WeaponsInventory.Add(KnifeObject.GetComponent<Knife>());
 		Weapon1 = WeaponsInventory[0];
 		Weapon2 = WeaponsInventory[1];
 		Player.ActualWeapon = Weapon1;
 
 		//SPELLS
-		FreezeObject = GameObject.Find ("Freeze");
-		AirWallObject = GameObject.Find ("AirWall");
-		//AirWallObject.SetActive (false);
-		EarthSpikeObject = GameObject.Find ("EarthSpike");
-		//EarthSpikeObject.SetActive (false);
-		FireBallObject = GameObject.Find ("FireBall");
-		//FireBallObject.SetActive (false);
-		FlashObject = GameObject.Find ("Flash");
-		//FlashObject.SetActive (false);
-		SpellsInventory.Add (GetComponent<Heal> ());
-		SpellsInventory.Add (GetComponent<Freeze> ());
-		SpellsInventory.Add (GetComponent<AirWall> ());
-		SpellsInventory.Add (GetComponent<EarthSpike> ());
-		SpellsInventory.Add (GetComponent<FireBall> ());
-		SpellsInventory.Add (GetComponent<Flash> ());
-		Spell1 = SpellsInventory[0];
-		Spell2 = SpellsInventory[1];
+		FreezeObject = GetComponentInChildren<Freeze>().gameObject;
+		FreezeObject.SetActive (false);
+		AirWallObject = GetComponentInChildren<AirWall>().gameObject;
+		AirWallObject.SetActive (false);
+		EarthSpikeObject = GetComponentInChildren<EarthSpike>().gameObject;
+		EarthSpikeObject.SetActive (false);
+		FireBallObject = GetComponentInChildren<FireBall>().gameObject;
+		FireBallObject.SetActive (false);
+		FlashObject = GetComponentInChildren<Flash>().gameObject;
+		FlashObject.SetActive (false);
+		HealObject = GetComponentInChildren<Heal> ().gameObject;
+		SpellsInventory.Add (HealObject.GetComponent<Heal> ());
+		SpellsInventory.Add (FreezeObject.GetComponent<Freeze> ());
+		SpellsInventory.Add (AirWallObject.GetComponent<AirWall> ());
+		SpellsInventory.Add (EarthSpikeObject.GetComponent<EarthSpike> ());
+		SpellsInventory.Add (FireBallObject.GetComponent<FireBall> ());
+		SpellsInventory.Add (FlashObject.GetComponent<Flash> ());
+		Spell1 = SpellsInventory[1];
+		Spell2 = SpellsInventory[0];
 		Player.ActualSpell = Spell1;
 
 
@@ -113,15 +124,7 @@ public class PlayerInventory : MonoBehaviour
 		cons2 = ConsumablesInventory[1];
 	}
 
-	public void Start()
-	{
-		// Desactivate the weapons camera and set the weapon layer to default if it's not the local player
-		if(!Player.View.isMine)
-		{
-			WeaponsCam.SetActive(false);
-			SetLayerRecursively(Weapon, 0);
-		}
-	}
+
 
     private static void SetLayerRecursively(GameObject go, int layerNumber)
     {
@@ -181,6 +184,7 @@ public class PlayerInventory : MonoBehaviour
 			Weapon2.Object.SetActive (false);
 			Weapon1.Object.SetActive (true);
 			ActiveWeapon = 1;
+			Player.ActualWeapon = Weapon1;
 		}
 			
 		if(Input.GetButtonDown("Weapon2"))
@@ -188,6 +192,7 @@ public class PlayerInventory : MonoBehaviour
 			Weapon1.Object.SetActive (false);
 			Weapon2.Object.SetActive (true);
 			ActiveWeapon = 2;
+			Player.ActualWeapon = Weapon2;
 		}
 	}
 		
@@ -199,15 +204,18 @@ public class PlayerInventory : MonoBehaviour
 	{
 		if(Input.GetButtonDown("Spell1") && Spell1 != null)
 		{
+			Spell2.Object.SetActive (false);
+			Spell1.Object.SetActive (true);
 			ActiveSpell = 3;
-			Player.ActualSpell = Spell2;
-			Debug.Log ("coucou");
+			Player.ActualSpell = Spell1;
 		}
 
-		if(Input.GetButtonDown("Spell2") && Spell1 != null)
+		if(Input.GetButtonDown("Spell2") && Spell2 != null)
 		{
+			Spell1.Object.SetActive (false);
+			Spell2.Object.SetActive (true);
 			ActiveSpell = 4;
-			Player.ActualSpell = Spell1;
+			Player.ActualSpell = Spell2;
 		}
 	}
 }

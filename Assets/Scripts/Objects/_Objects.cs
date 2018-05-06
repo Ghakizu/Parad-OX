@@ -22,5 +22,6 @@ public class _Objects : MonoBehaviour
 		{
 			owner = this.GetComponentInParent<_Character> ();
 		}
+		Object = this.gameObject;
 	}
 }

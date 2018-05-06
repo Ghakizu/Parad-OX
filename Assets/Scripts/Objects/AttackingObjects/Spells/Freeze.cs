@@ -11,7 +11,7 @@ public class Freeze : _Spells
 	new public void Awake()
 	//set all the stats of the spell
 	{
-		TimeOfEffect = 2;
+		TimeOfEffect = 3;
 		ObjectName = "Freeze";
 		sprite = MaterialsAssignations.FreezeSprite;
 		damages = 0; 

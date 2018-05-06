@@ -32,19 +32,7 @@ public class _Weapons : _AttackingObjects
 	public void Attack(_Character other)
 	//function that make a character attack another one
 	{
-		MainCharacter PossiblePlayer = other.GetComponent<MainCharacter> ();  	
 		other.Health -= owner.ActualWeapon.damages;
 		owner.IsAbleToAttack = TimeBetweenAttacks;
-		if (other.Health <= 0)
-		{
-			if (PossiblePlayer != null)
-			{
-				PossiblePlayer.Die ();  //Die like a main character
-			}
-			else
-			{
-				other.Die ();  //Die like an IA character
-			}
-		}
 	}
 }

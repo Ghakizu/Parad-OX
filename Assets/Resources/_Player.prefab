@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 65306207774493802}
   - component: {fileID: 23593074249220488}
   m_Layer: 9
-  m_Name: left arm
+  m_Name: left arm (Spells)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,6 +311,22 @@ GameObject:
   - component: {fileID: 114403183179485030}
   m_Layer: 5
   m_Name: Restart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1267243099575042
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4770253999221812}
+  - component: {fileID: 114609832259565158}
+  m_Layer: 0
+  m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,6 +358,7 @@ GameObject:
   - component: {fileID: 33550274429847850}
   - component: {fileID: 136857712470578796}
   - component: {fileID: 23792146774335678}
+  - component: {fileID: 114841356621778150}
   m_Layer: 9
   m_Name: Katana
   m_TagString: Untagged
@@ -642,7 +659,23 @@ GameObject:
   - component: {fileID: 65320338485391764}
   - component: {fileID: 23070231551905758}
   m_Layer: 9
-  m_Name: right arm
+  m_Name: right arm (Weapons)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1471508492532418
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4739721070420144}
+  - component: {fileID: 114301666856075466}
+  m_Layer: 0
+  m_Name: Heal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -690,6 +723,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4085025668717056}
+  - component: {fileID: 114401868224261676}
   m_Layer: 9
   m_Name: Fists
   m_TagString: Untagged
@@ -729,6 +763,22 @@ GameObject:
   - component: {fileID: 114830177743653312}
   m_Layer: 5
   m_Name: Object5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1530776880642964
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4026515883301940}
+  - component: {fileID: 114526288707575776}
+  m_Layer: 0
+  m_Name: AirWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1132,6 +1182,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1739963002939332
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4599557336784914}
+  - component: {fileID: 114717755039081284}
+  m_Layer: 0
+  m_Name: EarthSpike
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1743692478501672
 GameObject:
   m_ObjectHideFlags: 1
@@ -1143,6 +1209,7 @@ GameObject:
   - component: {fileID: 33955617542607758}
   - component: {fileID: 136264256225325174}
   - component: {fileID: 23579476991961178}
+  - component: {fileID: 114839461342438292}
   m_Layer: 9
   m_Name: Knife
   m_TagString: Untagged
@@ -1248,20 +1315,9 @@ GameObject:
   - component: {fileID: 54940763525802894}
   - component: {fileID: 114422544674408456}
   - component: {fileID: 114534531970385438}
-  - component: {fileID: 114484825107856222}
-  - component: {fileID: 114128810029118148}
-  - component: {fileID: 114654474418997418}
-  - component: {fileID: 114822303262754068}
   - component: {fileID: 114092459087425524}
-  - component: {fileID: 114308522779021810}
-  - component: {fileID: 114799908688229152}
-  - component: {fileID: 114773866333715374}
-  - component: {fileID: 114443515119397594}
-  - component: {fileID: 114155641777961980}
   - component: {fileID: 82869491075830978}
   - component: {fileID: 114763468508640778}
-  - component: {fileID: 114392710239193570}
-  - component: {fileID: 114640143020528612}
   m_Layer: 8
   m_Name: _Player
   m_TagString: Player
@@ -1279,6 +1335,22 @@ GameObject:
   - component: {fileID: 4060568675540836}
   m_Layer: 0
   m_Name: ActiveWeapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1884862995678292
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4085688678815654}
+  - component: {fileID: 114281389696422336}
+  m_Layer: 0
+  m_Name: FireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1331,6 +1403,22 @@ GameObject:
   - component: {fileID: 114549683740402834}
   m_Layer: 5
   m_Name: Object4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1931481697742518
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4819971588975572}
+  - component: {fileID: 114067303570534962}
+  m_Layer: 0
+  m_Name: Freeze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1392,6 +1480,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4026515883301940
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530776880642964}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3832.2053, y: -292.00278, z: 3278.9648}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 4931178654079710}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4060568675540836
 Transform:
   m_ObjectHideFlags: 1
@@ -1435,6 +1536,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4560013782392664}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4085688678815654
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884862995678292}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3832.2053, y: -292.00278, z: 3278.9648}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 4931178654079710}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4169224654474750
 Transform:
@@ -1530,6 +1644,19 @@ Transform:
   m_Father: {fileID: 224428274007920570}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4599557336784914
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1739963002939332}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3832.2053, y: -292.00278, z: 3278.9648}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 4931178654079710}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4652627981696404
 Transform:
   m_ObjectHideFlags: 1
@@ -1561,6 +1688,32 @@ Transform:
   m_Father: {fileID: 4992382354688460}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4739721070420144
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1471508492532418}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3832.2053, y: -292.00278, z: 3278.9648}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 4931178654079710}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4770253999221812
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1267243099575042}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3832.2053, y: -292.00278, z: 3278.9648}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 4931178654079710}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4782839435558626
 Transform:
   m_ObjectHideFlags: 1
@@ -1576,6 +1729,19 @@ Transform:
   m_Father: {fileID: 4065921027180674}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4819971588975572
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931481697742518}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3832.2056, y: -292.00278, z: 3278.9648}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4931178654079710}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4931178654079710
 Transform:
   m_ObjectHideFlags: 1
@@ -1585,7 +1751,13 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -12.94, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4819971588975572}
+  - {fileID: 4026515883301940}
+  - {fileID: 4599557336784914}
+  - {fileID: 4085688678815654}
+  - {fileID: 4770253999221812}
+  - {fileID: 4739721070420144}
   m_Father: {fileID: 4782839435558626}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1627,7 +1799,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1810529741753342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -304.30203, y: 1440.2871, z: -1026.3689}
+  m_LocalPosition: {x: -304.30203, y: 18, z: 85}
   m_LocalScale: {x: 7, y: 14, z: 7}
   m_Children:
   - {fileID: 4946386388240436}
@@ -2352,6 +2524,28 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114067303570534962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931481697742518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836afc6e0dca5654caf6f05a3785aec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
+  ManaConsumed: 0
+  TimeOfEffect: 0
 --- !u!114 &114069018129364480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2367,7 +2561,7 @@ MonoBehaviour:
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 0}
   Inventory: {fileID: 223417725112149272}
 --- !u!114 &114076752658816964
@@ -2520,8 +2714,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4992382354688460}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 1
+  instantiationId: 1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114103954839703432
@@ -2704,26 +2898,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Object4Name
---- !u!114 &114128810029118148
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6edcd0c14b21a1a49a8c6762ed142d30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 1489781228297870}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 00777d19357719b4cbe32430bcddeac8, type: 3}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
 --- !u!114 &114137101003100942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2785,30 +2959,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114912300336493316}
+        m_MethodName: Resume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1810529741753342}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114155641777961980
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a630af80a9c454a9ac3e3813eed8e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 0}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 0}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
-  ManaConsumed: 0
-  TimeOfEffect: 0
 --- !u!114 &114164067489394210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3156,9 +3319,31 @@ MonoBehaviour:
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 0}
   Inventory: {fileID: 223417725112149272}
+--- !u!114 &114281389696422336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884862995678292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428ef278617f16547941fde58a092f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
+  ManaConsumed: 0
+  TimeOfEffect: 0
 --- !u!114 &114289487499033640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3285,6 +3470,28 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114301666856075466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1471508492532418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a630af80a9c454a9ac3e3813eed8e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
+  ManaConsumed: 0
+  TimeOfEffect: 0
 --- !u!114 &114303765292022794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3296,11 +3503,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f0960ecebafeb469fc23c8f0596043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 114484825107856222}
+  Object: {fileID: 0}
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 0}
   Inventory: {fileID: 223417725112149272}
 --- !u!114 &114306397841182190
@@ -3330,28 +3537,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114308522779021810
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16058306e3fa9da4e84a856855a7e9dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 0}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 0}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
-  ManaConsumed: 0
-  TimeOfEffect: 0
 --- !u!114 &114308828841035916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3582,29 +3767,9 @@ MonoBehaviour:
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 0}
   Inventory: {fileID: 223417725112149272}
---- !u!114 &114392710239193570
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3fe277117a18bc43b8de101f106d807, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 0}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 0}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
 --- !u!114 &114401592656290812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3621,6 +3786,26 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114401868224261676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1489781228297870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be8330be0b38d7479804c0827ee9aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
 --- !u!114 &114403183179485030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3755,28 +3940,6 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &114443515119397594
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a17cf0d493e454a4492cd3b2588a8c90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 0}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 0}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
-  ManaConsumed: 0
-  TimeOfEffect: 0
 --- !u!114 &114455117514083848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3943,7 +4106,7 @@ MonoBehaviour:
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 0}
   Inventory: {fileID: 223417725112149272}
 --- !u!114 &114469679764250678
@@ -3998,26 +4161,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114484825107856222
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be8330be0b38d7479804c0827ee9aeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 0}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 00777d19357719b4cbe32430bcddeac8, type: 3}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
 --- !u!114 &114497150098151254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4138,6 +4281,28 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Object3Name
+--- !u!114 &114526288707575776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530776880642964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17cf0d493e454a4492cd3b2588a8c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
+  ManaConsumed: 0
+  TimeOfEffect: 0
 --- !u!114 &114534531970385438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4164,6 +4329,7 @@ MonoBehaviour:
   EarthSpikeObject: {fileID: 0}
   FireBallObject: {fileID: 0}
   FlashObject: {fileID: 0}
+  HealObject: {fileID: 0}
   Spell1: {fileID: 0}
   Spell2: {fileID: 0}
   cons1: {fileID: 0}
@@ -4273,7 +4439,7 @@ MonoBehaviour:
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 0}
   Inventory: {fileID: 223417725112149272}
 --- !u!114 &114562081976561296
@@ -4379,6 +4545,28 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114609832259565158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1267243099575042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16058306e3fa9da4e84a856855a7e9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
+  ManaConsumed: 0
+  TimeOfEffect: 0
 --- !u!114 &114611089704129114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4487,29 +4675,9 @@ MonoBehaviour:
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 0}
   Inventory: {fileID: 223417725112149272}
---- !u!114 &114640143020528612
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2482ba7a6f2c83408a60f4670df7fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 0}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 0}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
 --- !u!114 &114642748996236768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4589,26 +4757,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114654474418997418
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7dd351a4a8607c4bb6cf4128c8bfad2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 1743692478501672}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 0}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
 --- !u!114 &114658171385014444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4703,7 +4851,7 @@ MonoBehaviour:
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 114658171385014444}
   Inventory: {fileID: 223417725112149272}
 --- !u!114 &114675734183658614
@@ -4921,7 +5069,7 @@ MonoBehaviour:
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 0}
   Inventory: {fileID: 223417725112149272}
 --- !u!114 &114716287001044190
@@ -4976,6 +5124,28 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114717755039081284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1739963002939332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d055829ae258c4f4387b9f49559d7aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
+  ManaConsumed: 0
+  TimeOfEffect: 0
 --- !u!114 &114741313707364726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5037,28 +5207,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114773866333715374
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d055829ae258c4f4387b9f49559d7aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 0}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 0}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
-  ManaConsumed: 0
-  TimeOfEffect: 0
 --- !u!114 &114774684501495448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5177,28 +5325,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Weapon1Name
---- !u!114 &114799908688229152
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 428ef278617f16547941fde58a092f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 0}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 0}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
-  ManaConsumed: 0
-  TimeOfEffect: 0
 --- !u!114 &114800333817300838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5210,28 +5336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3707ddc9829911541b5a38c136fe95c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114822303262754068
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810529741753342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 836afc6e0dca5654caf6f05a3785aec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 1280525111803624}
-  ObjectName: 
-  owner: {fileID: 0}
-  sprite: {fileID: 0}
-  description: 
-  damages: 0
-  RangeOfAttk: 0
-  TimeBetweenAttacks: 0
-  SubDescription: 
-  ManaConsumed: 0
-  TimeOfEffect: 0
 --- !u!114 &114824372128819482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5294,7 +5398,7 @@ MonoBehaviour:
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 114106249707496216}
   Inventory: {fileID: 223417725112149272}
 --- !u!114 &114829883543702012
@@ -5371,6 +5475,26 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &114839461342438292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743692478501672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7dd351a4a8607c4bb6cf4128c8bfad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
 --- !u!114 &114840475513406820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5398,6 +5522,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114841356621778150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1280525111803624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edcd0c14b21a1a49a8c6762ed142d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  damages: 0
+  RangeOfAttk: 0
+  TimeBetweenAttacks: 0
+  SubDescription: 
 --- !u!114 &114848430709763348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5429,7 +5573,7 @@ MonoBehaviour:
   ObjectName: {fileID: 0}
   ChangeInventory: {fileID: 1424065381924532}
   WeaponsStats: {fileID: 1550438411980556}
-  player: {fileID: 114534531970385438}
+  Player: {fileID: 0}
   OtherWeapon: {fileID: 0}
   Inventory: {fileID: 223417725112149272}
 --- !u!114 &114850666689579974

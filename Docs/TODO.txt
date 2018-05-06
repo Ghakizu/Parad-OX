@@ -57,6 +57,7 @@ refaire certains colliders
 Déplacements des PNJs (+ voitures)
 Ia de tous les boss
 Ennemis à gérer
+Quand on met le menu pause, la vitesse doit être stockée quelque part.
 
 
 

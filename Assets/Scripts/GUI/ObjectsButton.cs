@@ -12,10 +12,10 @@ public class ObjectsButton : MonoBehaviour
 	public Text ObjectName;  //The Name of the Object
 	public GameObject ChangeInventory;  //The gameobject that displays the buttons to change inventory
 	public GameObject WeaponsStats;  //The Gameobject that displays the stats of the weapon
-	public PlayerInventory player;  //The player that has the inventory that we want to display
+	public PlayerInventory Player;  //The player that has the inventory that we want to display
 	public Button OtherWeapon;  //for the two ActiveWeapon buttons : the other activeWeapon button
-	private ColorBlock red;  //Color red (if the button is highlighted)
-	private ColorBlock grey;  //color grey (if the button isn't highlighted)
+	private ColorBlock Red;  //Color red (if the button is highlighted)
+	private ColorBlock Grey;  //color grey (if the button isn't highlighted)
 	public Canvas Inventory;  //The canvas of the inventory
 
 
@@ -24,12 +24,13 @@ public class ObjectsButton : MonoBehaviour
 	{
 		Object = null;
 		ObjectName = GetComponentInChildren<Text> ();
-		red = GetComponent<Button> ().colors;
-		red.normalColor = new Color32 (255, 146, 146, 200);
-		grey = GetComponent<Button> ().colors;
-		grey.normalColor = new Color32 (245, 245, 245, 100);
-		player = Inventory.GetComponent<DisplayInventory> ().player;
+		Red = GetComponent<Button> ().colors;
+		Red.normalColor = new Color32 (255, 146, 146, 200);
+		Grey = GetComponent<Button> ().colors;
+		Grey.normalColor = new Color32 (245, 245, 245, 100);
+		Player = Inventory.GetComponent<DisplayInventory> ().player;
 	}
+
 
 
 	public void Update()
@@ -48,8 +49,9 @@ public class ObjectsButton : MonoBehaviour
 	}
 
 
+
 	public void OnMouseEnter()
-	//Display the weaponsStats if There is an object
+	//Display the weaponsStats if there is an object
 	{
 		if (Object != null) 
 		{
@@ -61,6 +63,7 @@ public class ObjectsButton : MonoBehaviour
 	}
 
 
+
 	public void OnMouseExit()
 	//Stop to display the weaponsStats and reshow the menu to change inventory
 	{
@@ -69,39 +72,78 @@ public class ObjectsButton : MonoBehaviour
 	}
 
 
+
 	public void SelectWeaponToAssign(int SelectedObject)
 	//Change the active weapon
 	{
-		GetComponent<Button> ().colors = red;
-		player.SelectedObject = SelectedObject;
-		OtherWeapon.GetComponent<Button> ().colors = grey;
+		GetComponent<Button> ().colors = Red;
+		Player.SelectedObject = SelectedObject;
+		OtherWeapon.GetComponent<Button> ().colors = Grey;
+		switch (Player.TypeOfObjects)
+		{
+		case 1:
+			switch (SelectedObject) 
+			{
+			case 1:
+				Player.Weapon2.Object.SetActive (false);
+				Player.Weapon1.Object.SetActive (true);
+				break;
+			case 2:
+				Player.Weapon1.Object.SetActive (false);
+				Player.Weapon2.Object.SetActive (true);
+				break;
+			}
+			break;
+		case 2:
+			switch (SelectedObject) 
+			{
+			case 1:
+				Player.Spell2.Object.SetActive (false);
+				Player.Spell1.Object.SetActive (true);
+				break;
+			case 2:
+				Player.Spell1.Object.SetActive (false);
+				Player.Spell2.Object.SetActive (true);
+				break;
+			}
+			break;
+		}
 	}
+
 
 
 	public void AssignWeapon()
 	//Assign the weapon
 	{
-		if (player.TypeOfObjects == 1 && Object != null)
+		if (Player.TypeOfObjects == 1 && Object != null)
 		{
-			if (player.SelectedObject == 1)
+			if (Player.SelectedObject == 1)
 			{
-				player.Weapon1 = (_Weapons)Object;
+				Player.Weapon1.Object.SetActive (false);
+				Player.Weapon1 = (_Weapons)Object;
+				Player.Weapon1.Object.SetActive (true);
 			}
 			else
 			{
-				player.Weapon2 = (_Weapons)Object;
+				Player.Weapon2.Object.SetActive (false);
+				Player.Weapon2 = (_Weapons)Object;
+				Player.Weapon2.Object.SetActive (true);
 			}
 			Inventory.GetComponent<DisplayInventory>().DisplayWeapons();
 		}
-		else if(player.TypeOfObjects == 2 && Object != null)
+		else if(Player.TypeOfObjects == 2 && Object != null)
 		{
-			if (player.SelectedObject == 1)
+			if (Player.SelectedObject == 1)
 			{
-				player.Spell1 = (_Spells)Object;
+				Player.Spell1.Object.SetActive (false);
+				Player.Spell1 = (_Spells)Object;
+				Player.Spell1.Object.SetActive (true);
 			}
 			else
 			{
-				player.Spell2 = (_Spells)Object;
+				Player.Spell2.Object.SetActive (false);
+				Player.Spell2 = (_Spells)Object;
+				Player.Spell2.Object.SetActive (true);
 			}
 			Inventory.GetComponent<DisplayInventory>().DisplaySpells();
 		}

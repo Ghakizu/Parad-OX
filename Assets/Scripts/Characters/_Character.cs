@@ -57,7 +57,7 @@ public abstract class _Character : Photon.MonoBehaviour
 	protected void FixedUpdate () 
 	//apply the gravity every time if we're not freezed
 	{
-		if (IsFreezed <= 0)
+		if (IsFreezed <= 0 && !IsGamePaused)
 		{
 			ApplyGravity ();	
 		}
@@ -67,11 +67,15 @@ public abstract class _Character : Photon.MonoBehaviour
 	public void Update()
 	//Set the stats every frame
 	{
-		SetStats ();
+		if (!IsGamePaused)
+		{
+			SetStats ();
+			Die ();
+		}
 	}
 
 
-	public void OnTriggerEnter(Collider other)
+	public void OnTriggerStay(Collider other)
 	//Set the value of IsAbleToJump if we touch the ground
 	{
 		if (other.gameObject.layer == JumpLayer)
@@ -82,6 +86,7 @@ public abstract class _Character : Photon.MonoBehaviour
 
 
 	public void OnTriggerExit(Collider other)
+	//If we leave the ground, we don't want to be able to jump anymore
 	{
 		if (other.gameObject.layer == JumpLayer)
 		{
@@ -95,32 +100,16 @@ public abstract class _Character : Photon.MonoBehaviour
 	public void SetStats()
 	//reset all the stats that are affected and must change during time
 	{
-		if (IsAbleToAttack >= 0)
-		{
-			IsAbleToAttack -= Time.deltaTime;
-		}
-		if (IsAbleToLaunchSpell >= 0)
-		{
-			IsAbleToLaunchSpell -= Time.deltaTime;
-		}
+		IsAbleToAttack = Mathf.Max (0, IsAbleToAttack - Time.deltaTime);
+		IsAbleToLaunchSpell = Mathf.Max (0, IsAbleToLaunchSpell - Time.deltaTime);
+		IsAirWallEnabled = Mathf.Max (0, IsAirWallEnabled - Time.deltaTime);
+		Mana = Mathf.Min (Mana + Time.deltaTime, MaxMana);
 		if (IsFreezed >= 0)
 		{
 			IsFreezed -= Time.deltaTime;
 			if (IsFreezed < 0)
 			{
 				Freeze.UnfreezeAll (this);
-			}
-		}
-		if (IsAirWallEnabled >= 0)
-		{
-			IsAirWallEnabled -= Time.deltaTime;
-		}
-		if (Mana < MaxMana)
-		{
-			Mana += Time.deltaTime;
-			if (Mana > MaxMana)
-			{
-				Mana = MaxMana;
 			}
 		}
 	}
@@ -162,33 +151,28 @@ public abstract class _Character : Photon.MonoBehaviour
 	public void LaunchSpell(_Character other)
 	//Allows a character to launch the Spell of his actual spell
 	{
-		if(IsAbleToLaunchSpell <= 0)
+		switch (ActualSpell.ObjectName)
 		{
-			switch (ActualSpell.ObjectName)
-			{
-			case "Freeze":
-				((Freeze)ActualSpell).LaunchSpell (other);
-				break;
-			case "Flash":
-				((Flash)ActualSpell).LaunchSpell (other);
-				break;
-			case "FireBall":
-				((FireBall)ActualSpell).LaunchSpell (other);
-				break;
-			case "EarthSpike":
-				((FireBall)ActualSpell).LaunchSpell (other);
-				break;
-			case "AirWall":
-				((AirWall)ActualSpell).LaunchSpell ();
-				break;
-			case "Heal":
-				((Heal)ActualSpell).LaunchSpell ();
-				break;
-			default:
-				return;
-			}
-			Mana -= ActualSpell.ManaConsumed;
-			IsAbleToLaunchSpell = ActualSpell.TimeBetweenAttacks;
+		case "Freeze":
+			((Freeze)ActualSpell).LaunchSpell (other);
+			break;
+		case "Flash":
+			((Flash)ActualSpell).LaunchSpell (other);
+			break;
+		case "FireBall":
+			((FireBall)ActualSpell).LaunchSpell (other);
+			break;
+		case "EarthSpike":
+			((FireBall)ActualSpell).LaunchSpell (other);
+			break;
+		case "AirWall":
+			((AirWall)ActualSpell).LaunchSpell ();
+			break;
+		case "Heal":
+			((Heal)ActualSpell).LaunchSpell ();
+			break;
+		default:
+			return;
 		}
 	}
 
@@ -196,7 +180,12 @@ public abstract class _Character : Photon.MonoBehaviour
 	public void Die()
 	//Allows a character to Die. If the character is a MainCharacter, we don't want to use this function
 	{
-		Destroy(CharacterObject);
+		MainCharacter PossiblePlayer = GetComponent<MainCharacter> ();
+		if (Health <= 0 && PossiblePlayer == null)
+		{
+			Destroy(CharacterObject);
+		}
+
 	}
 }
 

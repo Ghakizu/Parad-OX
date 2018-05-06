@@ -41,6 +41,7 @@ public class MenuBehaviour : MonoBehaviour
 
 
 	public void Restart(MainCharacter player)
+	//Allows the player to Restart his game after losing
 	{
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -50,7 +51,17 @@ public class MenuBehaviour : MonoBehaviour
 		player.Mana = player.MaxMana;
 	}
 
+
+	public void Resume(GameObject Player)
+	//Allows to reset the IsGamePaused value of the player and to unfreeze his position
+	{
+		Player.GetComponent<MainCharacter> ().IsGamePaused = false;
+		Player.GetComponent<MainCharacter> ().CharacterRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+	}
+
+
     public void ReturnToTitle(GameObject player)
+	//Return to title when playing
     {
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.Disconnect();
