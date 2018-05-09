@@ -19,4 +19,10 @@ public class MaterialsAssignations : MonoBehaviour
 	public static Sprite HealSprite;
 	public static Sprite HealthPotionSprite;
 	public static Sprite SpeedPotionSprite;
+
+
+	public void Start()
+	{
+		FistsSprite = (Sprite)Resources.Load("Prefabs/UI_Images/sword/sword");
+	}
 }

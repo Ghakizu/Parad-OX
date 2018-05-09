@@ -27,6 +27,6 @@ public class AirWall : _Spells
 	public void LaunchSpell()
 	//Launch the spell AirWall on us
 	{
-
+		owner.IsAirWallEnabled = TimeOfEffect;
 	}
 }

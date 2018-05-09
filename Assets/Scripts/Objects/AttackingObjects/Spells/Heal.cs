@@ -27,7 +27,6 @@ public class Heal : _Spells
 	public void LaunchSpell()
 	//Launch the spell AirWall on us
 	{
-		owner.Health += damages;
-		owner.Health = Mathf.Min (owner.Health, owner.MaxHealth);
+		owner.Health = Mathf.Min (owner.Health + damages, owner.MaxHealth);
 	}
 }

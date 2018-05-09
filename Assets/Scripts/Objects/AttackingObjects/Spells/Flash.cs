@@ -27,9 +27,6 @@ public class Flash : _Spells
 	public void LaunchSpell(_Character other)
 	//Launch the spell Flash againt the target
 	{
-		if (other.tag == "Enemy") 
-		{
-
-		}
+		
 	}
 }

@@ -63,7 +63,7 @@ public class DisplayInventory : MonoBehaviour
 
 
 	public void DisplayConsumables()
-	//Display the spells
+	//Display the Consumables
 	{
 		int capacity = player.ConsumablesInventory.Count;
 		Object1.Object = capacity > 0 ? player.ConsumablesInventory [0] : null;

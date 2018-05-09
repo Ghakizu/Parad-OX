@@ -33,13 +33,12 @@ public class PlayerInventory : MonoBehaviour
 	public _Spells Spell1; //Spell of the first shortcut
 	public _Spells Spell2; //Spell of the second shortcut
 
-	public _Consumables cons1;
-	public _Consumables cons2;
-
 
 	//Consumables inventory
 	public int ActiveConsumable = 5; //The actual consumable. Can be just 5 or 6 (the shortcuts)
 	public List<_Consumables> ConsumablesInventory; //Pickables that affect Player stats. Not instanciated ! WARNING!
+	public _Consumables cons1;
+	public _Consumables cons2;
 
 
 	//CluesInventory

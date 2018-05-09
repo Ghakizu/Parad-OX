@@ -2714,8 +2714,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4992382354688460}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 1
-  instantiationId: 1
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114103954839703432
@@ -4332,10 +4332,10 @@ MonoBehaviour:
   HealObject: {fileID: 0}
   Spell1: {fileID: 0}
   Spell2: {fileID: 0}
-  cons1: {fileID: 0}
-  cons2: {fileID: 0}
   ActiveConsumable: 5
   ConsumablesInventory: []
+  cons1: {fileID: 0}
+  cons2: {fileID: 0}
   CluesInventoryLvl1: []
   CluesInventoryLvl2: []
   CluesInventoryLvl3: []
