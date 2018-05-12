@@ -12,13 +12,13 @@ public class FireBall : _Spells
 	{
 		TimeOfEffect = 0;
 		ObjectName = "FireBall";
-		sprite = MaterialsAssignations.FireBallSprite;
 		damages = 60; 
 		RangeOfAttk = 300;
 		TimeBetweenAttacks = 4;
 		ManaConsumed = 80;
 		SubDescription = "Launch a Fire ball towards the target";
 		base.Awake ();
+		sprite = Materials.FireBallSprite;
 	}
 
 

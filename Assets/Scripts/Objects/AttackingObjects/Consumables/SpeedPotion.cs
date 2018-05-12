@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedPotion : _Consumables {
+public class SpeedPotion : _Consumables 
+{
+	//A spell that boost the speed of the player
+
 
 	new public void Awake()
 	//set all the stats of the item
 	{
 		ObjectName = "SpeedPotion";
-		sprite = MaterialsAssignations.HealthPotionSprite;
+		sprite = Materials.HealthPotionSprite;
 		damages = 20; 
 		RangeOfAttk = 0;
 		TimeBetweenAttacks = 10;
@@ -19,10 +22,9 @@ public class SpeedPotion : _Consumables {
 
 
 	public void UseItem()
-	//Launch the spell AirWall on us
+	//Use the item Speed Potion on us
 	{
-		//owner.Health += damages;
-		//owner.Health = Mathf.Min (owner.Health, owner.MaxHealth);
+
 	}
 
 }

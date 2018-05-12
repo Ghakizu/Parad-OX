@@ -1,12 +1,16 @@
 
 Spells :
 
-Freeze : Sort qui gèle l’ennemi sur place. Pour qu’il soit efficace, il est nécessaire de le viser avec le curseur. Le Sort immobilise les ennemis normaux pendant 3 secondes, les chevaliers pendant 2 secondes et les boss pendant 1 seconde. Les ennemis gelés sont dégelés s’ils subissent des dégâts. Pendant le gel, les ennemis subissent 1% MC (vie max) par seconde.
-Lightning Flash : Sort qui désoriente les ennemis, les faisant effectuer des mouvements aléatoires, incapables de toucher le joueur. Les ennemis normaux, chevaliers compris sont désorientés pendant 10 secondes. Les boss pendant 5 secondes.
-Fire Ball : Sort qui cause une explosion de flammes à l’endroit visé. Inflige 70% MC (vie max) dans une zone circulaire de 2 mètres de diamètres.
--	Trembling Earth : Sort provoquant un tremblement de terre, les ennemis, boss compris, sont déstabilisés et ont 50% de chance à chaque mouvement d’être ralentis, les chevaliers ont 75% de chance et les boss 25%. (Ce pourcentage est à appliquer toutes les 2 secondes.)
--	Earth Wall : Sort Augmentant la défense du personnage, invalidant ainsi 20% MC (vie max) dégâts par attaque ennemis pendant 20 secondes ou 10 attaques.
--	Ice Shard : Sort lançant des projectiles autour du personnage, infligeant 30% MC (vie max) dégâts dans un rayon de 5 mètres.
-Earth Spike : Sort faisant apparaître un pic de terre sous l’adversaire, inévitable, inflige 100% MC (Vie Max) sur une seule cible.
-Air Wall : Sort invoquant un mur d’air autour du lanceur invalidant tout projectile.
+-Freeze : Sort qui gèle l’ennemi sur place. Pour qu’il soit efficace, il est nécessaire de le viser avec le curseur. Le Sort immobilise les ennemis normaux pendant 3 secondes, les chevaliers pendant 2 secondes et les boss pendant 1 seconde. Les ennemis gelés sont dégelés s’ils subissent des dégâts. Pendant le gel, les ennemis subissent 1% MC (vie max) par seconde.
 
+-Flash : Sort qui désoriente les ennemis, les faisant effectuer des mouvements aléatoires, incapables de toucher le joueur. Les ennemis normaux, chevaliers compris sont désorientés pendant 10 secondes. Les boss pendant 5 secondes.
+
+-FireBall : Sort qui cause une explosion de flammes à l’endroit visé. Inflige 70% MC (vie max) dans une zone circulaire de 2 mètres de diamètres.
+
+-Earth Spike : Sort faisant apparaître un pic de terre sous l’adversaire, inévitable, inflige 100% MC (Vie Max) sur une seule cible.
+
+-Air Wall : Sort invoquant un mur d’air autour du lanceur invalidant tout projectile.
+
+-Heal : Sort faisant regagner de la vie au personnage
+
+-Ice Shard : Sort lançant des projectiles autour du personnage, infligeant 30% MC (vie max) dégâts dans un rayon de 5 mètres.

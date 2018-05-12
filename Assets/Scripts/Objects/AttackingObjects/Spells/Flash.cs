@@ -13,13 +13,13 @@ public class Flash : _Spells
 	{
 		TimeOfEffect = 3;
 		ObjectName = "Flash";
-		sprite = MaterialsAssignations.FlashSprite;
 		damages = 0; 
 		RangeOfAttk = 100;
 		TimeBetweenAttacks = 10;
 		ManaConsumed = 60;
 		SubDescription = "Create a flash to confuse the target";
 		base.Awake ();
+		sprite = Materials.FlashSprite;
 	}
 
 

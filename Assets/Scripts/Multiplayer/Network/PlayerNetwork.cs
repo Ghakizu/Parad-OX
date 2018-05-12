@@ -47,7 +47,7 @@ public class PlayerNetwork : MonoBehaviour
         }
         else if (scene.name == "RealWorld" && !isLoaded)
         {
-            GameObject Player =PhotonNetwork.Instantiate("_Player", new Vector3(231, -988, 29), Quaternion.Euler(0, -90, 0), 0);
+            GameObject Player =PhotonNetwork.Instantiate("Main character", new Vector3(231, -988, 29), Quaternion.Euler(0, -90, 0), 0);
             Player.transform.SetParent(transform.parent, false);
             isLoaded = true;
         }

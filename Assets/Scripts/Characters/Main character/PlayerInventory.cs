@@ -9,10 +9,10 @@ public class PlayerInventory : MonoBehaviour
 	//The different methods that the player can use to manage his inventory
 
 
-	public MainCharacter Player;
+	public MainCharacter Player;  //The player who this inventory belongs to
+
 
 	//Weapons Inventory
-	public int ActiveWeapon = 1; //The actual weapon. Can just be 1 or 2 (the shortcuts)
 	public List<_Weapons> WeaponsInventory = new List<_Weapons>();  //The inventory of the weapons of the player
 	public GameObject FistsObject;  //the gameObject of the Fists
 	public GameObject KatanaObject;  //the gameObject of the Katana
@@ -22,7 +22,6 @@ public class PlayerInventory : MonoBehaviour
 
 
 	//Spells Inventory
-	public int ActiveSpell = 3;  //The actual spell. Can just be 3 or 4 (the shortcuts)
 	public List<_Spells> SpellsInventory = new List<_Spells>();  //The inventory of the spells of the player
 	public GameObject FreezeObject;  //the gameObject of the freeze spell
 	public GameObject AirWallObject;  //the gameObject of the airwall spell
@@ -35,10 +34,9 @@ public class PlayerInventory : MonoBehaviour
 
 
 	//Consumables inventory
-	public int ActiveConsumable = 5; //The actual consumable. Can be just 5 or 6 (the shortcuts)
 	public List<_Consumables> ConsumablesInventory; //Pickables that affect Player stats. Not instanciated ! WARNING!
-	public _Consumables cons1;
-	public _Consumables cons2;
+	public _Consumables cons1;  //Consumable of the first shortcut
+	public _Consumables cons2;  //Consumable of the second shortcut
 
 
 	//CluesInventory
@@ -48,38 +46,15 @@ public class PlayerInventory : MonoBehaviour
 
 
 	//To affect the objects
-	public Canvas Inventory;
+	public Canvas Inventory;  //The canvas where we display the inventory
 	public int SelectedObject = 1;  //1 = actualweapon1, 2 = actualweapon2
 	public int TypeOfObjects = 1; //1 = weapons, 2 = spells, 3 = potions, 4 = clues
-
-    [SerializeField]
-    private GameObject _weaponsCam;
-    private GameObject WeaponsCam
-    {
-        get { return _weaponsCam; }
-    }
-
-    [SerializeField]
-    private GameObject _weapon;
-    private GameObject Weapon
-    {
-        get { return _weapon; }
-    }
-
 
 
 	void Start()
 	//Set all the variables
 	{
 		Player = GetComponent<MainCharacter> ();
-
-		// Desactivate the weapons camera and set the weapon layer to default if it's not the local player
-		if(!Player.View.isMine)
-		{
-			WeaponsCam.SetActive(false);
-			SetLayerRecursively(Weapon, 0);
-		}
-
 
 		//WEAPONS
 		FistsObject = GetComponentInChildren<Fists>().gameObject;
@@ -116,26 +91,13 @@ public class PlayerInventory : MonoBehaviour
 		Spell2 = SpellsInventory[0];
 		Player.ActualSpell = Spell1;
 
-
+		//CONSUMABLES
 		ConsumablesInventory.Add (GetComponent<HealthPotion> ());
 		ConsumablesInventory.Add (GetComponent<SpeedPotion> ());
 		cons1 = ConsumablesInventory [0];
 		cons2 = ConsumablesInventory[1];
 	}
-
-
-
-    private static void SetLayerRecursively(GameObject go, int layerNumber)
-    {
-        Transform[] trans = go.GetComponentsInChildren<Transform>(true);
-        int length = trans.Length;
-        for(int i = 0; i < length; i++)
-        {
-            trans[i].gameObject.layer = layerNumber;
-        }
-    }
-
-
+		
 
     public void Update()
 	{
@@ -150,22 +112,18 @@ public class PlayerInventory : MonoBehaviour
 
 
 	public void ShowInventory()
-	// show the inventory and hide the interface, or the contrary, depending on the button wheel
+	//Show the inventory and hide the interface, or the contrary, depending on the button wheel
 	{
 		if (Input.GetButtonDown ("Wheel"))
 		{
 			Inventory.gameObject.SetActive (true);
 			Inventory.GetComponent<DisplayInventory>().DisplayWeapons();
-			Cursor.lockState = CursorLockMode.None;  //unlock the mouse
-			Cursor.visible = true;
 			Player.IsDisplaying = true;
 			Player.Interface.SetActive (false);
 		}
 		else if (Input.GetButtonUp ("Wheel"))
 		{
 			Inventory.gameObject.SetActive (false);
-			Cursor.lockState = CursorLockMode.Locked;  //lock the mouse again
-			Cursor.visible = false;
 			SelectedObject = 1;
 			TypeOfObjects = 1;
 			Player.IsDisplaying = false;
@@ -182,7 +140,6 @@ public class PlayerInventory : MonoBehaviour
 		{
 			Weapon2.Object.SetActive (false);
 			Weapon1.Object.SetActive (true);
-			ActiveWeapon = 1;
 			Player.ActualWeapon = Weapon1;
 		}
 			
@@ -190,7 +147,6 @@ public class PlayerInventory : MonoBehaviour
 		{
 			Weapon1.Object.SetActive (false);
 			Weapon2.Object.SetActive (true);
-			ActiveWeapon = 2;
 			Player.ActualWeapon = Weapon2;
 		}
 	}
@@ -205,7 +161,6 @@ public class PlayerInventory : MonoBehaviour
 		{
 			Spell2.Object.SetActive (false);
 			Spell1.Object.SetActive (true);
-			ActiveSpell = 3;
 			Player.ActualSpell = Spell1;
 		}
 
@@ -213,7 +168,6 @@ public class PlayerInventory : MonoBehaviour
 		{
 			Spell1.Object.SetActive (false);
 			Spell2.Object.SetActive (true);
-			ActiveSpell = 4;
 			Player.ActualSpell = Spell2;
 		}
 	}

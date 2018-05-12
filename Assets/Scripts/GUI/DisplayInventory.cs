@@ -22,6 +22,11 @@ public class DisplayInventory : MonoBehaviour
 	public ObjectsButton ActiveWeapon1;  //Button which display the first weapon that is equipped
 	public ObjectsButton ActiveWeapon2;  //Button which display the second weapon that is equipped
 
+	public void Awake()
+	{
+		player = GetComponentInParent<PlayerInventory> ();
+	}
+
 
 
 	public void DisplayWeapons()

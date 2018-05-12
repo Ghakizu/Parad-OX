@@ -13,13 +13,13 @@ public class Freeze : _Spells
 	{
 		TimeOfEffect = 3;
 		ObjectName = "Freeze";
-		sprite = MaterialsAssignations.FreezeSprite;
 		damages = 0; 
 		RangeOfAttk = 300;
 		TimeBetweenAttacks = 3;
 		ManaConsumed = 50;
 		SubDescription = "Freeze your enemy during " + TimeOfEffect + " seconds.";
 		base.Awake ();
+		sprite = Materials.FreezeSprite;
 	}
 
 

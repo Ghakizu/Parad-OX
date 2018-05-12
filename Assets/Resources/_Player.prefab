@@ -1799,7 +1799,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1810529741753342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -304.30203, y: 18, z: 85}
+  m_LocalPosition: {x: 57.78319, y: 1.1946789e-15, z: -53.80356}
   m_LocalScale: {x: 7, y: 14, z: 7}
   m_Children:
   - {fileID: 4946386388240436}
@@ -2540,6 +2540,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   sprite: {fileID: 0}
   description: 
+  Materials: {fileID: 0}
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
@@ -3338,6 +3339,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   sprite: {fileID: 0}
   description: 
+  Materials: {fileID: 0}
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
@@ -3486,6 +3488,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   sprite: {fileID: 0}
   description: 
+  Materials: {fileID: 0}
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
@@ -3802,6 +3805,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   sprite: {fileID: 0}
   description: 
+  Materials: {fileID: 0}
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
@@ -3874,12 +3878,8 @@ MonoBehaviour:
   IsGamePaused: 0
   IsFreezed: 0
   IsAirWallEnabled: 0
-  CheatSpeed: 1000
-  CrouchSpeed: 50
-  OutOfStaminaSpeed: 50
   MaxStamina: 150
   Stamina: 150
-  speed: 0
   cam: {fileID: 1031231489512048}
   IsDisplaying: 0
   StaminaButton: {fileID: 114658893661531824}
@@ -3891,7 +3891,7 @@ MonoBehaviour:
   PlayerDisplays: {fileID: 1278121783763160}
   anim: {fileID: 95380746061602158}
   View: {fileID: 0}
-  _weapons: {fileID: 1642952042795692}
+  WeaponsGameObject: {fileID: 1642952042795692}
   sound: {fileID: 8300000, guid: 3480a85c02477da43afcdd98d7e1b7d2, type: 3}
 --- !u!114 &114422602100250456
 MonoBehaviour:
@@ -4297,6 +4297,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   sprite: {fileID: 0}
   description: 
+  Materials: {fileID: 0}
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
@@ -4315,14 +4316,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 114422544674408456}
-  ActiveWeapon: 1
   WeaponsInventory: []
   FistsObject: {fileID: 0}
   KatanaObject: {fileID: 0}
   KnifeObject: {fileID: 0}
   Weapon1: {fileID: 0}
   Weapon2: {fileID: 0}
-  ActiveSpell: 3
   SpellsInventory: []
   FreezeObject: {fileID: 0}
   AirWallObject: {fileID: 0}
@@ -4332,7 +4331,6 @@ MonoBehaviour:
   HealObject: {fileID: 0}
   Spell1: {fileID: 0}
   Spell2: {fileID: 0}
-  ActiveConsumable: 5
   ConsumablesInventory: []
   cons1: {fileID: 0}
   cons2: {fileID: 0}
@@ -4342,8 +4340,6 @@ MonoBehaviour:
   Inventory: {fileID: 223417725112149272}
   SelectedObject: 1
   TypeOfObjects: 1
-  _weaponsCam: {fileID: 1576729601448154}
-  _weapon: {fileID: 1642952042795692}
 --- !u!114 &114546438326859256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4561,6 +4557,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   sprite: {fileID: 0}
   description: 
+  Materials: {fileID: 0}
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
@@ -5140,6 +5137,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   sprite: {fileID: 0}
   description: 
+  Materials: {fileID: 0}
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
@@ -5491,6 +5489,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   sprite: {fileID: 0}
   description: 
+  Materials: {fileID: 0}
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
@@ -5538,6 +5537,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   sprite: {fileID: 0}
   description: 
+  Materials: {fileID: 0}
   damages: 0
   RangeOfAttk: 0
   TimeBetweenAttacks: 0

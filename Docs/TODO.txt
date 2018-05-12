@@ -46,17 +46,6 @@ Lit
 
 
 GAMEPLAY
-mouvements (ok)
-Caméra (ok)
-Changement d'armes (ok)
-Changements de sorts (ok)
-Attaques (armes et sorts)
-Changer tous les layers (créer un layer jump)
-Une fonction qui permet de display tous les indices que l'on possède
-refaire certains colliders
-Déplacements des PNJs (+ voitures)
-Ia de tous les boss
-Ennemis à gérer
 Quand on met le menu pause, la vitesse doit être stockée quelque part.
 
 
@@ -77,11 +66,6 @@ Textures (les couleurs ca passe crème)
 
 GUI
 Menu de jeu (life, etc)
-Menu principal
-Menu de pause
-Inventaire des indices
-Roue pour le changement des armes et des sorts
-
 
 
 Animations

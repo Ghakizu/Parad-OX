@@ -12,6 +12,7 @@ public class _Objects : MonoBehaviour
 	public _Character owner;  //The owner of the Object. Can be a maincharacter or an ennemy. None if it's a clue on the floor for example
 	public Sprite sprite;  //the sprite of the object (for the inventory
 	public string description;  //the description of the Object (also for the inventory)
+	public MaterialsAssignations Materials;  //The script where all the materials and UI images are stocked
 
 
 	public void Awake()
@@ -23,5 +24,6 @@ public class _Objects : MonoBehaviour
 			owner = this.GetComponentInParent<_Character> ();
 		}
 		Object = this.gameObject;
+		Materials = GameObject.Find ("Materials").GetComponent<MaterialsAssignations> ();
 	}
 }

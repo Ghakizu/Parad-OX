@@ -32,13 +32,6 @@ public class MenuBehaviour : MonoBehaviour
 		Application.Quit ();
 	}
 
-	public void LockMouse()
-	//Relock the mouse
-	{
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
-	}
-
 
 	public void Restart(MainCharacter player)
 	//Allows the player to Restart his game after losing

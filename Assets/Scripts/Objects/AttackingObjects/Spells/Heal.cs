@@ -13,13 +13,13 @@ public class Heal : _Spells
 	{
 		TimeOfEffect = 0;
 		ObjectName = "Heal";
-		sprite = MaterialsAssignations.HealSprite;
 		damages = 20; 
 		RangeOfAttk = 0;
 		TimeBetweenAttacks = 50;
 		ManaConsumed = 30;
 		SubDescription = "Heal your player by " + damages + " HP.";
 		base.Awake ();
+		sprite = Materials.HealSprite;
 	}
 
 
