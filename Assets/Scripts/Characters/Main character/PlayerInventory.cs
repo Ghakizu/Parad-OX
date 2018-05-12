@@ -49,6 +49,9 @@ public class PlayerInventory : MonoBehaviour
 	public Canvas Inventory;  //The canvas where we display the inventory
 	public int SelectedObject = 1;  //1 = actualweapon1, 2 = actualweapon2
 	public int TypeOfObjects = 1; //1 = weapons, 2 = spells, 3 = potions, 4 = clues
+	public int SelectedWeapon = 1;  //which weapon is active
+	public int SelectedSpell = 1;  //which spell is active
+	public int SelectedConsumable = 1;  //which consumable is active
 
 
 	void Start()
@@ -114,20 +117,24 @@ public class PlayerInventory : MonoBehaviour
 	public void ShowInventory()
 	//Show the inventory and hide the interface, or the contrary, depending on the button wheel
 	{
-		if (Input.GetButtonDown ("Wheel"))
+		if (Input.GetButtonDown ("Wheel") && !Player.IsGamePaused)
 		{
 			Inventory.gameObject.SetActive (true);
 			Inventory.GetComponent<DisplayInventory>().DisplayWeapons();
 			Player.IsDisplaying = true;
 			Player.Interface.SetActive (false);
 		}
-		else if (Input.GetButtonUp ("Wheel"))
+		else if (Input.GetButtonUp ("Wheel") || Input.GetKeyDown(KeyCode.Escape))
 		{
 			Inventory.gameObject.SetActive (false);
-			SelectedObject = 1;
 			TypeOfObjects = 1;
 			Player.IsDisplaying = false;
 			Player.Interface.SetActive (true);
+			if (Player.IsGamePaused)
+			{
+				Player.PauseMenu.SetActive (false);  //put the pause menu to the foreground
+				Player.PauseMenu.SetActive (true);
+			}
 		}
 	}
 
@@ -141,6 +148,7 @@ public class PlayerInventory : MonoBehaviour
 			Weapon2.Object.SetActive (false);
 			Weapon1.Object.SetActive (true);
 			Player.ActualWeapon = Weapon1;
+			SelectedWeapon = 1;
 		}
 			
 		if(Input.GetButtonDown("Weapon2"))
@@ -148,6 +156,7 @@ public class PlayerInventory : MonoBehaviour
 			Weapon1.Object.SetActive (false);
 			Weapon2.Object.SetActive (true);
 			Player.ActualWeapon = Weapon2;
+			SelectedWeapon = 2;
 		}
 	}
 		
@@ -162,6 +171,7 @@ public class PlayerInventory : MonoBehaviour
 			Spell2.Object.SetActive (false);
 			Spell1.Object.SetActive (true);
 			Player.ActualSpell = Spell1;
+			SelectedSpell = 1;
 		}
 
 		if(Input.GetButtonDown("Spell2") && Spell2 != null)
@@ -169,6 +179,7 @@ public class PlayerInventory : MonoBehaviour
 			Spell1.Object.SetActive (false);
 			Spell2.Object.SetActive (true);
 			Player.ActualSpell = Spell2;
+			SelectedSpell = 2;
 		}
 	}
 }

@@ -17,6 +17,8 @@ ModelImporter:
     100018: "T\xEAte"
     100020: bras droit
     100022: bras gauche
+    100024: Chaussur droite
+    100026: Chaussure gauche
     400000: Cube.001
     400002: Cube.002
     400004: Cube.003
@@ -29,6 +31,8 @@ ModelImporter:
     400018: "T\xEAte"
     400020: bras droit
     400022: bras gauche
+    400024: Chaussur droite
+    400026: Chaussure gauche
     2100000: Material
     2100002: bouche
     2100004: cheveux
@@ -51,6 +55,8 @@ ModelImporter:
     2300016: "T\xEAte"
     2300018: bras droit
     2300020: bras gauche
+    2300022: Chaussur droite
+    2300024: Chaussure gauche
     3300000: Cube.001
     3300002: Cube.002
     3300004: Cube.003
@@ -62,6 +68,8 @@ ModelImporter:
     3300016: "T\xEAte"
     3300018: bras droit
     3300020: bras gauche
+    3300022: Chaussur droite
+    3300024: Chaussure gauche
     4300000: Cube.004
     4300002: Sphere.001
     4300004: Cube.002
@@ -73,6 +81,8 @@ ModelImporter:
     4300016: Bras
     4300018: bras droit
     4300020: bras gauche
+    4300022: Chaussure gauche
+    4300024: Chaussur droite
   externalObjects: {}
   materials:
     importMaterials: 1

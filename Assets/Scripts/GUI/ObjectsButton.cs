@@ -17,6 +17,7 @@ public class ObjectsButton : MonoBehaviour
 	private ColorBlock Red;  //Color red (if the button is highlighted)
 	private ColorBlock Grey;  //color grey (if the button isn't highlighted)
 	public Canvas Inventory;  //The canvas of the inventory
+	public int SelectedObject;  //for the two main buttons : which is the first and which is the second
 
 
 	public void Awake()
@@ -34,7 +35,15 @@ public class ObjectsButton : MonoBehaviour
 
 
 	public void Update()
-	//Update the sprite and the text of the object
+	//Update the status of the button
+	{
+		SetSprite ();
+		SetColor ();
+	}
+		
+
+	public void SetSprite()
+	//Set the srpite and the text of the object
 	{
 		if (Object != null) 
 		{
@@ -47,6 +56,29 @@ public class ObjectsButton : MonoBehaviour
 			ObjectName.text = "";
 		}
 	}
+
+
+	public void SetColor()
+	//change the color for the 2 main buttons
+	{
+		if (OtherWeapon != null)
+		{
+			if (Player.SelectedObject == SelectedObject)
+			{
+				GetComponent<Button> ().colors = Red;
+			}
+			else
+			{
+				GetComponent<Button> ().colors = Grey;
+			}
+		}
+	}
+
+
+
+
+
+
 
 
 
@@ -76,9 +108,7 @@ public class ObjectsButton : MonoBehaviour
 	public void SelectWeaponToAssign(int SelectedObject)
 	//Change the active weapon
 	{
-		GetComponent<Button> ().colors = Red;
 		Player.SelectedObject = SelectedObject;
-		OtherWeapon.GetComponent<Button> ().colors = Grey;
 		switch (Player.TypeOfObjects)
 		{
 		case 1:
@@ -87,10 +117,12 @@ public class ObjectsButton : MonoBehaviour
 			case 1:
 				Player.Weapon2.Object.SetActive (false);
 				Player.Weapon1.Object.SetActive (true);
+				Player.SelectedWeapon = 1;
 				break;
 			case 2:
 				Player.Weapon1.Object.SetActive (false);
 				Player.Weapon2.Object.SetActive (true);
+				Player.SelectedWeapon = 2;
 				break;
 			}
 			break;
@@ -100,10 +132,12 @@ public class ObjectsButton : MonoBehaviour
 			case 1:
 				Player.Spell2.Object.SetActive (false);
 				Player.Spell1.Object.SetActive (true);
+				Player.SelectedSpell = 1;
 				break;
 			case 2:
 				Player.Spell1.Object.SetActive (false);
 				Player.Spell2.Object.SetActive (true);
+				Player.SelectedSpell = 2;
 				break;
 			}
 			break;

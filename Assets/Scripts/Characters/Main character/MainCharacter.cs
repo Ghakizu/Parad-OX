@@ -224,6 +224,7 @@ public class MainCharacter : _Character
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
 			PauseMenu.SetActive (true);
+			IsDisplaying = false;
 			IsGamePaused = true;
 			CharacterRigidbody.constraints = RigidbodyConstraints.FreezeAll;
 		}

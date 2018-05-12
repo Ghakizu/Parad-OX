@@ -488,6 +488,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   sprite: {fileID: 0}
   description: 
+  Materials: {fileID: 0}
   damages: 50
   RangeOfAttk: 0
   TimeBetweenAttacks: 0
@@ -519,6 +520,7 @@ MonoBehaviour:
   ActualSpell: {fileID: 0}
   CharacterObject: {fileID: 0}
   CharacterRigidbody: {fileID: 0}
+  IsGamePaused: 0
   IsFreezed: 0
   IsAirWallEnabled: 0
   target: {fileID: 0}
