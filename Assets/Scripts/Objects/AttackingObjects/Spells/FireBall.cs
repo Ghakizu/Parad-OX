@@ -26,9 +26,6 @@ public class FireBall : _Spells
 	public void LaunchSpell(_Character other)
 	//Launch the spell FireBall against the target
 	{
-		if (other.tag == "Enemy") 
-		{
 
-		}
 	}
 }

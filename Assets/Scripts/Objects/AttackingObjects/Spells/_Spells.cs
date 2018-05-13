@@ -6,8 +6,12 @@ using System;
 
 public abstract class _Spells : _AttackingObjects 
 {
+	//All the spells of the characters
+
+
 	public float ManaConsumed;  //The mana that must Behaviour used to launch the spell
 	public float TimeOfEffect;  //the time that the spell is going to last (for those which affect stats for examples)
+
 
 	new public void Awake()
 	//Set the description and the owner for all the attacking objects

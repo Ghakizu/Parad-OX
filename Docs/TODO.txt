@@ -46,7 +46,32 @@ Lit
 
 
 GAMEPLAY
-Quand on met le menu pause, la vitesse doit être stockée quelque part.
+Quand on met le menu pause, la vitesse doit être stockée quelque part, pour éviter que le jeu freeze bizarrement.
+Crouch -> réduire la zone de détection, et faire baisser le personnage / une anim ? (pas juste la caméra)
+GameOver : remettre toute la scène à son état initiale (ou au dernier checkpoint) -> peut être le mettre sur une autre scène
+Gestion des sauvegardes
+Menus pause : save, resume, settings
+les settings doivent être fonctionnels
+Change Consumable
+Use consumable
+voitures (déplacements ordonnés dans la ville)
+PNJs : déplacements à revoir, certains (surement les PNJs immobiles) doivent display des infos, peut être leur mettre une bulle sur la tête
+Display clues
+ObjectButtons : gérer le cas des consumables
+Rééquilibrage des armes
+Rajouter 2 ou 3 armes
+armes à distance : effective que si le air wall est = 0
+Sort EarthSpike
+Sort FireBall
+Sort Flash
+SpeedPotion
+Description potions
+use potions
+ennemis mouvements, attaques
+plusieurs types d'ennemis : équilibrage
+quand on est derrière le personnage, il ne se tourne plus. Avec un Lookat, il se tourne mais de manière beaucoup trop violente
+Obtention des armes : shop, coffres, gestion du nombre d'items pour les consumables
+labyrinthe : un joueur spawn en bas, l'autre en haut, et ils ne peuvent qu'échanger, on fait pas la téléportation du début
 
 
 

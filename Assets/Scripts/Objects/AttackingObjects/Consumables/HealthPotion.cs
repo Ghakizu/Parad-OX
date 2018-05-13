@@ -12,7 +12,7 @@ public class HealthPotion : _Consumables
 		ObjectName = "HealthPotion";
 		damages = 20; 
 		RangeOfAttk = 0;
-		TimeBetweenAttacks = 10;
+		TimeBetweenAttacks = 0;
 		description = "Heal your player by " + damages + " HP.";
 		base.Awake ();
 		sprite = Materials.HealthPotionSprite;
@@ -26,5 +26,4 @@ public class HealthPotion : _Consumables
 		owner.Health += damages;
 		owner.Health = Mathf.Min (owner.Health, owner.MaxHealth);
 	}
-
 }

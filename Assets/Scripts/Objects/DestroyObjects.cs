@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class DestroyObjects : MonoBehaviour {
+public class DestroyObjects : MonoBehaviour 
+{
 
 	public GameObject Wall;
 	private PhotonView photonView;

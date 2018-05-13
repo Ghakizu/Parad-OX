@@ -34,7 +34,7 @@ public class PlayerInventory : MonoBehaviour
 
 
 	//Consumables inventory
-	public List<_Consumables> ConsumablesInventory; //Pickables that affect Player stats. Not instanciated ! WARNING!
+	public List<_Consumables> ConsumablesInventory; //Pickables that affect Player stats.
 	public _Consumables cons1;  //Consumable of the first shortcut
 	public _Consumables cons2;  //Consumable of the second shortcut
 
@@ -113,7 +113,7 @@ public class PlayerInventory : MonoBehaviour
 
 
 
-
+	//Inventory
 	public void ShowInventory()
 	//Show the inventory and hide the interface, or the contrary, depending on the button wheel
 	{
@@ -183,5 +183,3 @@ public class PlayerInventory : MonoBehaviour
 		}
 	}
 }
-//1 WARNING
-//we must do the consumables

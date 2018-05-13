@@ -26,9 +26,6 @@ public class EarthSpike : _Spells
 	public void LaunchSpell(_Character other)
 	//Launch the spell EarthSpike against the target
 	{
-		if (other.tag == "Enemy") 
-		{
-
-		}
+		
 	}
 }

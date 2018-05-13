@@ -10,13 +10,12 @@ public class PNJs : _Character
 	//All the NPCs of the game
 
 
-	public NavMeshAgent agent;
-	public float Walkspeed = 100;
+	public NavMeshAgent agent;  //the agent of the PNJ
+	public float Walkspeed = 100;  //
 	public float range = 1000;
 	public bool IsArrived = true;
 	public float time = 0;
 	public string[] dialogues; //all the sentences the NPCs can say.
-	//If he has different things to say, we can put them in different cases of the table.
 
 
 

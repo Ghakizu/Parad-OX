@@ -33,7 +33,7 @@ public abstract class _Enemies : _Character
 	public bool IsWaiting = true;  //are we waiting
 	public Vector3 PatrolLocation = Vector3.zero;  //the next location where the character must move
 	public float DistanceAroundSpawnPoint = 200;  //How far can the enemy move around his SpawnPoint ?
-	public float timerToReset = 5;
+	public float timerToReset = 5;  //when do we want our character to be reset ?
 
 
 
@@ -133,10 +133,7 @@ public abstract class _Enemies : _Character
 				IsWaiting = false;
 			}
 		}
-		if (timerToReset >= 0)
-		{
-			timerToReset -= Time.deltaTime;
-		}
+		timerToReset = Math.Min (0, timerToReset - Time.deltaTime);
 	}
 
 

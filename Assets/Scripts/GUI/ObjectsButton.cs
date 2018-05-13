@@ -141,6 +141,17 @@ public class ObjectsButton : MonoBehaviour
 				break;
 			}
 			break;
+		case 3:
+			switch (SelectedObject) 
+			{
+			case 1:
+				Player.SelectedSpell = 1;
+				break;
+			case 2:
+				Player.SelectedSpell = 2;
+				break;
+			}
+			break;
 		}
 	}
 
@@ -180,6 +191,18 @@ public class ObjectsButton : MonoBehaviour
 				Player.Spell2.Object.SetActive (true);
 			}
 			Inventory.GetComponent<DisplayInventory>().DisplaySpells();
+		}
+		else if(Player.TypeOfObjects == 3 && Object != null)
+		{
+			if (Player.SelectedObject == 1)
+			{
+				Player.cons1 = (_Consumables)Object;
+			}
+			else
+			{
+				Player.cons2 = (_Consumables)Object;
+			}
+			Inventory.GetComponent<DisplayInventory>().DisplayConsumables();
 		}
 	}
 }

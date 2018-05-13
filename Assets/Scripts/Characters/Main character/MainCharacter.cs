@@ -56,8 +56,6 @@ public class MainCharacter : _Character
 		RunSpeed = 250;
 		Heightjump = 300;
 		base.Awake ();
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
         cam = GetComponentInChildren<Camera>().gameObject;
 		speed = WalkSpeed;
 		CharacterObject.tag = "Player";
@@ -177,16 +175,7 @@ public class MainCharacter : _Character
 			SetButtonsValue();
 			PauseGame ();
 		}
-		if (!IsGamePaused && !GameOver.activeSelf && !IsDisplaying)
-		{
-			Cursor.lockState = CursorLockMode.Locked;
-			Cursor.visible = false;
-		}
-		else
-		{
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
-		}
+		SetMouseStatus ();
 	}
 		
 
@@ -219,7 +208,7 @@ public class MainCharacter : _Character
 		
 
 	private void PauseGame()
-	//Displays the pause Menu
+	//Displays the pause Menu if the key is pressed
 	{
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
@@ -227,6 +216,22 @@ public class MainCharacter : _Character
 			IsDisplaying = false;
 			IsGamePaused = true;
 			CharacterRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+		}
+	}
+
+
+	private void SetMouseStatus()
+	//Set the status of the mouse every frame
+	{
+		if (!IsGamePaused && !GameOver.activeSelf && !IsDisplaying)
+		{
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+		}
+		else
+		{
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
 		}
 	}
 
@@ -251,8 +256,11 @@ public class MainCharacter : _Character
 			CheatMoves ();
 			CameraRotations ();
 			Jump ();
-			//SetAnimation ();
-			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed); 
+			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed);
+			if (anim != null)
+			{
+				SetAnimation ();
+			}
 		}
 	}
 
@@ -325,7 +333,7 @@ public class MainCharacter : _Character
 
 
 	private void CheatMoves()
-	//Movements alog the Y axe if cheating
+	//Movements along the Y axe if cheating
 	{
 		if (cheatCode)
 		{

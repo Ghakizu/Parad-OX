@@ -14,17 +14,20 @@ public class MenuBehaviour : MonoBehaviour
 		SceneManager.LoadScene ("Hub_Scene");
 	}
 
+
 	public void setCanvasEnabled(GameObject canvas)
 	//Set a gameobject active
 	{
 		canvas.SetActive (true);
 	}
 
+
 	public void setCanvasDisabled(GameObject canvas)
 	//set a game object inactive
 	{
 		canvas.SetActive (false);
 	}
+
 
 	public void QuitGame()
 	//Quit the game
