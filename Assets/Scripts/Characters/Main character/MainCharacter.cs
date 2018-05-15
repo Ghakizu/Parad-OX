@@ -173,7 +173,6 @@ public class MainCharacter : _Character
 		{
 			SetMainStats();
 			SetButtonsValue();
-			PauseGame ();
 		}
 		SetMouseStatus ();
 	}
@@ -203,19 +202,6 @@ public class MainCharacter : _Character
 			{
 				IsTired = true;
 			}
-		}
-	}
-		
-
-	private void PauseGame()
-	//Displays the pause Menu if the key is pressed
-	{
-		if(Input.GetKeyDown(KeyCode.Escape))
-		{
-			PauseMenu.SetActive (true);
-			IsDisplaying = false;
-			IsGamePaused = true;
-			CharacterRigidbody.constraints = RigidbodyConstraints.FreezeAll;
 		}
 	}
 

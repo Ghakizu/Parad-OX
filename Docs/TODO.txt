@@ -19,7 +19,6 @@ Boss
 
 
 GAMEPLAY
-Quand on met le menu pause, la vitesse doit être stockée quelque part, pour éviter que le jeu freeze bizarrement.
 Crouch -> réduire la zone de détection, et faire baisser le personnage / une anim ? (pas juste la caméra)
 GameOver : remettre toute la scène à son état initiale (ou au dernier checkpoint) -> peut être le mettre sur une autre scène
 Gestion des sauvegardes

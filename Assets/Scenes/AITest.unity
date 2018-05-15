@@ -112,7 +112,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: a5dc3183511577f4bba0b1ab7f044ad0, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 98bfc3a7e2485704db7c20f859adb064, type: 2}
 --- !u!1 &27968386
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,9 +612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64308f61e608184c846f7451e931d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scene: Boss_Centaurus
-  Spawnpoint: {x: -407, y: -135, z: 622}
-  rotation: {x: 0, y: 145, z: 0, w: 0}
 --- !u!65 &439097273
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -730,6 +727,10 @@ Prefab:
         type: 2}
       propertyPath: y
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241753520720352, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0933cf2f22df53c4f8b49111e62747e5, type: 2}
@@ -1044,6 +1045,11 @@ Prefab:
     - target: {fileID: 1544227185970148, guid: 86270938b0bd22e47b7ef8876eab0de6, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195595698780568690, guid: 86270938b0bd22e47b7ef8876eab0de6,
+        type: 2}
+      propertyPath: m_Acceleration
+      value: 9999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86270938b0bd22e47b7ef8876eab0de6, type: 2}

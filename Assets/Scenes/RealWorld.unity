@@ -9624,7 +9624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3dd5bed14fa1243b85a3b1e5a546f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scene: Lvl1
+  Scene: AITest
   Spawnpoint: {x: -1614, y: -2350, z: -3940}
   rotation: {x: 0, y: -90, z: 0, w: 0}
 --- !u!65 &1211679701

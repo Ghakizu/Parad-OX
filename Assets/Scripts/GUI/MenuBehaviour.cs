@@ -53,6 +53,11 @@ public class MenuBehaviour : MonoBehaviour
 	{
 		Player.GetComponent<MainCharacter> ().IsGamePaused = false;
 		Player.GetComponent<MainCharacter> ().CharacterRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+		_Character[] characters = GameObject.FindObjectsOfType<_Character> ();
+		foreach (_Character character in characters)
+		{
+			character.ResumeGame ();
+		}
 	}
 
 

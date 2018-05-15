@@ -28,7 +28,7 @@ public class PNJs : _Character
 		agent = this.gameObject.GetComponent<NavMeshAgent> ();
 		agent.speed = WalkSpeed;
 		agent.stoppingDistance = 0;
-		agent.acceleration = WalkSpeed;
+		agent.acceleration = 10000;
 		agent.autoBraking = false;
 		Health = 10;
 	}
@@ -37,14 +37,19 @@ public class PNJs : _Character
 
 	public new void Update()
 	{
-		base.Update();
-		FindNewLocation();
-		time -= Time.deltaTime;
-		if((agent.destination - this.transform.position).magnitude < 100 || time <= 0)
+		if (!IsGamePaused)
 		{
-			IsArrived = true;
+			base.Update();
+			FindNewLocation();
+			time -= Time.deltaTime;
+			if((agent.destination - this.transform.position).magnitude < 100 || time <= 0)
+			{
+				IsArrived = true;
+			}
 		}
 	}
+
+
 
 
 	public void FindNewLocation()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody))]  //All characters must have a Rigidbody
 
@@ -34,6 +35,7 @@ public abstract class _Character : Photon.MonoBehaviour
 	public GameObject CharacterObject;  //the gameObject of the character
 	public Rigidbody CharacterRigidbody;  //the rigidbody of the character
 	public bool IsGamePaused = false;  //is the game running or are we in a menu ?
+	public Vector3 StockedVelocity = Vector3.zero;  //when we pause the game, we want the velocity of the player to be stocked
 
 	//Changements of status, due to spells
 	public float IsFreezed = 0;  //we're freezed if the spell "freeze" has been launched
@@ -71,6 +73,7 @@ public abstract class _Character : Photon.MonoBehaviour
 		{
 			SetStats ();
 			Die ();
+			PauseGame ();
 		}
 	}
 
@@ -97,6 +100,12 @@ public abstract class _Character : Photon.MonoBehaviour
 
 
 
+
+
+
+
+	//PLAYING
+
 	public void SetStats()
 	//reset all the stats that are affected and must change during time
 	{
@@ -114,6 +123,46 @@ public abstract class _Character : Photon.MonoBehaviour
 		}
 	}
 
+	public void PauseGame()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			StockedVelocity = CharacterRigidbody.velocity;
+			IsGamePaused = true;
+			CharacterRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+			if (GetComponent<MainCharacter>() != null)
+			{
+				((MainCharacter)this).IsDisplaying = false;
+			}
+			NavMeshAgent agent = GetComponent<NavMeshAgent> ();
+			if (agent != null)
+			{
+				agent.SetDestination(this.transform.position);
+				agent.velocity = Vector3.zero;
+			}
+		}
+	}
+
+
+	public void ResumeGame()
+	{
+		CharacterRigidbody.velocity = StockedVelocity;
+		IsGamePaused = false;
+		CharacterRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	//MOVING
 
 	public void Move (float x, float y, float z, float speed)
 	//Allows a character to move along the x and z axes
@@ -137,6 +186,16 @@ public abstract class _Character : Photon.MonoBehaviour
 		CharacterRigidbody.AddForce (Vector3.down * Gravity);
 	}
 
+
+
+
+
+
+
+
+
+
+	//FIGHTING
 
 	public void Attack(_Character other)
 	//Allows a character to attack another
