@@ -18,21 +18,30 @@ public abstract class _Enemies : _Character
 	private SphereCollider DetectionCollider;  //The range of detection of the character. If you enter in it, he will chase you
 	public List<GameObject> PlayersDetected = new List<GameObject>();  //the list of the players that are detected
 	public NavMeshAgent agent;  //the NavMeshAgent of the character
-
-	//DIFFERENT TIMERS
-	public float TimeToTarget = 3;  //how long will the ennemy continue to follow you
-	public float WaitTime = 0.5f;  //How long does the ennemy wait between two turns
-	public float TimeTurning = 1;  //During how much time does the enemy turn around
-	public bool left = false;  //are we turning to the left
-	public bool right = false;  //are we turning to the right
 	public Vector3 PatrolLocation;  //the next location where the character must move
 	public float PatrolDistance = 200;  //How far can the enemy move around his SpawnPoint ?
-	public float timerToReset = 5;  //when do we want our character to be reset ?
+	public float Timer = 0;  //the timer that lead the character
+
+	//DIFFERENT TIMERS
+	public float TargetTime = 3;  //how long will the ennemy continue to follow you
+	public float WaitTime = 0.5f;  //How long does the ennemy wait between two turns
+	public float TurnTime = 1;  //During how much time does the enemy turn around
+	public float ResetTime = 5;  //when do we want our character to be reset ?
+	public float AttackTime = 10.5f;  //How long does an attack take
+
+	//DIFFERENT BOOLEANS
 	public bool IsWaiting = true;  //are we waiting
 	public bool IsTargetting = false;  //Are we followinf someone
 	public bool IsTurning = true;  //are we turning around
 	public bool IsWalking = false;  //are we walking (not chasing)
-	public float Timer = 0;  //the timer that lead the character
+	public bool IsAttacking = false;  //are we attacking another character
+	public bool left = false;  //are we turning to the left
+	public bool right = false;  //are we turning to the right
+
+
+
+
+
 
 
 
@@ -41,9 +50,9 @@ public abstract class _Enemies : _Character
 	new void Awake ()
 	//Setting all the basic stats;
 	{
-		TimeTurning = 1;
+		TurnTime = 1;
 		WaitTime = 0.5f;
-		TimeToTarget = 3;
+		TargetTime = 3;
 		base.Awake ();
 		agent = GetComponent<NavMeshAgent> ();
 		DetectionCollider = GetComponentInChildren<SphereCollider> ();
@@ -55,9 +64,25 @@ public abstract class _Enemies : _Character
 		agent.angularSpeed = RotateSpeed;
 		agent.stoppingDistance = ActualWeapon.RangeOfAttk - 10;
 		CharacterObject.tag = "Enemy";
-        //MaxTotalTimeToWait = 4 * MaxTimeTurning + 4 * MaxWaitTime;
 		agent.updateRotation = true;
         Health = 40;
+		AttackTime = 10.5f;
+	}
+
+
+
+	new public void Update()
+	//move, attack, and set the stats every frames
+	{	
+		base.Update();
+		if (!IsGamePaused && IsFreezed <= 0)
+		{
+			UpdateTimes ();
+			SetNewTarget ();
+			SetAgentDestination ();
+			SetRotation ();
+			Live ();
+		}
 	}
 
 
@@ -72,30 +97,14 @@ public abstract class _Enemies : _Character
 	}
 
 
-	new public void Update()
-	//move, attack, and set the stats every frames
-	{	
-		base.Update();
-		if (!IsGamePaused && IsFreezed <= 0)
-		{
-			UpdateTimes ();
-			SetNewTarget ();
-			SetAgentDestination ();
-			SetRotation ();
-		}
-	}
 
 
 
 
 
 
-
-
-
-
-	public void UpdateTimes ()
-	//Update the timer of the character
+	public void Live()
+	//All the functions that the character must do
 	{
 		if (IsWalking && (PatrolLocation - this.transform.position).magnitude <= agent.stoppingDistance + 30 && Timer >= 2)
 		{
@@ -103,15 +112,48 @@ public abstract class _Enemies : _Character
 		}
 		if (target != null)
 		{
-			Timer = TimeToTarget;
-			IsWaiting = false;
-			IsTurning = false;
-			IsWalking = false;
-			IsTargetting = true;
+			if(!IsAttacking)
+			{
+				Vector3 WhereToLook = target.transform.position - this.transform.position;
+				WhereToLook.y = 0;
+				Quaternion rotation = Quaternion.LookRotation (WhereToLook);
+				transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * RotateSpeed);
+			}
+			if ((target.transform.position - this.transform.position).magnitude <= ActualWeapon.RangeOfAttk)
+			{
+				agent.SetDestination (this.transform.position);
+				Attack ();
+			}
+		}
+		if (IsAttacking)
+		{
+			agent.SetDestination (this.transform.position);
+			agent.velocity = Vector3.zero;
+		}
+	}
+
+	public void UpdateTimes ()
+	//Update the timer of the character
+	{
+		Timer = Mathf.Max (0, Timer - Time.deltaTime);
+		if (target != null)
+		{
+			if (!IsAttacking)
+			{
+				Timer = TargetTime;
+				IsWaiting = false;
+				IsTurning = false;
+				IsWalking = false;
+				IsTargetting = true;
+			}
+			else if (IsAttacking && Timer == 0)
+			{
+				IsAttacking = false;
+			}
+
 		}
 		else
 		{
-			Timer = Mathf.Max (0, Timer - Time.deltaTime);
 			if (Timer == 0)
 			{
 				if (IsTurning)
@@ -133,13 +175,13 @@ public abstract class _Enemies : _Character
 					if (!left && !right)
 					{
 						IsWalking = true;
-						Timer = timerToReset;
+						Timer = ResetTime;
 						FindNewLocation ();
 					}
 					else
 					{
 						IsTurning = true;
-						Timer = TimeTurning;
+						Timer = TurnTime;
 					}
 					IsWaiting = false;
 				}
@@ -152,6 +194,7 @@ public abstract class _Enemies : _Character
 				else if (IsTargetting)
 				{
 					IsTargetting = false;
+					IsAttacking = false;
 					IsWaiting = true;
 					Timer = WaitTime;
 					target = null;
@@ -166,12 +209,14 @@ public abstract class _Enemies : _Character
 	//Attack the player if it is possible
 	{
 		RaycastHit hit;
-		if (IsFreezed <= 0 && target != null &&
+		if (IsFreezed <= 0 && target != null && IsAbleToAttack <= 0 &&
 			(target.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk + 10
 			&& Physics.Linecast (transform.position, target.transform.position, out hit)
 			&& hit.collider.gameObject.tag == "Player")
 		{
 			base.Attack ((_Character)target.GetComponent<MainCharacter> ());
+			IsAttacking = true;
+			Timer = AttackTime;
 		}
 	}
 
