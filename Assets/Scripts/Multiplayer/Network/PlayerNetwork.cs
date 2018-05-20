@@ -47,7 +47,7 @@ public class PlayerNetwork : MonoBehaviour
         }
         else if (scene.name == "RealWorld" && !isLoaded)
         {
-            GameObject Player =PhotonNetwork.Instantiate("_Player", new Vector3(231, -988, 29), Quaternion.Euler(0, -90, 0), 0);
+            GameObject Player =PhotonNetwork.Instantiate("Main character", new Vector3(231, -988, 29), Quaternion.Euler(0, -90, 0), 0);
             Player.transform.SetParent(transform.parent, false);
             isLoaded = true;
         }
@@ -90,7 +90,7 @@ public class PlayerNetwork : MonoBehaviour
     private void RPC_CreatePlayer()
     {
 		Vector3 position = new Vector3(Random.Range(1500f, 1600f), Random.Range(10f, 50f), Random.Range(8900f, 9100f));
-       GameObject Player = PhotonNetwork.Instantiate("_Player", position, Quaternion.identity, 0);
+        GameObject Player = PhotonNetwork.Instantiate("_Player", position, Quaternion.identity, 0);
         Player.transform.SetParent(transform.parent, false);
     }
 }

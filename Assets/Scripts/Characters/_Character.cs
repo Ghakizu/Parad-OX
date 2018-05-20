@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody))]  //All characters must have a Rigidbody
 
@@ -33,6 +34,8 @@ public abstract class _Character : Photon.MonoBehaviour
 	//playing
 	public GameObject CharacterObject;  //the gameObject of the character
 	public Rigidbody CharacterRigidbody;  //the rigidbody of the character
+	public bool IsGamePaused = false;  //is the game running or are we in a menu ?
+	public Vector3 StockedVelocity = Vector3.zero;  //when we pause the game, we want the velocity of the player to be stocked
 
 	//Changements of status, due to spells
 	public float IsFreezed = 0;  //we're freezed if the spell "freeze" has been launched
@@ -47,7 +50,7 @@ public abstract class _Character : Photon.MonoBehaviour
 		Mana = MaxMana;
 		Health = MaxHealth;
 		SpawnPoint = transform.position;  //A default value. We must update it when we change the scene
-		JumpLayer = 10;  //The default value. Must be changed to another layer only used for the jumps. WARNING!
+		JumpLayer = 10;  //The default value. Must be changed to another layer only used for the jumps.
 		CharacterRigidbody = GetComponent<Rigidbody> ();
 		CharacterObject = this.gameObject;
 	}
@@ -56,7 +59,7 @@ public abstract class _Character : Photon.MonoBehaviour
 	protected void FixedUpdate () 
 	//apply the gravity every time if we're not freezed
 	{
-		if (IsFreezed <= 0)
+		if (IsFreezed <= 0 && !IsGamePaused)
 		{
 			ApplyGravity ();	
 		}
@@ -66,11 +69,16 @@ public abstract class _Character : Photon.MonoBehaviour
 	public void Update()
 	//Set the stats every frame
 	{
-		SetStats ();
+		if (!IsGamePaused)
+		{
+			SetStats ();
+			Die ();
+			PauseGame ();
+		}
 	}
 
 
-	public void OnTriggerEnter(Collider other)
+	public void OnTriggerStay(Collider other)
 	//Set the value of IsAbleToJump if we touch the ground
 	{
 		if (other.gameObject.layer == JumpLayer)
@@ -78,21 +86,33 @@ public abstract class _Character : Photon.MonoBehaviour
 			IsAbleToJump = true;
 		}
 	}
+
+
+	public void OnTriggerExit(Collider other)
+	//If we leave the ground, we don't want to be able to jump anymore
+	{
+		if (other.gameObject.layer == JumpLayer)
+		{
+			IsAbleToJump = false;
+		}
+	}
 		
 
 
 
+
+
+
+
+	//PLAYING
+
 	public void SetStats()
 	//reset all the stats that are affected and must change during time
 	{
-		if (IsAbleToAttack >= 0)
-		{
-			IsAbleToAttack -= Time.deltaTime;
-		}
-		if (IsAbleToLaunchSpell >= 0)
-		{
-			IsAbleToLaunchSpell -= Time.deltaTime;
-		}
+		IsAbleToAttack = Mathf.Max (0, IsAbleToAttack - Time.deltaTime);
+		IsAbleToLaunchSpell = Mathf.Max (0, IsAbleToLaunchSpell - Time.deltaTime);
+		IsAirWallEnabled = Mathf.Max (0, IsAirWallEnabled - Time.deltaTime);
+		Mana = Mathf.Min (Mana + Time.deltaTime, MaxMana);
 		if (IsFreezed >= 0)
 		{
 			IsFreezed -= Time.deltaTime;
@@ -101,20 +121,48 @@ public abstract class _Character : Photon.MonoBehaviour
 				Freeze.UnfreezeAll (this);
 			}
 		}
-		if (IsAirWallEnabled >= 0)
+	}
+
+	public void PauseGame()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			IsAirWallEnabled -= Time.deltaTime;
-		}
-		if (Mana < MaxMana)
-		{
-			Mana += Time.deltaTime;
-			if (Mana > MaxMana)
+			StockedVelocity = CharacterRigidbody.velocity;
+			IsGamePaused = true;
+			CharacterRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+			if (GetComponent<MainCharacter>() != null)
 			{
-				Mana = MaxMana;
+				((MainCharacter)this).IsDisplaying = false;
+			}
+			NavMeshAgent agent = GetComponent<NavMeshAgent> ();
+			if (agent != null)
+			{
+				agent.SetDestination(this.transform.position);
+				agent.velocity = Vector3.zero;
 			}
 		}
 	}
 
+
+	public void ResumeGame()
+	{
+		CharacterRigidbody.velocity = StockedVelocity;
+		IsGamePaused = false;
+		CharacterRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	//MOVING
 
 	public void Move (float x, float y, float z, float speed)
 	//Allows a character to move along the x and z axes
@@ -139,6 +187,16 @@ public abstract class _Character : Photon.MonoBehaviour
 	}
 
 
+
+
+
+
+
+
+
+
+	//FIGHTING
+
 	public void Attack(_Character other)
 	//Allows a character to attack another
 	{
@@ -152,33 +210,28 @@ public abstract class _Character : Photon.MonoBehaviour
 	public void LaunchSpell(_Character other)
 	//Allows a character to launch the Spell of his actual spell
 	{
-		if(IsAbleToLaunchSpell <= 0)
+		switch (ActualSpell.ObjectName)
 		{
-			switch (ActualSpell.ObjectName)
-			{
-			case "Freeze":
-				((Freeze)ActualSpell).LaunchSpell (other);
-				break;
-			case "Flash":
-				((Flash)ActualSpell).LaunchSpell (other);
-				break;
-			case "FireBall":
-				((FireBall)ActualSpell).LaunchSpell (other);
-				break;
-			case "EarthSpike":
-				((FireBall)ActualSpell).LaunchSpell (other);
-				break;
-			case "AirWall":
-				((AirWall)ActualSpell).LaunchSpell ();
-				break;
-			case "Heal":
-				((Heal)ActualSpell).LaunchSpell ();
-				break;
-			default:
-				return;
-			}
-			Mana -= ActualSpell.ManaConsumed;
-			IsAbleToLaunchSpell = ActualSpell.TimeBetweenAttacks;
+		case "Freeze":
+			((Freeze)ActualSpell).LaunchSpell (other);
+			break;
+		case "Flash":
+			((Flash)ActualSpell).LaunchSpell (other);
+			break;
+		case "FireBall":
+			((FireBall)ActualSpell).LaunchSpell (other);
+			break;
+		case "EarthSpike":
+			((FireBall)ActualSpell).LaunchSpell (other);
+			break;
+		case "AirWall":
+			((AirWall)ActualSpell).LaunchSpell ();
+			break;
+		case "Heal":
+			((Heal)ActualSpell).LaunchSpell ();
+			break;
+		default:
+			return;
 		}
 	}
 
@@ -186,7 +239,12 @@ public abstract class _Character : Photon.MonoBehaviour
 	public void Die()
 	//Allows a character to Die. If the character is a MainCharacter, we don't want to use this function
 	{
-		Destroy(CharacterObject);
+		MainCharacter PossiblePlayer = GetComponent<MainCharacter> ();
+		if (Health <= 0 && PossiblePlayer == null)
+		{
+			Destroy(CharacterObject);
+		}
+
 	}
 }
 

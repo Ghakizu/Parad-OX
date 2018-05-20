@@ -1,97 +1,155 @@
-ALREADY DESIGNED AND TEXTURED
-Arbres
-Habitations "basiques" (entre une et deux sortes)
-Restaurant
-Bar (deux diférents)
-
-
-TO TEXTURE
-Banc
-Tables carrées
-Epée
-
-
-
-TO DESIGN
+A MODELISER
+Tables rondes (pour les restaurants)
 Buissons
-Personnage principal
-PNJs
-Fontaine (avec centaurus le moche)
-Stands de marché (viande, fruits, fromages, il faut changer un peu pour éviter d'être trop redondant)
-Supermarché
-Mairie
-Night club0.148104
+rearranger les immeubles pour que les coins ne glitchent pas
+Armes (épée, couteau)
+Night Club
 Kiosque à journaux
-Tables rondes
-Tabourets ronds
-Tabourets carrés
+Stands de Marché
+Tabourets (ronds et carrés)
 Chaises
-Lampadaire
-Taser
-Couteau (bébé katana)
-Feux tricolores (pas forcément actifs)
-Ennemis
-Boss
+Lampadaires
+Feux tricolores (juste pcq c'est stylé)
 Indices
-Leviers
 Pièges
-Barrières (pour le parc + une porte)
-Caisses de supermarché
-Rayons de supermarché
-Armoires / etagères
-coffres
-Lit
-
+Coffres
+Plusieurs skins de personnages reconnaissabe : PNJs, personnage principal, Ennemis
+Boss
 
 
 
 GAMEPLAY
-mouvements (ok)
-Caméra (ok)
-Changement d'armes (ok)
-Changements de sorts (ok)
-Attaques (armes et sorts)
-Changer tous les layers (créer un layer jump)
-Une fonction qui permet de display tous les indices que l'on possède
-refaire certains colliders
-Déplacements des PNJs (+ voitures)
-Ia de tous les boss
-Ennemis à gérer
+Crouch -> réduire la zone de détection, et faire baisser le personnage / une anim ? (pas juste la caméra)
+GameOver : remettre toute la scène à son état initiale (ou au dernier checkpoint) -> peut être le mettre sur une autre scène
+Gestion des sauvegardes
+Menus pause : save, resume, settings
+les settings doivent être fonctionnels
+Change Consumable
+Use consumable
+voitures (déplacements ordonnés dans la ville)
+PNJs : déplacements à revoir, certains (surement les PNJs immobiles) doivent display des infos, peut être leur mettre une bulle sur la tête
+Display clues
+ObjectButtons : gérer le cas des consumables
+Rééquilibrage des armes
+Rajouter 2 ou 3 armes
+armes à distance : effective que si le air wall est = 0
+Sort EarthSpike
+Sort FireBall
+Sort Flash
+SpeedPotion
+Description potions
+use potions
+ennemis mouvements, attaques, rajouter une bulle sur la tête, avec éventuellement une vie
+plusieurs types d'ennemis : équilibrage
+quand on est derrière le personnage, il ne se tourne plus. Avec un Lookat, il se tourne mais de manière beaucoup trop violente
+Obtention des armes : shop, coffres, gestion du nombre d'items pour les consumables
+labyrinthe : un joueur spawn en bas, l'autre en haut, et ils ne peuvent qu'échanger, on fait pas la téléportation du début
+indices : collections, display, les intégrer dans le scénario
+Boss IA : centaurus : seules les attaques d'en haut sont comptabilisées.
+Dégats : UI rouge quand plus beaucoup de vie ?
 
 
 
-Level du labyrinthe
-Leviers
-portes
+NETWORK
+Refaire apparaître les personnages
+Portes, leviers, coffres et ennemis du labyrinthes
+Moyen de communiquer entre les deux joueurs ?
+Lancer le mode multi uniquement si l'on lance le niveau labyrinthe, sinon rester sur un mode de jeu solo
 
 
 
+REAL WORLD
+Remettre les immeubles de façon à ce que les coins ne glitch plus
+ajouter les stands du marché
+mettre les spawns de voiture
+rajouter les indices
+les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants, night club)
+Trouver quelque chose à mettre dans le mur du fond
+rajouter des lampadaires
+mettre les indices
 
-LVL 1
-Plateformes qui bougent (ok)
-Textures (les couleurs ca passe crème)
 
+
+SCENE DU RESTAURANT
+à refaire et placer les indices
+
+
+
+SCENE DU BAR
+à refaire et placer les indices
+
+
+
+SCENE DU NIGHTCLUB
+à faire intégralement....
+
+
+
+LVL PLATEFORMES
+normallement on ne change rien
+
+
+
+LVL LABYRINTHE
+Echangement des players
+Finir de build le niveau
+Rajouter les coffres / ennemis / Pièges
+
+
+
+LVL ENIGME
+a faire intégralement....
+
+
+
+BOSS 1
+ne doit être touché que par les attaques aériennes
+Mouvements à revoir (ne doit pas se bloquer dans les plateformes)
+dégats
+
+
+
+BOSS 2
+a faire intégralement....
+
+
+
+BOSS 3
+à faire intégralement....
 
 
 
 GUI
-Menu de jeu (life, etc)
+Menu pause
 Menu principal
-Menu de pause
-Inventaire des indices
-Roue pour le changement des armes et des sorts
+Game Over
+Interface (rajouter les armes actuellement utilisées, le temps qu'il reste avant de pouvoir les utiliser pour les sorts)
 
 
 
-Animations
-Personnage principal : marcher, courir, attaquer (armes et sorts)
-Mouvements des voitures (en soit que les roues pratiquement)
-Portes
-Ennemis
+AUDIO
+Bruits de pas
+Bruits d'attaques / sorts
+Bruit de collection / d'utilisation d'objets
+musiques de fonds
+Bruits d'actionnement des pièges
 
 
 
-Bonus (si on a le temps d'ici la 3ème soutenance)
-Egouts pour s'iniltrer chez les gens
-Animal de compagnie
+ANIMATIONS
+Personnages : marcher, courir, sauter, attaquer (animation pour toutes les armes et pour tous les sorts) (On fait les mêmes animations pour le personnage principal que pour tous les autres, aussi bien PNJs (marcher) que Ennemis)
+Ouverture des coffres / actionnement des pièges
+Peut être une animation pour les portes du level du labyrinthe ? Ou juste un translate ?
+
+
+
+PARTICULES
+Sur les sorts, eventuellement les pieds quand un personnage marche, ou les armes quand un personnage attaque
+
+
+
+BONUS (clairement que si on a le temps)
 Tuto pour pouvoir bien comprendre le jeu avec un petit niveau tranquille
+Egouts pour s'iniltrer chez les gens
+Animal de compagne
+Maison du personnage principal

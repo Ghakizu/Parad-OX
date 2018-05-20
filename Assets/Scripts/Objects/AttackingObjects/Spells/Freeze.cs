@@ -11,15 +11,15 @@ public class Freeze : _Spells
 	new public void Awake()
 	//set all the stats of the spell
 	{
-		TimeOfEffect = 2;
+		TimeOfEffect = 3;
 		ObjectName = "Freeze";
-		sprite = MaterialsAssignations.FreezeSprite;
 		damages = 0; 
 		RangeOfAttk = 300;
 		TimeBetweenAttacks = 3;
 		ManaConsumed = 50;
 		SubDescription = "Freeze your enemy during " + TimeOfEffect + " seconds.";
 		base.Awake ();
+		sprite = Materials.FreezeSprite;
 	}
 
 
@@ -44,6 +44,7 @@ public class Freeze : _Spells
 		character.CharacterRigidbody.constraints = RigidbodyConstraints.FreezeAll;
 		character.CharacterRigidbody.isKinematic = true;
 	}
+
 
 	public static void UnfreezeAll(_Character character)
 	//A static function that unfreeze a character : he becomes able to move again

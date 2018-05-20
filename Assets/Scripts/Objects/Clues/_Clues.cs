@@ -8,9 +8,12 @@ public class _Clues : _Objects
 
 
 	public int level;  //The corresponding level of the clue
-	public GameObject Player;
-	public PlayerInventory MyPlayer;
-	public bool IsCollectible = false;
+	public GameObject Player;  //the gameObject of the player who will get the clue
+	public PlayerInventory MyPlayer;  //the inventory of the player who will get the clue
+	public int MaximumDistance = 200;  //from where do you want to pick up the Object ?
+
+	//Here, the object Name is the tag of the our clue -> if the inventory already contains a clue named like this, 
+	//the clue is already collected and we want it to disappear
 
 
 
@@ -21,26 +24,23 @@ public class _Clues : _Objects
 		Object = this.gameObject;
 	}
 
-
-	public void OnTriggerEnter(Collider other)
+	public void Start()
+	//Allows to find the player (he is only because the clues appear only on solo mode) ans to set player and Myplayer values
 	{
-		if(other.tag == "Player")
-		{
-			Player = other.gameObject;
-			MyPlayer = Player.GetComponent<PlayerInventory> ();
-		}
+		Player = GameObject.FindGameObjectWithTag ("Player");
+		MyPlayer = Player.GetComponent<PlayerInventory> ();
 	}
-
+		
 
 	public void OnMouseDown()
+	//when we click on the object, we want him to disappear and to be added into our inventory
 	{
-
 		Vector3 offset = Player.transform.position - this.transform.position; //Le décalage entre l'objet et notre perso
-		if (offset.magnitude < 20000) //On check si on est assez prêts de l'objet pour interagir avec lui
+		if (offset.magnitude < MaximumDistance) //On check si on est assez prêts de l'objet pour interagir avec lui
 		{
-			Debug.Log ("added");
 			AddIntoInventory ();
-			GameObject.Destroy (this.gameObject);
+			this.gameObject.SetActive (false);
+			//GameObject.Destroy (this.gameObject);
 		}
 	}
 
@@ -48,15 +48,16 @@ public class _Clues : _Objects
 
 	public void Update()
 	{
-		if (MyPlayer != null && MyPlayer.CluesInventoryLvl1.Contains (this))
+		/*if (MyPlayer != null && MyPlayer.CluesInventoryLvl1.Contains (this))
 		{
 			GameObject.Destroy (this.gameObject);
-
-		}
-
+		}*/
 	}
 
+
+
     public void AddIntoInventory ()
+	//function to call when we click on the object : add the clue to the inventory that we want
 	{
 		switch (level) //add the clue in the inventory desired when clicked
 		{
@@ -70,5 +71,6 @@ public class _Clues : _Objects
 			MyPlayer.CluesInventoryLvl3.Add (this);
 			break;
 		}
+		owner = Player.GetComponent<MainCharacter> ();
 	}
 }

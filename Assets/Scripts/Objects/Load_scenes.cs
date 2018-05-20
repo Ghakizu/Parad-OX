@@ -30,7 +30,11 @@ public class Load_scenes : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-            IsTrigger = true;
+		{
+			IsTrigger = true;
+			Player = other.gameObject;
+		}
+
     }
 
     private void OnTriggerExit(Collider other)

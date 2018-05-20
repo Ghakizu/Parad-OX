@@ -14,11 +14,13 @@ public class MenuBehaviour : MonoBehaviour
 		SceneManager.LoadScene ("Hub_Scene");
 	}
 
+
 	public void setCanvasEnabled(GameObject canvas)
 	//Set a gameobject active
 	{
 		canvas.SetActive (true);
 	}
+
 
 	public void setCanvasDisabled(GameObject canvas)
 	//set a game object inactive
@@ -26,20 +28,16 @@ public class MenuBehaviour : MonoBehaviour
 		canvas.SetActive (false);
 	}
 
+
 	public void QuitGame()
 	//Quit the game
 	{
 		Application.Quit ();
 	}
 
-	public void LockMouse()
-	{
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
-	}
-
 
 	public void Restart(MainCharacter player)
+	//Allows the player to Restart his game after losing
 	{
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -49,7 +47,22 @@ public class MenuBehaviour : MonoBehaviour
 		player.Mana = player.MaxMana;
 	}
 
+
+	public void Resume(GameObject Player)
+	//Allows to reset the IsGamePaused value of the player and to unfreeze his position
+	{
+		Player.GetComponent<MainCharacter> ().IsGamePaused = false;
+		Player.GetComponent<MainCharacter> ().CharacterRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+		_Character[] characters = GameObject.FindObjectsOfType<_Character> ();
+		foreach (_Character character in characters)
+		{
+			character.ResumeGame ();
+		}
+	}
+
+
     public void ReturnToTitle(GameObject player)
+	//Return to title when playing
     {
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.Disconnect();

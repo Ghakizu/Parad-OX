@@ -11,58 +11,43 @@ public class MainCharacter : _Character
 	//STATS
 	//Moving the character
 	private bool cheatCode = false;  //Are we cheating
-	private bool IsAbleToRun = true;  //if you're out of stamina you can't run anymore
 	private bool crouch = false;  //is the player crouched
-	public float CheatSpeed = 500;  //the speed when we're cheating
-	public float CrouchSpeed = 50; //speed when crouching
-	public float OutOfStaminaSpeed = 50;  //speed when stamina is 0
+	private bool IsTired = false;  //has the player used all his stamina ?
+	private float CheatSpeed = 500;  //the speed when we're cheating
+	private float CrouchSpeed = 50; //speed when crouching
+	private float OutOfStaminaSpeed = 40;  //speed when stamina is 0
 	public float MaxStamina = 150;  //How long can you dash
 	public float Stamina = 150;  //Actual stamina
-	public float speed;  //actual speed of the player
+	private float speed;  //actual speed of the player
 
 	//Playing
 	public GameObject cam;  //the main camera of the player
-	public bool IsGamePaused = false;  //Is the game running or are we in a menu ?
+	public bool IsDisplaying = false;
 
 	//Displaying
-	public Image StaminaButton;  //for the moment it's just the diplay of our stamina status
-	public Image HealthButton;
-	public Image ManaButton;
-	public GameObject Interface; 
-	public GameObject PauseMenu;
-	public GameObject GameOver;
+	public Image StaminaButton;  //Display our stamina status
+	public Image HealthButton;  //Display our health statis
+	public Image ManaButton;  //Display our Mana status
+	public GameObject Interface;  //the interface that is running when playing
+	public GameObject PauseMenu;  //the interface of the pause menu
+	public GameObject GameOver;  //the interface of the game over : Do a new scenne ? WARNING!
+	public GameObject PlayerDisplays;  //All the displays of the player
 
 	//Animator
-	public Animator anim;
+	public Animator anim;  //The animator of our player
 
     //Network
-    private PhotonView PhotonView;
-    public PhotonView View
-    {
-        get { return PhotonView; }
-    }
+    public PhotonView View;  //the photonView of the player : to be active on the network
 
-    //Serialized Fiels
-    [SerializeField]
-    private GameObject _display;
-    private GameObject DisplayObj
-    {
-        get { return _display; }
-    }
-
-    [SerializeField]
-    private GameObject _weapons;
-    private GameObject Weapons
-    {
-        get { return _weapons; }
-    }
-
-    [SerializeField]
-    private AudioClip sound;
+	//Sound
+    public AudioClip sound;  //The walk sound for the player
 
 
-	new public void Awake ()
-	//SEt all the stats of the mainCharacter
+
+
+
+	new private void Awake ()
+	//Set all the stats of the mainCharacter
 	{
 		MaxHealth = 150;
 		MaxMana = 200;
@@ -71,75 +56,50 @@ public class MainCharacter : _Character
 		RunSpeed = 250;
 		Heightjump = 300;
 		base.Awake ();
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
         cam = GetComponentInChildren<Camera>().gameObject;
-		//cam = GameObject.Find ("MainCam");
 		speed = WalkSpeed;
 		CharacterObject.tag = "Player";
-        PhotonView = GetComponent<PhotonView>();
+		View = GetComponent<PhotonView>();
     }
+
 
     private void Start()
+	//Disables the stuffs that we don't want to see, because it's not our player
     {
-        if (!PhotonView.isMine)
-        {
-            cam.SetActive(false);
-            DisplayObj.SetActive(false);
-            Weapons.layer = 0;
-            Camera WeaponsCam = Weapons.GetComponentInChildren<Camera>();
-            WeaponsCam.enabled = false;
-        }
+		DisableComponentsForMulti ();
     }
 
-	new public void Update () 
+
+	new private void Update () 
 	//Update all the stats of our player
 	{
-		base.Update ();
-        if(PhotonView.isMine)
+        if(View.isMine)
         {
-			if(!GameOver.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+			if (!GameOver.activeSelf)
 			{
-				PauseMenu.SetActive (true);
-				Cursor.lockState = CursorLockMode.None;
-				Cursor.visible = true;
+				base.Update ();
 			}
-            if (!IsGamePaused && IsFreezed <= 0)
-            {
-                cheatcodes();
-                Crouch();
-                CameraRotations();
-                Move();
-                Attack();
-                LaunchSpell();
-            }
-            SetMainStats();
-            SetButtonsValue();
-
-			if (IsAbleToAttack <= 0)
-				anim.SetBool ("Attacking", false);
+			RunGame ();
+			Move ();
+			Fight ();
         }
 	}
 
 
-	new public void FixedUpdate ()
+	new private void FixedUpdate ()
 	//Apply forces if we're not in pause
-	{ 
-		if (!IsGamePaused && !cheatCode && IsFreezed <=0 && PhotonView.isMine) 
+	{
+		if (!IsGamePaused && IsFreezed <= 0 && View.isMine && !cheatCode)
 		{
+			base.FixedUpdate ();
 			Jump ();
-		}
-		if (!cheatCode && IsFreezed <= 0 && PhotonView.isMine)
-		{
-			base.FixedUpdate();
 		}
 	}
 
 
-	new public void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter(Collider other)
 	//Set the respawns, and all the trigger events
 	{
-		base.OnTriggerEnter (other);
 		switch (other.gameObject.tag) 
 		{
 		case "deathplane":
@@ -164,62 +124,134 @@ public class MainCharacter : _Character
 
 
 
-	//MOVING THE CHARACTER
 
-	private void Move()
-	//Move our player
+
+	//Disables the components that we don't want to see in the multiplayer mode
+
+	private void DisableComponentsForMulti()
+	//Disables all the components
 	{
-		//movements along the Y axe if cheating
-		if (cheatCode)
+		if (!View.isMine)
 		{
-			if (Input.GetKey (KeyCode.H))
+			cam.SetActive(false);
+			PlayerDisplays.SetActive(false);
+			Camera WeaponsCam = this.GetComponentInChildren<Camera>();
+			WeaponsCam.gameObject.SetActive(false);
+			ChangeLayers (this.transform, 0);
+		}
+	}
+
+
+	private static void ChangeLayers(Transform transform, int layer)
+	//Change the layer of all the weapons (we don't want to see them on the second cam)
+	{
+		transform.gameObject.layer = layer;
+		foreach (Transform child in transform)
+		{
+			if (child.gameObject.name != "Displays")
 			{
-				transform.Translate (new Vector3 (0, 1, 0) * speed * Time.deltaTime);
-			}
-			if (Input.GetKey (KeyCode.B))
-			{
-				transform.Translate (new Vector3 (0, -1, 0) * speed * Time.deltaTime);
+				ChangeLayers (child, layer);
 			}
 		}
-
-		//Movements along X and Z axes
-		if (Input.GetButton ("Dash") && Stamina > 0 && IsAbleToRun && !cheatCode && !crouch
-			&& (Input.GetButton("Horizontal") || Input.GetButton ("Vertical"))) 
-		{
-			anim.SetBool ("Walk", false);
-			anim.SetBool ("Run",true);
-			base.Move (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), RunSpeed); 
-			Stamina -= 20 * Time.deltaTime;
-			if (Stamina < 0)
-			{
-				IsAbleToRun = false;
-				speed = OutOfStaminaSpeed;
-			}
-            SoundController.PlaySound(sound);
-        }
-		else
-		{
-			if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0) 
-			{
-				anim.SetBool ("Walk", true);
-				anim.SetBool ("Run", false);
-                SoundController.PlaySound(sound);
-			} 
-			else 
-			{
-				anim.SetBool ("Walk", false);
-				anim.SetBool ("Run", false);
-			}
-			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed); 
-		}
-
-		//Rotation of the character
-		transform.Rotate (Vector3.up * Input.GetAxis ("Mouse X") * RotateSpeed * Time.deltaTime); 
 	}
 
 
 
-	private void cheatcodes ()
+
+
+
+
+
+
+
+	//Update status of the game
+
+	private void RunGame()
+	//Update the stats of our player, and see if the Pause menu is called
+	{
+		if (!IsGamePaused && !GameOver.activeSelf)
+		{
+			SetMainStats();
+			SetButtonsValue();
+		}
+		SetMouseStatus ();
+	}
+		
+
+	private void SetButtonsValue()
+	//Set the values of the slider
+	{
+		StaminaButton.transform.localScale = new Vector3(Stamina / MaxStamina, 1, 1);
+		HealthButton.transform.localScale = new Vector3(Health / MaxHealth, 1, 1);
+		ManaButton.transform.localScale = new Vector3(Mana / MaxMana, 1, 1);
+	}
+
+
+	private void SetMainStats()
+	//Reset the values of our player
+	{
+		Stamina = Mathf.Min (Stamina + 10 * Time.deltaTime, MaxStamina);
+		if (IsTired && Stamina > 40)
+		{
+			IsTired = false;
+		}
+		if (speed == RunSpeed && (Input.GetButton("Horizontal") || Input.GetButton ("Vertical")))
+		{
+			Stamina -= 20 * Time.deltaTime;
+			if (Stamina < 0)
+			{
+				IsTired = true;
+			}
+		}
+	}
+
+
+	private void SetMouseStatus()
+	//Set the status of the mouse every frame
+	{
+		if (!IsGamePaused && !GameOver.activeSelf && !IsDisplaying)
+		{
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+		}
+		else
+		{
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+		}
+	}
+
+
+
+
+
+
+
+
+
+	//MOVING THE CHARACTER
+
+	private void Move()
+	//Move the character
+	{
+		if (!IsDisplaying && IsFreezed <= 0 && !IsGamePaused && !GameOver.activeSelf)
+		{
+			Cheatcodes ();
+			Crouch ();
+			SetSpeed ();
+			CheatMoves ();
+			CameraRotations ();
+			Jump ();
+			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed);
+			if (anim != null)
+			{
+				SetAnimation ();
+			}
+		}
+	}
+
+
+	private void Cheatcodes ()
 	//enables or disables the cheatcodes
 	{
 		//allows or not your player to fly
@@ -227,7 +259,6 @@ public class MainCharacter : _Character
 		{
 			CharacterRigidbody.velocity = Vector3.zero;
 			cheatCode = !cheatCode;
-			speed = cheatCode ? CheatSpeed : WalkSpeed;  //set the speed depending on if you're cheating
 			CharacterRigidbody.useGravity = !cheatCode;
 		}
 
@@ -241,7 +272,7 @@ public class MainCharacter : _Character
 
 
 
-	public void Crouch()
+	private void Crouch()
 	//Allows our player to crouch : must be changed, we don't want the camera just to go down. WARNING!
 	{
 		if(Input.GetButtonDown ("Crouch") && !cheatCode)
@@ -249,12 +280,10 @@ public class MainCharacter : _Character
 			if (crouch)
 			{
 				cam.transform.position = transform.position + new Vector3(0, 10, 0);
-				speed = WalkSpeed;
 			}
 			else
 			{
 				cam.transform.position = transform.position + new Vector3(0, 0, 0);
-				speed = CrouchSpeed;
 			}
 			crouch = !crouch;
 		}
@@ -262,20 +291,58 @@ public class MainCharacter : _Character
 
 
 
-	new private void Jump()  
-	//Jump if the player is on the ground and if the button "Jump" is pressed
+	private void SetSpeed()
+	//Set the speed of the player
 	{
-		if (Input.GetButton ("Jump") && !cheatCode && IsAbleToJump)
+		if(cheatCode)
 		{
-			base.Jump ();
+			speed = CheatSpeed;
+		}
+		else if (IsTired)
+		{
+			speed = OutOfStaminaSpeed;
+		}
+		else if (crouch)
+		{
+			speed = CrouchSpeed;
+		}
+		else if (Input.GetButton ("Dash") && Stamina > 0)
+		{
+			speed = RunSpeed;
+		}
+		else
+		{
+			speed = WalkSpeed;
+		}
+	}
+
+
+
+	private void CheatMoves()
+	//Movements along the Y axe if cheating
+	{
+		if (cheatCode)
+		{
+			if (Input.GetKey (KeyCode.H))
+			{
+				transform.Translate (new Vector3 (0, 1, 0) * speed * Time.deltaTime);
+			}
+			if (Input.GetKey (KeyCode.B))
+			{
+				transform.Translate (new Vector3 (0, -1, 0) * speed * Time.deltaTime);
+			}
 		}
 	}
 
 
 
 	private void CameraRotations()
-	//Rotate the camera up and down
+	//Rotate the camera
 	{
+		//Rotation around Y axe
+		transform.Rotate (Vector3.up * Input.GetAxis ("Mouse X") * RotateSpeed * Time.deltaTime);
+
+		//Rotation up and down
 		float Y = -Input.GetAxis ("Mouse Y");
 		float ActualRotation = cam.transform.localRotation.x;
 		if ((ActualRotation <= 0.6 && Y > 0) || (ActualRotation >= -0.6 && Y < 0)) 
@@ -285,33 +352,51 @@ public class MainCharacter : _Character
 	}
 
 
-
-
-
-
-
-	//UPDATE THE STATS OF OUR PLAYER
-
-	public void SetButtonsValue()
-	//Set the values of the slider
+	new private void Jump()  
+	//Jump if the player is on the ground and if the button "Jump" is pressed
 	{
-		StaminaButton.transform.localScale = new Vector3(Stamina / MaxStamina, 1, 1);
-		HealthButton.transform.localScale = new Vector3(Health / MaxHealth, 1, 1);
-		ManaButton.transform.localScale = new Vector3(Mana / MaxMana, 1, 1);
-	}
-
-
-	public void SetMainStats()
-	//Reset the values of our player
-	{
-		Stamina += 10 * Time.deltaTime;
-		Stamina = Mathf.Min (Stamina, MaxStamina);
-		if (!IsAbleToRun && Stamina > 40)
+		if (Input.GetButton ("Jump") && !cheatCode && IsAbleToJump && !IsTired)
 		{
-			IsAbleToRun = true;
-			speed = WalkSpeed;
+			base.Jump ();
 		}
 	}
+
+
+
+	private void SetAnimation()
+	//Animations for the player
+	{
+		if(Input.GetButton("Horizontal") || Input.GetButton ("Vertical"))
+		{
+			SoundController.PlaySound (sound);
+			if (speed == RunSpeed) 
+			{
+				anim.SetBool ("Walk", false);
+				anim.SetBool ("Run", true);
+			}
+			else
+			{
+				anim.SetBool ("Walk", true);
+				anim.SetBool ("Run", false);
+			}
+		}
+		else
+		{
+			anim.SetBool ("Walk", false);
+			anim.SetBool ("Run", false);
+		}
+		if (IsAbleToAttack <= 0)
+		{
+			anim.SetBool ("Attacking", false);
+		}
+	}
+
+
+
+
+
+
+
 
 
 
@@ -321,61 +406,72 @@ public class MainCharacter : _Character
 
 	//FIGHTING
 
-	public void Attack()
+	private void Fight()
+	//Attack, launch spells and die
+	{
+		if(IsFreezed <= 0 && !GameOver.activeSelf && !IsGamePaused && !IsDisplaying)
+		{
+			Attack ();
+			LaunchSpell ();
+		}
+		Die ();
+	}
+
+
+	private void Attack()
 	//Attack with our weapon
 	{
-		if (Input.GetButtonDown ("Attack")) {
+		if (Input.GetButtonDown ("Attack") && IsAbleToAttack <= 0 && IsFreezed <= 0) 
+		{
+			IsAbleToAttack = ActualWeapon.TimeBetweenAttacks;
 			anim.SetBool ("Attacking", true);
 			RaycastHit hit;
-			if (Physics.Raycast(transform.position, transform.forward, out hit))
+			if (Physics.Raycast(transform.position, transform.forward, out hit)
+				&& hit.collider.gameObject.tag == "Enemy" 
+				&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk )
 			{
-				if (hit.collider.gameObject.tag == "Enemy" 
-					&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
-					&& IsAbleToAttack < 0)
-				{
-					_Character enemy = hit.collider.gameObject.GetComponent<_Character> ();
-					base.Attack (enemy);
-				}
+				_Character enemy = hit.collider.gameObject.GetComponent<_Character> ();
+				enemy.Health -= ActualWeapon.damages;
 			}
 		}
 	}
 
 
-	public void LaunchSpell()
+	private void LaunchSpell()
 	//Launch the spell with our actual spell
 	{
-		if (Input.GetButtonDown("LaunchSpell"))
+		if (Input.GetButtonDown("LaunchSpell") && IsAbleToLaunchSpell <= 0 && IsFreezed <= 0 && Mana - ActualSpell.ManaConsumed > 0)
 		{
+			IsAbleToLaunchSpell = ActualSpell.TimeBetweenAttacks;
+			Mana -= ActualSpell.ManaConsumed;
 			if (ActualSpell.ObjectName == "Heal" || ActualSpell.ObjectName == "AirWall")
 			{
-				Debug.Log ("coucou");
 				base.LaunchSpell (null);
 			}
 			else
 			{
 				RaycastHit hit;
-				if (Physics.Raycast(transform.position, transform.forward, out hit))
+				if (Physics.Raycast(transform.position, transform.forward, out hit)
+					&& hit.collider.gameObject.tag == "Enemy" 
+					&& (hit.transform.position - this.transform.position).magnitude < ActualSpell.RangeOfAttk)
 				{
-					if (hit.collider.gameObject.tag == "Enemy" 
-						&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk 
-						&& Mana - ActualSpell.ManaConsumed > 0)
-					{
-						_Character enemy = hit.collider.gameObject.GetComponent<_Character> ();
-						base.LaunchSpell (enemy);
-					}
+					_Character enemy = hit.collider.gameObject.GetComponent<_Character> ();
+					base.LaunchSpell (enemy);
 				}
 			}
 		}
 	}
 		
 
+
 	new public void Die()
 	//Die and display the GameOver menu
 	{
-		Interface.SetActive (false);
-		GameOver.SetActive (true);
-		Cursor.lockState = CursorLockMode.None;
-		Cursor.visible = true;
+		if(Health <= 0)
+		{
+			Interface.SetActive (false);
+			GameOver.SetActive (true);
+		}
 	}
 }
 

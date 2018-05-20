@@ -5,18 +5,19 @@ using UnityEngine;
 public class MaterialsAssignations : MonoBehaviour 
 {
 	//All the materials and sprites that have to be stocked somewhere
+	//All this class has to be filled by hand in the inspector
 
-	public static Material FreezedMaterial;
-	public static Material NormalMaterial;
-	public static Sprite FistsSprite;
-	public static Sprite KatanaSprite;
-	public static Sprite KnifeSprite;
-	public static Sprite FreezeSprite;
-	public static Sprite AirWallSprite;
-	public static Sprite EarthSpikeSprite;
-	public static Sprite FireBallSprite;
-	public static Sprite FlashSprite;
-	public static Sprite HealSprite;
-	public static Sprite HealthPotionSprite;
-	public static Sprite SpeedPotionSprite;
+	public Material FreezedMaterial;
+	public Material NormalMaterial;
+	public Sprite FistsSprite;
+	public Sprite KatanaSprite;
+	public Sprite KnifeSprite;
+	public Sprite FreezeSprite;
+	public Sprite AirWallSprite;
+	public Sprite EarthSpikeSprite;
+	public Sprite FireBallSprite;
+	public Sprite FlashSprite;
+	public Sprite HealSprite;
+	public Sprite HealthPotionSprite;
+	public Sprite SpeedPotionSprite;
 }

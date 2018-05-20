@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportPlayer : MonoBehaviour {
+public class TeleportPlayer : MonoBehaviour 
+{
+	//Useless script I think
 
     bool isTrigger = false;
     private PhotonView PhotonView;
@@ -49,9 +51,7 @@ public class TeleportPlayer : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.E) && isTrigger)
         {
-            Debug.Log("fjklsdel;jkfds");
             Player.transform.SetPositionAndRotation(Spawn.transform.position, Spawn.transform.rotation);
         }
     }
 }
-

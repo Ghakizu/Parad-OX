@@ -12,13 +12,13 @@ public class EarthSpike : _Spells
 	{
 		TimeOfEffect = 0;
 		ObjectName = "EarthSpike";
-		sprite = MaterialsAssignations.EarthSpikeSprite;
 		damages = 80; 
 		RangeOfAttk = 200;
 		TimeBetweenAttacks = 10;
 		ManaConsumed = 100;
 		SubDescription = "Make a spike appear from under the target.";
 		base.Awake ();
+		sprite = Materials.EarthSpikeSprite;
 	}
 
 
@@ -26,9 +26,6 @@ public class EarthSpike : _Spells
 	public void LaunchSpell(_Character other)
 	//Launch the spell EarthSpike against the target
 	{
-		if (other.tag == "Enemy") 
-		{
-
-		}
+		
 	}
 }

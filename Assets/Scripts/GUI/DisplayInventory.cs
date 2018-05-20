@@ -24,9 +24,18 @@ public class DisplayInventory : MonoBehaviour
 
 
 
+	public void Awake()
+	//Get the player
+	{
+		player = GetComponentInParent<PlayerInventory> ();
+	}
+
+
+
 	public void DisplayWeapons()
 	//Display the weapons
 	{
+		player.SelectedObject = player.SelectedWeapon;
 		int capacity = player.WeaponsInventory.Count;
 		Object1.Object = capacity > 0 ? player.WeaponsInventory [0] : null;
 		Object2.Object = capacity > 1 ? player.WeaponsInventory [1] : null;
@@ -46,6 +55,7 @@ public class DisplayInventory : MonoBehaviour
 	public void DisplaySpells()
 	//Display the spells
 	{
+		player.SelectedObject = player.SelectedSpell;
 		int capacity = player.SpellsInventory.Count;
 		Object1.Object = capacity > 0 ? player.SpellsInventory [0] : null;
 		Object2.Object = capacity > 1 ? player.SpellsInventory [1] : null;
@@ -63,8 +73,9 @@ public class DisplayInventory : MonoBehaviour
 
 
 	public void DisplayConsumables()
-	//Display the spells
+	//Display the Consumables
 	{
+		player.SelectedObject = player.SelectedConsumable;
 		int capacity = player.ConsumablesInventory.Count;
 		Object1.Object = capacity > 0 ? player.ConsumablesInventory [0] : null;
 		Object2.Object = capacity > 1 ? player.ConsumablesInventory [1] : null;

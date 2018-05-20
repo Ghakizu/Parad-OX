@@ -1,0 +1,60 @@
+Create Objects :
+MyObject = Instantiate(gameObject, (optional position and rotation)) as rigidbody -> clone a game Object (then apply your functions to MyObject). WARNING: You must think to delete them after instantiated them, otherwise they will be in your map forever. (example : Destroy(MyObject, 1.5 (secondes))
+Invoke("Method", time) -> apply the method after time seconds.
+InvokeRepeating("method", time, delay) -> apply the method after time seconds, and then apply it every delay seconds (without end)
+CancelInvoke((optional) method) -> stop all the invokes methods if no parameters are given. Otherwise, it just stops the method given
+
+
+
+
+LookAt(gameObject) -> the object will rotate depending on the movements of the gameObject (always looking it -> useful for cameras)
+Mathf.Lerp(start, end, interpolation) -> linear interpolation (didn't understand when it's useful but maybe it's useful)
+
+
+
+ANIMATIONS
+animation.play("animation") -> play the animation
+MyObject.animation.isPlaying == bool -> is the animation playing ?
+MyObject.animation.Crossfade("animation") -> play an animation in continue, and stop if another animation is played, but the mouvement is not broken
+Add events in the animations -> useful for killing enemies when the weapon touch him and not when the attack is done for example
+use "flat" to smooth the animations
+
+UNITY ITSELF
+edit -> projects settings -> quality -> let us change a lot of parameters
+You can change the parameters depending of the quality chosen when launchhing the game
+In fact, all the parameters that are located in edit -> project settings must be set for a good game
+
+PARTICLES
+Prewarm -> the particles already exists when we lunch the game
+everything is logical in the inspector
+Color / size over life time -> to use the gradient editor, choose the color of the beginning and the color of the end of the life of the partcles, by clicking on the small squares behind the timeline.
+
+
+SCRIPTING
+vector3.distance(vectorA, vectorB) is the same that (vectorA - vectorB).magnitude -> returns the distance
+Quaternion.LookRotation(vector3) -> creates a rotation with the specified forward directions
+transform.rotation = quaternion.Slerp(base rotation, rotation that we want, time.deltatime time) -> rotates something from his base rotation to the rotation that we want in the time indicated
+
+AUDIO
+before importing files to unity, compress them.
+audio.play() -> play the song "audio"
+audio.stop() -> srop playing the song "audio"
+audio.loop = bool; -> loop a song
+3D sound -> act like if the song was in the scene : echo, etc
+put in an empty child
+if it's a D sound, the sound will decrease between the minimum distance and the maximum distance
+problem with the 3D sound -> the sound will change when you turn -> avoid to use it when you want to use a song, or decrease the Doppler effect to 0, and use the curve to control the Pan Level, puting th epan to 0 under the minimum distance
+
+
+
+GameObject.sendMessage("Method", parameter for the method) -> apply the method, using another script -> askip c'est important aussi
+
+
+ANIMATIONS CONTROLLER
+any state -> allows you to do the animation even thow you're running, jumping, swimming, etc
+to do a transition -> right click and make transition
+into the window -> add parameter -> then you can add conditions for the animation
+
+for the colliders -> below the colliders, there is a material that can be add -> if it's ice for example, it will be slippery. To create new materials, go into create -> new PhysicsMaterial
+
+Mathf.Lerf(departfloat, fnialfloat, time) -> Allows really smooths movements
