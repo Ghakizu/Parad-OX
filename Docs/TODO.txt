@@ -69,7 +69,6 @@ rajouter des lampadaires
 mettre les indices
 
 
-
 SCENE DU RESTAURANT
 à refaire et placer les indices
 
@@ -145,6 +144,7 @@ Peut être une animation pour les portes du level du labyrinthe ? Ou juste un tra
 
 PARTICULES
 Sur les sorts, eventuellement les pieds quand un personnage marche, ou les armes quand un personnage attaque
+A l amort d'un ennemi
 
 
 
