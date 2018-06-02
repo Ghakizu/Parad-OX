@@ -243,11 +243,8 @@ public class MainCharacter : _Character
 			CameraRotations ();
 			Jump ();
 			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed);
-			if (anim != null)
-			{
-				SetAnimation ();
-			}
-		}
+            SetAnimation();
+        }
 	}
 
 
@@ -284,9 +281,11 @@ public class MainCharacter : _Character
 			else
 			{
 				cam.transform.position = transform.position + new Vector3(0, 0, 0);
+                anim.SetFloat("crouch", .3f);
 			}
 			crouch = !crouch;
-		}
+            anim.SetBool("Crouching", crouch);
+        }
 	}
 
 
@@ -358,6 +357,8 @@ public class MainCharacter : _Character
 		if (Input.GetButton ("Jump") && !cheatCode && IsAbleToJump && !IsTired)
 		{
 			base.Jump ();
+            anim.SetBool("Jumping", true);
+            anim.SetFloat("jump", 0.3f);
 		}
 	}
 
@@ -366,7 +367,7 @@ public class MainCharacter : _Character
 	private void SetAnimation()
 	//Animations for the player
 	{
-		if(Input.GetButton("Horizontal") || Input.GetButton ("Vertical"))
+        /*if(Input.GetButton("Horizontal") || Input.GetButton ("Vertical"))
 		{
 			SoundController.PlaySound (sound);
 			if (speed == RunSpeed) 
@@ -388,8 +389,61 @@ public class MainCharacter : _Character
 		if (IsAbleToAttack <= 0)
 		{
 			anim.SetBool ("Attacking", false);
-		}
-	}
+		}*/
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            if (speed == RunSpeed)
+            {
+                anim.SetBool("Walking", false);
+                anim.SetBool("Running", true);
+            }
+            else if (speed == WalkSpeed || speed == CrouchSpeed)
+            {
+                anim.SetBool("Walking", true);
+                anim.SetBool("Running", false);
+            }
+        }
+        else
+        {
+            anim.SetBool("Running", false);
+            anim.SetBool("Walking", false);
+        }
+        anim.SetBool("InTheAir", !IsAbleToJump);
+        if (ActualWeapon.ObjectName == "Fists" || ActualWeapon.ObjectName == "Knife")
+        {
+            anim.SetBool("Knife", true);
+            anim.SetBool("Sword", false);
+            anim.SetBool("Bat", false);
+        }
+        if (ActualWeapon.ObjectName == "Sword" || ActualWeapon.ObjectName == "Excalibur")
+        {
+            anim.SetBool("Knife", false);
+            anim.SetBool("Sword", true);
+            anim.SetBool("Bat", false);
+        }
+        if (ActualWeapon.ObjectName == "Bat")
+        {
+            anim.SetBool("Knife", false);
+            anim.SetBool("Sword", false);
+            anim.SetBool("Bat", true);
+        }
+        if (IsAbleToAttack <= 0)
+        {
+            anim.SetBool("Attacking", false);
+        }
+        if (anim.GetFloat("jump") > 0)
+        {
+            anim.SetFloat("jump", anim.GetFloat("jump") - Time.deltaTime);
+        }
+        else
+        {
+            anim.SetBool("Jumping", false);
+        }
+        if (anim.GetFloat("crouch") > 0)
+        {
+            anim.SetFloat("crouch", anim.GetFloat("crouch") - Time.deltaTime);
+        }
+    }
 
 
 
