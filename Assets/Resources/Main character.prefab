@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 114028590706850634}
   - component: {fileID: 114257705430183066}
   - component: {fileID: 114233680467422770}
+  - component: {fileID: 95239994636537972}
   - component: {fileID: 114067317587171834}
   - component: {fileID: 114477067971736654}
   - component: {fileID: 114500232990134320}
@@ -2525,6 +2526,23 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1793091235304574}
   m_Enabled: 1
+--- !u!95 &95239994636537972
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256259499558584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05f75cdd566fd3444ac562d3590868ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114028590706850634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2570,7 +2588,7 @@ MonoBehaviour:
   PauseMenu: {fileID: 1481135119897570}
   GameOver: {fileID: 1628439822676884}
   PlayerDisplays: {fileID: 1573487029955834}
-  anim: {fileID: 0}
+  anim: {fileID: 95239994636537972}
   View: {fileID: 0}
   sound: {fileID: 0}
   ActualConsumable: {fileID: 0}
