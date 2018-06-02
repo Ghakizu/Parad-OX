@@ -233,8 +233,10 @@ public abstract class _Enemies : _Character
 			if (Physics.Linecast(transform.position, PlayersDetected[i].transform.position, out hit))
 			{
 				float distance = hit.distance;
-				if (hit.collider.gameObject.tag == "Player" && distance < MaxDistance)
+				if (hit.collider.gameObject.tag == "Player" 
+					&& distance < MaxDistance * hit.collider.gameObject.GetComponent<MainCharacter>().DetectionRange)
 				{
+					Debug.Log (hit.collider.gameObject.GetComponent<MainCharacter>().DetectionRange);
 					MaxDistance = distance;
 					NewTarget = PlayersDetected [i];
 				}

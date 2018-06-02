@@ -20,9 +20,13 @@ public class MainCharacter : _Character
 	public float Stamina = 150;  //Actual stamina
 	private float speed;  //actual speed of the player
 
+	//Stats affected with spells (Multipliers)
+	public float DetectionRange;  //Decreased if crouched
+	public float SpeedMultiplier;  //increased if Speed Potin is used
+
 	//Playing
 	public GameObject cam;  //the main camera of the player
-	public bool IsDisplaying = false;
+	public bool IsDisplaying = false;  //is the player displaying his inventory ?
 
 	//Displaying
 	public Image StaminaButton;  //Display our stamina status
@@ -60,6 +64,7 @@ public class MainCharacter : _Character
 		speed = WalkSpeed;
 		CharacterObject.tag = "Player";
 		View = GetComponent<PhotonView>();
+		DetectionRange = 1;
     }
 
 
@@ -286,6 +291,7 @@ public class MainCharacter : _Character
 				cam.transform.position = transform.position + new Vector3(0, 0, 0);
 			}
 			crouch = !crouch;
+			DetectionRange = crouch ? 0.75f : 1;
 		}
 	}
 

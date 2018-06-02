@@ -1,25 +1,22 @@
 A MODELISER
-Tables rondes (pour les restaurants)
-Buissons
 rearranger les immeubles pour que les coins ne glitchent pas
-Armes (épée, couteau)
 Night Club
 Kiosque à journaux
 Stands de Marché
-Tabourets (ronds et carrés)
 Chaises
 Lampadaires
-Feux tricolores (juste pcq c'est stylé)
+Feux tricolores (juste pcq c'est stylé du coup bof)
 Indices
 Pièges
 Coffres
 Plusieurs skins de personnages reconnaissabe : PNJs, personnage principal, Ennemis
 Boss
-
+Vaisselle
+clé
 
 
 GAMEPLAY
-Crouch -> réduire la zone de détection, et faire baisser le personnage / une anim ? (pas juste la caméra)
+Crouch -> faire baisser le personnage / une anim ? (pas juste la caméra)
 GameOver : remettre toute la scène à son état initiale (ou au dernier checkpoint) -> peut être le mettre sur une autre scène
 Gestion des sauvegardes
 Menus pause : save, resume, settings
