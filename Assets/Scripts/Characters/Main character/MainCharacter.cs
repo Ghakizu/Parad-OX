@@ -18,11 +18,15 @@ public class MainCharacter : _Character
 	private float OutOfStaminaSpeed = 40;  //speed when stamina is 0
 	public float MaxStamina = 150;  //How long can you dash
 	public float Stamina = 150;  //Actual stamina
-	private float speed;  //actual speed of the player
+	public float speed;  //actual speed of the player
+
+	//Multipliers
+	public float DetectionRange;  //multiplier is set to 0.75 if crouch
+	public float SpeedMultiplier;  //time left with the speed increased
 
 	//Playing
 	public GameObject cam;  //the main camera of the player
-	public bool IsDisplaying = false;
+	public bool IsDisplaying = false;  //is the player displaying his inventory ?
 
 	//Displaying
 	public Image StaminaButton;  //Display our stamina status
@@ -42,6 +46,9 @@ public class MainCharacter : _Character
 	//Sound
     public AudioClip sound;  //The walk sound for the player
 
+	//Attacking
+	public _Consumables ActualConsumable;  //the active consumable of our player
+
 
 
 
@@ -49,6 +56,8 @@ public class MainCharacter : _Character
 	new private void Awake ()
 	//Set all the stats of the mainCharacter
 	{
+		SpeedMultiplier = 0;
+		DetectionRange = 1;
 		MaxHealth = 150;
 		MaxMana = 200;
 		RotateSpeed = 200;
@@ -203,6 +212,7 @@ public class MainCharacter : _Character
 				IsTired = true;
 			}
 		}
+		SpeedMultiplier = Mathf.Max (0, SpeedMultiplier - Time.deltaTime);
 	}
 
 
@@ -286,6 +296,7 @@ public class MainCharacter : _Character
 				cam.transform.position = transform.position + new Vector3(0, 0, 0);
 			}
 			crouch = !crouch;
+			DetectionRange = crouch ? 0.75f : 1;
 		}
 	}
 
@@ -314,6 +325,7 @@ public class MainCharacter : _Character
 		{
 			speed = WalkSpeed;
 		}
+		speed *= SpeedMultiplier > 0 ? SpeedPotion.SpeedMultiplier : 1;
 	}
 
 
@@ -413,6 +425,7 @@ public class MainCharacter : _Character
 		{
 			Attack ();
 			LaunchSpell ();
+			UseConsumable ();
 		}
 		Die ();
 	}
@@ -461,6 +474,31 @@ public class MainCharacter : _Character
 			}
 		}
 	}
+
+
+	private void UseConsumable()
+	//use the active consumable if possible
+	{
+		if (Input.GetButtonDown ("UseConsumable") && ActualConsumable.NumberOfItems > 0) 
+		{
+			switch (ActualConsumable.ObjectName) 
+			{
+			case "HealthPotion":
+				((HealthPotion)ActualConsumable).UseItem ();
+				break;
+			case "SpeedPotion":
+				((SpeedPotion)ActualConsumable).UseItem ();
+				break;
+			case "StaminaPotion":
+				((StaminaPotion)ActualConsumable).UseItem ();
+				break;
+			case "ManaPotion":
+				((ManaPotion)ActualConsumable).UseItem ();
+				break;
+			}
+			--ActualConsumable.NumberOfItems;
+		}
+	}
 		
 
 
@@ -474,7 +512,3 @@ public class MainCharacter : _Character
 		}
 	}
 }
-
-
-//1 WARNING
-//crouching reduce the area of detecting + we don't want to just put the camera down

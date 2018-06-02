@@ -10,14 +10,20 @@ public class MaterialsAssignations : MonoBehaviour
 	public Material FreezedMaterial;
 	public Material NormalMaterial;
 	public Sprite FistsSprite;
-	public Sprite KatanaSprite;
+	public Sprite SwordSprite;
 	public Sprite KnifeSprite;
+	public Sprite ExcaliburSprite;
+	public Sprite BatSprite;
+
 	public Sprite FreezeSprite;
 	public Sprite AirWallSprite;
 	public Sprite EarthSpikeSprite;
 	public Sprite FireBallSprite;
 	public Sprite FlashSprite;
 	public Sprite HealSprite;
+
 	public Sprite HealthPotionSprite;
 	public Sprite SpeedPotionSprite;
+	public Sprite StaminaPotionSprite;
+	public Sprite ManaPotionSprite;
 }
