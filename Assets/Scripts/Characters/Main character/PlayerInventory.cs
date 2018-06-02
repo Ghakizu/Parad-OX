@@ -35,6 +35,10 @@ public class PlayerInventory : MonoBehaviour
 
 	//Consumables inventory
 	public List<_Consumables> ConsumablesInventory; //Pickables that affect Player stats.
+	public GameObject HealPotionObject;  //The gameObject of the Heal Potion
+	public GameObject SpeedPotionObject;  //The gameObject of the Speed Potion
+	public GameObject ManaPotionObject;  //The gameObject of the Mana Potion
+	public GameObject StaminaPotionObject;  //The gameObject of the Stamina Potion
 	public _Consumables cons1;  //Consumable of the first shortcut
 	public _Consumables cons2;  //Consumable of the second shortcut
 
@@ -52,6 +56,7 @@ public class PlayerInventory : MonoBehaviour
 	public int SelectedWeapon = 1;  //which weapon is active
 	public int SelectedSpell = 1;  //which spell is active
 	public int SelectedConsumable = 1;  //which consumable is active
+	public int SelectedClue = 1;  //which clues should be displayed
 
 
 	void Start()
@@ -97,15 +102,24 @@ public class PlayerInventory : MonoBehaviour
 		//CONSUMABLES
 		ConsumablesInventory.Add (GetComponent<HealthPotion> ());
 		ConsumablesInventory.Add (GetComponent<SpeedPotion> ());
+		ConsumablesInventory.Add (GetComponent<StaminaPotion> ());
+		ConsumablesInventory.Add (GetComponent<ManaPotion> ());
+		HealPotionObject = GetComponentInChildren<HealthPotion> ().gameObject;
+		SpeedPotionObject = GetComponentInChildren<SpeedPotion> ().gameObject;
+		ManaPotionObject = GetComponentInChildren<ManaPotion> ().gameObject;
+		StaminaPotionObject = GetComponentInChildren<StaminaPotion> ().gameObject;
 		cons1 = ConsumablesInventory [0];
 		cons2 = ConsumablesInventory[1];
+		Player.ActualConsumable = cons1;
 	}
 		
 
     public void Update()
+	//Use the inventory
 	{
 		ChangeWeapon ();
 		ChangeSpell ();
+		ChangeConsumables ();
 		ShowInventory ();
 	}
 
@@ -180,6 +194,25 @@ public class PlayerInventory : MonoBehaviour
 			Spell2.Object.SetActive (true);
 			Player.ActualSpell = Spell2;
 			SelectedSpell = 2;
+		}
+	}
+
+
+
+	//CONSUMABLES
+	private void ChangeConsumables()
+	//Change the consumables using shortcuts
+	{
+		if(Input.GetButtonDown("Consumable1") && cons1 != null)
+		{
+			Player.ActualConsumable = cons1;
+			SelectedConsumable = 1;
+		}
+
+		if(Input.GetButtonDown("Consumable2") && cons2 != null)
+		{
+			Player.ActualConsumable = cons2;
+			SelectedConsumable = 2;
 		}
 	}
 }

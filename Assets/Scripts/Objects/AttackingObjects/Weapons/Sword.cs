@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Katana : _Weapons 
+public class Sword : _Weapons 
 {
-	//A katana, that cut many things
+	//A Sword, that cut many things
 
 
 	new public void Awake()
@@ -14,8 +14,8 @@ public class Katana : _Weapons
 		damages = 40; 
 		RangeOfAttk = 80;
 		TimeBetweenAttacks = 1.5f;
-		SubDescription = "A wonderful katana for the ninjas";
+		SubDescription = "A wonderful sword only used by the best ninjas";
 		base.Awake ();
-		sprite = Materials.KatanaSprite;
+		sprite = Materials.SwordSprite;
 	}
 }

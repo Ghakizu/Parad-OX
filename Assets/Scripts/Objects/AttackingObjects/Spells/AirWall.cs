@@ -11,13 +11,13 @@ public class AirWall : _Spells
 	new public void Awake()
 	//set all the stats of the spell
 	{
-		TimeOfEffect = 5;
+		TimeOfEffect = 3;
 		ObjectName = "AirWall";
 		damages = 0; 
 		RangeOfAttk = 0;
 		TimeBetweenAttacks = 10;
 		ManaConsumed = 50;
-		SubDescription = "Disables all the flying projectiles during " + TimeOfEffect + " seconds.";
+		SubDescription = "Your character becomes invicible during " + TimeOfEffect + " seconds.";
 		base.Awake ();
 		sprite = Materials.AirWallSprite;
 	}

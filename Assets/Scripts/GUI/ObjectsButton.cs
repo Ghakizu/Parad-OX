@@ -50,7 +50,7 @@ public class ObjectsButton : MonoBehaviour
 			GetComponent<Image> ().overrideSprite = Object.sprite;
 			ObjectName.text = Object.ObjectName;
 		}
-		else
+		else if (SelectedObject == 0)
 		{
 			GetComponent<Image> ().overrideSprite = null;
 			ObjectName.text = "";
@@ -64,6 +64,17 @@ public class ObjectsButton : MonoBehaviour
 		if (OtherWeapon != null)
 		{
 			if (Player.SelectedObject == SelectedObject)
+			{
+				GetComponent<Button> ().colors = Red;
+			}
+			else
+			{
+				GetComponent<Button> ().colors = Grey;
+			}
+		}
+		else if (Player.TypeOfObjects == 4 && SelectedObject != 0)
+		{
+			if (Player.SelectedClue == SelectedObject)
 			{
 				GetComponent<Button> ().colors = Red;
 			}
@@ -145,12 +156,26 @@ public class ObjectsButton : MonoBehaviour
 			switch (SelectedObject) 
 			{
 			case 1:
-				Player.SelectedSpell = 1;
+				Player.SelectedConsumable = 1;
 				break;
 			case 2:
-				Player.SelectedSpell = 2;
+				Player.SelectedConsumable = 2;
 				break;
 			}
+			break;
+		case 4:
+			switch (SelectedObject) {
+			case 1:
+				Player.SelectedClue = 1;
+				break;
+			case 2:
+				Player.SelectedClue = 2;
+				break;
+			case 3:
+				Player.SelectedClue = 3;
+				break;
+			}
+			Inventory.GetComponent<DisplayInventory>().DisplayClues();
 			break;
 		}
 	}
@@ -167,12 +192,14 @@ public class ObjectsButton : MonoBehaviour
 				Player.Weapon1.Object.SetActive (false);
 				Player.Weapon1 = (_Weapons)Object;
 				Player.Weapon1.Object.SetActive (true);
+				Player.Player.ActualWeapon = Player.Weapon1;
 			}
 			else
 			{
 				Player.Weapon2.Object.SetActive (false);
 				Player.Weapon2 = (_Weapons)Object;
 				Player.Weapon2.Object.SetActive (true);
+				Player.Player.ActualWeapon = Player.Weapon2;
 			}
 			Inventory.GetComponent<DisplayInventory>().DisplayWeapons();
 		}
@@ -183,12 +210,14 @@ public class ObjectsButton : MonoBehaviour
 				Player.Spell1.Object.SetActive (false);
 				Player.Spell1 = (_Spells)Object;
 				Player.Spell1.Object.SetActive (true);
+				Player.Player.ActualSpell = Player.Spell1;
 			}
 			else
 			{
 				Player.Spell2.Object.SetActive (false);
 				Player.Spell2 = (_Spells)Object;
 				Player.Spell2.Object.SetActive (true);
+				Player.Player.ActualSpell = Player.Spell2;
 			}
 			Inventory.GetComponent<DisplayInventory>().DisplaySpells();
 		}
@@ -197,10 +226,12 @@ public class ObjectsButton : MonoBehaviour
 			if (Player.SelectedObject == 1)
 			{
 				Player.cons1 = (_Consumables)Object;
+				Player.Player.ActualConsumable = Player.cons1;
 			}
 			else
 			{
 				Player.cons2 = (_Consumables)Object;
+				Player.Player.ActualConsumable = Player.cons2;
 			}
 			Inventory.GetComponent<DisplayInventory>().DisplayConsumables();
 		}
