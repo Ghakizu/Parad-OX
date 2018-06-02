@@ -23,6 +23,11 @@ public class DisplayInventory : MonoBehaviour
 	public ObjectsButton ActiveWeapon2;  //Button which display the second weapon that is equipped
 
 
+	public GameObject ActiveWeapons;  //GameObject which displays the active weapons
+	public GameObject CluesDisplay;  //GameObject which displays the buttons to change clues inventory
+
+
+
 
 	public void Awake()
 	//Get the player
@@ -35,6 +40,8 @@ public class DisplayInventory : MonoBehaviour
 	public void DisplayWeapons()
 	//Display the weapons
 	{
+		ActiveWeapons.SetActive (true);
+		CluesDisplay.SetActive (false);
 		player.SelectedObject = player.SelectedWeapon;
 		int capacity = player.WeaponsInventory.Count;
 		Object1.Object = capacity > 0 ? player.WeaponsInventory [0] : null;
@@ -55,6 +62,8 @@ public class DisplayInventory : MonoBehaviour
 	public void DisplaySpells()
 	//Display the spells
 	{
+		ActiveWeapons.SetActive (true);
+		CluesDisplay.SetActive (false);
 		player.SelectedObject = player.SelectedSpell;
 		int capacity = player.SpellsInventory.Count;
 		Object1.Object = capacity > 0 ? player.SpellsInventory [0] : null;
@@ -75,6 +84,8 @@ public class DisplayInventory : MonoBehaviour
 	public void DisplayConsumables()
 	//Display the Consumables
 	{
+		ActiveWeapons.SetActive (true);
+		CluesDisplay.SetActive (false);
 		player.SelectedObject = player.SelectedConsumable;
 		int capacity = player.ConsumablesInventory.Count;
 		Object1.Object = capacity > 0 ? player.ConsumablesInventory [0] : null;
@@ -89,5 +100,39 @@ public class DisplayInventory : MonoBehaviour
 		ActiveWeapon1.Object = player.cons1;
 		ActiveWeapon2.Object = player.cons2;
 		player.TypeOfObjects = 3;
+	}
+
+
+	public void DisplayClues()
+	//Display the clues
+	{
+		ActiveWeapons.SetActive (false);
+		CluesDisplay.SetActive (true);
+		List<_Clues> inventory = null;
+		switch (player.SelectedClue)
+		{
+		case 1:
+			inventory = player.CluesInventoryLvl1;
+			break;
+		case 2:
+			inventory = player.CluesInventoryLvl2;
+			break;
+		case 3:
+			inventory = player.CluesInventoryLvl3;
+			break;
+		}
+		int capacity = inventory.Count;
+		Object1.Object = capacity > 0 ? inventory [0] : null;
+		Object2.Object = capacity > 1 ? inventory [1] : null;
+		Object3.Object = capacity > 2 ? inventory [2] : null;
+		Object4.Object = capacity > 3 ? inventory [3] : null;
+		Object5.Object = capacity > 4 ? inventory [4] : null;
+		Object6.Object = capacity > 5 ? inventory [5] : null;
+		Object7.Object = capacity > 6 ? inventory [6] : null;
+		Object8.Object = capacity > 7 ? inventory [7] : null;
+		Object9.Object = capacity > 8 ? inventory [8] : null;
+		ActiveWeapon1.Object = player.cons1;
+		ActiveWeapon2.Object = player.cons2;
+		player.TypeOfObjects = 4;
 	}
 }

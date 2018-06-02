@@ -124,6 +124,7 @@ public abstract class _Character : Photon.MonoBehaviour
 	}
 
 	public void PauseGame()
+	//Pause the game
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
@@ -145,6 +146,7 @@ public abstract class _Character : Photon.MonoBehaviour
 
 
 	public void ResumeGame()
+	//Resume the game
 	{
 		CharacterRigidbody.velocity = StockedVelocity;
 		IsGamePaused = false;
@@ -200,7 +202,7 @@ public abstract class _Character : Photon.MonoBehaviour
 	public void Attack(_Character other)
 	//Allows a character to attack another
 	{
-		if (IsAbleToAttack <= 0)
+		if (IsAbleToAttack <= 0 && other.IsAirWallEnabled <= 0)
 		{
 			ActualWeapon.Attack (other);
 		}
@@ -247,5 +249,3 @@ public abstract class _Character : Photon.MonoBehaviour
 
 	}
 }
-
-//1WARNING

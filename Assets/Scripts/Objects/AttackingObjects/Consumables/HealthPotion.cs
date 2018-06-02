@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthPotion : _Consumables 
 {
-	//A spell that heals the player
+	//An item that heals the player
 
 	new public void Awake()
 	//set all the stats of the item
@@ -13,7 +13,7 @@ public class HealthPotion : _Consumables
 		damages = 20; 
 		RangeOfAttk = 0;
 		TimeBetweenAttacks = 0;
-		description = "Heal your player by " + damages + " HP.";
+		description = "Restore " + damages + " HP.";
 		base.Awake ();
 		sprite = Materials.HealthPotionSprite;
 	}
@@ -21,9 +21,8 @@ public class HealthPotion : _Consumables
 
 
 	public void UseItem()
-	//Use the item Healt Potion on us
+	//Use the item Health Potion on us
 	{
-		owner.Health += damages;
-		owner.Health = Mathf.Min (owner.Health, owner.MaxHealth);
+		owner.Health = Mathf.Min (owner.Health + damages, owner.MaxHealth);
 	}
 }
