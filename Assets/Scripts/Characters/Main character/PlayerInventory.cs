@@ -15,8 +15,10 @@ public class PlayerInventory : MonoBehaviour
 	//Weapons Inventory
 	public List<_Weapons> WeaponsInventory = new List<_Weapons>();  //The inventory of the weapons of the player
 	public GameObject FistsObject;  //the gameObject of the Fists
-	public GameObject KatanaObject;  //the gameObject of the Katana
+	public GameObject SwordObject;  //the gameObject of the Katana
 	public GameObject KnifeObject;  //the gameObject of the Knife
+	public GameObject BatObject;  //The gameObject of the Bat
+	public GameObject ExcaliburObject;  //The gameObject of Excalibur
 	public _Weapons Weapon1; //weapon of the first shortcut
 	public _Weapons Weapon2; //weapon of the second shortcut
 
@@ -66,12 +68,16 @@ public class PlayerInventory : MonoBehaviour
 
 		//WEAPONS
 		FistsObject = GetComponentInChildren<Fists>().gameObject;
-		KatanaObject = GetComponentInChildren<Katana>().gameObject;
-		KatanaObject.SetActive (false);
 		KnifeObject = GetComponentInChildren<Knife>().gameObject;
 		KnifeObject.SetActive (false);
+		SwordObject = GetComponentInChildren<Sword>().gameObject;
+		SwordObject.SetActive (false);
+		ExcaliburObject = GetComponentInChildren<Excalibur>().gameObject;
+		ExcaliburObject.SetActive (false);
+		BatObject = GetComponentInChildren<Bat>().gameObject;
+		BatObject.SetActive (false);
 		WeaponsInventory.Add(FistsObject.GetComponent<Fists>());
-		WeaponsInventory.Add(KatanaObject.GetComponent<Katana>());
+		WeaponsInventory.Add(SwordObject.GetComponent<Sword>());
 		WeaponsInventory.Add(KnifeObject.GetComponent<Knife>());
 		Weapon1 = WeaponsInventory[0];
 		Weapon2 = WeaponsInventory[1];
@@ -95,8 +101,8 @@ public class PlayerInventory : MonoBehaviour
 		SpellsInventory.Add (EarthSpikeObject.GetComponent<EarthSpike> ());
 		SpellsInventory.Add (FireBallObject.GetComponent<FireBall> ());
 		SpellsInventory.Add (FlashObject.GetComponent<Flash> ());
-		Spell1 = SpellsInventory[1];
-		Spell2 = SpellsInventory[0];
+		Spell1 = SpellsInventory[0];
+		Spell2 = SpellsInventory[1];
 		Player.ActualSpell = Spell1;
 
 		//CONSUMABLES
@@ -163,6 +169,7 @@ public class PlayerInventory : MonoBehaviour
 			Weapon1.Object.SetActive (true);
 			Player.ActualWeapon = Weapon1;
 			SelectedWeapon = 1;
+			Player.IsAbleToAttack = Mathf.Min (Player.IsAbleToAttack, Player.ActualWeapon.TimeBetweenAttacks);
 		}
 			
 		if(Input.GetButtonDown("Weapon2"))
@@ -171,6 +178,7 @@ public class PlayerInventory : MonoBehaviour
 			Weapon2.Object.SetActive (true);
 			Player.ActualWeapon = Weapon2;
 			SelectedWeapon = 2;
+			Player.IsAbleToAttack = Mathf.Min (Player.IsAbleToAttack, Player.ActualWeapon.TimeBetweenAttacks);
 		}
 	}
 		
@@ -186,6 +194,7 @@ public class PlayerInventory : MonoBehaviour
 			Spell1.Object.SetActive (true);
 			Player.ActualSpell = Spell1;
 			SelectedSpell = 1;
+			Player.IsAbleToLaunchSpell = Mathf.Min (Player.IsAbleToLaunchSpell, Player.ActualSpell.TimeBetweenAttacks);
 		}
 
 		if(Input.GetButtonDown("Spell2") && Spell2 != null)
@@ -194,6 +203,7 @@ public class PlayerInventory : MonoBehaviour
 			Spell2.Object.SetActive (true);
 			Player.ActualSpell = Spell2;
 			SelectedSpell = 2;
+			Player.IsAbleToLaunchSpell = Mathf.Min (Player.IsAbleToLaunchSpell, Player.ActualSpell.TimeBetweenAttacks);
 		}
 	}
 

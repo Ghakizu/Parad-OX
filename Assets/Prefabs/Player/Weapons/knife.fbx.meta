@@ -20,10 +20,13 @@ ModelImporter:
     2100002: Material
     2300000: Cube
     2300002: Cylinder.001
+    2300004: //RootNode
     3300000: Cube
     3300002: Cylinder.001
+    3300004: //RootNode
     4300000: Cylinder.001
     4300002: Cube
+    4300004: Knife
     10800000: Lamp
   externalObjects: {}
   materials:

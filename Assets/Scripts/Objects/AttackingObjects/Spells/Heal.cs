@@ -15,7 +15,7 @@ public class Heal : _Spells
 		ObjectName = "Heal";
 		damages = 20; 
 		RangeOfAttk = 0;
-		TimeBetweenAttacks = 50;
+		TimeBetweenAttacks = 6;
 		ManaConsumed = 30;
 		SubDescription = "Heal your player by " + damages + " HP.";
 		base.Awake ();

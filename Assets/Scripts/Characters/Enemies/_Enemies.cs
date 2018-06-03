@@ -24,10 +24,10 @@ public abstract class _Enemies : _Character
 
 	//DIFFERENT TIMERS
 	public float TargetTime = 3;  //how long will the ennemy continue to follow you
-	public float WaitTime = 0.5f;  //How long does the ennemy wait between two turns
-	public float TurnTime = 1;  //During how much time does the enemy turn around
+	public float WaitTime = 0.3f;  //How long does the ennemy wait between two turns
+	public float TurnTime = 0.5f;  //During how much time does the enemy turn around
 	public float ResetTime = 5;  //when do we want our character to be reset ?
-	public float AttackTime = 10.5f;  //How long does an attack take
+	public float AttackTime;  //How long does an attack take
 
 	//DIFFERENT BOOLEANS
 	public bool IsWaiting = true;  //are we waiting
@@ -37,6 +37,9 @@ public abstract class _Enemies : _Character
 	public bool IsAttacking = false;  //are we attacking another character
 	public bool left = false;  //are we turning to the left
 	public bool right = false;  //are we turning to the right
+
+	//Spells effects
+	public float IsFLashed = 0;  //Is he affect by the flash spell ?
 
 
 
@@ -50,6 +53,7 @@ public abstract class _Enemies : _Character
 	new void Awake ()
 	//Setting all the basic stats;
 	{
+		RangeOfDetection = 300;
 		TurnTime = 1;
 		WaitTime = 0.5f;
 		TargetTime = 3;
@@ -66,7 +70,7 @@ public abstract class _Enemies : _Character
 		CharacterObject.tag = "Enemy";
 		agent.updateRotation = true;
         Health = 40;
-		AttackTime = 10.5f;
+		AttackTime = ActualWeapon.TimeBetweenAttacks;
 	}
 
 
@@ -81,7 +85,7 @@ public abstract class _Enemies : _Character
 			SetNewTarget ();
 			SetAgentDestination ();
 			SetRotation ();
-			Live ();
+			Attack ();
 		}
 	}
 
@@ -103,39 +107,14 @@ public abstract class _Enemies : _Character
 
 
 
-	public void Live()
-	//All the functions that the character must do
-	{
-		if (IsWalking && (PatrolLocation - this.transform.position).magnitude <= agent.stoppingDistance + 30 && Timer >= 2)
-		{
-			FindNewLocation ();
-		}
-		if (target != null)
-		{
-			if(!IsAttacking)
-			{
-				Vector3 WhereToLook = target.transform.position - this.transform.position;
-				WhereToLook.y = 0;
-				Quaternion rotation = Quaternion.LookRotation (WhereToLook);
-				transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * RotateSpeed);
-			}
-			if ((target.transform.position - this.transform.position).magnitude <= ActualWeapon.RangeOfAttk)
-			{
-				agent.SetDestination (this.transform.position);
-				Attack ();
-			}
-		}
-		if (IsAttacking)
-		{
-			agent.SetDestination (this.transform.position);
-			agent.velocity = Vector3.zero;
-		}
-	}
+
+
 
 	public void UpdateTimes ()
 	//Update the timer of the character
 	{
 		Timer = Mathf.Max (0, Timer - Time.deltaTime);
+		IsFLashed = Math.Max (0, IsFLashed - Time.deltaTime);
 		if (target != null)
 		{
 			if (!IsAttacking)
@@ -209,7 +188,7 @@ public abstract class _Enemies : _Character
 	//Attack the player if it is possible
 	{
 		RaycastHit hit;
-		if (IsFreezed <= 0 && target != null && IsAbleToAttack <= 0 &&
+		if (IsFreezed <= 0 && target != null && IsAbleToAttack <= 0 && IsFLashed <= 0 &&
 			(target.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk + 10
 			&& Physics.Linecast (transform.position, target.transform.position, out hit)
 			&& hit.collider.gameObject.tag == "Player")
@@ -234,7 +213,7 @@ public abstract class _Enemies : _Character
 			{
 				float distance = hit.distance;
 				if (hit.collider.gameObject.tag == "Player" 
-					&& distance < MaxDistance * hit.collider.gameObject.GetComponent<MainCharacter>().DetectionRange)
+					&& distance < MaxDistance * hit.collider.gameObject.GetComponentInParent<MainCharacter>().DetectionRange)
 				{
 					MaxDistance = distance;
 					NewTarget = PlayersDetected [i];
@@ -253,15 +232,24 @@ public abstract class _Enemies : _Character
 	public void SetAgentDestination()
 	//Move the enemy to his destination
 	{
-		if (IsWaiting || IsFreezed >= 0 || IsTurning)
+		if (IsFreezed > 0 || IsAttacking || IsFLashed > 0)
 		{
 			agent.SetDestination (this.transform.position);
 			agent.velocity = Vector3.zero;
 		}
-		else if (target != null)
+		else if (target != null && (target.transform.position - this.transform.position).magnitude >= ActualWeapon.RangeOfAttk)
 		{
 			agent.speed = RunSpeed;
 			agent.SetDestination(target.transform.position);
+		}
+		else if (IsWaiting || IsTurning)
+		{
+			agent.SetDestination (this.transform.position);
+			agent.velocity = Vector3.zero;
+		}
+		else if (IsWalking && (PatrolLocation - this.transform.position).magnitude <= agent.stoppingDistance + 30 && Timer >= 2)
+		{
+			FindNewLocation ();
 		}
 	}
 
@@ -274,12 +262,23 @@ public abstract class _Enemies : _Character
 		{
 			if(right)
 			{
-				transform.Rotate (new Vector3 (0, -70, 0) * Time.deltaTime);
+				transform.Rotate (new Vector3 (0, -140, 0) * Time.deltaTime);
 			}
 			else
 			{
-				transform.Rotate(new Vector3(0, 70, 0) * Time.deltaTime);
+				transform.Rotate(new Vector3(0, 140, 0) * Time.deltaTime);
 			}
+		}
+		else if (target != null && IsFLashed <= 0)
+		{
+			Vector3 WhereToLook = target.transform.position - this.transform.position;
+			WhereToLook.y = 0;
+			Quaternion rotation = Quaternion.LookRotation (WhereToLook);
+			transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * RotateSpeed);
+		}
+		else if (IsFLashed > 0)
+		{
+			transform.Rotate (new Vector3 (0, -400, 0) * Time.deltaTime);
 		}
 	}
 

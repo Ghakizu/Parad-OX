@@ -221,10 +221,10 @@ public abstract class _Character : Photon.MonoBehaviour
 			((Flash)ActualSpell).LaunchSpell (other);
 			break;
 		case "FireBall":
-			((FireBall)ActualSpell).LaunchSpell (other);
+			((FireBall)ActualSpell).LaunchSpell ();
 			break;
 		case "EarthSpike":
-			((FireBall)ActualSpell).LaunchSpell (other);
+			((EarthSpike)ActualSpell).LaunchSpell (other);
 			break;
 		case "AirWall":
 			((AirWall)ActualSpell).LaunchSpell ();
