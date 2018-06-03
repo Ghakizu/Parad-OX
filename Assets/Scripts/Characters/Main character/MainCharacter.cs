@@ -416,7 +416,7 @@ public class MainCharacter : _Character
             anim.SetBool("Sword", false);
             anim.SetBool("Bat", true);
         }
-        if (IsAbleToAttack <= 0)
+        if (IsAbleToAttack >= 0)
         {
             anim.SetBool("Attacking", false);
         }
