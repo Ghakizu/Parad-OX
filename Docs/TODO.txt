@@ -20,13 +20,10 @@ les settings doivent être fonctionnels
 voitures (déplacements ordonnés dans la ville)
 PNJs : déplacements à revoir, certains (surement les PNJs immobiles) doivent display des infos, peut être leur mettre une bulle sur la tête
 Sort EarthSpike
-ennemis mouvements, attaques, rajouter une bulle sur la tête, avec éventuellement une vie
-plusieurs types d'ennemis : équilibrage
-quand on est derrière le personnage, il ne se tourne plus. Avec un Lookat, il se tourne mais de manière beaucoup trop violente
+ennemis rajouter une bulle sur la tête, avec éventuellement une vie
 Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
-indices : collections, display, les intégrer dans le scénario
+indices : collections, les intégrer dans le scénario
 Boss IA : centaurus : seules les attaques d'en haut sont comptabilisées.
-Dégats : UI rouge quand plus beaucoup de vie ?
 Reequilibrages
 
 
@@ -36,6 +33,7 @@ Refaire apparaître les personnages
 Portes, leviers, coffres et ennemis du labyrinthes
 Moyen de communiquer entre les deux joueurs ?
 Lancer le mode multi uniquement si l'on lance le niveau labyrinthe, sinon rester sur un mode de jeu solo
+bullets
 
 
 

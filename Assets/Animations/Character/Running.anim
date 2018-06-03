@@ -19,31 +19,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: {x: 3.7260864, y: 0.007405281, z: -5.870139}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 9.690954, z: 0}
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.16666667
-        value: {x: 3.7260864, y: 1.0074053, z: -5.870139}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.33333334
-        value: {x: 3.7260864, y: 0.007405281, z: -5.870139}
-        inSlope: {x: 0, y: -8.419782, z: 0}
-        outSlope: {x: 0, y: -8.419782, z: 0}
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Body/Corps
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
         value: {x: 3.71554, y: 14.5191345, z: -6.3401823}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 6.7333612, z: 0}
@@ -63,7 +38,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: "Body/T\xEAte"
+    path: Body/Head
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -94,7 +69,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Body/pied droit
+    path: Body/Right feet
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -125,7 +100,32 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Body/pied gauche
+    path: Body/Left feet
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 3.7260864, y: 0.007405281, z: -5.870139}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 9.690954, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666667
+        value: {x: 3.7260864, y: 1.0074053, z: -5.870139}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.33333334
+        value: {x: 3.7260864, y: 0.007405281, z: -5.870139}
+        inSlope: {x: 0, y: -8.419782, z: 0}
+        outSlope: {x: 0, y: -8.419782, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Body/Body
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -162,7 +162,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Arms/bras droit (Weapons)
+    path: Arms/Right arm (Weapons)
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -199,7 +199,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Arms/bras gauche (Spells)
+    path: Arms/Left arm (Spells)
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -211,42 +211,42 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3974389062
+      path: 694585260
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 716940468
+      path: 1824367554
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3869614940
+      path: 1317595839
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4168168106
+      path: 1430092418
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1631516889
+      path: 714383596
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2787129954
+      path: 1545570819
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -279,66 +279,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 3.7260864
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.x
-    path: Body/Corps
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0.007405281
-        inSlope: 0
-        outSlope: 9.690954
-        tangentMode: 1
-      - serializedVersion: 2
-        time: 0.16666667
-        value: 1.0074053
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.33333334
-        value: 0.007405281
-        inSlope: -8.419782
-        outSlope: -8.419782
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.y
-    path: Body/Corps
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: -5.870139
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.z
-    path: Body/Corps
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
         value: 3.71554
         inSlope: 0
         outSlope: 0
@@ -347,7 +287,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: "Body/T\xEAte"
+    path: Body/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -375,7 +315,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: "Body/T\xEAte"
+    path: Body/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -391,7 +331,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: "Body/T\xEAte"
+    path: Body/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -407,7 +347,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Body/pied droit
+    path: Body/Right feet
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -441,7 +381,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Body/pied droit
+    path: Body/Right feet
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -457,7 +397,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Body/pied droit
+    path: Body/Right feet
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -473,7 +413,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Body/pied gauche
+    path: Body/Left feet
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -507,7 +447,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Body/pied gauche
+    path: Body/Left feet
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -523,7 +463,67 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Body/pied gauche
+    path: Body/Left feet
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 3.7260864
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Body/Body
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.007405281
+        inSlope: 0
+        outSlope: 9.690954
+        tangentMode: 1
+      - serializedVersion: 2
+        time: 0.16666667
+        value: 1.0074053
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.33333334
+        value: 0.007405281
+        inSlope: -8.419782
+        outSlope: -8.419782
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: Body/Body
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -5.870139
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Body/Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -539,7 +539,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Arms/bras droit (Weapons)
+    path: Arms/Right arm (Weapons)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -579,7 +579,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Arms/bras droit (Weapons)
+    path: Arms/Right arm (Weapons)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -595,7 +595,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Arms/bras droit (Weapons)
+    path: Arms/Right arm (Weapons)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -611,7 +611,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Arms/bras gauche (Spells)
+    path: Arms/Left arm (Spells)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -651,7 +651,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Arms/bras gauche (Spells)
+    path: Arms/Left arm (Spells)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -667,7 +667,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Arms/bras gauche (Spells)
+    path: Arms/Left arm (Spells)
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []

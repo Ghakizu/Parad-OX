@@ -235,7 +235,7 @@ Transform:
   m_PrefabParentObject: {fileID: 4365843656481460, guid: 0933cf2f22df53c4f8b49111e62747e5,
     type: 2}
   m_PrefabInternal: {fileID: 1601275933}
---- !u!1001 &1279302943
+--- !u!1001 &940788612
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -248,7 +248,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4488358495861134, guid: e4ae58c1ed6d68445b8e232495858eb3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 44.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4488358495861134, guid: e4ae58c1ed6d68445b8e232495858eb3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -398,20 +398,3 @@ Transform:
   m_Father: {fileID: 673433712}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1839490456 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1946756701442090, guid: e4ae58c1ed6d68445b8e232495858eb3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1279302943}
---- !u!135 &1839490458
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1839490456}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

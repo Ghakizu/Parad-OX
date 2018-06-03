@@ -1,0 +1,163 @@
+fileFormatVersion: 2
+guid: 0f646ff5ec234484d9f0f31f96773f4c
+timeCreated: 1524908322
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: immeuble.000
+    100002: immeuble.001
+    100004: immeuble.002
+    100006: immeuble.004
+    100008: //RootNode
+    400000: immeuble.000
+    400002: immeuble.001
+    400004: immeuble.002
+    400006: immeuble.004
+    400008: //RootNode
+    2100000: haut de l'immeuble.002
+    2100002: couleur.002
+    2100004: "contour des fen\xEAtres.002"
+    2100006: vitres.002
+    2100008: bas de l'immeuble
+    2100010: Volets
+    2100012: haut de l'immeuble
+    2100014: couleur
+    2100016: "contour des fen\xEAtres"
+    2100018: vitres
+    2100020: porte
+    2100022: escaliers
+    2100024: bois
+    2100026: haut de l'immeuble.004
+    2100028: couleur.004
+    2100030: "contour des fen\xEAtres.004"
+    2100032: vitres.004
+    2100034: bas de l'immeuble.003
+    2100036: Volets.003
+    2100038: haut de l'immeuble.003
+    2100040: couleur.003
+    2100042: "contour des fen\xEAtres.003"
+    2100044: vitres.003
+    2100046: porte.003
+    2100048: escaliers.003
+    2100050: bois.003
+    2100052: haut de l'immeuble.006
+    2100054: couleur.006
+    2100056: "contour des fen\xEAtres.006"
+    2100058: vitres.006
+    2100060: bas de l'immeuble.005
+    2100062: Volets.005
+    2100064: haut de l'immeuble.005
+    2100066: couleur.005
+    2100068: "contour des fen\xEAtres.005"
+    2100070: vitres.005
+    2100072: porte.005
+    2100074: escaliers.005
+    2100076: bois.005
+    2100078: haut de l'immeuble.008
+    2100080: couleur.008
+    2100082: "contour des fen\xEAtres.008"
+    2100084: vitres.008
+    2100086: bas de l'immeuble.007
+    2100088: Volets.007
+    2100090: haut de l'immeuble.007
+    2100092: couleur.007
+    2100094: "contour des fen\xEAtres.007"
+    2100096: vitres.007
+    2100098: porte.007
+    2100100: escaliers.007
+    2100102: bois.007
+    2300000: immeuble.000
+    2300002: immeuble.001
+    2300004: immeuble.002
+    2300006: immeuble.004
+    2300008: //RootNode
+    3300000: immeuble.000
+    3300002: immeuble.001
+    3300004: immeuble.002
+    3300006: immeuble.004
+    3300008: //RootNode
+    4300000: immeuble.004
+    4300002: immeuble.000
+    4300004: immeuble.001
+    4300006: immeuble.002
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 4
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
