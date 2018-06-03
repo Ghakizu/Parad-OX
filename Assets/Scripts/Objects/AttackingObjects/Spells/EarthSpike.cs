@@ -16,7 +16,7 @@ public class EarthSpike : _Spells
 		RangeOfAttk = 200;
 		TimeBetweenAttacks = 10;
 		ManaConsumed = 100;
-		SubDescription = "Make a spike appear from under the target.";
+		SubDescription = "A spike appear from under the target.";
 		base.Awake ();
 		sprite = Materials.EarthSpikeSprite;
 	}

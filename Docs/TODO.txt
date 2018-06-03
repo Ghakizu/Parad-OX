@@ -20,13 +20,10 @@ les settings doivent être fonctionnels
 voitures (déplacements ordonnés dans la ville)
 PNJs : déplacements à revoir, certains (surement les PNJs immobiles) doivent display des infos, peut être leur mettre une bulle sur la tête
 Sort EarthSpike
-Sort FireBall
-Sort Flash
 ennemis mouvements, attaques, rajouter une bulle sur la tête, avec éventuellement une vie
 plusieurs types d'ennemis : équilibrage
 quand on est derrière le personnage, il ne se tourne plus. Avec un Lookat, il se tourne mais de manière beaucoup trop violente
 Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
-labyrinthe : un joueur spawn en bas, l'autre en haut, et ils ne peuvent qu'échanger, on fait pas la téléportation du début
 indices : collections, display, les intégrer dans le scénario
 Boss IA : centaurus : seules les attaques d'en haut sont comptabilisées.
 Dégats : UI rouge quand plus beaucoup de vie ?
@@ -63,6 +60,7 @@ SCENE DU BAR
 
 
 LVL LABYRINTHE
+un joueur spawn en bas, l'autre en haut, et ils ne peuvent qu'échanger, on fait pas la téléportation du début
 Echangement des players
 Finir de build le niveau
 Rajouter les coffres / ennemis / Pièges
@@ -117,7 +115,7 @@ Peut être une animation pour les portes du level du labyrinthe ? Ou juste un tra
 
 PARTICULES
 Sur les sorts, eventuellement les pieds quand un personnage marche, ou les armes quand un personnage attaque
-A l amort d'un ennemi
+A la mort d'un ennemi
 
 
 

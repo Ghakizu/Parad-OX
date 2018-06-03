@@ -29,16 +29,19 @@ ModelImporter:
     2300004: Cylinder.001
     2300006: Sphere
     2300008: Sphere.001
+    2300010: //RootNode
     3300000: Cube
     3300002: Cylinder
     3300004: Cylinder.001
     3300006: Sphere
     3300008: Sphere.001
+    3300010: //RootNode
     4300000: Sphere
     4300002: Cylinder.001
     4300004: Cylinder
     4300006: Cube
     4300008: Sphere.001
+    4300010: Sword
     10800000: Lamp
   externalObjects: {}
   materials:

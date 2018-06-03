@@ -38,6 +38,9 @@ public abstract class _Enemies : _Character
 	public bool left = false;  //are we turning to the left
 	public bool right = false;  //are we turning to the right
 
+	//Spells effects
+	public float IsFLashed = 0;  //Is he affect by the flash spell ?
+
 
 
 

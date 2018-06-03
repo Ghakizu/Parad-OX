@@ -378,30 +378,7 @@ public class MainCharacter : _Character
 
 	private void SetAnimation()
 	//Animations for the player
-	{
-        /*if(Input.GetButton("Horizontal") || Input.GetButton ("Vertical"))
-		{
-			SoundController.PlaySound (sound);
-			if (speed == RunSpeed) 
-			{
-				anim.SetBool ("Walk", false);
-				anim.SetBool ("Run", true);
-			}
-			else
-			{
-				anim.SetBool ("Walk", true);
-				anim.SetBool ("Run", false);
-			}
-		}
-		else
-		{
-			anim.SetBool ("Walk", false);
-			anim.SetBool ("Run", false);
-		}
-		if (IsAbleToAttack <= 0)
-		{
-			anim.SetBool ("Attacking", false);
-		}*/
+	{	
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             if (speed == RunSpeed)
@@ -427,7 +404,7 @@ public class MainCharacter : _Character
             anim.SetBool("Sword", false);
             anim.SetBool("Bat", false);
         }
-        if (ActualWeapon.ObjectName == "Sword" || ActualWeapon.ObjectName == "Excalibur")
+        else if (ActualWeapon.ObjectName == "Wooden Sword" || ActualWeapon.ObjectName == "Excalibur")
         {
             anim.SetBool("Knife", false);
             anim.SetBool("Sword", true);
@@ -511,7 +488,7 @@ public class MainCharacter : _Character
 		{
 			IsAbleToLaunchSpell = ActualSpell.TimeBetweenAttacks;
 			Mana -= ActualSpell.ManaConsumed;
-			if (ActualSpell.ObjectName == "Heal" || ActualSpell.ObjectName == "AirWall")
+			if (ActualSpell.ObjectName == "Heal" || ActualSpell.ObjectName == "AirWall" || ActualSpell.ObjectName == "FireBall")
 			{
 				base.LaunchSpell (null);
 			}
