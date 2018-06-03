@@ -10,6 +10,7 @@ TagManager:
   - Scene
   - Enemy
   - SecondRoomLabyrinth
+  - CarsTurns
   layers:
   - Default
   - TransparentFX

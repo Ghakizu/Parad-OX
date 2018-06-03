@@ -105,7 +105,6 @@ Bruits d'actionnement des pièges
 
 
 ANIMATIONS
-Personnages : marcher, courir, sauter, attaquer (animation pour toutes les armes et pour tous les sorts) (On fait les mêmes animations pour le personnage principal que pour tous les autres, aussi bien PNJs (marcher) que Ennemis)
 Ouverture des coffres / actionnement des pièges
 Peut être une animation pour les portes du level du labyrinthe ? Ou juste un translate ?
 

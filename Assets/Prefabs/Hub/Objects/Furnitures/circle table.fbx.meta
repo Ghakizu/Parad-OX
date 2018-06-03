@@ -1,17 +1,27 @@
 fileFormatVersion: 2
-guid: 4bd1d320af2ae1d479c63c8abdf10b58
-timeCreated: 1525190912
+guid: cecbb20a30d1da04d891235da34df420
+timeCreated: 1528051787
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cylinder
+    100004: Cylinder.001
     400000: //RootNode
-    2100000: Material.001
-    2100002: bois
+    400002: Cylinder
+    400004: Cylinder.001
+    2100000: No Name
+    2100002: Acier
+    2100004: bois
     2300000: //RootNode
+    2300002: Cylinder
+    2300004: Cylinder.001
     3300000: //RootNode
-    4300000: Cube
+    3300002: Cylinder
+    3300004: Cylinder.001
+    4300000: Cylinder
+    4300002: Cylinder.001
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -42,7 +52,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
