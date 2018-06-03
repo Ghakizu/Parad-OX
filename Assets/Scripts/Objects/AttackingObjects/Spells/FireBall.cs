@@ -15,7 +15,7 @@ public class FireBall : _Spells
 		ObjectName = "FireBall";
 		damages = 60; 
 		RangeOfAttk = 300;
-		TimeBetweenAttacks = 4f;
+		TimeBetweenAttacks = 4;
 		ManaConsumed = 50;
 		SubDescription = "Launch a Fire ball towards the target";
 		base.Awake ();

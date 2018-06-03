@@ -169,6 +169,7 @@ public class PlayerInventory : MonoBehaviour
 			Weapon1.Object.SetActive (true);
 			Player.ActualWeapon = Weapon1;
 			SelectedWeapon = 1;
+			Player.IsAbleToAttack = Mathf.Min (Player.IsAbleToAttack, Player.ActualWeapon.TimeBetweenAttacks);
 		}
 			
 		if(Input.GetButtonDown("Weapon2"))
@@ -177,6 +178,7 @@ public class PlayerInventory : MonoBehaviour
 			Weapon2.Object.SetActive (true);
 			Player.ActualWeapon = Weapon2;
 			SelectedWeapon = 2;
+			Player.IsAbleToAttack = Mathf.Min (Player.IsAbleToAttack, Player.ActualWeapon.TimeBetweenAttacks);
 		}
 	}
 		
@@ -192,6 +194,7 @@ public class PlayerInventory : MonoBehaviour
 			Spell1.Object.SetActive (true);
 			Player.ActualSpell = Spell1;
 			SelectedSpell = 1;
+			Player.IsAbleToLaunchSpell = Mathf.Min (Player.IsAbleToLaunchSpell, Player.ActualSpell.TimeBetweenAttacks);
 		}
 
 		if(Input.GetButtonDown("Spell2") && Spell2 != null)
@@ -200,6 +203,7 @@ public class PlayerInventory : MonoBehaviour
 			Spell2.Object.SetActive (true);
 			Player.ActualSpell = Spell2;
 			SelectedSpell = 2;
+			Player.IsAbleToLaunchSpell = Mathf.Min (Player.IsAbleToLaunchSpell, Player.ActualSpell.TimeBetweenAttacks);
 		}
 	}
 

@@ -15,8 +15,8 @@ public class Flash : _Spells
 		TimeOfEffect = 3;
 		ObjectName = "Flash";
 		damages = 0; 
-		RangeOfAttk = 100;
-		TimeBetweenAttacks = 10;
+		RangeOfAttk = 250;
+		TimeBetweenAttacks = 4;
 		ManaConsumed = 60;
 		SubDescription = "Create a flash that confuse the target";
 		base.Awake ();

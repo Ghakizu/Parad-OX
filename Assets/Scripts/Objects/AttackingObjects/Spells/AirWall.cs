@@ -15,7 +15,7 @@ public class AirWall : _Spells
 		ObjectName = "AirWall";
 		damages = 0; 
 		RangeOfAttk = 0;
-		TimeBetweenAttacks = 10;
+		TimeBetweenAttacks = 4;
 		ManaConsumed = 50;
 		SubDescription = "Your character becomes invicible during " + TimeOfEffect + " seconds.";
 		base.Awake ();
