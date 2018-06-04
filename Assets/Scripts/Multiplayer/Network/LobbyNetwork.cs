@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class LobbyNetwork : MonoBehaviour
 {
-    private string Version = "Alpha v0.0.2";
-
+    private string Version = "Alpha v0.0.3";
     // Use this for initialization
     /*  private void Start()
       {
@@ -25,6 +24,11 @@ public class LobbyNetwork : MonoBehaviour
     private GameObject Lobby
     {
         get { return _lobby; }
+    }
+
+    private void Awake()
+    {
+
     }
 
 

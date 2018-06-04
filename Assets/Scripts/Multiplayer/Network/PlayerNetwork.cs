@@ -21,6 +21,11 @@ public class PlayerNetwork : MonoBehaviour
     private int PlayerInGame = 0;
     private Queue<GameObject> spawn;
     private bool isLoaded = false;
+    private bool _launchmulti = false;
+    public bool LaunchMulti
+    {
+        get { return _launchmulti; }
+    }
 
     // Use this for initialization
     private void Awake()
@@ -36,6 +41,15 @@ public class PlayerNetwork : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
     }
 
+    private void Update()
+    {
+        if(LaunchMulti)
+        {
+            PhotonNetwork.LoadLevel("Multiplayer");
+            GameObject.FindGameObjectWithTag("Player").SetActive(false);
+        }
+    }
+
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         if(scene.name == Name)
@@ -47,7 +61,7 @@ public class PlayerNetwork : MonoBehaviour
         }
         else if (scene.name == "RealWorld" && !isLoaded)
         {
-            GameObject Player =PhotonNetwork.Instantiate("Main character", new Vector3(231, -988, 29), Quaternion.Euler(0, -90, 0), 0);
+            GameObject Player = PhotonNetwork.Instantiate("Main character", new Vector3(231, -988, 29), Quaternion.Euler(0, -90, 0), 0);
             Player.transform.SetParent(transform.parent, false);
             isLoaded = true;
         }
