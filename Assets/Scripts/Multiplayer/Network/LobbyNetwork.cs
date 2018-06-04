@@ -20,6 +20,13 @@ public class LobbyNetwork : MonoBehaviour
     }
 
     [SerializeField]
+    private PlayerNetwork _playerNetwork;
+    private PlayerNetwork PlayerNetwork
+    {
+        get { return _playerNetwork; }
+    }
+
+    [SerializeField]
     private GameObject _lobby;
     private GameObject Lobby
     {
@@ -28,7 +35,12 @@ public class LobbyNetwork : MonoBehaviour
 
     private void Awake()
     {
-
+        if(PlayerNetwork.LaunchMulti)
+        {
+            PhotonNetwork.offlineMode = false;
+            print("Connecting to server..");
+            PhotonNetwork.ConnectUsingSettings(Version);
+        }
     }
 
 
@@ -41,13 +53,6 @@ public class LobbyNetwork : MonoBehaviour
     public void OnCLickSoloButton()
     {
         PhotonNetwork.offlineMode = true;
-    }
-
-    public void OnClickMultiplayerButton()
-    {
-        PhotonNetwork.offlineMode = false;
-        print("Connecting to server..");
-        PhotonNetwork.ConnectUsingSettings(Version);
     }
 
     private void OnConnectedToMaster()

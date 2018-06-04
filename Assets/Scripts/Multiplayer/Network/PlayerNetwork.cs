@@ -46,7 +46,6 @@ public class PlayerNetwork : MonoBehaviour
         if(LaunchMulti)
         {
             PhotonNetwork.LoadLevel("Multiplayer");
-            GameObject.FindGameObjectWithTag("Player").SetActive(false);
         }
     }
 
@@ -64,6 +63,10 @@ public class PlayerNetwork : MonoBehaviour
             GameObject Player = PhotonNetwork.Instantiate("Main character", new Vector3(231, -988, 29), Quaternion.Euler(0, -90, 0), 0);
             Player.transform.SetParent(transform.parent, false);
             isLoaded = true;
+        }
+        else if (scene.name == "Multiplayer")
+        {
+            GameObject.FindGameObjectWithTag("Player").SetActive(false);
         }
     }
 
