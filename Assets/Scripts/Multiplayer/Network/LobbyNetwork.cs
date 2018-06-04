@@ -19,7 +19,6 @@ public class LobbyNetwork : MonoBehaviour
         get { return _currentRoom; }
     }
 
-    [SerializeField]
     private PlayerNetwork _playerNetwork;
     private PlayerNetwork PlayerNetwork
     {
@@ -35,24 +34,14 @@ public class LobbyNetwork : MonoBehaviour
 
     private void Awake()
     {
-        if(PlayerNetwork.LaunchMulti)
-        {
-            PhotonNetwork.offlineMode = false;
-            print("Connecting to server..");
-            PhotonNetwork.ConnectUsingSettings(Version);
-        }
+        print("Connecting to server..");
+        PhotonNetwork.ConnectUsingSettings(Version);
+        _playerNetwork = GameObject.FindGameObjectWithTag("DDOL").GetComponent<PlayerNetwork>();
     }
-
 
     public void OnClickDisconnect()
     {
         PhotonNetwork.Disconnect();
-    }
-
-
-    public void OnCLickSoloButton()
-    {
-        PhotonNetwork.offlineMode = true;
     }
 
     private void OnConnectedToMaster()

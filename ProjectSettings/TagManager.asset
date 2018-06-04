@@ -12,6 +12,7 @@ TagManager:
   - SecondRoomLabyrinth
   - CarsTurns
   - Border
+  - DDOL
   layers:
   - Default
   - TransparentFX
