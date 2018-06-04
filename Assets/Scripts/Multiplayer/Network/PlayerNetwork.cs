@@ -12,7 +12,7 @@ public class PlayerNetwork : MonoBehaviour
     public GameObject spawn2;
 
     private PhotonView PhotonView;
-    private string _name = "Labyrinthe bis";
+    private string _name = "Maze";
     public string Name
     {
         get { return _name; }
@@ -90,7 +90,7 @@ public class PlayerNetwork : MonoBehaviour
     private void RPC_CreatePlayer()
     {
 		Vector3 position = new Vector3(Random.Range(1500f, 1600f), Random.Range(10f, 50f), Random.Range(8900f, 9100f));
-        GameObject Player = PhotonNetwork.Instantiate("_Player", position, Quaternion.identity, 0);
+        GameObject Player = PhotonNetwork.Instantiate("Main character", position, Quaternion.identity, 0);
         Player.transform.SetParent(transform.parent, false);
     }
 }
