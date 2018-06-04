@@ -5,8 +5,6 @@ Chaises
 Lampadaires
 Feux tricolores (juste pcq c'est stylé)
 Indices
-Plusieurs skins de personnages reconnaissabe : PNJs, personnage principal, Ennemis
-Boss
 vaisselle
 
 
@@ -21,7 +19,7 @@ Obtention des armes : shop, coffres, gestion du nombre d'items pour les consomma
 indices : collections, les intégrer dans le scénario
 Boss IA : centaurus : seules les attaques d'en haut sont comptabilisées.
 Reequilibrages
-perso et border
+
 
 
 
