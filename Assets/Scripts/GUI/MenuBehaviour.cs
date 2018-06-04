@@ -66,7 +66,7 @@ public class MenuBehaviour : MonoBehaviour
     {
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.Disconnect();
-        GameObject.Destroy(player);
+        GameObject.Destroy(player.transform.parent.gameObject);
         SceneManager.LoadScene("Menu");
     }
 }
