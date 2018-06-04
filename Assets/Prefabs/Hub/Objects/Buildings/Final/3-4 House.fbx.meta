@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: e5bdfe2f5fd0fa142acde1b330a42f1c
-timeCreated: 1524429846
+guid: 8fc4c9928d4eff543b8e0294aa7110e3
+timeCreated: 1528091618
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: bas de l'immeuble
-    2100002: Volets
-    2100004: haut de l'immeuble
-    2100006: couleur
-    2100008: "contour des fen\xEAtres"
-    2100010: vitres
+    2100000: Volets
+    2100002: haut de l'immeuble
+    2100004: couleur
+    2100006: "contour des fen\xEAtres"
+    2100008: vitres
+    2100010: bois
     2100012: porte
-    2100014: escaliers
-    2100016: bois
+    2100014: bas de l'immeuble
+    2100016: escaliers
     2300000: //RootNode
     3300000: //RootNode
     4300000: immeuble
