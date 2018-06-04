@@ -16,7 +16,7 @@ public abstract class _Enemies : _Character
 	//STATS
 	public GameObject target;  //the target that the character has to follow
 	public float RangeOfDetection;  //how far do the character will detect us
-	private SphereCollider DetectionCollider;  //The range of detection of the character. If you enter in it, he will chase you
+	public SphereCollider DetectionCollider;  //The range of detection of the character. If you enter in it, he will chase you
 	public List<GameObject> PlayersDetected = new List<GameObject>();  //the list of the players that are detected
 	public NavMeshAgent agent;  //the NavMeshAgent of the character
 	public Vector3 PatrolLocation;  //the next location where the character must move
@@ -42,24 +42,25 @@ public abstract class _Enemies : _Character
 	//Spells effects
 	public float IsFLashed = 0;  //Is he affect by the flash spell ?
 
-	//Buttons7
-	public Image HealthButton;
+	//Buttons
+	public Image HealthButton;  //image displaying the health of the enemy
 
-    public Animator anim;
-
-
-
+	//Animations
+    public Animator anim;  //animator of the enemies
 
 
 
 
 
-	new void Awake ()
+
+
+
+	new public void Awake ()
 	//Setting all the basic stats;
 	{
-		RangeOfDetection = 300;
-		TurnTime = 1;
-		WaitTime = 0.5f;
+		Debug.Log ("awake");
+		TurnTime = 0.5f;
+		WaitTime = 0.3f;
 		TargetTime = 3;
 		base.Awake ();
 		agent = GetComponent<NavMeshAgent> ();
@@ -73,7 +74,6 @@ public abstract class _Enemies : _Character
 		agent.stoppingDistance = ActualWeapon.RangeOfAttk - 10;
 		CharacterObject.tag = "Enemy";
 		agent.updateRotation = true;
-        Health = 40;
 		AttackTime = ActualWeapon.TimeBetweenAttacks;
 		HealthButton = GetComponentInChildren<Image> ().transform.GetChild(0).GetComponent<Image>();
 	}
