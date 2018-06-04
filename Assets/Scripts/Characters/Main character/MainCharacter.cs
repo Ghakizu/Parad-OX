@@ -59,7 +59,7 @@ public class MainCharacter : _Character
 	{
 		SpeedMultiplier = 0;
 		DetectionRange = 1;
-		MaxHealth = 150;
+		MaxHealth = 500;
 		MaxMana = 200;
 		RotateSpeed = 200;
 		WalkSpeed = 150;

@@ -2,7 +2,6 @@ A MODELISER
 Kiosque à journaux
 Stands de Marché
 Lampadaires
-Feux tricolores (juste pcq c'est stylé)
 Indices
 vaisselle
 
@@ -12,12 +11,9 @@ GAMEPLAY
 GameOver : remettre toute la scène à son état initial (ou au dernier checkpoint) -> peut être le mettre sur une autre scène
 Gestion des sauvegardes
 les settings doivent être fonctionnels
-PNJs : déplacements à revoir, certains (surement les PNJs immobiles) doivent display des infos, peut être leur mettre une bulle sur la tête
 Sort EarthSpike
 Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
-indices : collections, les intégrer dans le scénario
 Boss IA : centaurus : seules les attaques d'en haut sont comptabilisées.
-Reequilibrages
 
 
 
@@ -25,7 +21,6 @@ Reequilibrages
 NETWORK
 Refaire apparaître les personnages
 Portes, leviers, coffres et ennemis du labyrinthes
-Moyen de communiquer entre les deux joueurs ?
 Lancer le mode multi uniquement si l'on lance le niveau labyrinthe, sinon rester sur un mode de jeu solo
 bullets
 
@@ -33,19 +28,14 @@ bullets
 
 REAL WORLD
 ajouter les stands du marché
-rajouter les indices
-les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
 rajouter des lampadaires
-mettre les indices
+rajouter les PNJs
+
 
 
 SCENE DU RESTAURANT
 à refaire et placer les indices
 
-
-
-SCENE DU BAR
-à refaire et placer les indices
 
 
 LVL LABYRINTHE
@@ -57,6 +47,7 @@ Rajouter les coffres / ennemis
 
 LVL ENIGME
 Rajouter clé et ennemis
+les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
 
 
 BOSS 1
@@ -91,6 +82,15 @@ Bruit de collection / d'utilisation d'objets
 musiques de fonds
 Bruits d'actionnement des pièges
 
+
+
+
+
+LINK
+Reequilibrages
+indices : collections, les intégrer dans le scénario, PNJS
+rajouter les indices
+les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
 
 
 OFFLINE

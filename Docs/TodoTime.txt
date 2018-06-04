@@ -2,21 +2,20 @@ Gestion des sauvegardes 12h
 
 Axel:
 GUI 1h30
-Scene du bar + scene restaurant 1h
-Real World 1h30
+scene restaurant 1h
+Real World 30
 Indices 1h
 GameOver 1h
 PNJs 30mn
 EarthSpike 30mn
-Ennemis 30mn
 Boss 1 30mn
 Boss 2 1h
 Boss 3 1h
-Modelisation 2h
+Modelisation 1h
 Scene finale 1h
 Tout LINK 1h
 Obtention des armes 1h30
-Total: 15h30
+Total: 13h
 
 Cyril:
 Audio 1h
