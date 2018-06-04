@@ -27,6 +27,8 @@ public class PlayerNetwork : MonoBehaviour
         get { return _launchmulti; }
     }
 
+    private MainCharacter mainCharacter;
+
     // Use this for initialization
     private void Awake()
     {
@@ -39,15 +41,9 @@ public class PlayerNetwork : MonoBehaviour
         PhotonNetwork.sendRateOnSerialize = 30;
 
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
+
     }
 
-    private void Update()
-    {
-        if(LaunchMulti)
-        {
-            PhotonNetwork.LoadLevel("Multiplayer");
-        }
-    }
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
@@ -63,10 +59,15 @@ public class PlayerNetwork : MonoBehaviour
             GameObject Player = PhotonNetwork.Instantiate("Main character", new Vector3(231, -988, 29), Quaternion.Euler(0, -90, 0), 0);
             Player.transform.SetParent(transform.parent, false);
             isLoaded = true;
+            mainCharacter = Player.GetComponent<MainCharacter>(); 
+            Debug.Log(mainCharacter);
+        
         }
         else if (scene.name == "Multiplayer")
         {
-            GameObject.FindGameObjectWithTag("Player").SetActive(false);
+            _launchmulti = true;
+            mainCharacter.IsGamePaused = true;
+            //mainCharacter.gameObject.SetActive(false);
         }
     }
 

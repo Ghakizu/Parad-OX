@@ -14,8 +14,12 @@ public class MenuBehaviour : MonoBehaviour
 		SceneManager.LoadScene ("Hub_Scene");
 	}
 
+    public void OnCLickSoloButton()
+    {
+        PhotonNetwork.offlineMode = true;
+    }
 
-	public void setCanvasEnabled(GameObject canvas)
+    public void setCanvasEnabled(GameObject canvas)
 	//Set a gameobject active
 	{
 		canvas.SetActive (true);
