@@ -192,6 +192,7 @@ public class PlayerInventory : MonoBehaviour
 		{
 			Spell2.Object.SetActive (false);
 			Spell1.Object.SetActive (true);
+            Player.ActualSpell.particles.SetActive(false);
 			Player.ActualSpell = Spell1;
 			SelectedSpell = 1;
 			Player.IsAbleToLaunchSpell = Mathf.Min (Player.IsAbleToLaunchSpell, Player.ActualSpell.TimeBetweenAttacks);
@@ -201,7 +202,8 @@ public class PlayerInventory : MonoBehaviour
 		{
 			Spell1.Object.SetActive (false);
 			Spell2.Object.SetActive (true);
-			Player.ActualSpell = Spell2;
+            Player.ActualSpell.particles.SetActive(false);
+            Player.ActualSpell = Spell2;
 			SelectedSpell = 2;
 			Player.IsAbleToLaunchSpell = Mathf.Min (Player.IsAbleToLaunchSpell, Player.ActualSpell.TimeBetweenAttacks);
 		}

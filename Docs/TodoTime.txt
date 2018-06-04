@@ -19,10 +19,9 @@ Obtention des armes 1h30
 Total: 15h30
 
 Cyril:
-Particules 1h
 Audio 1h
 Lvl énigme: finir build, rajouter clé et ennemis + plateformes 1h30
-Lvl labyrinthe: coffres 20mn
+Lvl labyrinthe: coffres + ENNEMIS 20mn
 Indices 1h
 Tout LINK 1h
 Total: 5h50
