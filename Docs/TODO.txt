@@ -15,7 +15,6 @@ GAMEPLAY
 GameOver : remettre toute la scène à son état initial (ou au dernier checkpoint) -> peut être le mettre sur une autre scène
 Gestion des sauvegardes
 les settings doivent être fonctionnels
-voitures (déplacements ordonnés dans la ville)
 PNJs : déplacements à revoir, certains (surement les PNJs immobiles) doivent display des infos, peut être leur mettre une bulle sur la tête
 Sort EarthSpike
 ennemis rajouter une bulle sur la tête, avec éventuellement une vie
@@ -38,10 +37,8 @@ bullets
 
 REAL WORLD
 ajouter les stands du marché
-mettre les spawns de voiture
 rajouter les indices
 les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
-Trouver quelque chose à mettre dans le mur du fond
 rajouter des lampadaires
 mettre les indices
 

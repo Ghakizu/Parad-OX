@@ -4,56 +4,77 @@ using UnityEngine;
 
 public class Cars : MonoBehaviour 
 {
-	public Vector3 Spanwpoint;
-
-	public bool inside;
-	public bool HasStarted;
-	public float canTurn;
+	public bool inside;  //Is the car inside the city ?
+	public bool HasStartedTurn;  //Has the car started to turn
+	public float canTurn;  //Is the car able to turn ?
+	public bool HasEntered;  //Has the car entered the city ?
+	private GameObject car;  //Game object of the car
 
 	public void Awake()
+	//Set the values of the car
 	{
-		HasStarted = !inside;
+		car = this.gameObject.transform.parent.gameObject;
+		HasEntered = false;
 	}
 
-	public void OnTriggerEnter(Collider other)
+
+	public void Start()
+	//Set the inside value
 	{
-		Debug.Log ("coucou");
+		HasStartedTurn = !inside;
+	}
+
+
+	public void OnTriggerEnter(Collider other)
+	//Destroy and turn the car if needed
+	{
 		if (other.tag == "CarsTurns")
 		{
-			if (HasStarted && canTurn <= 0)
+			if (HasStartedTurn && canTurn <= 0)
 			{
 				if (other.gameObject.GetComponent<BoxCollider>() != null)
 				{
-					transform.Rotate (0, 90, 0);
-					canTurn = 2;
+					car.transform.Rotate (0, 90, 0);
+					canTurn = .5f;
 				}
 				else if (other.gameObject.GetComponent<SphereCollider>() != null)
 				{
-					transform.Rotate (0, -90, 0);
-					canTurn = 2;
+					car.transform.Rotate (0, -90, 0);
+					canTurn = .5f;
 				}
 			}
 			else
 			{
-				if (!HasStarted)
+				if (!HasStartedTurn)
 				{
 					if (other.gameObject.GetComponent<CapsuleCollider>() != null)
 					{
-						HasStarted = true;
-						transform.Rotate (0, -90, 0);
-						canTurn = 2;
+						HasStartedTurn = true;
+						car.transform.Rotate (0, -90, 0);
+						canTurn = .5f;
 					}
 				}
+			}
+		}
+		if (other.tag == "Border")
+		{
+			if (!HasEntered)
+			{
+				HasEntered = true;
+			}
+			else
+			{
+				GameObject.Destroy (car, 3);
 			}
 		}
 	}
 
 
 	public void Update()
+	//Move the car and set the value of canTurn
 	{
-		this.transform.Translate (new Vector3(-1, 0, 0));
+		car.transform.Translate (new Vector3(-5, 0, 0));
 		canTurn = Mathf.Max (0, canTurn - Time.deltaTime);
-		Debug.Log (Random.Range (1, 3));
 	}
 
 }

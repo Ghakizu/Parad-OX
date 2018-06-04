@@ -1,40 +1,29 @@
 fileFormatVersion: 2
-guid: f24321435f31fe341b158631ea95dbf3
-timeCreated: 1525119907
+guid: 15b415e306e9d084fb5f81d90e51ccc0
+timeCreated: 1528105327
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cylinder
-    100004: Cylinder.001
-    100006: Cylinder.002
-    100008: Cylinder.003
-    100010: //RootNode
-    400000: Cube
-    400002: Cylinder
-    400004: Cylinder.001
-    400006: Cylinder.002
-    400008: Cylinder.003
-    400010: //RootNode
-    2100000: Material.001
-    2100002: Material
-    2300000: Cube
-    2300002: Cylinder
-    2300004: Cylinder.001
-    2300006: Cylinder.002
-    2300008: Cylinder.003
-    3300000: Cube
-    3300002: Cylinder
-    3300004: Cylinder.001
-    3300006: Cylinder.002
-    3300008: Cylinder.003
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Wheel
+    2100002: car
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Cylinder
-    4300002: Cube
-    4300004: Cylinder.001
-    4300006: Cylinder.003
-    4300008: Cylinder.002
-  externalObjects: {}
+    4300002: car
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel
+    second: {fileID: 2100000, guid: a806c623ef2ecf248a12180e5da68f6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car
+    second: {fileID: 2100000, guid: ee8949c2b648844439761cfb458b6148, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
