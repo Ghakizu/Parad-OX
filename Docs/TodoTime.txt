@@ -20,14 +20,12 @@ Total: 15h30
 
 Cyril:
 Particules 1h
-Animations sorts + coffre + porte 30mn
-Scripter animations + coffres + portes 20mn
 Audio 1h
-Lvl énigme: finir build, rajouter clé et ennemis + plateformes 2h
-Lvl labyrinthe: placer pièges, coffres 1h
+Lvl énigme: finir build, rajouter clé et ennemis + plateformes 1h30
+Lvl labyrinthe: coffres 20mn
 Indices 1h
 Tout LINK 1h
-Total: 7h50
+Total: 5h50
 
 Constant:
 Network 4h

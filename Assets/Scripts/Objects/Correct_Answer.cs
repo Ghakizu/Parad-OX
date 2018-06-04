@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Correct_Answer : MonoBehaviour {
-
-	public GameObject Door;
+    
+    public doorStayOpen door;
     public bool mainRoom;
     public float x;
     public float y;
@@ -13,10 +13,10 @@ public class Correct_Answer : MonoBehaviour {
     void OnMouseDown()
 	{
         if (mainRoom)
-            GameObject.Destroy(Door);
+            door.Open();
         else
         {
-            (GameObject.FindGameObjectWithTag("Player")).transform.position = new Vector3(x,y,z);
+            (GameObject.FindGameObjectWithTag("Player")).transform.position = new Vector3(x, y, z);
         }
 	}
 }
