@@ -112,7 +112,7 @@ public abstract class _Character : Photon.MonoBehaviour
 	{
 		IsAbleToAttack = Mathf.Max (0, IsAbleToAttack - Time.deltaTime);
 		IsAbleToLaunchSpell = Mathf.Max (0, IsAbleToLaunchSpell - Time.deltaTime);
-        if (IsAbleToLaunchSpell == 0)
+        if (IsAbleToLaunchSpell == 0 && ActualSpell != null)
         {
             ActualSpell.particles.SetActive(false);
         }

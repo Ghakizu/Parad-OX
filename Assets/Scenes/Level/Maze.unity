@@ -18770,6 +18770,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1654817897}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1655167597
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4749369211618882, guid: a28d888924813144380548adcf002b42, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3522.2234
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749369211618882, guid: a28d888924813144380548adcf002b42, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -268.19666
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749369211618882, guid: a28d888924813144380548adcf002b42, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3369.3044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749369211618882, guid: a28d888924813144380548adcf002b42, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749369211618882, guid: a28d888924813144380548adcf002b42, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749369211618882, guid: a28d888924813144380548adcf002b42, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749369211618882, guid: a28d888924813144380548adcf002b42, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749369211618882, guid: a28d888924813144380548adcf002b42, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a28d888924813144380548adcf002b42, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1659316362 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4292328917864710, guid: 7f390dd0b9284a6488166301759aab72,

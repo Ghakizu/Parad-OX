@@ -45,7 +45,7 @@ public abstract class _Enemies : _Character
 	//Buttons7
 	public Image HealthButton;
 
-
+    public Animator anim;
 
 
 
@@ -310,5 +310,62 @@ public abstract class _Enemies : _Character
 		agent.speed = WalkSpeed;
 		agent.SetDestination (PatrolLocation);
 	}
+
+
+
+    private void SetAnimation()
+    //Animations for the player
+    {
+        if (anim.GetBool("LauchingSpell") && anim.GetFloat("spell") > 0)
+            anim.SetFloat("spell", anim.GetFloat("spell") - Time.deltaTime);
+        if (anim.GetBool("LauchingSpell") && anim.GetFloat("spell") <= 0)
+            anim.SetBool("LauchingSpell", false);
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            if (agent.speed == RunSpeed)
+            {
+                anim.SetBool("Walking", false);
+                anim.SetBool("Running", true);
+            }
+            else if (agent.speed == WalkSpeed)
+            {
+                anim.SetBool("Walking", true);
+                anim.SetBool("Running", false);
+            }
+        }
+        else
+        {
+            anim.SetBool("Running", false);
+            anim.SetBool("Walking", false);
+        }
+        if (ActualWeapon.ObjectName == "Fists" || ActualWeapon.ObjectName == "Knife")
+        {
+            anim.SetBool("Knife", true);
+            anim.SetBool("Sword", false);
+            anim.SetBool("Bat", false);
+        }
+        else if (ActualWeapon.ObjectName == "Wooden Sword" || ActualWeapon.ObjectName == "Excalibur")
+        {
+            anim.SetBool("Knife", false);
+            anim.SetBool("Sword", true);
+            anim.SetBool("Bat", false);
+        }
+        if (ActualWeapon.ObjectName == "Bat")
+        {
+            anim.SetBool("Knife", false);
+            anim.SetBool("Sword", false);
+            anim.SetBool("Bat", true);
+        }
+        if (IsAbleToAttack >= 0)
+        {
+            anim.SetBool("Attacking", false);
+        }
+    }
+
+
+
+
+
+
 }
 //WARNING! When we go behind him, the character is not looking at us anymore
