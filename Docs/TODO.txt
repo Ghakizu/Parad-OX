@@ -1,7 +1,6 @@
 A MODELISER
 Kiosque à journaux
 Stands de Marché
-Chaises
 Lampadaires
 Feux tricolores (juste pcq c'est stylé)
 Indices
@@ -94,9 +93,11 @@ Bruits d'actionnement des pièges
 
 
 
-ANIMATIONS
-Peut être une animation pour les portes du level du labyrinthe ? Ou juste un translate ? Non, elles disparaissent tranquillement
-
+OFFLINE
+Manuel
+CD
+Cover du CD
+Site internet
 
 BONUS (clairement que si on a le temps)
 Tuto pour pouvoir bien comprendre le jeu avec un petit niveau tranquille

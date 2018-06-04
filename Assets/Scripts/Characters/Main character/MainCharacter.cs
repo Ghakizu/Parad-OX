@@ -36,6 +36,7 @@ public class MainCharacter : _Character
 	public GameObject PauseMenu;  //the interface of the pause menu
 	public GameObject GameOver;  //the interface of the game over : Do a new scenne ? WARNING!
 	public GameObject PlayerDisplays;  //All the displays of the player
+	public GameObject StopBorder;  //If the player collide into a border
 
 	//Animator
 	public Animator anim;  //The animator of our player
@@ -123,6 +124,25 @@ public class MainCharacter : _Character
 		case "SecondRoomLabyrinth":
 			transform.position = new Vector3 (-6500, 5064, 8500);
 			break;
+		case "Border":
+			switch (other.gameObject.name) {
+			case "WestBorder":
+				transform.position = new Vector3 (-1280, -986, -135);
+				transform.rotation = Quaternion.Euler (0, 90, 0);
+				break;
+			case "EastBorder":
+				transform.position = new Vector3 (750, -986, -135);
+				transform.rotation = Quaternion.Euler (0, -90, 0);
+				break;
+			case "SouthBorder":
+				transform.position = new Vector3 (-234, -986, -1050);
+				transform.rotation = Quaternion.Euler (0, 0, 0);
+				break;
+			}
+			IsFreezed = 1;
+			CharacterRigidbody.velocity = Vector3.zero;
+			StopBorder.SetActive (true);
+			break;
 		}
 	}
 
@@ -199,6 +219,10 @@ public class MainCharacter : _Character
 	private void SetMainStats()
 	//Reset the values of our player
 	{
+		if (IsFreezed <= 0 && StopBorder.activeSelf)
+		{
+			StopBorder.SetActive (false);
+		}
 		Stamina = Mathf.Min (Stamina + 10 * Time.deltaTime, MaxStamina);
 		if (IsTired && Stamina > 40)
 		{
