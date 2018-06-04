@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -13172,6 +13172,7 @@ GameObject:
   - component: {fileID: 1584222799}
   - component: {fileID: 1584222798}
   - component: {fileID: 1584222802}
+  - component: {fileID: 1584222803}
   m_Layer: 0
   m_Name: ButtonEssential01
   m_TagString: Untagged
@@ -13285,6 +13286,17 @@ MonoBehaviour:
   instantiationId: 816
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &1584222803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1584222796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70705d43789cac24799878c28f34aa86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590435407
 GameObject:
   m_ObjectHideFlags: 0
