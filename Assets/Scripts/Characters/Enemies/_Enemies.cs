@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System;
+using UnityEngine.UI;
 
 
 
@@ -41,6 +42,9 @@ public abstract class _Enemies : _Character
 	//Spells effects
 	public float IsFLashed = 0;  //Is he affect by the flash spell ?
 
+	//Buttons7
+	public Image HealthButton;
+
 
 
 
@@ -71,6 +75,7 @@ public abstract class _Enemies : _Character
 		agent.updateRotation = true;
         Health = 40;
 		AttackTime = ActualWeapon.TimeBetweenAttacks;
+		HealthButton = GetComponentInChildren<Image> ().transform.GetChild(0).GetComponent<Image>();
 	}
 
 
@@ -86,6 +91,7 @@ public abstract class _Enemies : _Character
 			SetAgentDestination ();
 			SetRotation ();
 			Attack ();
+			SetButton ();
 		}
 	}
 
@@ -108,6 +114,14 @@ public abstract class _Enemies : _Character
 
 
 
+
+	public void SetButton()
+	//Set the healt button
+	{
+		HealthButton.transform.localScale = new Vector3(Health / MaxHealth, 1, 1);
+		if (target != null)
+			HealthButton.transform.parent.LookAt (target.transform);
+	}
 
 
 	public void UpdateTimes ()
