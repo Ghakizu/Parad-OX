@@ -88,7 +88,57 @@ ModelImporter:
     4300022: Text
     4300024: restaurant.000
     10800000: Hemi
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Volets
+    second: {fileID: 2100000, guid: ffd5b9a9214723346a69de50857bbc11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bas de l'immeuble
+    second: {fileID: 2100000, guid: 5f8f9fb604dd98a41aea09b3f2c8495e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bois
+    second: {fileID: 2100000, guid: 5364fc3360861cf42958f109ea7900e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "contour des fen\xEAtres"
+    second: {fileID: 2100000, guid: b3fb3ee657d8c054486b2005a8541c86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: couleur
+    second: {fileID: 2100000, guid: a29e314b01f25ff428f7771783f6a227, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: escaliers
+    second: {fileID: 2100000, guid: 460250986f88f464eb2f1c412a6a85d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: haut de l'immeuble
+    second: {fileID: 2100000, guid: b0f87766b88f4ff49b283c93417c2e4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: porte
+    second: {fileID: 2100000, guid: 155655f0bc9221b458d4f006ef224863, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vitres
+    second: {fileID: 2100000, guid: 922b4d1e8b8866b43b4fc32991b65b07, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\xE9critaux"
+    second: {fileID: 2100000, guid: 7b72393cdf16e274e80ffd08de372083, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

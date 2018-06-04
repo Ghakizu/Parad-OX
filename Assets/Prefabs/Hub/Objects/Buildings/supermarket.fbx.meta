@@ -12,6 +12,7 @@ ModelImporter:
     100008: Lamp
     100010: //RootNode
     100012: Text
+    100014: Supermarket
     400000: Cube
     400002: Cube.002
     400004: Cube.003
@@ -19,6 +20,7 @@ ModelImporter:
     400008: Lamp
     400010: //RootNode
     400012: Text
+    400014: Supermarket
     2100000: No Name
     2100002: Material.004
     2100004: Material.002
@@ -26,21 +28,29 @@ ModelImporter:
     2100008: Material.006
     2100010: Material.003
     2100012: Material.007
+    2100014: Vitres
+    2100016: Toit
+    2100018: Barres1
+    2100020: Barres2
+    2100022: Barres3
     2300000: Cube
     2300002: Cube.002
     2300004: Cube.003
     2300006: Cube.014
     2300008: Text
+    2300010: Supermarket
     3300000: Cube
     3300002: Cube.002
     3300004: Cube.003
     3300006: Cube.014
     3300008: Text
+    3300010: Supermarket
     4300000: Text
     4300002: Cube.014
     4300004: Cube
     4300006: Cube.002
     4300008: Cube.003
+    4300010: Supermarket
     10800000: Lamp
   externalObjects: {}
   materials:
