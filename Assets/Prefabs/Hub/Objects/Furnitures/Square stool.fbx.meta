@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 6f33b6db241fb2f428b5083b42dbed45
-timeCreated: 1528096039
+guid: 180800380291c334d9c288d6f0f31bec
+timeCreated: 1528051783
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -12,10 +12,14 @@ ModelImporter:
     400002: Cylinder
     400004: //RootNode
     2100000: No Name
+    2100002: bois
+    2100004: Coussin
     2300000: Cube
     2300002: Cylinder
+    2300004: //RootNode
     3300000: Cube
     3300002: Cylinder
+    3300004: //RootNode
     4300000: Cube
     4300002: Cylinder
   externalObjects: {}

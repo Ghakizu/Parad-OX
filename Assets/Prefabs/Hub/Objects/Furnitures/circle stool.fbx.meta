@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f7a3ff9bdd4bed145aabc1b5f2eabeae
-timeCreated: 1528096040
+guid: f7faab5c2ad659c46a5008d84dc2a643
+timeCreated: 1528051789
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -8,9 +8,12 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: No Name
+    2100002: Bois
+    2100004: Coussin
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cylinder
+    4300002: Circle stool
   externalObjects: {}
   materials:
     importMaterials: 1
