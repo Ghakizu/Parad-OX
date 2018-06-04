@@ -20,11 +20,11 @@ Total: 15h30
 
 Cyril:
 Audio 1h
-Lvl énigme: finir build, rajouter clé et ennemis + plateformes 1h30
+Lvl énigme: finir build, rajouter clé et ennemis 1h
 Lvl labyrinthe: coffres + ENNEMIS 20mn
 Indices 1h
 Tout LINK 1h
-Total: 5h50
+Total: 4h20
 
 Constant:
 Network 4h
