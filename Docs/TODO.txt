@@ -17,12 +17,11 @@ Gestion des sauvegardes
 les settings doivent être fonctionnels
 PNJs : déplacements à revoir, certains (surement les PNJs immobiles) doivent display des infos, peut être leur mettre une bulle sur la tête
 Sort EarthSpike
-ennemis rajouter une bulle sur la tête, avec éventuellement une vie
 Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
 indices : collections, les intégrer dans le scénario
 Boss IA : centaurus : seules les attaques d'en haut sont comptabilisées.
 Reequilibrages
-gravité
+perso et border
 
 
 
@@ -55,14 +54,12 @@ SCENE DU BAR
 LVL LABYRINTHE
 un joueur spawn en bas, l'autre en haut, et ils ne peuvent qu'échanger, on fait pas la téléportation du début
 Echangement des players
-Finir de build le niveau
-Rajouter les coffres / ennemis / Pièges
+Rajouter les coffres / ennemis
 
 
 
 LVL ENIGME
-a faire intégralement....
-
+Rajouter clé et ennemis
 
 
 BOSS 1
@@ -100,15 +97,7 @@ Bruits d'actionnement des pièges
 
 
 ANIMATIONS
-Ouverture des coffres / actionnement des pièges
-Peut être une animation pour les portes du level du labyrinthe ? Ou juste un translate ?
-
-
-
-PARTICULES
-Sur les sorts, eventuellement les pieds quand un personnage marche, ou les armes quand un personnage attaque
-A la mort d'un ennemi
-
+Peut être une animation pour les portes du level du labyrinthe ? Ou juste un translate ? Non, elles disparaissent tranquillement
 
 
 BONUS (clairement que si on a le temps)
