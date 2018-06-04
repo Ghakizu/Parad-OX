@@ -6,8 +6,8 @@ using System;
 
 public abstract class _Spells : _AttackingObjects 
 {
-	//All the spells of the characters
-
+    //All the spells of the characters
+    public GameObject particles;
 
 	public float ManaConsumed;  //The mana that must Behaviour used to launch the spell
 	public float TimeOfEffect;  //the time that the spell is going to last (for those which affect stats for examples)
@@ -18,6 +18,7 @@ public abstract class _Spells : _AttackingObjects
 	{
 		base.Awake ();
 		SetDescription ();
+        particles = this.gameObject.transform.GetChild(0).gameObject;
 	}
 
 

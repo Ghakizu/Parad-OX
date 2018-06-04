@@ -208,14 +208,16 @@ public class ObjectsButton : MonoBehaviour
 			if (Player.SelectedObject == 1)
 			{
 				Player.Spell1.Object.SetActive (false);
-				Player.Spell1 = (_Spells)Object;
+                Player.Player.ActualSpell.particles.SetActive(false);
+                Player.Spell1 = (_Spells)Object;
 				Player.Spell1.Object.SetActive (true);
 				Player.Player.ActualSpell = Player.Spell1;
 			}
 			else
 			{
 				Player.Spell2.Object.SetActive (false);
-				Player.Spell2 = (_Spells)Object;
+                Player.Player.ActualSpell.particles.SetActive(false);
+                Player.Spell2 = (_Spells)Object;
 				Player.Spell2.Object.SetActive (true);
 				Player.Player.ActualSpell = Player.Spell2;
 			}

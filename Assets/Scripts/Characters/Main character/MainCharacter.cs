@@ -61,8 +61,8 @@ public class MainCharacter : _Character
 		MaxHealth = 150;
 		MaxMana = 200;
 		RotateSpeed = 200;
-		WalkSpeed = 100;
-		RunSpeed = 250;
+		WalkSpeed = 150;
+		RunSpeed = 350;
 		Heightjump = 300;
 		base.Awake ();
         cam = GetComponentInChildren<Camera>().gameObject;
@@ -378,7 +378,11 @@ public class MainCharacter : _Character
 
 	private void SetAnimation()
 	//Animations for the player
-	{	
+	{
+        if (anim.GetBool("LauchingSpell") && anim.GetFloat("spell") > 0)
+            anim.SetFloat("spell", anim.GetFloat("spell") - Time.deltaTime);
+        if (anim.GetBool("LauchingSpell") && anim.GetFloat("spell") <= 0)
+            anim.SetBool("LauchingSpell", false);
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             if (speed == RunSpeed)
@@ -486,7 +490,10 @@ public class MainCharacter : _Character
 	{
 		if (Input.GetButtonDown("LaunchSpell") && IsAbleToLaunchSpell <= 0 && IsFreezed <= 0 && Mana - ActualSpell.ManaConsumed > 0)
 		{
-			IsAbleToLaunchSpell = ActualSpell.TimeBetweenAttacks;
+            ActualSpell.particles.SetActive(true);
+            anim.SetBool("LauchingSpell", true);
+            anim.SetFloat("spell", .9f);
+            IsAbleToLaunchSpell = ActualSpell.TimeBetweenAttacks;
 			Mana -= ActualSpell.ManaConsumed;
 			if (ActualSpell.ObjectName == "Heal" || ActualSpell.ObjectName == "AirWall" || ActualSpell.ObjectName == "FireBall")
 			{
@@ -499,7 +506,7 @@ public class MainCharacter : _Character
 					&& hit.collider.gameObject.tag == "Enemy" 
 					&& (hit.transform.position - this.transform.position).magnitude < ActualSpell.RangeOfAttk)
 				{
-					_Character enemy = hit.collider.gameObject.GetComponent<_Character> ();
+                    _Character enemy = hit.collider.gameObject.GetComponent<_Character> ();
 					base.LaunchSpell (enemy);
 				}
 			}

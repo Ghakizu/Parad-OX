@@ -53,6 +53,7 @@ public abstract class _Character : Photon.MonoBehaviour
 		JumpLayer = 10;  //The default value. Must be changed to another layer only used for the jumps.
 		CharacterRigidbody = GetComponent<Rigidbody> ();
 		CharacterObject = this.gameObject;
+        Gravity = 800;
 	}
 
 
@@ -111,6 +112,10 @@ public abstract class _Character : Photon.MonoBehaviour
 	{
 		IsAbleToAttack = Mathf.Max (0, IsAbleToAttack - Time.deltaTime);
 		IsAbleToLaunchSpell = Mathf.Max (0, IsAbleToLaunchSpell - Time.deltaTime);
+        if (IsAbleToLaunchSpell == 0)
+        {
+            ActualSpell.particles.SetActive(false);
+        }
 		IsAirWallEnabled = Mathf.Max (0, IsAirWallEnabled - Time.deltaTime);
 		Mana = Mathf.Min (Mana + Time.deltaTime, MaxMana);
 		if (IsFreezed >= 0)
@@ -215,23 +220,23 @@ public abstract class _Character : Photon.MonoBehaviour
 		switch (ActualSpell.ObjectName)
 		{
 		case "Freeze":
-			((Freeze)ActualSpell).LaunchSpell (other);
-			break;
+            ((Freeze)ActualSpell).LaunchSpell (other);
+            break;
 		case "Flash":
 			((Flash)ActualSpell).LaunchSpell (other);
-			break;
+            break;
 		case "FireBall":
 			((FireBall)ActualSpell).LaunchSpell ();
-			break;
+            break;
 		case "EarthSpike":
 			((EarthSpike)ActualSpell).LaunchSpell (other);
-			break;
+            break;
 		case "AirWall":
 			((AirWall)ActualSpell).LaunchSpell ();
-			break;
+            break;
 		case "Heal":
 			((Heal)ActualSpell).LaunchSpell ();
-			break;
+            break;
 		default:
 			return;
 		}
