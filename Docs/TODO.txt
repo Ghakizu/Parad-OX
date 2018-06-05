@@ -1,7 +1,5 @@
 A MODELISER
-Kiosque à journaux
 Stands de Marché
-Indices
 vaisselle
 
 
@@ -9,13 +7,9 @@ vaisselle
 GAMEPLAY
 GameOver : remettre toute la scène à son état initial (ou au dernier checkpoint) -> peut être le mettre sur une autre scène
 les settings doivent être fonctionnels
-Sort EarthSpike
-Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
 
 
 NETWORK
-Refaire apparaître les personnages
-Portes, leviers, coffres et ennemis du labyrinthes
 Lancer le mode multi uniquement si l'on lance le niveau labyrinthe, sinon rester sur un mode de jeu solo
 bullets
 
@@ -23,26 +17,12 @@ bullets
 
 REAL WORLD
 ajouter les stands du marché
-rajouter des lampadaires
 rajouter les PNJs
 
 
 
 SCENE DU RESTAURANT
 à refaire et placer les indices
-
-
-
-LVL LABYRINTHE
-un joueur spawn en bas, l'autre en haut, et ils ne peuvent qu'échanger, on fait pas la téléportation du début
-Echangement des players
-Rajouter les coffres / ennemis
-
-
-
-LVL ENIGME
-Rajouter clé et ennemis
-les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
 
 
 BOSS 2
@@ -54,19 +34,15 @@ BOSS 3
 à faire intégralement....
 
 
-
-GUI
-Menu pause
-Menu principal
-Game Over
-Interface (rajouter les armes actuellement utilisées, le temps qu'il reste avant de pouvoir les utiliser pour les sorts)
-
-
 LINK
 Reequilibrages
 indices : collections, les intégrer dans le scénario, PNJS
 rajouter les indices
 les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
+Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
+Rajouter les coffres dans labyrinthe
+Indices
+Kiosque à journaux
 
 
 OFFLINE
@@ -79,3 +55,5 @@ Egouts pour s'iniltrer chez les gens
 Animal de compagne
 Maison du personnage principal
 plusieurs types d'ennemis
+Interface (rajouter les armes actuellement utilisées, le temps qu'il reste avant de pouvoir les utiliser pour les sorts)
+Sort EarthSpike
