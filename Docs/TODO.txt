@@ -9,7 +9,6 @@ vaisselle
 
 GAMEPLAY
 GameOver : remettre toute la scène à son état initial (ou au dernier checkpoint) -> peut être le mettre sur une autre scène
-Gestion des sauvegardes
 les settings doivent être fonctionnels
 Sort EarthSpike
 Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
