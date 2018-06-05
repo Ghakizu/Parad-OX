@@ -8,7 +8,7 @@ public class Centaurus : _Enemies
 
 	public GameObject Player;
 
-	public void Awake()
+	new public void Awake()
 	//Set different stats
 	{
 		RotateSpeed = 150;
@@ -27,7 +27,7 @@ public class Centaurus : _Enemies
 	}
 
 
-	public void Update()
+	new public void Update()
 	{
 		if (Player.transform.position.y > this.transform.position.y)
 		{

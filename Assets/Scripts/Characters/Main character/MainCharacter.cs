@@ -10,8 +10,8 @@ public class MainCharacter : _Character
 
 	//STATS
 	//Moving the character
-	private bool cheatCode = false;  //Are we cheating
-	private bool crouch = false;  //is the player crouched
+	public bool cheatCode = false;  //Are we cheating
+	public bool crouch = false;  //is the player crouched
 	private bool IsTired = false;  //has the player used all his stamina ?
 	private float CheatSpeed = 500;  //the speed when we're cheating
 	private float CrouchSpeed = 50; //speed when crouching
