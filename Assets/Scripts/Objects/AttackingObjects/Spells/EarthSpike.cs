@@ -11,7 +11,7 @@ public class EarthSpike : _Spells
 	//set all the stats of the spell
 	{
 		TimeOfEffect = 0;
-		ObjectName = "EarthSpike";
+		ObjectName = MaterialsAssignations.EarthSpikeName;
 		damages = 80; 
 		RangeOfAttk = 200;
 		TimeBetweenAttacks = 6;

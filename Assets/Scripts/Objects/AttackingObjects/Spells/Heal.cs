@@ -12,7 +12,7 @@ public class Heal : _Spells
 	//set all the stats of the spell
 	{
 		TimeOfEffect = 0;
-		ObjectName = "Heal";
+		ObjectName = MaterialsAssignations.HealName;
 		damages = 20; 
 		RangeOfAttk = 0;
 		TimeBetweenAttacks = 6;

@@ -55,6 +55,7 @@ public class SaveData : MonoBehaviour
 
 		PlayerPrefs.SetString ("Weapon1", inventory.Weapon1.ObjectName);
 		PlayerPrefs.SetString ("Weapon2", inventory.Weapon2.ObjectName);
+		Debug.Log(PlayerPrefs.GetString("Weapon2"));
 		PlayerPrefs.SetString ("ActualWeapon", player.ActualWeapon.ObjectName);
 
 
@@ -155,6 +156,7 @@ public class SaveData : MonoBehaviour
 
 		inventory.Weapon1 = SetWeapon(PlayerPrefs.GetString ("Weapon1"));
 		inventory.Weapon2 = SetWeapon (PlayerPrefs.GetString ("Weapon2"));
+		Debug.Log(PlayerPrefs.GetString("Weapon2"));
 		player.ActualWeapon = SetWeapon(PlayerPrefs.GetString ("ActualWeapon"));
 
 
@@ -221,55 +223,46 @@ public class SaveData : MonoBehaviour
 
 	private _Weapons SetWeapon(string Weapon)
     {
-        switch (Weapon)
-        {
-		case "Fists":
+		if (Weapon == MaterialsAssignations.FistsName)
 			return inventory.FistsObject.GetComponent<Fists> ();
-		case "Knife":
+		if (Weapon == MaterialsAssignations.KnifeName)
 			return inventory.KnifeObject.GetComponent<Knife> ();
-        case "Sword":
+		if (Weapon == MaterialsAssignations.SwordName)
 			return inventory.SwordObject.GetComponent<Sword> ();
-        case "Excalibur":
+		if (Weapon == MaterialsAssignations.ExcaliburName)
 			return inventory.ExcaliburObject.GetComponent<Excalibur> ();
-        case "Bat":
-			return inventory.KnifeObject.GetComponent<Knife> ();
-        }
+		if (Weapon == MaterialsAssignations.BatName)
+			return inventory.KnifeObject.GetComponent<Bat> ();
 		return null;
     }
 
     private _Spells SetSpell(string Spell)
     {
-        switch (Spell)
-        {
-        case "Freeze":
+		if (Spell == MaterialsAssignations.FreezeName)
 			return inventory.FreezeObject.GetComponent<Freeze> ();
-		case "AirWall":
+		if (Spell == MaterialsAssignations.AirWallName)
 			return inventory.AirWallObject.GetComponent<AirWall> ();
-		case "EarthSpike":
+		if (Spell == MaterialsAssignations.EarthSpikeName)
 			return inventory.EarthSpikeObject.GetComponent<EarthSpike> ();
-        case "FireBall":
+		if (Spell == MaterialsAssignations.FireBallName)
 			return inventory.FireBallObject.GetComponent<FireBall> ();
-        case "Flash":
+		if (Spell == MaterialsAssignations.FlashName)
 			return inventory.FlashObject.GetComponent<Flash> ();
-		case "Heal":
+		if (Spell == MaterialsAssignations.HealName)
 			return inventory.HealObject.GetComponent<Heal> ();
-        }
 		return null;
     }
 
     private _Consumables SetConsumables(string cons)
     {
-		switch (cons)
-		{
-		case "HealPotion":
+		if (cons == MaterialsAssignations.HealthPotionName)
 			return inventory.HealPotionObject.GetComponent<HealthPotion> ();
-		case "SpeedPotion":
+		if (cons == MaterialsAssignations.SpeedPotionName)
 			return inventory.SpeedPotionObject.GetComponent<SpeedPotion> ();
-		case "ManaPotion":
+		if (cons == MaterialsAssignations.ManaPotionName)
 			return inventory.ManaPotionObject.GetComponent<ManaPotion> ();
-		case "StaminaPotion":
+		if (cons == MaterialsAssignations.StaminaPotionName)
 			return inventory.StaminaPotionObject.GetComponent<StaminaPotion> ();
-		}
 		return null;
     }
 }
