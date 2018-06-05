@@ -112,13 +112,17 @@ public class SaveData : MonoBehaviour
 
     public void Load()
     {
+		if(SceneManager.GetActiveScene().name != PlayerPrefs.GetString("Scene"))
+			SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
+		
+		player = (PhotonNetwork.Instantiate ("Main character", player.SpawnPoint, Quaternion.identity, 0)).GetComponent<MainCharacter> ();
+		inventory = player.GetComponent<PlayerInventory> ();
+
 		player.Health = PlayerPrefs.GetFloat ("Health");
 		player.SpawnPoint.x = PlayerPrefs.GetFloat ("spawnX");
 		player.SpawnPoint.y = PlayerPrefs.GetFloat ("spawnY");
 		player.SpawnPoint.z = PlayerPrefs.GetFloat ("spawnZ");
-		player.transform.position = player.SpawnPoint;
-		if(SceneManager.GetActiveScene().name != PlayerPrefs.GetString("Scene"))
-			SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
+
 		player.cheatCode = false;
 		player.crouch = false;
 

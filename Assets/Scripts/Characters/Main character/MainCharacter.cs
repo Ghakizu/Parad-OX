@@ -75,7 +75,7 @@ public class MainCharacter : _Character
 		speed = WalkSpeed;
 		CharacterObject.tag = "Player";
 		View = GetComponent<PhotonView>();
-    }
+	}
 
 
     private void Start()
@@ -120,8 +120,9 @@ public class MainCharacter : _Character
 		case "deathplane":
 			transform.position = SpawnPoint;
 			break;
-		case "respawn": //rename this "checkpoint" maybe ? WARNING!
+		case "respawn":
 			SpawnPoint = other.transform.position;
+			this.gameObject.GetComponent<SaveData>().Save();
 			break;
 		case "partend": //end of the first part of the first level
 			transform.position = new Vector3 (-1624, 4620, -3920);
@@ -193,6 +194,11 @@ public class MainCharacter : _Character
 			SetButtonsValue();
 		}
 		SetMouseStatus ();
+		if (PlayerPrefs.GetInt("LOAD") == 1)
+		{
+			PlayerPrefs.SetInt ("LOAD", 0);
+			GetComponent<SaveData> ().Load ();
+		}
 	}
 		
 
