@@ -12,7 +12,7 @@ public class SpeedPotion : _Consumables
 	//set all the stats of the item
 	{
 		SpeedMultiplier = 1.5f;
-		ObjectName = "Speed Potion";
+		ObjectName = MaterialsAssignations.SpeedPotionName;
 		damages = 20; 
 		RangeOfAttk = 0;
 		TimeBetweenAttacks = 10;

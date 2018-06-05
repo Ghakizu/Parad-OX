@@ -10,7 +10,7 @@ public class Sword : _Weapons
 	new public void Awake()
 	//Set all the stats of the weapon
 	{
-		ObjectName = "Wooden Sword";
+		ObjectName = MaterialsAssignations.SwordName;
 		damages = 40; 
 		RangeOfAttk = 80;
 		TimeBetweenAttacks = 1.5f;

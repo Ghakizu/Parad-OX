@@ -10,7 +10,7 @@ public class Bat : _Weapons
 	new public void Awake()
 	//Set all the stats of the weapon
 	{
-		ObjectName = "Bat";
+		ObjectName = MaterialsAssignations.BatName;
 		damages = 50; 
 		RangeOfAttk = 60;
 		TimeBetweenAttacks = 2f;

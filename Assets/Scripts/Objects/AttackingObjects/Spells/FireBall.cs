@@ -12,7 +12,7 @@ public class FireBall : _Spells
 	//set all the stats of the spell
 	{
 		TimeOfEffect = 0;
-		ObjectName = "FireBall";
+		ObjectName = MaterialsAssignations.FireBallName;
 		damages = 60; 
 		RangeOfAttk = 300;
 		TimeBetweenAttacks = 4;

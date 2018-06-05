@@ -10,7 +10,7 @@ public class Knife : _Weapons
 	new public void Awake()
 	//Set all the stats of the weapon
 	{
-		ObjectName = "Knife";
+		ObjectName = MaterialsAssignations.KnifeName;
 		damages = 30; 
 		RangeOfAttk = 40;
 		TimeBetweenAttacks = 0.5f;

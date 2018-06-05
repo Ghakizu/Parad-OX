@@ -1,12 +1,12 @@
 A MODELISER
-Stands de Marché
+Stands de MarchÃ©
 vaisselle
 
 
 
 GAMEPLAY
-GameOver : remettre toute la scène à son état initial (ou au dernier checkpoint) -> peut être le mettre sur une autre scène
-les settings doivent être fonctionnels
+GameOver : remettre toute la scÃ¨ne Ã  son Ã©tat initial (ou au dernier checkpoint) -> peut Ãªtre le mettre sur une autre scÃ¨ne
+les settings doivent Ãªtre fonctionnels
 
 
 NETWORK
@@ -16,33 +16,34 @@ bullets
 
 
 REAL WORLD
-ajouter les stands du marché
+ajouter les stands du marchÃ©
 rajouter les PNJs
 
 
 
 SCENE DU RESTAURANT
-à refaire et placer les indices
+Ã  refaire et placer les indices
+
 
 
 BOSS 2
-a faire intégralement....
+a faire intÃ©gralement....
 
 
 
 BOSS 3
-à faire intégralement....
+Ã  faire intÃ©gralement....
 
 
 LINK
 Reequilibrages
-indices : collections, les intégrer dans le scénario, PNJS
+indices : collections, les intÃ©grer dans le scÃ©nario, PNJS
 rajouter les indices
-les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
+les immeubles oÃ¹ l'on est censÃ© pouvoir aller doivent Ãªtre accessibles (bars, restaurants)
 Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
 Rajouter les coffres dans labyrinthe
 Indices
-Kiosque à journaux
+Kiosque Ã  journaux
 
 
 OFFLINE
@@ -55,5 +56,5 @@ Egouts pour s'iniltrer chez les gens
 Animal de compagne
 Maison du personnage principal
 plusieurs types d'ennemis
-Interface (rajouter les armes actuellement utilisées, le temps qu'il reste avant de pouvoir les utiliser pour les sorts)
+Interface (rajouter les armes actuellement utilisÃ©es, le temps qu'il reste avant de pouvoir les utiliser pour les sorts)
 Sort EarthSpike

@@ -9,7 +9,7 @@ public class ManaPotion : _Consumables
 	new public void Awake()
 	//set all the stats of the item
 	{
-		ObjectName = "Mana Potion";
+		ObjectName = MaterialsAssignations.ManaPotionName;
 		damages = 20; 
 		RangeOfAttk = 0;
 		TimeBetweenAttacks = 0;

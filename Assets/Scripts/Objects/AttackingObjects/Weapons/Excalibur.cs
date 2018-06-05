@@ -10,7 +10,7 @@ public class Excalibur : _Weapons
 	new public void Awake()
 	//Set all the stats of the weapon
 	{
-		ObjectName = "Excalibur";
+		ObjectName = MaterialsAssignations.ExcaliburName;
 		damages = 2; 
 		RangeOfAttk = 80;
 		TimeBetweenAttacks = 2f;
