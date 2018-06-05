@@ -34,6 +34,7 @@ public class LobbyNetwork : MonoBehaviour
 
     private void Awake()
     {
+        PhotonNetwork.Disconnect();
         print("Connecting to server..");
         PhotonNetwork.ConnectUsingSettings(Version);
         _playerNetwork = GameObject.FindGameObjectWithTag("DDOL").GetComponent<PlayerNetwork>();
