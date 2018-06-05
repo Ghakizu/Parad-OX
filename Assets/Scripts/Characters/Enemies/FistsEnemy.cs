@@ -8,7 +8,7 @@ public class FistsEnemy : _Enemies
 {
 	//Enemies attacking with their Fists
 
-	public void Awake()
+	new public void Awake()
 	//Set different stats
 	{
 		RotateSpeed = 150;

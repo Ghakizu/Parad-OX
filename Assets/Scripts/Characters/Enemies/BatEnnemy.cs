@@ -6,7 +6,7 @@ public class BatEnnemy : _Enemies
 {
 	//Enemies attacking with their Bats
 
-	public void Awake()
+	new public void Awake()
 	//Set different stats
 	{
 		RotateSpeed = 150;

@@ -6,7 +6,7 @@ public class SwordEnnemy : _Enemies
 {
 	//Enemies attacking with their Swords
 
-	public void Awake()
+	new public void Awake()
 	//Set different stats
 	{
 		RotateSpeed = 150;
