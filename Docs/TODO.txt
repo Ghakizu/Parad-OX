@@ -11,9 +11,6 @@ GameOver : remettre toute la scène à son état initial (ou au dernier checkpoint)
 les settings doivent être fonctionnels
 Sort EarthSpike
 Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
-Boss IA : centaurus : seules les attaques d'en haut sont comptabilisées.
-
-
 
 
 NETWORK
@@ -39,18 +36,7 @@ SCENE DU RESTAURANT
 LVL LABYRINTHE
 un joueur spawn en bas, l'autre en haut, et ils ne peuvent qu'échanger, on fait pas la téléportation du début
 Echangement des players
-Rajouter les coffres / ennemis
-
-
-
-LVL ENIGME
-Rajouter clé et ennemis
-les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
-
-
-BOSS 1
-Mouvements à revoir (ne doit pas se bloquer dans les plateformes)
-
+Rajouter les coffres
 
 
 BOSS 2
@@ -68,18 +54,6 @@ Menu pause
 Menu principal
 Game Over
 Interface (rajouter les armes actuellement utilisées, le temps qu'il reste avant de pouvoir les utiliser pour les sorts)
-
-
-
-AUDIO
-Bruits de pas
-Bruits d'attaques / sorts
-Bruit de collection / d'utilisation d'objets
-musiques de f
-Bruits d'actionnement des pièges
-
-
-
 
 
 LINK
