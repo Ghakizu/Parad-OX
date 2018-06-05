@@ -22,6 +22,7 @@ public class PlayerNetwork : MonoBehaviour
     private Queue<GameObject> spawn;
     private bool isLoaded = false;
     private MainCharacter mainCharacter;
+    private GameObject Player;
 
     // Use this for initialization
     private void Awake()
@@ -49,8 +50,8 @@ public class PlayerNetwork : MonoBehaviour
         }
         else if (scene.name == "RealWorld" && !isLoaded)
         {
-            GameObject Player = PhotonNetwork.Instantiate("Main character", new Vector3(231, -988, 29), Quaternion.Euler(0, -90, 0), 0);
-            Player.transform.SetParent(transform.parent, false);
+            Player = PhotonNetwork.Instantiate("Main character", new Vector3(231, -988, 29), Quaternion.Euler(0, -90, 0), 0);
+            //Player.transform.SetParent(transform.parent, false);
             isLoaded = true;
             mainCharacter = Player.GetComponent<MainCharacter>(); 
             Debug.Log(mainCharacter);
@@ -105,6 +106,6 @@ public class PlayerNetwork : MonoBehaviour
         else
             position = spawn2.transform.position;
         GameObject Player = PhotonNetwork.Instantiate("Main character", position, Quaternion.identity, 0);
-        Player.transform.SetParent(transform.parent, false);
+        //Player.transform.SetParent(transform.parent, false);
     }
 }
