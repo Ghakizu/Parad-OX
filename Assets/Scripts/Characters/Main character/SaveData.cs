@@ -114,9 +114,6 @@ public class SaveData : MonoBehaviour
     {
 		if(SceneManager.GetActiveScene().name != PlayerPrefs.GetString("Scene"))
 			SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
-		
-		player = (PhotonNetwork.Instantiate ("Main character", player.SpawnPoint, Quaternion.identity, 0)).GetComponent<MainCharacter> ();
-		inventory = player.GetComponent<PlayerInventory> ();
 
 		player.Health = PlayerPrefs.GetFloat ("Health");
 		player.SpawnPoint.x = PlayerPrefs.GetFloat ("spawnX");
