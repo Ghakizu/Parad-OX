@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 195867630185238550}
   - component: {fileID: 114279526550052792}
   - component: {fileID: 114845614490140992}
-  - component: {fileID: 95573081500443186}
+  - component: {fileID: 95512705996417388}
   m_Layer: 0
   m_Name: Fists enemy
   m_TagString: Enemy
@@ -696,7 +696,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!95 &95573081500443186
+--- !u!95 &95512705996417388
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -773,6 +773,7 @@ MonoBehaviour:
   IsAirWallEnabled: 0
   target: {fileID: 0}
   RangeOfDetection: 300
+  DetectionCollider: {fileID: 0}
   PlayersDetected: []
   agent: {fileID: 0}
   PatrolLocation: {x: 0, y: 0, z: 0}
@@ -792,7 +793,7 @@ MonoBehaviour:
   right: 0
   IsFLashed: 0
   HealthButton: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 95512705996417388}
 --- !u!114 &114295283799210712
 MonoBehaviour:
   m_ObjectHideFlags: 1

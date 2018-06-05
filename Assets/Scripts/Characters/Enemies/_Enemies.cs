@@ -92,6 +92,7 @@ public abstract class _Enemies : _Character
 			SetRotation ();
 			Attack ();
 			SetButton ();
+            SetAnimation();
 		}
 	}
 
@@ -210,7 +211,9 @@ public abstract class _Enemies : _Character
 			base.Attack ((_Character)target.GetComponent<MainCharacter> ());
 			IsAttacking = true;
 			Timer = AttackTime;
-		}
+            anim.SetBool("Attacking", true);
+            anim.SetFloat("attack", .5f);
+        }
 	}
 
 
@@ -338,6 +341,11 @@ public abstract class _Enemies : _Character
             anim.SetBool("Running", false);
             anim.SetBool("Walking", false);
         }
+        if (IsAbleToAttack >= 0)
+            anim.SetBool("Attacking", false);
+        if (anim.GetFloat("attack") >= 0)
+            anim.SetFloat("attack", anim.GetFloat("attack") - Time.deltaTime);
+
         if (ActualWeapon.ObjectName == "Fists" || ActualWeapon.ObjectName == "Knife")
         {
             anim.SetBool("Knife", true);

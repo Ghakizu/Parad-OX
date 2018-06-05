@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 195875476653674572}
   - component: {fileID: 114448649971596948}
   - component: {fileID: 114573933945119538}
+  - component: {fileID: 95255600506469356}
   m_Layer: 0
   m_Name: Sword enemy
   m_TagString: Enemy
@@ -437,7 +438,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220849177348864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 25.71, z: -98.5}
+  m_LocalPosition: {x: 69.22619, y: 19.1, z: -74.7594}
   m_LocalScale: {x: 7, y: 20, z: 7}
   m_Children:
   - {fileID: 4269973037248842}
@@ -767,6 +768,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &95255600506469356
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220849177348864}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 118f544d264cc2a4e9d37c704e46520f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114102038943323028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -868,7 +886,7 @@ MonoBehaviour:
   right: 0
   IsFLashed: 0
   HealthButton: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 95255600506469356}
 --- !u!114 &114573933945119538
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -41,6 +41,11 @@ public class MainCharacter : _Character
 	//Animator
 	public Animator anim;  //The animator of our player
 
+    //Sounds
+    public GameObject footsteps;
+    public GameObject Attackingsound;
+    public GameObject Spellsound;
+
     //Network
     public PhotonView View;  //the photonView of the player : to be active on the network
 
@@ -278,6 +283,7 @@ public class MainCharacter : _Character
 			Jump ();
 			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed);
             SetAnimation();
+            SetSound();
         }
 	}
 
@@ -462,7 +468,18 @@ public class MainCharacter : _Character
         }
     }
 
-
+    public void SetSound()
+    {
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+            footsteps.SetActive(true);
+        else
+            footsteps.SetActive(false);
+        if (IsAbleToLaunchSpell <= 0)
+            Spellsound.SetActive(false);
+        if (IsAbleToAttack <= 0)
+            Attackingsound.SetActive(false);
+            
+    }
 
 
 
@@ -497,6 +514,7 @@ public class MainCharacter : _Character
 		{
 			IsAbleToAttack = ActualWeapon.TimeBetweenAttacks;
 			anim.SetBool ("Attacking", true);
+            Attackingsound.SetActive(true);
 			RaycastHit hit;
 			if (Physics.Raycast(transform.position, transform.forward, out hit)
 				&& hit.collider.gameObject.tag == "Enemy" 
@@ -517,6 +535,7 @@ public class MainCharacter : _Character
             ActualSpell.particles.SetActive(true);
             anim.SetBool("LauchingSpell", true);
             anim.SetFloat("spell", .9f);
+            Spellsound.SetActive(true);
             IsAbleToLaunchSpell = ActualSpell.TimeBetweenAttacks;
 			Mana -= ActualSpell.ManaConsumed;
 			if (ActualSpell.ObjectName == "Heal" || ActualSpell.ObjectName == "AirWall" || ActualSpell.ObjectName == "FireBall")
