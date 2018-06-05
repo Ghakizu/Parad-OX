@@ -11,25 +11,20 @@ public class Centaurus : _Enemies
 	new public void Awake()
 	//Set different stats
 	{
-		RotateSpeed = 150;
-		RangeOfDetection = 200;
+		RotateSpeed = 250;
+		RangeOfDetection = 2000;
 		WalkSpeed = 50;
 		RunSpeed = 100;
-		MaxHealth = 100;
+		MaxHealth = 10;
 		MaxMana = 100;
 		ActualWeapon = GetComponent<CentaurusWeapon> ();
 		base.Awake ();
 	}
 
-	public void Start()
-	{
-		Player = GameObject.FindGameObjectWithTag("Player");
-	}
-
 
 	new public void Update()
 	{
-		if (Player.transform.position.y > this.transform.position.y)
+		if (PlayersDetected.Count != 0 && PlayersDetected[0].transform.position.y < this.transform.position.y + 10)
 		{
 			IsAirWallEnabled = 1;
 		}
@@ -37,5 +32,6 @@ public class Centaurus : _Enemies
 		{
 			IsAirWallEnabled = 0;
 		}
+		base.Update ();
 	}
 }

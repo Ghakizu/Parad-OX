@@ -9,7 +9,7 @@ public class HealthPotion : _Consumables
 	new public void Awake()
 	//set all the stats of the item
 	{
-		ObjectName = "HealthPotion";
+		ObjectName = "Health Potion";
 		damages = 20; 
 		RangeOfAttk = 0;
 		TimeBetweenAttacks = 0;

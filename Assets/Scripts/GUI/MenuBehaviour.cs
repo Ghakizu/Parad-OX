@@ -11,7 +11,7 @@ public class MenuBehaviour : MonoBehaviour
 	public void LaunchScene (string scene) 
 	//Launch the scene given in parameters
 	{
-		SceneManager.LoadScene ("Hub_Scene");
+		SceneManager.LoadScene (scene);
 	}
 
     public void OnCLickSoloButton()

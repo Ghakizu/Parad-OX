@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Correct_Answer : MonoBehaviour {
+public class Correct_Answer : MonoBehaviour 
+{
     
     public doorStayOpen door;
     public bool mainRoom;

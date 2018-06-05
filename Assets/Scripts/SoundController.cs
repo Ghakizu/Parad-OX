@@ -29,7 +29,5 @@ public class SoundController : MonoBehaviour {
             controller.source.PlayOneShot(sound);
             timeRate = Time.time+timeSound;
         }
-
     }
-
 }

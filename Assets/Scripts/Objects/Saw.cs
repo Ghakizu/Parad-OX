@@ -54,8 +54,7 @@ public class Saw : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            GameObject Other = other.gameObject;
-            Other.GetComponent<MainCharacter>().Health -= 50;
+			other.gameObject.GetComponent<MainCharacter>().Health -= 50;
         }
     }
 }

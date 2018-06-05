@@ -58,7 +58,6 @@ public abstract class _Enemies : _Character
 	new public void Awake ()
 	//Setting all the basic stats;
 	{
-		Debug.Log ("awake");
 		TurnTime = 0.5f;
 		WaitTime = 0.3f;
 		TargetTime = 3;
@@ -361,11 +360,4 @@ public abstract class _Enemies : _Character
             anim.SetBool("Attacking", false);
         }
     }
-
-
-
-
-
-
 }
-//WARNING! When we go behind him, the character is not looking at us anymore
