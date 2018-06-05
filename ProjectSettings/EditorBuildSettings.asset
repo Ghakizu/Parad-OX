@@ -8,18 +8,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 881d87b62a8bcde49a45a7302b316979
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Multiplayer.unity
     guid: f7dc84281f3e4fe4ca8c6f23631aa6cc
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/RealWorld/Bar1.unity
     guid: b7d6fd9c733ae134e85382f337e83a47
   - enabled: 1
+    path: Assets/Scenes/RealWorld/Bar2.unity
+    guid: be2f02eb7f6b72b45bcae3ba81ccfbf9
+  - enabled: 1
     path: Assets/Scenes/RealWorld/RealWorld.unity
     guid: 0d3fe8c1dcd327045b4e361bacd7a134
-  - enabled: 0
-    path: Assets/Scenes/Useless (tests)/AITest.unity
-    guid: 51341911b85558a42b94fc875a5692d9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Level/Maze.unity
     guid: 3108a067957dd534fb8685b1fbe59904
+  - enabled: 1
+    path: Assets/Scenes/Boss/Centaurus.unity
+    guid: da93955e806cfa94d8ec8669b434fca2
+  - enabled: 1
+    path: Assets/Scenes/Boss/Hypogriffe.unity
+    guid: 7c433cd4cc32c294bb3759142c12d42f
+  - enabled: 1
+    path: Assets/Scenes/Boss/Sphynx.unity
+    guid: 886a73418f32bb74cab19c657b88ebd8
+  - enabled: 1
+    path: Assets/Scenes/Level/Enigma.unity
+    guid: 52d102986f6f4ad4c8796ade303e355f
+  - enabled: 1
+    path: Assets/Scenes/Level/Plateformes.unity
+    guid: 5d96db376ef898040a848669fc66c27b

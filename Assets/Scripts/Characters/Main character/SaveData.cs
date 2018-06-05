@@ -117,7 +117,8 @@ public class SaveData : MonoBehaviour
 		player.SpawnPoint.y = PlayerPrefs.GetFloat ("spawnY");
 		player.SpawnPoint.z = PlayerPrefs.GetFloat ("spawnZ");
 		player.transform.position = player.SpawnPoint;
-		SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
+		if(SceneManager.GetActiveScene().name != PlayerPrefs.GetString("Scene"))
+			SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
 		player.cheatCode = false;
 		player.crouch = false;
 
