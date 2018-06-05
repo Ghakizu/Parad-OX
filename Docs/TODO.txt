@@ -1,7 +1,6 @@
 A MODELISER
 Kiosque à journaux
 Stands de Marché
-Lampadaires
 Indices
 vaisselle
 
@@ -50,9 +49,7 @@ les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, re
 
 
 BOSS 1
-ne doit être touché que par les attaques aériennes
 Mouvements à revoir (ne doit pas se bloquer dans les plateformes)
-dégats
 
 
 
@@ -78,7 +75,7 @@ AUDIO
 Bruits de pas
 Bruits d'attaques / sorts
 Bruit de collection / d'utilisation d'objets
-musiques de fonds
+musiques de f
 Bruits d'actionnement des pièges
 
 
@@ -93,9 +90,7 @@ les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, re
 
 
 OFFLINE
-Manuel
 CD
-Cover du CD
 Site internet
 
 BONUS (clairement que si on a le temps)
