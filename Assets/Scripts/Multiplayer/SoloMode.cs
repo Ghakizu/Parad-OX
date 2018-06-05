@@ -6,7 +6,10 @@ public class SoloMode : MonoBehaviour
 {
     public void OnCLickSoloButton()
     {
-        PhotonNetwork.offlineMode = true;
+        if (PhotonNetwork.connected)
+            PhotonNetwork.Disconnect();
+        else
+            PhotonNetwork.offlineMode = true;
     }
 
     private void OnConnectedToMaster()
@@ -20,5 +23,10 @@ public class SoloMode : MonoBehaviour
             PhotonNetwork.CreateRoom("Solo");
             PhotonNetwork.LoadLevel("RealWorld");
         }
+    }
+
+    private void OnDisconnectedFromPhoton()
+    {
+        PhotonNetwork.offlineMode = true;
     }
 }

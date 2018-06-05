@@ -19,12 +19,6 @@ public class LobbyNetwork : MonoBehaviour
         get { return _currentRoom; }
     }
 
-    private PlayerNetwork _playerNetwork;
-    private PlayerNetwork PlayerNetwork
-    {
-        get { return _playerNetwork; }
-    }
-
     [SerializeField]
     private GameObject _lobby;
     private GameObject Lobby
@@ -32,16 +26,26 @@ public class LobbyNetwork : MonoBehaviour
         get { return _lobby; }
     }
 
+    [SerializeField]
+    private GameObject _main;
+    private GameObject Main
+    {
+        get { return _main; }
+    }
+
+    private bool ReturnToSolo = false;
+
     private void Awake()
     {
         PhotonNetwork.Disconnect();
         print("Connecting to server..");
         PhotonNetwork.ConnectUsingSettings(Version);
-        _playerNetwork = GameObject.FindGameObjectWithTag("DDOL").GetComponentInChildren<PlayerNetwork>();
     }
 
     public void OnClickDisconnect()
     {
+        Main.SetActive(false);
+        ReturnToSolo = true;
         PhotonNetwork.Disconnect();
     }
 
@@ -72,9 +76,9 @@ public class LobbyNetwork : MonoBehaviour
 
     private void OnDisconnectedFromPhoton()
     {
-        if(!PlayerNetwork.LaunchMulti)
+        if (ReturnToSolo)
         {
             PhotonNetwork.offlineMode = true;
-        }
+        } 
     }
 }

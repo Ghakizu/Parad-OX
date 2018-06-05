@@ -21,12 +21,6 @@ public class PlayerNetwork : MonoBehaviour
     private int PlayerInGame = 0;
     private Queue<GameObject> spawn;
     private bool isLoaded = false;
-    private bool _launchmulti = false;
-    public bool LaunchMulti
-    {
-        get { return _launchmulti; }
-    }
-
     private MainCharacter mainCharacter;
 
     // Use this for initialization
@@ -41,7 +35,6 @@ public class PlayerNetwork : MonoBehaviour
         PhotonNetwork.sendRateOnSerialize = 30;
 
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
-
     }
 
 
@@ -67,7 +60,6 @@ public class PlayerNetwork : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            _launchmulti = true;
         }
     }
 
@@ -107,7 +99,11 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_CreatePlayer()
     {
-		Vector3 position = new Vector3(Random.Range(1500f, 1600f), Random.Range(10f, 50f), Random.Range(8900f, 9100f));
+        Vector3 position;
+        if (PhotonNetwork.isMasterClient)
+            position = spawn1.transform.position;
+        else
+            position = spawn2.transform.position;
         GameObject Player = PhotonNetwork.Instantiate("Main character", position, Quaternion.identity, 0);
         Player.transform.SetParent(transform.parent, false);
     }
