@@ -37,7 +37,7 @@ public class LobbyNetwork : MonoBehaviour
         PhotonNetwork.Disconnect();
         print("Connecting to server..");
         PhotonNetwork.ConnectUsingSettings(Version);
-        _playerNetwork = GameObject.FindGameObjectWithTag("DDOL").GetComponent<PlayerNetwork>();
+        _playerNetwork = GameObject.FindGameObjectWithTag("DDOL").GetComponentInChildren<PlayerNetwork>();
     }
 
     public void OnClickDisconnect()
@@ -67,6 +67,14 @@ public class LobbyNetwork : MonoBehaviour
         {
             CurrentRoom.SetActive(false);
             Lobby.SetActive(true);
+        }
+    }
+
+    private void OnDisconnectedFromPhoton()
+    {
+        if(!PlayerNetwork.LaunchMulti)
+        {
+            PhotonNetwork.offlineMode = true;
         }
     }
 }

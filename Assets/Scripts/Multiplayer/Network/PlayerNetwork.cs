@@ -67,6 +67,7 @@ public class PlayerNetwork : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            _launchmulti = true;
         }
     }
 
