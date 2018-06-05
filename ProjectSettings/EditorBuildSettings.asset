@@ -8,18 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 881d87b62a8bcde49a45a7302b316979
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Multiplayer.unity
     guid: f7dc84281f3e4fe4ca8c6f23631aa6cc
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/RealWorld/Bar1.unity
     guid: b7d6fd9c733ae134e85382f337e83a47
   - enabled: 1
     path: Assets/Scenes/RealWorld/RealWorld.unity
     guid: 0d3fe8c1dcd327045b4e361bacd7a134
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Useless (tests)/AITest.unity
     guid: 51341911b85558a42b94fc875a5692d9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Level/Maze.unity
     guid: 3108a067957dd534fb8685b1fbe59904
