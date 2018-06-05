@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/RealWorld/RealWorld.unity
     guid: 0d3fe8c1dcd327045b4e361bacd7a134
   - enabled: 1
+    path: Assets/Scenes/Useless (tests)/AITest.unity
+    guid: 51341911b85558a42b94fc875a5692d9
+  - enabled: 1
     path: Assets/Scenes/Level/Maze.unity
     guid: 3108a067957dd534fb8685b1fbe59904
   - enabled: 1
