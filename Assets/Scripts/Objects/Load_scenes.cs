@@ -14,7 +14,10 @@ public class Load_scenes : MonoBehaviour
     public Quaternion rotation;
 	private bool IsTrigger = false; //Are we able to teleport ?
     private PhotonView PhotonView;
-    private GameObject Player;
+	private GameObject Player;
+	private bool isloaded = false;
+	private bool mustload = false;
+	private int PlayerInGame = 0;
 
     private void Awake()
     {
@@ -45,13 +48,17 @@ public class Load_scenes : MonoBehaviour
 
     private void Update()
     {
+		if (mustload)
+		{
+			mustload = false;
+			Player.GetComponent<SaveData> ().Load();
+		}
         if(IsTrigger && Input.GetKeyDown(KeyCode.E) && PhotonView.isMine)
         {
+			Player.GetComponent<MainCharacter>().SpawnPoint = Spawnpoint;
+			Player.GetComponent<SaveData> ().Save();
             PhotonNetwork.LoadLevel(Scene);
-            Player.transform.position = Spawnpoint;
-            Player.transform.rotation = rotation;
-            Player.GetComponent<MainCharacter>().SpawnPoint = Spawnpoint;
-            IsTrigger = false;
+			SceneManager.sceneLoaded += OnSceneFinishedLoading;
 			if (Scene == "Lvl1" ||Scene == "Boss_Centaurus")
 			{
 				Player.GetComponent<MainCharacter> ().Gravity = 250;
@@ -60,8 +67,30 @@ public class Load_scenes : MonoBehaviour
 			{
 				Player.GetComponent<MainCharacter> ().Gravity = 500;
 			}
+			if(Scene == "Hypogriffe")
+			{
+				if (PhotonNetwork.isMasterClient)
+					MasterLoadedGame();
+				else
+					NonMasterLoadedGame();
+			}
         }
     }
+
+	private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
+	{
+		if(!isloaded)
+		{
+			Player = PhotonNetwork.Instantiate ("Main character", Spawnpoint, rotation, 0);
+			isloaded = true;
+			PlayerPrefs.SetString ("Scene", scene.name);
+			PlayerPrefs.Save();
+			Debug.Log (Player);
+			Player.GetComponent<SaveData> ().Load();
+			mustload = true;
+			IsTrigger = false;
+		}
+	}
 
     private void OnGUI()
     {
@@ -71,10 +100,38 @@ public class Load_scenes : MonoBehaviour
         }
     }
 
-    [PunRPC]
-    private void OnPlayerLoadedScene()
-    {
+	private void MasterLoadedGame()
+	{
+		PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient);
+		PhotonView.RPC("RPC_LoadGameOthers", PhotonTargets.Others);
+	}
 
-    }
+	private void NonMasterLoadedGame()
+	{
+		PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient);
+	}
+		
+	[PunRPC]
+	private void RPC_LoadGameOthers()
+	{
+		PhotonNetwork.LoadLevel("Hypogriffe");
+	}
 
+	[PunRPC]
+	private void RPC_LoadedGameScene()
+	{
+		++PlayerInGame;
+		if(PlayerInGame == PhotonNetwork.playerList.Length)
+		{
+			print("All players are loaded.");
+			PhotonView.RPC("RPC_CreatePlayer", PhotonTargets.All);
+		}
+	}
+
+	[PunRPC]
+	private void RPC_CreatePlayer()
+	{
+		Vector3 position = new Vector3 (220, 87, Random.Range (-449, 306));
+		Player = PhotonNetwork.Instantiate("Main character", position, Quaternion.identity, 0);
+	}
 }

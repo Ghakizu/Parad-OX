@@ -1,3 +1,60 @@
+MAIN MENU
+
+Credits a remplir
+Difficulty et Sensibility settings
+New Game et Load Game
+Enlever le DDOL
+
+
+
+REAL WORLD
+
+différentes couleurs pour les voitures
+pause voiture
+mieux gérer
+fontaine couleurs
+rajouter stands et PNJS
+Cacher trous
+Kiosque a journaux
+
+
+
+
+
+MAIN CHARACTER
+
+menu pause
+
+
+SCENE DU RESTAURANT X2
+
+
+
+SCRIPTING
+
+_Clues
+JournalLvl1
+JournalLvl2
+JournalLvl3
+PNJ1LVL1
+PNJ2LVL1
+PNJ1LVL2
+PNJ2LVL2
+PNJ1LVL3
+PNJ2LVL3
+
+
+
+
+
+
+
+
+
+
+
+
+
 A MODELISER
 Stands de Marché
 vaisselle
@@ -21,7 +78,7 @@ rajouter les PNJs
 
 
 
-SCENE DU RESTAURANT
+SCENEs DU RESTAURANT (x2)
 à refaire et placer les indices
 
 

@@ -12,9 +12,6 @@ public class _Clues : _Objects
 	public PlayerInventory MyPlayer;  //the inventory of the player who will get the clue
 	public int MaximumDistance = 200;  //from where do you want to pick up the Object ?
 
-	//Here, the object Name is the tag of the our clue -> if the inventory already contains a clue named like this, 
-	//the clue is already collected and we want it to disappear
-
 
 
 	new public void Awake()
