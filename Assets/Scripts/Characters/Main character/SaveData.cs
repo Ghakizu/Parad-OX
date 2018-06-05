@@ -112,9 +112,6 @@ public class SaveData : MonoBehaviour
 
     public void Load()
     {
-		if(SceneManager.GetActiveScene().name != PlayerPrefs.GetString("Scene"))
-			SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
-
 		player.Health = PlayerPrefs.GetFloat ("Health");
 		player.SpawnPoint.x = PlayerPrefs.GetFloat ("spawnX");
 		player.SpawnPoint.y = PlayerPrefs.GetFloat ("spawnY");

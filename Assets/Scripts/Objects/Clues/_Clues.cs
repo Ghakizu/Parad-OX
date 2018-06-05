@@ -33,7 +33,9 @@ public class _Clues : _Objects
 	public void OnMouseDown()
 	//when we click on the object, we want him to disappear and to be added into our inventory
 	{
+		Debug.Log ("onmousedown");
 		Vector3 offset = Player.transform.position - this.transform.position;
+		Debug.Log (offset.magnitude);
 		if (offset.magnitude < MaximumDistance)
 		{
 			AddIntoInventory ();

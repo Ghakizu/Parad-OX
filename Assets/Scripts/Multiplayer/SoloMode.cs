@@ -6,6 +6,7 @@ public class SoloMode : MonoBehaviour
 {
     public void OnCLickSoloButton()
     {
+		PlayerPrefs.SetInt ("LOAD", 0);
         if (PhotonNetwork.connected)
             PhotonNetwork.Disconnect();
         else

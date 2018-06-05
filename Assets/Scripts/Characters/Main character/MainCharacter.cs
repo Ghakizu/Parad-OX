@@ -62,11 +62,19 @@ public class MainCharacter : _Character
 	new private void Awake ()
 	//Set all the stats of the mainCharacter
 	{
+		Debug.Log (PlayerPrefs.GetFloat ("Sensitivity"));
 		SpeedMultiplier = 0;
 		DetectionRange = 1;
 		MaxHealth = 500;
 		MaxMana = 200;
-		RotateSpeed = 200;
+		if (PlayerPrefs.GetFloat("Sensitivity") >= 100 && PlayerPrefs.GetFloat("Sensitivity") <= 250)
+		{
+			RotateSpeed = PlayerPrefs.GetFloat ("Sensitivity");
+		}
+		else
+		{
+			RotateSpeed = 200;
+		}
 		WalkSpeed = 150;
 		RunSpeed = 350;
 		Heightjump = 300;

@@ -26,6 +26,9 @@ public class MaterialsAssignations : MonoBehaviour
 	public Sprite StaminaPotionSprite;
 	public Sprite ManaPotionSprite;
 
+	public Sprite PNJSprite;
+	public Sprite NewsSprite;
+
 	public static string FistsName = "Fists";
 	public static string SwordName = "Wooden Sword";
 	public static string KnifeName = "Knife";

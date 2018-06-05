@@ -209,7 +209,7 @@ public abstract class _Enemies : _Character
 		{
 			base.Attack ((_Character)target.GetComponent<MainCharacter> ());
 			IsAttacking = true;
-			Timer = AttackTime;
+			Timer = 0.5f;
             anim.SetBool("Attacking", true);
             anim.SetFloat("attack", .5f);
         }
