@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 114229223105602976}
   - component: {fileID: 114519397185937970}
   - component: {fileID: 114027724549885390}
+  - component: {fileID: 114456452878917192}
   m_Layer: 0
   m_Name: Main character
   m_TagString: Player
@@ -5902,6 +5903,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 4164962378237108}
+  - {fileID: 114456452878917192}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -5986,6 +5988,62 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114456452878917192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1048570808611782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: Walking
+  - Type: 4
+    SynchronizeType: 0
+    Name: Running
+  - Type: 4
+    SynchronizeType: 0
+    Name: Crouching
+  - Type: 4
+    SynchronizeType: 0
+    Name: Attacking
+  - Type: 4
+    SynchronizeType: 0
+    Name: Knife
+  - Type: 4
+    SynchronizeType: 0
+    Name: Sword
+  - Type: 4
+    SynchronizeType: 0
+    Name: Bat
+  - Type: 4
+    SynchronizeType: 0
+    Name: InTheAir
+  - Type: 4
+    SynchronizeType: 0
+    Name: Jumping
+  - Type: 1
+    SynchronizeType: 0
+    Name: crouch
+  - Type: 1
+    SynchronizeType: 0
+    Name: jump
+  - Type: 4
+    SynchronizeType: 0
+    Name: LauchingSpell
+  - Type: 1
+    SynchronizeType: 0
+    Name: spell
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!114 &114463112405824584
 MonoBehaviour:
   m_ObjectHideFlags: 1
