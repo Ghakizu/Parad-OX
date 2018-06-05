@@ -65,9 +65,9 @@ public class PlayerNetwork : MonoBehaviour
         }
         else if (scene.name == "Multiplayer")
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             _launchmulti = true;
-            mainCharacter.IsGamePaused = true;
-            //mainCharacter.gameObject.SetActive(false);
         }
     }
 
