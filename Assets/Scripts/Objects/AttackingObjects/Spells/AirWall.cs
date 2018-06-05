@@ -11,11 +11,11 @@ public class AirWall : _Spells
 	new public void Awake()
 	//set all the stats of the spell
 	{
-		TimeOfEffect = 3;
+		TimeOfEffect = 8;
 		ObjectName = "AirWall";
 		damages = 0; 
 		RangeOfAttk = 0;
-		TimeBetweenAttacks = 4;
+		TimeBetweenAttacks = 8;
 		ManaConsumed = 50;
 		SubDescription = "Your character becomes invicible during " + TimeOfEffect + " seconds.";
 		base.Awake ();

@@ -13,16 +13,26 @@ public class CarSpawner : MonoBehaviour
 	private bool Inside = false;  //What is the last turn ?
 	public float offset;  //When do you wantthe object to spawn cars ?
 
+
 	private void Awake()
 	//set some values
 	{
 		cars = (GameObject)Resources.Load("Moving car");
-		MaxTime = 4;
+		MaxTime = 6;
 		Timer = offset;
 	}
 
+
 	private void Update()
-	//spawn cars
+	//call spawncars funtcion
+	{
+		SpawnCars ();
+	}
+
+
+
+	public void SpawnCars()
+	//spawn cars when needed
 	{
 		Timer = Mathf.Max (0, Timer - Time.deltaTime);
 		if (Timer == 0)
@@ -31,7 +41,6 @@ public class CarSpawner : MonoBehaviour
 			GameObject car = Instantiate (cars, this.transform.position, this.transform.rotation) as GameObject;
 			if (Consecutive == 3)
 			{
-				Debug.Log("not random");
 				Consecutive = 0;
 				car.GetComponentInChildren<Cars> ().inside = !Inside;
 				Inside = !Inside;
@@ -39,9 +48,7 @@ public class CarSpawner : MonoBehaviour
 			else
 			{
 				int side = Random.Range (1, 3);
-				Debug.Log (side);
 				car.GetComponentInChildren<Cars> ().inside = side == 1;
-				Debug.Log (car.GetComponentInChildren<Cars> ().inside);
 				if ((side == 1 && Inside) || (side == 2 && !Inside))
 				{
 					Consecutive += 1;

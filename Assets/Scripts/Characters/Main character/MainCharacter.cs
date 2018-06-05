@@ -130,23 +130,7 @@ public class MainCharacter : _Character
 			transform.position = new Vector3 (-6500, 5064, 8500);
 			break;
 		case "Border":
-			switch (other.gameObject.name) {
-			case "WestBorder":
-				transform.position = new Vector3 (-1280, -986, -135);
-				transform.rotation = Quaternion.Euler (0, 90, 0);
-				break;
-			case "EastBorder":
-				transform.position = new Vector3 (750, -986, -135);
-				transform.rotation = Quaternion.Euler (0, -90, 0);
-				break;
-			case "SouthBorder":
-				transform.position = new Vector3 (-234, -986, -1050);
-				transform.rotation = Quaternion.Euler (0, 0, 0);
-				break;
-			}
-			IsFreezed = 1;
-			CharacterRigidbody.velocity = Vector3.zero;
-			StopBorder.SetActive (true);
+			OutOfBorders (other);
 			break;
 		}
 	}
@@ -258,6 +242,31 @@ public class MainCharacter : _Character
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 		}
+	}
+
+
+	private void OutOfBorders(Collider other)
+	//Respawns the player behind him and display a message if he is out of the limits of the map
+	{
+		switch (other.gameObject.name) 
+		{
+		case "WestBorder":
+			transform.position = new Vector3 (-1280, -986, -135);
+			transform.rotation = Quaternion.Euler (0, 90, 0);
+			break;
+		case "EastBorder":
+			transform.position = new Vector3 (750, -986, -135);
+			transform.rotation = Quaternion.Euler (0, -90, 0);
+			break;
+		case "SouthBorder":
+			transform.position = new Vector3 (-234, -986, -1050);
+			transform.rotation = Quaternion.Euler (0, 0, 0);
+			break;
+		}
+		IsFreezed = 1;
+		CharacterRigidbody.velocity = Vector3.zero;
+		StopBorder.SetActive (true);
+
 	}
 
 
@@ -399,8 +408,6 @@ public class MainCharacter : _Character
 		if (Input.GetButton ("Jump") && !cheatCode && IsAbleToJump && !IsTired)
 		{
 			base.Jump ();
-            anim.SetBool("Jumping", true);
-            anim.SetFloat("jump", 0.3f);
 		}
 	}
 
@@ -410,9 +417,13 @@ public class MainCharacter : _Character
 	//Animations for the player
 	{
         if (anim.GetBool("LauchingSpell") && anim.GetFloat("spell") > 0)
-            anim.SetFloat("spell", anim.GetFloat("spell") - Time.deltaTime);
+		{
+			anim.SetFloat("spell", anim.GetFloat("spell") - Time.deltaTime);
+		}
         if (anim.GetBool("LauchingSpell") && anim.GetFloat("spell") <= 0)
-            anim.SetBool("LauchingSpell", false);
+		{
+			anim.SetBool("LauchingSpell", false);
+		}
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             if (speed == RunSpeed)
@@ -466,6 +477,11 @@ public class MainCharacter : _Character
         {
             anim.SetFloat("crouch", anim.GetFloat("crouch") - Time.deltaTime);
         }
+		if (Input.GetButton ("Jump") && !cheatCode && IsAbleToJump && !IsTired)
+		{
+			anim.SetBool("Jumping", true);
+			anim.SetFloat("jump", 0.3f);
+		}
     }
 
     public void SetSound()

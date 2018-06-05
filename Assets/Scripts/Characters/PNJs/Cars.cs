@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Cars : MonoBehaviour 
 {
+	//The cars that must move into the Real World
+
+
 	public bool inside;  //Is the car inside the city ?
 	public bool HasStartedTurn;  //Has the car started to turn
 	public float canTurn;  //Is the car able to turn ?
 	public bool HasEntered;  //Has the car entered the city ?
 	private GameObject car;  //Game object of the car
+
 
 	public void Awake()
 	//Set the values of the car
@@ -73,8 +77,7 @@ public class Cars : MonoBehaviour
 	public void Update()
 	//Move the car and set the value of canTurn
 	{
-		car.transform.Translate (new Vector3(-5, 0, 0));
+		car.transform.Translate (new Vector3(-3, 0, 0));
 		canTurn = Mathf.Max (0, canTurn - Time.deltaTime);
 	}
-
 }

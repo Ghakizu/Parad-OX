@@ -437,7 +437,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1120425275652082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 25.71, z: -98.5}
+  m_LocalPosition: {x: -84.874794, y: -4.624106e-16, z: 20.82512}
   m_LocalScale: {x: 7, y: 20, z: 7}
   m_Children:
   - {fileID: 4623156029799464}
@@ -512,7 +512,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 684b9ec4850bf7c409dc4d44a42befa7, type: 3}
+  - {fileID: 2100000, guid: fbb130f16a762da46a85ad4b78d76f2c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -836,6 +836,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a022946b884ceae40a5468e42e000751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotateSpeed: 0
+  WalkSpeed: 0
+  RunSpeed: 0
+  Heightjump: 0
+  Gravity: 500
+  SpawnPoint: {x: 0, y: 0, z: 0}
+  MaxMana: 0
+  Mana: 0
+  MaxHealth: 0
+  Health: 0
+  IsAbleToAttack: 0
+  IsAbleToLaunchSpell: 0
+  ActualWeapon: {fileID: 0}
+  ActualSpell: {fileID: 0}
+  CharacterObject: {fileID: 0}
+  CharacterRigidbody: {fileID: 0}
+  IsGamePaused: 0
+  StockedVelocity: {x: 0, y: 0, z: 0}
+  IsFreezed: 0
+  IsAirWallEnabled: 0
+  target: {fileID: 0}
+  RangeOfDetection: 0
+  DetectionCollider: {fileID: 0}
+  PlayersDetected: []
+  agent: {fileID: 0}
+  PatrolLocation: {x: 0, y: 0, z: 0}
+  PatrolDistance: 200
+  Timer: 0
+  TargetTime: 3
+  WaitTime: 0.3
+  TurnTime: 0.5
+  ResetTime: 5
+  AttackTime: 0
+  IsWaiting: 1
+  IsTargetting: 0
+  IsTurning: 1
+  IsWalking: 0
+  IsAttacking: 0
+  left: 0
+  right: 0
+  IsFLashed: 0
+  HealthButton: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &114787890670908722
 MonoBehaviour:
   m_ObjectHideFlags: 1

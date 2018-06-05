@@ -11,15 +11,14 @@ public class PNJs : _Character
 
 
 	public NavMeshAgent agent;  //the agent of the PNJ
-	public float Walkspeed = 100;  //
-	public float range = 1000;
-	public bool IsArrived = true;
-	public float time = 0;
-	public string[] dialogues; //all the sentences the NPCs can say.
-
+	public float Walkspeed = 100;  //the speed of the character
+	public float range = 1000;  //around what distance will the character look for a new location to go
+	public bool IsArrived = true;  //Is the characater arrived to his destination
+	public float time = 0;  //Time to reset the target
 
 
 	new void Awake ()
+	//Set the main stats
 	{
 		base.Awake ();
 		WalkSpeed = 50;
@@ -36,23 +35,33 @@ public class PNJs : _Character
 
 
 	public new void Update()
+	//Call all the others functions
 	{
 		if (!IsGamePaused)
 		{
 			base.Update();
 			FindNewLocation();
-			time -= Time.deltaTime;
-			if((agent.destination - this.transform.position).magnitude < 100 || time <= 0)
-			{
-				IsArrived = true;
-			}
+			SetNewStats ();
 		}
 	}
 
 
 
 
+
+
+	public void SetNewStats()
+	//Set the stats of the character
+	{
+		time -= Time.deltaTime;
+		if((agent.destination - this.transform.position).magnitude < 100 || time <= 0)
+		{
+			IsArrived = true;
+		}
+	}
+
 	public void FindNewLocation()
+	//Find a new location to go
 	{
 		if(IsArrived)
 		{
@@ -67,11 +76,5 @@ public class PNJs : _Character
 				time = 5;
 			} while ((this.transform.position - NewDestination).magnitude < 30);
 		}
-	}
-
-
-	public void OnMouseDown()
-	{
-		//We have to display the text when we click on him
 	}
 }
