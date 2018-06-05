@@ -292,7 +292,7 @@ public class MainCharacter : _Character
 			Jump ();
 			base.Move(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"), speed);
             SetAnimation();
-           // SetSound();
+            SetSound();
         }
 	}
 
@@ -530,7 +530,7 @@ public class MainCharacter : _Character
 		{
 			IsAbleToAttack = ActualWeapon.TimeBetweenAttacks;
 			anim.SetBool ("Attacking", true);
-            //Attackingsound.SetActive(true);
+            Attackingsound.SetActive(true);
 			RaycastHit hit;
 			if (Physics.Raycast(transform.position, transform.forward, out hit)
 				&& hit.collider.gameObject.tag == "Enemy" 
@@ -551,7 +551,7 @@ public class MainCharacter : _Character
             ActualSpell.particles.SetActive(true);
             anim.SetBool("LauchingSpell", true);
             anim.SetFloat("spell", .9f);
-            //Spellsound.SetActive(true);
+            Spellsound.SetActive(true);
             IsAbleToLaunchSpell = ActualSpell.TimeBetweenAttacks;
 			Mana -= ActualSpell.ManaConsumed;
 			if (ActualSpell.ObjectName == "Heal" || ActualSpell.ObjectName == "AirWall" || ActualSpell.ObjectName == "FireBall")
