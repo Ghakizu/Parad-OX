@@ -11,9 +11,6 @@ GameOver : remettre toute la scène à son état initial (ou au dernier checkpoint)
 les settings doivent être fonctionnels
 Sort EarthSpike
 Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
-Boss IA : centaurus : seules les attaques d'en haut sont comptabilisées.
-
-
 
 
 NETWORK
@@ -63,7 +60,6 @@ Menu pause
 Menu principal
 Game Over
 Interface (rajouter les armes actuellement utilisées, le temps qu'il reste avant de pouvoir les utiliser pour les sorts)
-
 
 
 LINK

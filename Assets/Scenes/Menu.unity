@@ -1244,6 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3707ddc9829911541b5a38c136fe95c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 36969841ca9f7f241a33965554bf3022, type: 2}
 --- !u!1 &634939020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,7 +1968,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1001304960}
   - component: {fileID: 1001304961}
-  - component: {fileID: 1001304962}
   m_Layer: 5
   m_Name: Sound
   m_TagString: Untagged
@@ -2043,7 +2043,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1001304962}
+      - m_Target: {fileID: 594102115}
         m_MethodName: setvolume
         m_Mode: 0
         m_Arguments:
@@ -2056,18 +2056,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1001304962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1001304959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e060f48aa85925d46923fa4b56c9425f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 36969841ca9f7f241a33965554bf3022, type: 2}
 --- !u!1 &1072900537
 GameObject:
   m_ObjectHideFlags: 0

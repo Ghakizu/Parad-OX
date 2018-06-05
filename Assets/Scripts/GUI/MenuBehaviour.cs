@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MenuBehaviour : MonoBehaviour 
 {
-	//All the functions usefull for the main menu display
+    //All the functions usefull for the main menu display
 
+    public AudioMixer mixer;
 
-	public void LaunchScene (string scene) 
+    public void LaunchScene (string scene) 
 	//Launch the scene given in parameters
 	{
 		SceneManager.LoadScene (scene);
@@ -72,5 +74,10 @@ public class MenuBehaviour : MonoBehaviour
         PhotonNetwork.Disconnect();
         GameObject.Destroy(player.transform.parent.gameObject);
         SceneManager.LoadScene("Menu");
+    }
+
+    public void setvolume(float volume)
+    {
+        mixer.SetFloat("volume", volume);
     }
 }
