@@ -9,7 +9,7 @@ public class StaminaPotion : _Consumables
 	new public void Awake()
 	//set all the stats of the item
 	{
-		ObjectName = "StaminaPotion";
+		ObjectName = "Stamina Potion";
 		damages = 20; 
 		RangeOfAttk = 0;
 		TimeBetweenAttacks = 0;

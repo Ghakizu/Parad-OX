@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ITSATRAP : MonoBehaviour {
+public class ITSATRAP : MonoBehaviour 
+{
 
 	public GameObject go;
 

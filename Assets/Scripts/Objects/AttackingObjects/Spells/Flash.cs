@@ -7,7 +7,7 @@ public class Flash : _Spells
 	//A Spell that confuse the target
 
 	public SphereCollider ObjectCollider;  //the area where the collider is effective
-	public List<_Enemies> targets;
+	public List<_Enemies> targets;  //All the targets that are in the range of the spell
 
 	new public void Awake()
 	//set all the stats of the spell

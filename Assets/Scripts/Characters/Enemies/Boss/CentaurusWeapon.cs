@@ -12,7 +12,7 @@ public class CentaurusWeapon : _Weapons
 	{
 		ObjectName = "Centaurus Head";
 		damages = 100; 
-		RangeOfAttk = 100;
+		RangeOfAttk = 60;
 		TimeBetweenAttacks = 5;
 		SubDescription = "Centaurus head, as strong as Zidane head";
 		base.Awake ();

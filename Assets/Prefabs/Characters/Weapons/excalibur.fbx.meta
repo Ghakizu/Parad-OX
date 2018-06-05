@@ -13,6 +13,9 @@ ModelImporter:
     100010: Lamp
     100012: Sphere
     100014: Sphere.001
+    100016: Cube.001
+    100018: Sword
+    100020: Sword.001
     400000: Camera
     400002: Cube
     400004: Cylinder
@@ -21,27 +24,39 @@ ModelImporter:
     400010: Lamp
     400012: Sphere
     400014: Sphere.001
+    400016: Cube.001
+    400018: Sword
+    400020: Sword.001
     2000000: Camera
     2100000: No Name
     2100002: Material
+    2100004: Material.001
     2300000: Cube
     2300002: Cylinder
     2300004: Cylinder.001
     2300006: Sphere
     2300008: Sphere.001
     2300010: //RootNode
+    2300012: Cube.001
+    2300014: Sword
+    2300016: Sword.001
     3300000: Cube
     3300002: Cylinder
     3300004: Cylinder.001
     3300006: Sphere
     3300008: Sphere.001
     3300010: //RootNode
+    3300012: Cube.001
+    3300014: Sword
+    3300016: Sword.001
     4300000: Sphere
     4300002: Cylinder.001
     4300004: Cylinder
     4300006: Cube
     4300008: Sphere.001
     4300010: Sword
+    4300012: Sword.001
+    4300014: Cube.001
     10800000: Lamp
   externalObjects: {}
   materials:

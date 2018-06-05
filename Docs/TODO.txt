@@ -48,11 +48,6 @@ Rajouter clé et ennemis
 les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
 
 
-BOSS 1
-Mouvements à revoir (ne doit pas se bloquer dans les plateformes)
-
-
-
 BOSS 2
 a faire intégralement....
 
@@ -68,17 +63,6 @@ Menu pause
 Menu principal
 Game Over
 Interface (rajouter les armes actuellement utilisées, le temps qu'il reste avant de pouvoir les utiliser pour les sorts)
-
-
-
-AUDIO
-Bruits de pas
-Bruits d'attaques / sorts
-Bruit de collection / d'utilisation d'objets
-musiques de f
-Bruits d'actionnement des pièges
-
-
 
 
 
