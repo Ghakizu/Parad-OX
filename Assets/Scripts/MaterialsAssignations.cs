@@ -7,8 +7,7 @@ public class MaterialsAssignations : MonoBehaviour
 	//All the materials and sprites that have to be stocked somewhere
 	//All this class has to be filled by hand in the inspector
 
-	public Material FreezedMaterial;
-	public Material NormalMaterial;
+
 	public Sprite FistsSprite;
 	public Sprite SwordSprite;
 	public Sprite KnifeSprite;
@@ -26,4 +25,22 @@ public class MaterialsAssignations : MonoBehaviour
 	public Sprite SpeedPotionSprite;
 	public Sprite StaminaPotionSprite;
 	public Sprite ManaPotionSprite;
+
+	public static string FistsName = "Fists";
+	public static string SwordName = "Wooden Sword";
+	public static string KnifeName = "Knife";
+	public static string ExcaliburName = "Excalibur";
+	public static string BatName = "Bat";
+
+	public static string FreezeName = "Freeze";
+	public static string AirWallName = "AirWall";
+	public static string EarthSpikeName = "EarthSpike";
+	public static string FireBallName = "FireBall";
+	public static string FlashName = "Flash";
+	public static string HealName = "Heal";
+
+	public static string HealthPotionName = "Health Potion";
+	public static string SpeedPotionName = "Speed Potion";
+	public static string StaminaPotionName = "Stamina Potion";
+	public static string ManaPotionName = "Mana Potion";
 }

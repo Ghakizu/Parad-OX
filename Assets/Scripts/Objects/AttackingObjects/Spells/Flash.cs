@@ -13,7 +13,7 @@ public class Flash : _Spells
 	//set all the stats of the spell
 	{
 		TimeOfEffect = 3;
-		ObjectName = "Flash";
+		ObjectName = MaterialsAssignations.FlashName;
 		damages = 0; 
 		RangeOfAttk = 250;
 		TimeBetweenAttacks = 4;

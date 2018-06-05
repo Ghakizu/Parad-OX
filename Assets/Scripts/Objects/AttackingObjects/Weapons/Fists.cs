@@ -10,7 +10,7 @@ public class Fists : _Weapons
 	new public void Awake()
 	//Set all the stats of the weapon
 	{
-		ObjectName = "Fists";
+		ObjectName = MaterialsAssignations.FistsName;
 		damages = 10; 
 		RangeOfAttk = 30;
 		TimeBetweenAttacks = 0.5f;

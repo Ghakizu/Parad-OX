@@ -12,7 +12,7 @@ public class AirWall : _Spells
 	//set all the stats of the spell
 	{
 		TimeOfEffect = 8;
-		ObjectName = "AirWall";
+		ObjectName = MaterialsAssignations.AirWallName;
 		damages = 0; 
 		RangeOfAttk = 0;
 		TimeBetweenAttacks = 8;

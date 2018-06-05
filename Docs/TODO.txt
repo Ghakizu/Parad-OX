@@ -40,11 +40,6 @@ Rajouter les coffres / ennemis
 
 
 
-LVL ENIGME
-Rajouter clé et ennemis
-les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
-
-
 BOSS 2
 a faire intégralement....
 

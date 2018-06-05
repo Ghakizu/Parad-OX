@@ -12,7 +12,7 @@ public class Freeze : _Spells
 	//set all the stats of the spell
 	{
 		TimeOfEffect = 3;
-		ObjectName = "Freeze";
+		ObjectName = MaterialsAssignations.FreezeName;
 		damages = 0; 
 		RangeOfAttk = 300;
 		TimeBetweenAttacks = 3;
