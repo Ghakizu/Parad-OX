@@ -175,6 +175,32 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: 9d1bf0e3093c47c488c659980470860e, type: 3}
   m_PrefabInternal: {fileID: 23864949}
+--- !u!114 &23864952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 23864951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4e8d55cb962eb4dbc8ec6edc56750d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: Frank
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: '"Ahahah ! This guy have been doing searches during more than 30 years,
+    and just get a box of chocapic"'
+  Materials: {fileID: 0}
+  level: 3
+  Player: {fileID: 0}
+  MyPlayer: {fileID: 0}
+  MaximumDistance: 200
+  tag: 
+  collectible: 1
+  frame: 1
+  bulle: {fileID: 1160966468}
 --- !u!4 &23864953 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400012, guid: 9d1bf0e3093c47c488c659980470860e, type: 3}
@@ -186,11 +212,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23864951}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 40, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 100.29279, y: 40, z: 78.88925}
+  m_Center: {x: -3.9809942, y: 0, z: 34.444626}
 --- !u!1 &172490001
 GameObject:
   m_ObjectHideFlags: 0

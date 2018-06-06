@@ -106,6 +106,120 @@ public class SaveData : MonoBehaviour
 		PlayerPrefs.SetString ("cons2", inventory.cons2.ObjectName);
 		PlayerPrefs.SetString ("ActualCons", player.ActualConsumable.ObjectName);
 
+		if(inventory.CluesInventoryLvl1.Count > 0)
+		{
+			PlayerPrefs.SetString ("l1c1Name", inventory.CluesInventoryLvl1 [0].ObjectName);
+			PlayerPrefs.SetString ("l1c1Tag", inventory.CluesInventoryLvl1 [0].tag);
+			PlayerPrefs.SetString ("l1c1Description", inventory.CluesInventoryLvl1 [0].description);
+		}
+		else
+		{
+			PlayerPrefs.SetString ("l1c1Name", "");
+			PlayerPrefs.SetString ("l1c1Tag", "");
+			PlayerPrefs.SetString ("l1c1Description", "");
+		}
+		if(inventory.CluesInventoryLvl1.Count > 1)
+		{
+			PlayerPrefs.SetString ("l1c2Name", inventory.CluesInventoryLvl1 [1].ObjectName);
+			PlayerPrefs.SetString ("l1c2Tag", inventory.CluesInventoryLvl1 [1].tag);
+			PlayerPrefs.SetString ("l1c2Description", inventory.CluesInventoryLvl1 [1].description);
+		}
+		else
+		{
+			PlayerPrefs.SetString ("l1c2Name", "");
+			PlayerPrefs.SetString ("l1c2Tag", "");
+			PlayerPrefs.SetString ("l1c2Description", "");
+		}
+		if(inventory.CluesInventoryLvl1.Count > 2)
+		{
+			PlayerPrefs.SetString ("l1c3Name", inventory.CluesInventoryLvl1 [2].ObjectName);
+			PlayerPrefs.SetString ("l1c3Tag", inventory.CluesInventoryLvl1 [2].tag);
+			PlayerPrefs.SetString ("l1c3Description", inventory.CluesInventoryLvl1 [2].description);
+		}
+		else
+		{
+			PlayerPrefs.SetString ("l1c3Name", "");
+			PlayerPrefs.SetString ("l1c3Tag", "");
+			PlayerPrefs.SetString ("l1c3Description", "");
+		}
+
+
+
+		if(inventory.CluesInventoryLvl2.Count > 0)
+		{
+			PlayerPrefs.SetString ("l2c1Name", inventory.CluesInventoryLvl2 [0].ObjectName);
+			PlayerPrefs.SetString ("l2c1Tag", inventory.CluesInventoryLvl2 [0].tag);
+			PlayerPrefs.SetString ("l2c1Description", inventory.CluesInventoryLvl2 [0].description);
+		}
+		else
+		{
+			PlayerPrefs.SetString ("l2c1Name", "");
+			PlayerPrefs.SetString ("l2c1Tag", "");
+			PlayerPrefs.SetString ("l2c1Description", "");
+		}
+		if(inventory.CluesInventoryLvl2.Count > 1)
+		{
+			PlayerPrefs.SetString ("l2c2Name", inventory.CluesInventoryLvl2 [1].ObjectName);
+			PlayerPrefs.SetString ("l2c2Tag", inventory.CluesInventoryLvl2 [1].tag);
+			PlayerPrefs.SetString ("l2c2Description", inventory.CluesInventoryLvl2 [1].description);
+		}
+		else
+		{
+			PlayerPrefs.SetString ("l2c2Name", "");
+			PlayerPrefs.SetString ("l2c2Tag", "");
+			PlayerPrefs.SetString ("l2c2Description", "");
+		}
+		if(inventory.CluesInventoryLvl2.Count > 2)
+		{
+			PlayerPrefs.SetString ("l2c3Name", inventory.CluesInventoryLvl2 [2].ObjectName);
+			PlayerPrefs.SetString ("l2c3Tag", inventory.CluesInventoryLvl2 [2].tag);
+			PlayerPrefs.SetString ("l2c3Description", inventory.CluesInventoryLvl2 [2].description);
+		}
+		else
+		{
+			PlayerPrefs.SetString ("l2c3Name", "");
+			PlayerPrefs.SetString ("l2c3Tag", "");
+			PlayerPrefs.SetString ("l2c3Description", "");
+		}
+
+
+
+		if(inventory.CluesInventoryLvl3.Count > 0)
+		{
+			PlayerPrefs.SetString ("l3c1Name", inventory.CluesInventoryLvl3 [0].ObjectName);
+			PlayerPrefs.SetString ("l3c1Tag", inventory.CluesInventoryLvl3 [0].tag);
+			PlayerPrefs.SetString ("l3c1Description", inventory.CluesInventoryLvl3 [0].description);
+		}
+		else
+		{
+			PlayerPrefs.SetString ("l3c1Name", "");
+			PlayerPrefs.SetString ("l3c1Tag", "");
+			PlayerPrefs.SetString ("l3c1Description", "");
+		}
+		if(inventory.CluesInventoryLvl2.Count > 1)
+		{
+			PlayerPrefs.SetString ("l3c2Name", inventory.CluesInventoryLvl3 [1].ObjectName);
+			PlayerPrefs.SetString ("l3c2Tag", inventory.CluesInventoryLvl3 [1].tag);
+			PlayerPrefs.SetString ("l3c2Description", inventory.CluesInventoryLvl3 [1].description);
+		}
+		else
+		{
+			PlayerPrefs.SetString ("l3c2Name", "");
+			PlayerPrefs.SetString ("l3c2Tag", "");
+			PlayerPrefs.SetString ("l3c2Description", "");
+		}
+		if(inventory.CluesInventoryLvl2.Count > 2)
+		{
+			PlayerPrefs.SetString ("l3c3Name", inventory.CluesInventoryLvl3 [2].ObjectName);
+			PlayerPrefs.SetString ("l3c3Tag", inventory.CluesInventoryLvl3 [2].tag);
+			PlayerPrefs.SetString ("l3c3Description", inventory.CluesInventoryLvl3 [2].description);
+		}
+		else
+		{
+			PlayerPrefs.SetString ("l3c3Name", "");
+			PlayerPrefs.SetString ("l3c3Tag", "");
+			PlayerPrefs.SetString ("l3c3Description", "");
+		}
 
         PlayerPrefs.Save();
     }
@@ -219,6 +333,87 @@ public class SaveData : MonoBehaviour
 		inventory.cons1 = SetConsumables(PlayerPrefs.GetString ("cons1"));
 		inventory.cons2 = SetConsumables (PlayerPrefs.GetString ("cons2"));
 		player.ActualConsumable = SetConsumables(PlayerPrefs.GetString ("ActualCons"));
+
+		if(PlayerPrefs.GetString("l1c1Name") != "")
+		{
+			_Clues clue = player.gameObject.AddComponent<_Clues> ();
+			inventory.CluesInventoryLvl1.Add (clue);
+			clue.ObjectName = PlayerPrefs.GetString ("l1c1Name");
+			clue.tag = PlayerPrefs.GetString ("l1c1Tag");
+			clue.description = PlayerPrefs.GetString ("l1c1Description");
+		}
+
+		if(PlayerPrefs.GetString("l1c2Name") != "")
+		{
+			_Clues clue = player.gameObject.AddComponent<_Clues> ();
+			inventory.CluesInventoryLvl1.Add (clue);
+			clue.ObjectName = PlayerPrefs.GetString ("l1c2Name");
+			clue.tag = PlayerPrefs.GetString ("l1c2Tag");
+			clue.description = PlayerPrefs.GetString ("l1c2Description");
+		}
+
+		if(PlayerPrefs.GetString("l1c3Name") != "")
+		{
+			_Clues clue = player.gameObject.AddComponent<_Clues> ();
+			inventory.CluesInventoryLvl1.Add (clue);
+			clue.ObjectName = PlayerPrefs.GetString ("l1c3Name");
+			clue.tag = PlayerPrefs.GetString ("l1c3Tag");
+			clue.description = PlayerPrefs.GetString ("l1c3Description");
+		}
+
+		if(PlayerPrefs.GetString("l2c1Name") != "")
+		{
+			_Clues clue = player.gameObject.AddComponent<_Clues> ();
+			inventory.CluesInventoryLvl2.Add (clue);
+			clue.ObjectName = PlayerPrefs.GetString ("l2c1Name");
+			clue.tag = PlayerPrefs.GetString ("l2c1Tag");
+			clue.description = PlayerPrefs.GetString ("l2c1Description");
+		}
+
+		if(PlayerPrefs.GetString("l2c2Name") != "")
+		{
+			_Clues clue = player.gameObject.AddComponent<_Clues> ();
+			inventory.CluesInventoryLvl2.Add (clue);
+			clue.ObjectName = PlayerPrefs.GetString ("l2c2Name");
+			clue.tag = PlayerPrefs.GetString ("l2c2Tag");
+			clue.description = PlayerPrefs.GetString ("l2c2Description");
+		}
+
+		if(PlayerPrefs.GetString("l2c3Name") != "")
+		{
+			_Clues clue = player.gameObject.AddComponent<_Clues> ();
+			inventory.CluesInventoryLvl2.Add (clue);
+			clue.ObjectName = PlayerPrefs.GetString ("l2c3Name");
+			clue.tag = PlayerPrefs.GetString ("l2c3Tag");
+			clue.description = PlayerPrefs.GetString ("l2c3Description");
+		}
+
+		if(PlayerPrefs.GetString("l3c1Name") != "")
+		{
+			_Clues clue = player.gameObject.AddComponent<_Clues> ();
+			inventory.CluesInventoryLvl3.Add (clue);
+			clue.ObjectName = PlayerPrefs.GetString ("l3c1Name");
+			clue.tag = PlayerPrefs.GetString ("l3c1Tag");
+			clue.description = PlayerPrefs.GetString ("l3c1Description");
+		}
+
+		if(PlayerPrefs.GetString("l3c2Name") != "")
+		{
+			_Clues clue = player.gameObject.AddComponent<_Clues> ();
+			inventory.CluesInventoryLvl3.Add (clue);
+			clue.ObjectName = PlayerPrefs.GetString ("l3c2Name");
+			clue.tag = PlayerPrefs.GetString ("l3c2Tag");
+			clue.description = PlayerPrefs.GetString ("l3c2Description");
+		}
+
+		if(PlayerPrefs.GetString("l3c3Name") != "")
+		{
+			_Clues clue = player.gameObject.AddComponent<_Clues> ();
+			inventory.CluesInventoryLvl3.Add (clue);
+			clue.ObjectName = PlayerPrefs.GetString ("l3c3Name");
+			clue.tag = PlayerPrefs.GetString ("l3c3Tag");
+			clue.description = PlayerPrefs.GetString ("l3c3Description");
+		}
     }
 
 
