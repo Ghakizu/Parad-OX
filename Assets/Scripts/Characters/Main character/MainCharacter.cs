@@ -55,6 +55,9 @@ public class MainCharacter : _Character
 	//Attacking
 	public _Consumables ActualConsumable;  //the active consumable of our player
 
+	public Image ActualWeaponButton;
+	public Image ActualSpellButton;
+
 
 
 
@@ -216,6 +219,10 @@ public class MainCharacter : _Character
 		StaminaButton.transform.localScale = new Vector3(Stamina / MaxStamina, 1, 1);
 		HealthButton.transform.localScale = new Vector3(Health / MaxHealth, 1, 1);
 		ManaButton.transform.localScale = new Vector3(Mana / MaxMana, 1, 1);
+		ActualSpellButton.overrideSprite = ActualSpell.sprite;
+		ActualSpellButton.transform.GetChild(0).transform.localScale = new Vector3(IsAbleToLaunchSpell / ActualSpell.TimeBetweenAttacks, 1, 1);
+		ActualWeaponButton.overrideSprite = ActualWeapon.sprite;
+		ActualWeaponButton.transform.GetChild(0).transform.localScale = new Vector3(IsAbleToAttack / ActualWeapon.TimeBetweenAttacks, 1, 1);
 	}
 
 
@@ -551,7 +558,10 @@ public class MainCharacter : _Character
 				&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk )
 			{
 				_Character enemy = hit.collider.gameObject.GetComponent<_Character> ();
-				enemy.Health -= ActualWeapon.damages;
+				if (enemy.IsAirWallEnabled <= 0)
+				{
+					enemy.Health -= ActualWeapon.damages;
+				}
 			}
 		}
 	}

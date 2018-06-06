@@ -117,7 +117,7 @@ public abstract class _Character : Photon.MonoBehaviour
             ActualSpell.particles.SetActive(false);
         }
 		IsAirWallEnabled = Mathf.Max (0, IsAirWallEnabled - Time.deltaTime);
-		Mana = Mathf.Min (Mana + Time.deltaTime, MaxMana);
+		Mana = Mathf.Min (Mana + 10 * Time.deltaTime, MaxMana);
 		if (IsFreezed >= 0)
 		{
 			IsFreezed -= Time.deltaTime;
