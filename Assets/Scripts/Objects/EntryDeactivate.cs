@@ -2,30 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Correct_Answer : MonoBehaviour 
-{
-    
-    public doorStayOpen door;
-    public bool mainRoom;
-    public float x;
-    public float y;
-    public float z;
+public class EntryDeactivate : MonoBehaviour {
+
     public GameObject question;
     public GameObject answer01;
     public GameObject answer02;
     public GameObject answer03;
     public GameObject answer04;
 
-    void OnMouseDown()
-	{
-        if (mainRoom)
-            door.Open();
-        else
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
         {
-            (GameObject.FindGameObjectWithTag("Player")).transform.position = new Vector3(x, y, z);
             Deactivate_text();
         }
-	}
+    }
 
     public void Deactivate_text()
     {
