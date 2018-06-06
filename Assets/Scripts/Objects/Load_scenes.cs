@@ -18,6 +18,7 @@ public class Load_scenes : MonoBehaviour
 	private bool isloaded = false;
 	private float mustload = 0;
 	private int PlayerInGame = 0;
+	public string sceneName;
 
     private void Awake()
     {
@@ -27,6 +28,22 @@ public class Load_scenes : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("_Player(Clone)");
+		if (Scene == "Enigma" || Scene == "Multiplayer" || Scene == "Plateformes")
+		{
+			sceneName = "the dream world";
+		}
+		else if (Scene == "Centaurus" || Scene == "Hypogriffe" || Scene == "Sphynx")
+		{
+			sceneName = "the boss of the level";
+		}
+		else if (Scene == "RealWorld")
+		{
+			sceneName = "the real world";
+		}
+		else
+		{
+			sceneName = "this bar";
+		}
     }
 
 
@@ -87,9 +104,9 @@ public class Load_scenes : MonoBehaviour
 
     private void OnGUI()
     {
-        if(IsTrigger && PhotonView.isMine)
+		if(IsTrigger && PhotonView.isMine && !Player.GetComponent<MainCharacter>().IsGamePaused && !Player.GetComponent<MainCharacter>().IsDisplaying)
         {
-            GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 20, 200, 40), "Press E to interact");
+			GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 20, 300, 40), "Press E to go to " + sceneName);
         }
     }
 

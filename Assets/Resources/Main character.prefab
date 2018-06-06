@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 114519397185937970}
   - component: {fileID: 114027724549885390}
   - component: {fileID: 114456452878917192}
+  - component: {fileID: 114819170291339754}
   m_Layer: 0
   m_Name: Main character
   m_TagString: Player
@@ -6266,9 +6267,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit
-
-    .'
+  m_Text: Main Menu
 --- !u!114 &114488439611255582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7985,6 +7984,29 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114819170291339754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1048570808611782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4e8d55cb962eb4dbc8ec6edc56750d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
+  ObjectName: 
+  owner: {fileID: 0}
+  sprite: {fileID: 0}
+  description: 
+  Materials: {fileID: 0}
+  level: 0
+  Player: {fileID: 0}
+  MyPlayer: {fileID: 0}
+  MaximumDistance: 200
+  tag: 
+  collectible: 0
 --- !u!114 &114826734404666268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43592,7 +43614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 156.69, y: -343.1}
+  m_AnchoredPosition: {x: 156.69, y: -421.3}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224195487723152898
@@ -43611,7 +43633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 54.7, y: -343.1}
+  m_AnchoredPosition: {x: 54.69995, y: -421.3}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224206903985307660

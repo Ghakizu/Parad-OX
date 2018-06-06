@@ -13,6 +13,8 @@ public class Hypogriffe : _Enemies
 	public Vector3 Spawn3;
 	public Vector3 LastSpawn;
 
+	public GameObject LoadScene;
+
 	new public void Awake()
 	//Set different stats
 	{
@@ -38,6 +40,10 @@ public class Hypogriffe : _Enemies
 
 	new public void Update()
 	{
+		if (Health <= 0)
+		{
+			LoadScene.SetActive (true);
+		}
 		base.Update ();
 		if (timeDoor > 0)
 		{

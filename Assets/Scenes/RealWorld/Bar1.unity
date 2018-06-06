@@ -175,17 +175,6 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: 9d1bf0e3093c47c488c659980470860e, type: 3}
   m_PrefabInternal: {fileID: 23864949}
---- !u!114 &23864952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 23864951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1c993b937382d47bb59e5003b0ae3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &23864953 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400012, guid: 9d1bf0e3093c47c488c659980470860e, type: 3}
@@ -1571,8 +1560,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scene: RealWorld
-  Spawnpoint: {x: 0, y: 0, z: 0}
+  Spawnpoint: {x: 307, y: -980, z: -192}
   rotation: {x: 0, y: 0, z: 0, w: 0}
+  sceneName: 
 --- !u!114 &1238856945
 MonoBehaviour:
   m_ObjectHideFlags: 0
