@@ -48,7 +48,18 @@ public class MenuBehaviour : MonoBehaviour
 	{
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		player.transform.position = player.GetComponent<MainCharacter> ().SpawnPoint;
+		player.GetComponent<SaveData> ().Load ();
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+		for (int i = 0; i < enemies.Length; ++i)
+		{
+			_Enemies enemy = enemies [i].GetComponent<_Enemies> ();
+			if (enemy != null)
+			{
+				enemy.Health = enemy.MaxHealth;
+				enemy.transform.position = enemy.SpawnPoint;
+			}
+		}
+		player.transform.position = player.SpawnPoint;
 		player.Health = player.MaxHealth;
 		player.Stamina = player.MaxStamina;
 		player.Mana = player.MaxMana;
@@ -73,7 +84,6 @@ public class MenuBehaviour : MonoBehaviour
     {
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.Disconnect();
-        GameObject.Destroy(player.transform.parent.gameObject);
         SceneManager.LoadScene("Menu");
     }
 

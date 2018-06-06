@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class MainCharacter : _Character 
@@ -13,7 +14,7 @@ public class MainCharacter : _Character
 	public bool cheatCode = false;  //Are we cheating
 	public bool crouch = false;  //is the player crouched
 	private bool IsTired = false;  //has the player used all his stamina ?
-	private float CheatSpeed = 500;  //the speed when we're cheating
+	private float CheatSpeed = 600;  //the speed when we're cheating
 	private float CrouchSpeed = 50; //speed when crouching
 	private float OutOfStaminaSpeed = 40;  //speed when stamina is 0
 	public float MaxStamina = 150;  //How long can you dash
@@ -55,6 +56,9 @@ public class MainCharacter : _Character
 	//Attacking
 	public _Consumables ActualConsumable;  //the active consumable of our player
 
+	public Image ActualWeaponButton;
+	public Image ActualSpellButton;
+
 
 
 
@@ -62,7 +66,6 @@ public class MainCharacter : _Character
 	new private void Awake ()
 	//Set all the stats of the mainCharacter
 	{
-		Debug.Log (PlayerPrefs.GetFloat ("Sensitivity"));
 		SpeedMultiplier = 0;
 		DetectionRange = 1;
 		MaxHealth = 500;
@@ -75,9 +78,8 @@ public class MainCharacter : _Character
 		{
 			RotateSpeed = 200;
 		}
-		WalkSpeed = 150;
-		RunSpeed = 350;
-		Heightjump = 300;
+			
+		Heightjump = 250;
 		base.Awake ();
         cam = GetComponentInChildren<Camera>().gameObject;
 		speed = WalkSpeed;
@@ -90,6 +92,19 @@ public class MainCharacter : _Character
 	//Disables the stuffs that we don't want to see, because it's not our player
     {
 		DisableComponentsForMulti ();
+		string scene = SceneManager.GetActiveScene().name;
+		if (scene == "Enigma" || scene == "Maze")
+		{
+			WalkSpeed = 300;
+			RunSpeed = 700;
+			CheatSpeed = 1200;
+		}
+		else
+		{
+			WalkSpeed = 150;
+			RunSpeed = 350;
+			CheatSpeed = 600;
+		}
     }
 
 
@@ -216,6 +231,10 @@ public class MainCharacter : _Character
 		StaminaButton.transform.localScale = new Vector3(Stamina / MaxStamina, 1, 1);
 		HealthButton.transform.localScale = new Vector3(Health / MaxHealth, 1, 1);
 		ManaButton.transform.localScale = new Vector3(Mana / MaxMana, 1, 1);
+		ActualSpellButton.overrideSprite = ActualSpell.sprite;
+		ActualSpellButton.transform.GetChild(0).transform.localScale = new Vector3(IsAbleToLaunchSpell / ActualSpell.TimeBetweenAttacks, 1, 1);
+		ActualWeaponButton.overrideSprite = ActualWeapon.sprite;
+		ActualWeaponButton.transform.GetChild(0).transform.localScale = new Vector3(IsAbleToAttack / ActualWeapon.TimeBetweenAttacks, 1, 1);
 	}
 
 
@@ -551,7 +570,10 @@ public class MainCharacter : _Character
 				&& (hit.transform.position - this.transform.position).magnitude < ActualWeapon.RangeOfAttk )
 			{
 				_Character enemy = hit.collider.gameObject.GetComponent<_Character> ();
-				enemy.Health -= ActualWeapon.damages;
+				if (enemy.IsAirWallEnabled <= 0)
+				{
+					enemy.Health -= ActualWeapon.damages;
+				}
 			}
 		}
 	}

@@ -547,8 +547,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scene: RealWorld
-  Spawnpoint: {x: 0, y: 0, z: 0}
+  Spawnpoint: {x: -832, y: -984, z: -218}
   rotation: {x: 0, y: 0, z: 0, w: 0}
+  sceneName: 
 --- !u!114 &301663298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2073,17 +2074,6 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: 9f09f5960c8f5414fbd5aa00eaefdc30, type: 3}
   m_PrefabInternal: {fileID: 1451523474}
---- !u!114 &1451523477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1451523476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2de1f05753f249a4ea98f7b095542063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1451523478
 BoxCollider:
   m_ObjectHideFlags: 0

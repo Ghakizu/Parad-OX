@@ -192,6 +192,9 @@ public class SaveData : MonoBehaviour
 		inventory.Spell2 = SetSpell (PlayerPrefs.GetString ("Spell2"));
 		player.ActualSpell = SetSpell(PlayerPrefs.GetString ("ActualSpell"));
 
+		DisableObjects ();
+		player.ActualSpell.gameObject.SetActive (true);
+		player.ActualWeapon.gameObject.SetActive (true);
 
 		//Consumables
 		inventory.ConsumablesInventory = new List<_Consumables>();
@@ -264,4 +267,20 @@ public class SaveData : MonoBehaviour
 			return inventory.StaminaPotionObject.GetComponent<StaminaPotion> ();
 		return null;
     }
+
+
+	private void DisableObjects()
+	{
+		inventory.FistsObject.SetActive(false);
+		inventory.SwordObject.SetActive(false);
+		inventory.ExcaliburObject.SetActive(false);
+		inventory.KnifeObject.SetActive(false);
+		inventory.BatObject.SetActive(false);
+		inventory.FreezeObject.SetActive(false);
+		inventory.HealObject.SetActive(false);
+		inventory.EarthSpikeObject.SetActive(false);
+		inventory.AirWallObject.SetActive(false);
+		inventory.FlashObject.SetActive(false);
+		inventory.FireBallObject.SetActive(false);
+	}
 }

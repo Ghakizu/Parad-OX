@@ -11,12 +11,15 @@ public class _Clues : _Objects
 	public GameObject Player;  //the gameObject of the player who will get the clue
 	public PlayerInventory MyPlayer;  //the inventory of the player who will get the clue
 	public int MaximumDistance = 200;  //from where do you want to pick up the Object ?
+	public string tag;
+	public bool collectible = true;
 
 
 
 	new public void Awake()
 	//Set object value
 	{
+		base.Awake ();
 		Object = this.gameObject;
 	}
 
@@ -30,13 +33,10 @@ public class _Clues : _Objects
 	}
 		
 
-	public void OnMouseDown()
+	public void OnTriggerStay()
 	//when we click on the object, we want him to disappear and to be added into our inventory
 	{
-		Debug.Log ("onmousedown");
-		Vector3 offset = Player.transform.position - this.transform.position;
-		Debug.Log (offset.magnitude);
-		if (offset.magnitude < MaximumDistance)
+		if (Input.GetKeyDown(KeyCode.Mouse0) && collectible)
 		{
 			AddIntoInventory ();
 			GameObject.Destroy (this.gameObject);
@@ -90,15 +90,29 @@ public class _Clues : _Objects
 		switch (level)
 		{
 		case 1:
-			MyPlayer.CluesInventoryLvl1.Add (this);
+			MyPlayer.CluesInventoryLvl1.Add (GetComponent<_Clues> ());
+			int length = MyPlayer.CluesInventoryLvl1.Count - 1;
+			MyPlayer.CluesInventoryLvl1 [length].description = description;
+			MyPlayer.CluesInventoryLvl1 [length].level = 1;
+			MyPlayer.CluesInventoryLvl1 [length].ObjectName = ObjectName;
+			MyPlayer.CluesInventoryLvl1 [length].sprite = tag == "News" ? Materials.NewsSprite : Materials.PNJSprite;
 			break;
 		case 2:
-			MyPlayer.CluesInventoryLvl2.Add (this);
+			MyPlayer.CluesInventoryLvl2.Add (GetComponent<_Clues> ());
+			int length2 = MyPlayer.CluesInventoryLvl2.Count - 1;
+			MyPlayer.CluesInventoryLvl2 [length2].description = description;
+			MyPlayer.CluesInventoryLvl2 [length2].level = 2;
+			MyPlayer.CluesInventoryLvl2 [length2].ObjectName = ObjectName;
+			MyPlayer.CluesInventoryLvl2 [length2].sprite = tag == "News" ? Materials.NewsSprite : Materials.PNJSprite;
 			break;
 		case 3:
-			MyPlayer.CluesInventoryLvl3.Add (this);
+			MyPlayer.CluesInventoryLvl3.Add (GetComponent<_Clues> ());
+			int length3 = MyPlayer.CluesInventoryLvl3.Count - 1;
+			MyPlayer.CluesInventoryLvl3 [length3].description = description;
+			MyPlayer.CluesInventoryLvl3 [length3].level = 1;
+			MyPlayer.CluesInventoryLvl3 [length3].ObjectName = ObjectName;
+			MyPlayer.CluesInventoryLvl3 [length3].sprite = tag == "News" ? Materials.NewsSprite : Materials.PNJSprite;
 			break;
 		}
-		owner = Player.GetComponent<MainCharacter> ();
 	}
 }

@@ -90,16 +90,20 @@ public abstract class _Enemies : _Character
 			SetAgentDestination ();
 			SetRotation ();
 			Attack ();
-			SetButton ();
-            SetAnimation();
+			if (anim != null)
+			{
+				SetAnimation ();
+			}
 		}
+		SetButton ();
 	}
 
 
 
-	public void OnTriggerEnter(Collider other)
+	public void OnTriggerStay(Collider other)
 	//collect all the players that are in his range of detection
 	{
+		Debug.Log (other.name);
 		if (other.tag == "Player" && !PlayersDetected.Contains(other.gameObject))
 		{
 			PlayersDetected.Add (other.gameObject);
