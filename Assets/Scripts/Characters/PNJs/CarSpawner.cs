@@ -18,7 +18,7 @@ public class CarSpawner : MonoBehaviour
 	//set some values
 	{
 		cars = (GameObject)Resources.Load("Moving car");
-		MaxTime = 6;
+		MaxTime = 12;
 		Timer = offset;
 	}
 

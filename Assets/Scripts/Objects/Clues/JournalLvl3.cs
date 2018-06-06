@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JournalLvl3 : MonoBehaviour {
+public class JournalLvl3 : _Clues
+{
 
 	// Use this for initialization
 	void Start () {

@@ -66,11 +66,6 @@ GameOver : remettre toute la scène à son état initial (ou au dernier checkpoi
 les settings doivent être fonctionnels
 
 
-NETWORK
-Lancer le mode multi uniquement si l'on lance le niveau labyrinthe, sinon rester sur un mode de jeu solo
-bullets
-
-
 
 REAL WORLD
 ajouter les stands du marché
@@ -95,17 +90,12 @@ BOSS 3
 LINK
 Reequilibrages
 indices : collections, les intégrer dans le scénario, PNJS
-rajouter les indices
-les immeubles où l'on est censé pouvoir aller doivent être accessibles (bars, restaurants)
 Obtention des armes : shop, coffres, gestion du nombre d'items pour les consommables
 Rajouter les coffres dans labyrinthe
 Indices
 Kiosque à journaux
 
 
-OFFLINE
-CD
-Site internet
 
 BONUS (clairement que si on a le temps)
 Tuto pour pouvoir bien comprendre le jeu avec un petit niveau tranquille

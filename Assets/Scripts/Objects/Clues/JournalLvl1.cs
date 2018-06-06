@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JournalLvl1 : MonoBehaviour {
+public class JournalLvl1 : _Clues
+{
 
-	// Use this for initialization
-	void Start () {
-		
+	new public void Awake()
+	{
+		base.Awake ();
+		//sprite = Materials.NewsSprite;
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	new public void OnMouseDown()
+	{
+		Debug.Log ("stp");
 	}
 }

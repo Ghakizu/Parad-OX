@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PNJ1Lvl2 : MonoBehaviour {
+public class PNJ1Lvl2 : _Clues
+{
 
 	// Use this for initialization
 	void Start () {

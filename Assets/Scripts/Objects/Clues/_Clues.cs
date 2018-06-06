@@ -15,48 +15,79 @@ public class _Clues : _Objects
 
 
 	new public void Awake()
-	//just set the Object value : we don't want to set the owner because at the beginning there is no owner
+	//Set object value
 	{
-		level = 1;
 		Object = this.gameObject;
 	}
 
+
 	public void Start()
-	//Allows to find the player (he is only because the clues appear only on solo mode) ans to set player and Myplayer values
+	//Allows to find the player and to destroy the clue if already collected
 	{
 		Player = GameObject.FindGameObjectWithTag ("Player");
 		MyPlayer = Player.GetComponent<PlayerInventory> ();
+		DestroyClue ();
 	}
 		
 
 	public void OnMouseDown()
 	//when we click on the object, we want him to disappear and to be added into our inventory
 	{
-		Vector3 offset = Player.transform.position - this.transform.position; //Le décalage entre l'objet et notre perso
-		if (offset.magnitude < MaximumDistance) //On check si on est assez prêts de l'objet pour interagir avec lui
+		Debug.Log ("onmousedown");
+		Vector3 offset = Player.transform.position - this.transform.position;
+		Debug.Log (offset.magnitude);
+		if (offset.magnitude < MaximumDistance)
 		{
 			AddIntoInventory ();
-			this.gameObject.SetActive (false);
-			//GameObject.Destroy (this.gameObject);
+			GameObject.Destroy (this.gameObject);
 		}
 	}
 
 
 
-	public void Update()
+
+
+	public void DestroyClue()
+	//destroy the clues if already collected
 	{
-		/*if (MyPlayer != null && MyPlayer.CluesInventoryLvl1.Contains (this))
+		switch (level)
 		{
-			GameObject.Destroy (this.gameObject);
-		}*/
+		case 1:
+			for (int i = 0; i < MyPlayer.CluesInventoryLvl1.Count; ++i) 
+			{
+				if (MyPlayer.CluesInventoryLvl1 [i].ObjectName == this.ObjectName) 
+				{
+					GameObject.Destroy (this.gameObject);
+				}
+			}
+			break;
+		case 2:
+			for (int i = 0; i < MyPlayer.CluesInventoryLvl2.Count; ++i) 
+			{
+				if (MyPlayer.CluesInventoryLvl2 [i].ObjectName == this.ObjectName) 
+				{
+					GameObject.Destroy (this.gameObject);
+				}
+			}
+			break;
+		case 3:
+			for (int i = 0; i < MyPlayer.CluesInventoryLvl3.Count; ++i) 
+			{
+				if (MyPlayer.CluesInventoryLvl3 [i].ObjectName == this.ObjectName) 
+				{
+					GameObject.Destroy (this.gameObject);
+				}
+			}
+			break;
+		}
 	}
 
 
 
     public void AddIntoInventory ()
-	//function to call when we click on the object : add the clue to the inventory that we want
+	//Add the clue into the inventory of the player
 	{
-		switch (level) //add the clue in the inventory desired when clicked
+		switch (level)
 		{
 		case 1:
 			MyPlayer.CluesInventoryLvl1.Add (this);

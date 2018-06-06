@@ -54,7 +54,7 @@ public class PlayerNetwork : MonoBehaviour
             //Player.transform.SetParent(transform.parent, false);
             isLoaded = true;
             mainCharacter = Player.GetComponent<MainCharacter>(); 
-            Debug.Log(mainCharacter);
+
         
         }
         else if (scene.name == "Multiplayer")

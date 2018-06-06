@@ -16,7 +16,7 @@ public class Load_scenes : MonoBehaviour
     private PhotonView PhotonView;
 	private GameObject Player;
 	private bool isloaded = false;
-	private bool mustload = false;
+	private float mustload = 0;
 	private int PlayerInGame = 0;
 
     private void Awake()
@@ -48,11 +48,6 @@ public class Load_scenes : MonoBehaviour
 
     private void Update()
     {
-		if (mustload)
-		{
-			mustload = false;
-			Player.GetComponent<SaveData> ().Load();
-		}
         if(IsTrigger && Input.GetKeyDown(KeyCode.E) && PhotonView.isMine)
         {
 			Player.GetComponent<MainCharacter>().SpawnPoint = Spawnpoint;
@@ -83,11 +78,9 @@ public class Load_scenes : MonoBehaviour
 		{
 			Player = PhotonNetwork.Instantiate ("Main character", Spawnpoint, rotation, 0);
 			isloaded = true;
-			PlayerPrefs.SetString ("Scene", scene.name);
 			PlayerPrefs.Save();
-			Debug.Log (Player);
-			Player.GetComponent<SaveData> ().Load();
-			mustload = true;
+			PlayerPrefs.SetString ("Scene", scene.name);
+			PlayerPrefs.SetInt ("LOAD", 1);
 			IsTrigger = false;
 		}
 	}

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class MenuBehaviour : MonoBehaviour 
 {
     //All the functions usefull for the main menu display
 
-    public AudioMixer mixer;
+    public AudioMixer mixer;  //To change the volume
 
     public void LaunchScene (string scene) 
 	//Launch the scene given in parameters
@@ -77,7 +78,21 @@ public class MenuBehaviour : MonoBehaviour
     }
 
     public void setvolume(float volume)
+	//Set the sound of the volume
     {
         mixer.SetFloat("volume", volume);
     }
+
+	public void LoadGame()
+	//Load the last game saved
+	{
+		PlayerPrefs.SetInt ("LOAD", 1);
+	}
+
+
+	public void SetSensitivity(Slider sensitivity)
+	//Set the sensivity of the mouse;
+	{
+		PlayerPrefs.SetFloat ("Sensitivity", sensitivity.value);
+	}
 }

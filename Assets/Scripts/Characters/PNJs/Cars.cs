@@ -39,12 +39,12 @@ public class Cars : MonoBehaviour
 				if (other.gameObject.GetComponent<BoxCollider>() != null)
 				{
 					car.transform.Rotate (0, 90, 0);
-					canTurn = .5f;
+					canTurn = 1.5f;
 				}
 				else if (other.gameObject.GetComponent<SphereCollider>() != null)
 				{
 					car.transform.Rotate (0, -90, 0);
-					canTurn = .5f;
+					canTurn = 1.5f;
 				}
 			}
 			else
@@ -74,7 +74,7 @@ public class Cars : MonoBehaviour
 	}
 
 
-	public void Update()
+	public void FixedUpdate()
 	//Move the car and set the value of canTurn
 	{
 		car.transform.Translate (new Vector3(-3, 0, 0));
