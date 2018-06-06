@@ -11,4 +11,9 @@ public class JournalLvl1 : _Clues
 		//sprite = Materials.NewsSprite;
 
 	}
+
+	new public void OnMouseDown()
+	{
+		Debug.Log ("stp");
+	}
 }

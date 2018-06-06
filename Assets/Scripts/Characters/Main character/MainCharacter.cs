@@ -419,7 +419,7 @@ public class MainCharacter : _Character
 	new private void Jump()  
 	//Jump if the player is on the ground and if the button "Jump" is pressed
 	{
-		if (Input.GetButton ("Jump") && !cheatCode && IsAbleToJump && !IsTired)
+		if (Input.GetButton ("Jump") && !cheatCode && IsAbleToJump && !IsTired && !crouch)
 		{
 			base.Jump ();
 		}

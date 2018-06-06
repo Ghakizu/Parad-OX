@@ -15,7 +15,7 @@ public class Centaurus : _Enemies
 		RangeOfDetection = 2000;
 		WalkSpeed = 50;
 		RunSpeed = 100;
-		MaxHealth = 10;
+		MaxHealth = 200;
 		MaxMana = 100;
 		ActualWeapon = GetComponent<CentaurusWeapon> ();
 		base.Awake ();
