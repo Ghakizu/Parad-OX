@@ -4931,4 +4931,4 @@ MonoBehaviour:
     type: 3}
   ManaPotionSprite: {fileID: 21300000, guid: 56bff135ac674b5419631ffa7c74027a, type: 3}
   PNJSprite: {fileID: 21300000, guid: 77d56f97b288e5c479aaaefee2e23f5d, type: 3}
-  NewsSprite: {fileID: 21300000, guid: 77d56f97b288e5c479aaaefee2e23f5d, type: 3}
+  NewsSprite: {fileID: 21300000, guid: 127234cd9a1460e43b8be680935eac6d, type: 3}
