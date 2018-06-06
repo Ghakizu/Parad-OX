@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4995240375857902}
   - component: {fileID: 33857565580463838}
   - component: {fileID: 65847767627100896}
+  - component: {fileID: 114972025843328728}
   m_Layer: 0
   m_Name: Checkpoint01T2
   m_TagString: Respawn
@@ -36,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 1121196623690624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3425, y: 1, z: 1500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,3 +61,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 150, y: 150, z: 1}
   m_Center: {x: 0, y: 75, z: 0}
+--- !u!114 &114972025843328728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121196623690624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e175e81006cde4fba3abddae794d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  question: {fileID: 0}
+  answer01: {fileID: 0}
+  answer02: {fileID: 0}
+  answer03: {fileID: 0}
+  answer04: {fileID: 0}
